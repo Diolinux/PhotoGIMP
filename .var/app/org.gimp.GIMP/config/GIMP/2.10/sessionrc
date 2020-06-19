@@ -1,0 +1,109 @@
+# GIMP sessionrc
+# 
+# This file takes session-specific info (that is info, you want to keep
+# between two GIMP sessions).  You are not supposed to edit it manually, but
+# of course you can do.  The sessionrc will be entirely rewritten every time
+# you quit GIMP.  If this file isn't found, defaults are used.
+
+(session-info "toplevel"
+    (factory-entry "gimp-empty-image-window")
+    (position 410 370)
+    (size 620 200))
+(session-info "toplevel"
+    (factory-entry "gimp-single-image-window")
+    (position 255 82)
+    (size 1920 856)
+    (open-on-exit)
+    (aux-info
+        (left-docks-width "52")
+        (right-docks-width "363")
+        (maximized "no"))
+    (gimp-toolbox
+        (side left))
+    (gimp-dock
+        (side right)
+        (book
+            (current-page 0)
+            (dockable "gimp-tool-options"
+                (tab-style automatic)
+                (aux-info
+                    (show-button-bar "true")))
+            (dockable "gimp-font-list"
+                (tab-style automatic)
+                (aux-info
+                    (show-button-bar "true"))))
+        (book
+            (position 492)
+            (current-page 0)
+            (dockable "gimp-layer-list"
+                (tab-style automatic)
+                (preview-size 32)
+                (aux-info
+                    (show-button-bar "true")))
+            (dockable "gimp-channel-list"
+                (tab-style automatic)
+                (preview-size 32)
+                (aux-info
+                    (show-button-bar "true"))))))
+(session-info "toplevel"
+    (factory-entry "gimp-image-new-dialog")
+    (position 943 278))
+(session-info "toplevel"
+    (factory-entry "gimp-keyboard-shortcuts-dialog")
+    (position 1431 198)
+    (size 929 676))
+(session-info "toplevel"
+    (factory-entry "gimp-input-devices-dialog")
+    (position 0 497))
+(session-info "toplevel"
+    (factory-entry "gimp-preferences-dialog")
+    (position 1033 245)
+    (size 1008 692))
+(session-info "toplevel"
+    (factory-entry "gimp-file-save-dialog")
+    (position 73 146)
+    (size 1128 782)
+    (monitor 1))
+(session-info "toplevel"
+    (factory-entry "gimp-file-open-dialog")
+    (position 319 77)
+    (size 1128 782)
+    (monitor 1))
+(session-info "toplevel"
+    (factory-entry "gimp-file-export-dialog")
+    (position 522 99)
+    (size 1128 782))
+(session-info "toplevel"
+    (factory-entry "gimp-module-dialog")
+    (position 268 330)
+    (size 671 476))
+(session-info "toplevel"
+    (factory-entry "gimp-toolbox-color-dialog")
+    (position 308 0))
+(session-info "toplevel"
+    (factory-entry "gimp-operation-tool-dialog")
+    (position 1518 93))
+(session-info "toplevel"
+    (factory-entry "gimp-threshold-tool-dialog")
+    (position 467 474))
+(session-info "toplevel"
+    (factory-entry "gimp-curves-tool-dialog")
+    (position 1849 92)
+    (size 446 605))
+(session-info "toplevel"
+    (factory-entry "gimp-action-search-dialog")
+    (position 812 260)
+    (size 983 540)
+    (monitor 1))
+(session-info "toplevel"
+    (factory-entry "gimp-levels-tool-dialog")
+    (position 1635 99)
+    (size 462 593))
+
+(hide-docks no)
+(single-window-mode yes)
+(show-tabs yes)
+(tabs-position 0)
+(last-tip-shown 0)
+
+# end of sessionrc
