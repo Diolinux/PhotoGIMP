@@ -1,0 +1,185 @@
+# GIMP toolrc
+
+(file-version 1)
+
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-move-tool")
+    (children
+        (GimpToolInfo "gimp-move-tool"
+            (icon-name "gimp-tool-move")
+            (visible yes))
+        (GimpToolInfo "gimp-align-tool"
+            (icon-name "gimp-tool-align")
+            (visible yes))))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-rect-select-tool")
+    (children
+        (GimpToolInfo "gimp-rect-select-tool"
+            (icon-name "gimp-tool-rect-select")
+            (visible yes))
+        (GimpToolInfo "gimp-ellipse-select-tool"
+            (icon-name "gimp-tool-ellipse-select")
+            (visible yes))))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-free-select-tool")
+    (children
+        (GimpToolInfo "gimp-free-select-tool"
+            (icon-name "gimp-tool-free-select")
+            (visible yes))
+        (GimpToolInfo "gimp-iscissors-tool"
+            (icon-name "gimp-tool-iscissors")
+            (visible yes))
+        (GimpToolInfo "gimp-foreground-select-tool"
+            (icon-name "gimp-tool-foreground-select")
+            (visible yes))))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-fuzzy-select-tool")
+    (children
+        (GimpToolInfo "gimp-fuzzy-select-tool"
+            (icon-name "gimp-tool-fuzzy-select")
+            (visible yes))
+        (GimpToolInfo "gimp-by-color-select-tool"
+            (icon-name "gimp-tool-by-color-select")
+            (visible yes))))
+(GimpToolInfo "gimp-crop-tool"
+    (icon-name "gimp-tool-crop")
+    (visible yes))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-scale-tool")
+    (children
+        (GimpToolInfo "gimp-unified-transform-tool"
+            (icon-name "gimp-tool-unified-transform")
+            (visible yes))
+        (GimpToolInfo "gimp-rotate-tool"
+            (icon-name "gimp-tool-rotate")
+            (visible yes))
+        (GimpToolInfo "gimp-scale-tool"
+            (icon-name "gimp-tool-scale")
+            (visible yes))
+        (GimpToolInfo "gimp-shear-tool"
+            (icon-name "gimp-tool-shear")
+            (visible yes))
+        (GimpToolInfo "gimp-flip-tool"
+            (icon-name "gimp-tool-flip")
+            (visible yes))
+        (GimpToolInfo "gimp-perspective-tool"
+            (icon-name "gimp-tool-perspective")
+            (visible yes))
+        (GimpToolInfo "gimp-transform-3d-tool"
+            (icon-name "gimp-tool-transform-3d")
+            (visible yes))
+        (GimpToolInfo "gimp-handle-transform-tool"
+            (icon-name "gimp-tool-handle-transform")
+            (visible yes))))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-warp-tool")
+    (children
+        (GimpToolInfo "gimp-warp-tool"
+            (icon-name "gimp-tool-warp")
+            (visible yes))
+        (GimpToolInfo "gimp-cage-tool"
+            (icon-name "gimp-tool-cage")
+            (visible yes))))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-gradient-tool")
+    (children
+        (GimpToolInfo "gimp-bucket-fill-tool"
+            (icon-name "gimp-tool-bucket-fill")
+            (visible yes))
+        (GimpToolInfo "gimp-gradient-tool"
+            (icon-name "gimp-tool-gradient")
+            (visible yes))))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-paintbrush-tool")
+    (children
+        (GimpToolInfo "gimp-paintbrush-tool"
+            (icon-name "gimp-tool-paintbrush")
+            (visible yes))
+        (GimpToolInfo "gimp-pencil-tool"
+            (icon-name "gimp-tool-pencil")
+            (visible yes))
+        (GimpToolInfo "gimp-airbrush-tool"
+            (icon-name "gimp-tool-airbrush")
+            (visible yes))
+        (GimpToolInfo "gimp-ink-tool"
+            (icon-name "gimp-tool-ink")
+            (visible yes))
+        (GimpToolInfo "gimp-mypaint-brush-tool"
+            (icon-name "gimp-tool-mypaint-brush")
+            (visible yes))))
+(GimpToolInfo "gimp-eraser-tool"
+    (icon-name "gimp-tool-eraser")
+    (visible yes))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-clone-tool")
+    (children
+        (GimpToolInfo "gimp-clone-tool"
+            (icon-name "gimp-tool-clone")
+            (visible yes))
+        (GimpToolInfo "gimp-perspective-clone-tool"
+            (icon-name "gimp-tool-perspective-clone")
+            (visible yes))
+        (GimpToolInfo "gimp-heal-tool"
+            (icon-name "gimp-tool-heal")
+            (visible yes))))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-convolve-tool")
+    (children
+        (GimpToolInfo "gimp-smudge-tool"
+            (icon-name "gimp-tool-smudge")
+            (visible yes))
+        (GimpToolInfo "gimp-convolve-tool"
+            (icon-name "gimp-tool-blur")
+            (visible yes))
+        (GimpToolInfo "gimp-dodge-burn-tool"
+            (icon-name "gimp-tool-dodge")
+            (visible yes))))
+(GimpToolInfo "gimp-vector-tool"
+    (icon-name "gimp-tool-path")
+    (visible yes))
+(GimpToolInfo "gimp-text-tool"
+    (icon-name "gimp-tool-text")
+    (visible yes))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-measure-tool")
+    (children
+        (GimpToolInfo "gimp-color-picker-tool"
+            (icon-name "gimp-tool-color-picker")
+            (visible yes))
+        (GimpToolInfo "gimp-measure-tool"
+            (icon-name "gimp-tool-measure")
+            (visible yes))))
+(GimpToolInfo "gimp-zoom-tool"
+    (icon-name "gimp-tool-zoom")
+    (visible yes))
+(GimpToolInfo "gimp-brightness-contrast-tool"
+    (icon-name "gimp-tool-brightness-contrast")
+    (visible no))
+(GimpToolInfo "gimp-threshold-tool"
+    (icon-name "gimp-tool-threshold")
+    (visible no))
+(GimpToolInfo "gimp-levels-tool"
+    (icon-name "gimp-tool-levels")
+    (visible no))
+(GimpToolInfo "gimp-curves-tool"
+    (icon-name "gimp-tool-curves")
+    (visible no))
+(GimpToolInfo "gimp-offset-tool"
+    (icon-name "gimp-tool-offset")
+    (visible no))
+(GimpToolInfo "gimp-gegl-tool"
+    (icon-name "gimp-gegl")
+    (visible no))
+
+# end of toolrc

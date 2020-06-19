@@ -1,0 +1,20 @@
+# settings
+
+(GimpGegl-gegl-focus-blur-config "2020-06-11 18:56:46"
+    (time 1591912606)
+    (blur-type gaussian)
+    (blur-radius 44.579999999999998)
+    (highlight-factor 0)
+    (highlight-threshold-low 0)
+    (highlight-threshold-high 1)
+    (shape circle)
+    (x 0.5)
+    (y 0.5)
+    (radius 0.75)
+    (focus 0.25)
+    (midpoint 0.5)
+    (aspect-ratio 0)
+    (rotation 0)
+    (high-quality no))
+
+# end of settings

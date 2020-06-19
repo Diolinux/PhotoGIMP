@@ -1,0 +1,8 @@
+# GIMP gimp-text-tool options
+
+(palette "Standard")
+(font "AajaxSurrealFreak")
+(font-size 24)
+(justify center)
+
+# end of gimp-text-tool options
