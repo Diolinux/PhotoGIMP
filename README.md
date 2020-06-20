@@ -21,7 +21,7 @@ This build is all about flatpak, but also "just files" that you can use on any v
 
 ## Installing this Patch
 
-Inside of the .zip file from the [releases page](https://github.com/Diolinux/PhotoGIMP/releases) you'll find three hidden folders (on Linux, using the dot before its name). All of this folders has to be extracted on your /home/$USER folder, overriting everything if you already has a the same files from a old installation.
+Inside of the .zip file from the [releases page](https://github.com/Diolinux/PhotoGIMP/releases) you'll find three hidden folders (on Linux, using the dot before its name). All of this folders has to be extracted on your ```/home/$USER``` folder, overriting everything if you already has a the same files from a old installation.
 
 The file has this directories:
 
