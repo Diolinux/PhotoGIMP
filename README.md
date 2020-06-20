@@ -25,7 +25,7 @@ This build is all about flatpak, but also "just files" that you can use on any v
 
 ## Install on a Flatpak enviroment
 
-* First of all, you need to have the latest GIMP installed on your system using Flatpak(https://flatpak.org/setup/)
+* First of all, you need to have the latest GIMP installed on your system [using Flatpak](https://flatpak.org/setup/)
 * Install GIMP Flatpak through your AppCenter/Package Manager or terminal:
 ```flatpak install flathub org.gimp.GIMP```
 
