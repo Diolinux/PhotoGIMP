@@ -1,3 +1,5 @@
+![](https://github.com/Diolinux/PhotoGIMP/blob/master/.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
+
 # PhotoGIMP
 A simple Patch for GIMP 2.10+ for Photoshop Users
 
