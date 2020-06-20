@@ -8,6 +8,7 @@ A simple Patch for GIMP 2.10+ for Photoshop Users
 * New default settings to maximize space on the canvas;
 * Shortcuts setted for the similars on Photoshop, following Adobe's Documentation;
 * New icon and Name from custom .desktop file.
+* The new default language is English (you can still change in the Settings if you want)
 
 # How to Install
 
@@ -33,6 +34,6 @@ If you just want the PhotoGIMP custom without change the original GIMP icon and 
 
 ## Credits
 
-This project would't be possible without the amazing GIMP Team.
-The Photo from the new Splash is from [Isabella Mariana](https://www.pexels.com/pt-br/@isabella-mariana-1022505)
-A BIG thanks to all Diolinux's supporters on Twitch and YouTube.
+* This project would't be possible without the amazing GIMP Team.
+* The Photo from the new Splash is from [Isabella Mariana](https://www.pexels.com/pt-br/@isabella-mariana-1022505)
+* A BIG thanks to all Diolinux's supporters on Twitch and YouTube.
