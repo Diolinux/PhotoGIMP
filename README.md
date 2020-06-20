@@ -23,13 +23,13 @@ https://github.com/Diolinux/PhotoGIMP/blob/master/fonts.txt
 
 This build is all about flatpak, but also "just files" that you can use on any version of GIMP (.deb,.rpm, Snap, AppImage, Windows, macOS), just check the localization of the GIMP files on every system/package.
 
-## Install on a Flatpak enviroment
+## Preparing the Flatpak enviroment
 
 * First of all, you need to have the latest GIMP installed on your system [using Flatpak](https://flatpak.org/setup/)
 * Install GIMP Flatpak through your AppCenter/Package Manager or terminal:
 ```flatpak install flathub org.gimp.GIMP```
 
-## Installing this Patch
+## Installing this Patch (PhotoGIMP)
 
 Inside of the .zip file from the [releases page](https://github.com/Diolinux/PhotoGIMP/releases) you'll find three hidden folders (on Linux, using the dot before its name). All of this folders has to be extracted on your ```/home/$USER``` folder, overriting everything if you already has the same files from an older installation.
 
