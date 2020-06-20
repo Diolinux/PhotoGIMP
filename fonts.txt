@@ -1,4 +1,4 @@
-# list of all fonts included in this patch
+# list of all included fonts in this patch
 
 All of this fonts are supposed to be free to use, but, you may have to check its individual licences for commercial purpouses.
 
