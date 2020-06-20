@@ -17,7 +17,7 @@ A simple Patch for GIMP 2.10+ to help all Photoshop Users.
 
 ## Included Fonts
 
-
+https://github.com/Diolinux/PhotoGIMP/blob/master/fonts
 
 # How to Install
 
