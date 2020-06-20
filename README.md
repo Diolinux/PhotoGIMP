@@ -12,6 +12,8 @@ A simple Patch for GIMP 2.10+ for Photoshop Users
 * New icon and Name from custom .desktop file.
 * The new default language is English (you can still change in the Settings if you want)
 
+![The new Icon](https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png)
+
 # How to Install
 
 This build is all about flatpak, but also "just files" that you can use on any version of GIMP (.deb,.rpm, Snap, AppImage, Windows, macOS), just check the localization of the GIMP files on every system/package.
