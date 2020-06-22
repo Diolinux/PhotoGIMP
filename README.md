@@ -12,6 +12,10 @@ A simple Patch for GIMP 2.10+ to help all Photoshop Users.
 * New icon and Name from custom .desktop file.
 * The new default language is English (you can still change in the Settings if you want)
 
+It should looks like this:
+![](https://github.com/Diolinux/PhotoGIMP/blob/master/2020-06-22_12-06.png
+)
+
 
 <img src="https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png" data-canonical-src="https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png" width="200" height="200" />
 
