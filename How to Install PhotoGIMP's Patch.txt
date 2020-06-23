@@ -1,7 +1,9 @@
-Just Extract all *hidden* folder to your home repository
+For linux users run:
 
-.icons
-.var
-.local
+  bash install_linux.sh
+  
+For windows users run:
 
-Only works with flatpak version for GIMP.
+  install_windows.bat
+
+
