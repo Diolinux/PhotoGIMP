@@ -50,4 +50,4 @@ If you just want the PhotoGIMP custom without change the original GIMP icon and 
 
 * This project would't be possible without the amazing GIMP Team.
 * The Photo in the new Splash is from [Isabella Mariana](https://www.pexels.com/pt-br/@isabella-mariana-1022505)
-* A BIG thanks to all Diolinux's supporters on Twitch and YouTube.
+* A BIG thanks to all Diolinux's supporters on [Twitch](https://twitch.tv/Diolinux) and [YouTube](https://youtube.com/Diolinux).
