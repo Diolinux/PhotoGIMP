@@ -72,7 +72,7 @@ function installPatch(){
 
 # Flatpak
 [ -d "${HOME}/.var/app/org.gimp.GIMP/config/GIMP/2.10/" ] && {
-  installPatch "Flatpak" "${HOME}/.config/GIMP-AppImage/"
+  installPatch "Flatpak" "${HOME}/${HOME}/.var/app/org.gimp.GIMP/config/GIMP/2.10/"
 }
 
 # Snap
