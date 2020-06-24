@@ -61,7 +61,7 @@ function installPatch(){
 #   Each common way to use GIMP by popularity
 #
 # Native
-[ -d "${XDG_CONFIG_HOME}/GIMP/2.101/" ] && {
+[ -d "${XDG_CONFIG_HOME}/GIMP/2.10/" ] && {
   installPatch "system repository" "${XDG_CONFIG_HOME}/GIMP/2.10"
 }
 
