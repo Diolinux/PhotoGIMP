@@ -1,6 +1,16 @@
-![](https://github.com/Diolinux/PhotoGIMP/blob/master/.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
+<h1 align="center">
+  <img src="https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png" alt="GIMP" width="256" height="256">
+  <br />
+  PhotoGIMP <br/>
+  <h3 align="center">Download: <a href="https://github.com/Diolinux/PhotoGIMP/releases/download/1.0/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip">Patch</a> | <a href="https://github.com/sudo-give-me-coffee/PhotoGIMP/releases/download/continuous/PhotoGIMP-x86_64.AppImage">AppImage</a></h3>
+</h1>
 
-# PhotoGIMP
+<p align="center"><i>"The GIMP for those who come from Adobe Photoshop for Windows"</i>.<br> Original work</p>
+
+<hr>
+
+### What is?
+
 A simple Patch for GIMP 2.10+ to help all Photoshop Users.
 
 * Tool organization to mimic the position of Adobe's Photoshop;
@@ -17,24 +27,31 @@ It should looks like this:
 ![](https://github.com/Diolinux/PhotoGIMP/blob/master/2020-06-22_12-06.png
 )
 
-
-<img src="https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png" data-canonical-src="https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png" width="200" height="200" />
-
-## Included Fonts
+### Included Fonts
 
 https://github.com/Diolinux/PhotoGIMP/blob/master/fonts.txt
 
-# How to Install
+### How to Install
 
-This build is all about flatpak, but also "just files" that you can use on any version of GIMP (.deb,.rpm, Snap, AppImage, Windows, macOS), just check the localization of the GIMP files on every system/package.
+Is very easy to do:
 
-## Preparing the Flatpak enviroment
+##### Linux
 
-* First of all, you need to have the latest GIMP installed on your system [using Flatpak](https://flatpak.org/setup/)
-* Install GIMP Flatpak through your AppCenter/Package Manager or terminal:
-```flatpak install flathub org.gimp.GIMP```
+Run inside the extracted folder:
 
-## Installing this Patch (PhotoGIMP)
+```
+bash install_linux.sh
+```
+
+##### Windows
+
+Double click inside the extracted folder on file:
+
+```
+install_windows.bat
+```
+
+##### Installing manual
 
 Inside of the .zip file from the [releases page](https://github.com/Diolinux/PhotoGIMP/releases) you'll find three hidden folders (on Linux, using the dot before its name). All of this folders has to be extracted on your ```/home/$USER``` folder, overriting everything if you already has the same files from an older installation.
 
@@ -42,12 +59,14 @@ The file has this directories:
 
 * .icons (wich have a new PhotoGIMP icon)
 * .local (wich contain the personalized .desktop file)
-* .var (wich contain the flatpak patch customization for GIMP 2.10+)
+* .var (wich contain the flatpak patch customization for GIMP 2.10+ as flatpak)
 
-If you just want the PhotoGIMP custom without change the original GIMP icon and its name, just extract only the .var folder to your home directory.
+If you just want the PhotoGIMP custom without change the original GIMP icon and its name, just extract only the `.var` folder to your home directory. For installation with other gimp installations, copy the contents of `.var/app/org.gimp.GIMP/config/GIMP/2.10` to the specified gimp profile directory.
 
-## Credits
+### Credits
 
 * This project would't be possible without the amazing GIMP Team.
 * The Photo in the new Splash is from [Isabella Mariana](https://www.pexels.com/pt-br/@isabella-mariana-1022505)
+* The AppImage version is maintaied by [sudo-give-me-coffee](https://github.com/sudo-give-me-coffee/)
 * A BIG thanks to all Diolinux's supporters on [Twitch](https://twitch.tv/Diolinux) and [YouTube](https://youtube.com/Diolinux).
+
