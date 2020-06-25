@@ -46,8 +46,30 @@ The file has this directories:
 
 If you just want the PhotoGIMP custom without change the original GIMP icon and its name, just extract only the .var folder to your home directory.
 
+## Want to use on Windows, macOS or Ubuntu(Snap)?
+
+Since this is just files, the only thing you need to do is copy all the files that reside on a particular folder from this patch ```/.var/app/org.gimp.GIMP/config/GIMP/2.10``` to the the GIMP's folder on each particular system, overriding the existent ones:
+
+Windows:
+```C:/Users/YOUR_USER/AppData/Roaming/GIMP/2.10```
+
+macOS: 
+```/Users//Library/Application Support/GIMP/2.10/```
+
+Ubuntu (Snap):
+```/home/$USER/snap/gimp/47/.config/GIMP/2.10/```
+
+Regular Linux Installation (.deb, .rpm):
+```/home/$USER/.config/GIMP/2.10/```
+
+* GIMP on macOS are a bit late on it's release, this way, this patch will still works, specially on the shorcuts matter, but somethings, such the toolbox organization will not, at least, till the macOS version reaches the version 2.10.20.
+
+* The new icon will only works through the patch extration process on Linux enviroments, but you can set it manually on your system.
+
 ## Credits
 
 * This project would't be possible without the amazing GIMP Team.
 * The Photo in the new Splash is from [Isabella Mariana](https://www.pexels.com/pt-br/@isabella-mariana-1022505)
 * A BIG thanks to all Diolinux's supporters on [Twitch](https://twitch.tv/Diolinux) and [YouTube](https://youtube.com/Diolinux).
+
+Nota de lançamento em Português: https://diolinux.com.br/2020/06/photogimp-2020.html 
