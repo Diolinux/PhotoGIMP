@@ -48,23 +48,23 @@ If you just want the PhotoGIMP custom without change the original GIMP icon and 
 
 ## Want to use on Windows, macOS or Ubuntu(Snap)?
 
-Since this is just files, the only thing you need to do is copy all the files that reside on a particular folder from this patch ```/.var/app/org.gimp.GIMP/config/GIMP/2.10``` to the the GIMP's folder on each particular system, overriding the existent ones:
+Since it's just files, the only thing you need to do is to copy all the files that reside on a particular folder from this patch ```/.var/app/org.gimp.GIMP/config/GIMP/2.10``` to the the GIMP's folder on each particular system, overriding the existent ones:
 
-Windows:
-```C:/Users/YOUR_USER/AppData/Roaming/GIMP/2.10```
+* Windows: `C:/Users/YOUR_USER/AppData/Roaming/GIMP/2.10`
 
-macOS: 
-```/Users//Library/Application Support/GIMP/2.10/```
+* macOS: `~/Library/Application Support/GIMP/2.10/`
+  
+  This one-liner will do the job: download release 1.0 into `Downloads` folder, unzip and copy patch files, then remove previously downloaded zip:
+  ```bash
+  curl -L "https://github.com/Diolinux/PhotoGIMP/releases/download/1.0/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip" -o ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip && unzip ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip -d ~/Downloads && sudo cp -R ~/Downloads/PhotoGIMP\ by\ Diolinux\ v2020\ for\ Flatpak/.var/app/org.gimp.GIMP/config/GIMP/2.10/ ~/Library/Application\ Support/GIMP/2.10 && rm ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip
+  ```
+  **Notice:** GIMP on macOS are a bit late on it's release, this way, this patch will still works, specially on the shorcuts matter, but somethings, such the toolbox organization will not, at least, till the macOS version reaches the version 2.10.20.
 
-Ubuntu (Snap):
-```/home/$USER/snap/gimp/47/.config/GIMP/2.10/```
+* Ubuntu (Snap): `/home/$USER/snap/gimp/47/.config/GIMP/2.10/`
 
-Regular Linux Installation (.deb, .rpm):
-```/home/$USER/.config/GIMP/2.10/```
+* Regular Linux Installation (.deb, .rpm): `/home/$USER/.config/GIMP/2.10/`
 
-* GIMP on macOS are a bit late on it's release, this way, this patch will still works, specially on the shorcuts matter, but somethings, such the toolbox organization will not, at least, till the macOS version reaches the version 2.10.20.
-
-* The new icon will only works through the patch extration process on Linux enviroments, but you can set it manually on your system.
+The new icon will only works through the patch extration process on Linux enviroments, but you can set it manually on your system.
 
 ## Credits
 
