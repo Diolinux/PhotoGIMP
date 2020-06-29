@@ -40,9 +40,9 @@ Inside of the .zip file from the [releases page](https://github.com/Diolinux/Pho
 
 The file has this directories:
 
-* .icons (wich have a new PhotoGIMP icon)
-* .local (wich contain the personalized .desktop file)
-* .var (wich contain the flatpak patch customization for GIMP 2.10+)
+* .icons (which has a new PhotoGIMP icon)
+* .local (which contains the personalized .desktop file)
+* .var (which contains the flatpak patch customization for GIMP 2.10+)
 
 If you just want the PhotoGIMP custom without change the original GIMP icon and its name, just extract only the .var folder to your home directory.
 
