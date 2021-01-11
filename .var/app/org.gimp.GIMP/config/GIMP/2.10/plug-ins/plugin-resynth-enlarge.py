@@ -33,22 +33,22 @@ gettext.install("resynthesizer", gimp.locale_directory, unicode=True)
 def plugin_main(image, drawable, scale_factor):
   '''
   Algorithm:
-  
+
   Scale image up.
   Resynthesize with:
     corpus = original size image
     in map = original size image but scaled up and down to blur
     out map = scaled up image
-    
+
   This restores the detail that scaling up looses.
   It maintains the aspect ratio of all image features.
-  
+
   Unlike the original smart-enlarge.scm, this alters the original image.
-  
+
   original did not accept an alpha channel
   '''
 
-  
+
   temp_image1 = pdb.gimp_image_duplicate(image)  # duplicate for in map
   if not temp_image1:
     raise RuntimeError, "Failed duplicate image"
@@ -67,7 +67,7 @@ def plugin_main(image, drawable, scale_factor):
   height = pdb.gimp_drawable_height(drawable)
   pdb.gimp_image_scale(temp_image1, width/scale_factor, height/scale_factor)
   pdb.gimp_image_scale(temp_image1, width, height)
-    
+
   # scale up the image
   pdb.gimp_image_scale(image, width * scale_factor, height*scale_factor)
 
@@ -80,7 +80,7 @@ def plugin_main(image, drawable, scale_factor):
       temp_layer2.ID,  # corpus
       temp_layer1.ID,  # input map
       drawable.ID,     # output map is scaled up original itself
-      1.0, 0.117, 8, 500) 
+      1.0, 0.117, 8, 500)
 
   pdb.gimp_image_delete(temp_image1)
   pdb.gimp_image_delete(temp_image2)
@@ -108,5 +108,5 @@ if __name__ == "__main__" :
     )
 
   main()
-  
-  
+
+
