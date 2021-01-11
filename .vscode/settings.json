@@ -1,6 +1,0 @@
-{
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "python.formatting.provider": "black",
-    "python.pythonPath": "c:\\Program Files\\GIMP 2\\bin\\python.exe"
-}
