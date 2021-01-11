@@ -1,0 +1,9 @@
+# Ignore Dynamic Linker
+.var/app/org.gimp.GIMP/.ld.so
+
+# Ignore Personal GIMP Files
+.var/app/org.gimp.GIMP/data
+.var/app/org.gimp.GIMP/current
+
+# VSCode Files
+.vscode/*

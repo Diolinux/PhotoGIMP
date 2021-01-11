@@ -7,7 +7,7 @@
 # Preferences dialog.
 
 (use-opencl yes)
-(language "en_US")
+(language "")
 (default-image
     (width 1280)
     (height 720)
