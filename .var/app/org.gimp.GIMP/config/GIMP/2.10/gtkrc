@@ -13,11 +13,11 @@
 # You can add your own GIMP-specific GTK styles here.
 
 # Override GIMP Dark Mode
-gtk-font-name = "Lucida Grande"
+# gtk-font-name = "Lucida Grande"
 
 style "gimp-dark-default-style"
 {
-  font_name = "Lucida Grande"
+  # font_name = "Lucida Grande"
 
   # Color Variables
   color["clr1"]  = "#DDDDDD"
