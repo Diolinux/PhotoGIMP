@@ -1,7 +1,14 @@
-![](https://github.com/Diolinux/PhotoGIMP/blob/master/.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
+![PhotoGimp Diolinux Splash Art](https://raw.githubusercontent.com/Diolinux/PhotoGIMP/master/.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
 
-# PhotoGIMP
-A simple Patch for GIMP 2.10+ to help all Photoshop Users.
+# 🎨 PhotoGIMP
+
+<img
+  src="https://raw.githubusercontent.com/Diolinux/PhotoGIMP/master/.icons/photogimp.png"
+  alt="PhotoGimp Icon"
+  title="PhotoGimp"
+  width="200px">
+
+A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features like:
 
 * Tool organization to mimic the position of Adobe's Photoshop;
 * Hundreds of new fonts by default;
@@ -12,19 +19,19 @@ A simple Patch for GIMP 2.10+ to help all Photoshop Users.
 * New icon and Name from custom .desktop file.
 * The new default language is English (you can still change in the Settings if you want)
 
-It should looks like this:
+## 📷 Screenshots
 
-![](https://github.com/Diolinux/PhotoGIMP/blob/master/2020-06-22_12-06.png
-)
+![PhotoGimp Screenshot - Editing Google Takeout](https://raw.githubusercontent.com/Diolinux/PhotoGIMP/master/2020-06-22_12-06.png)
 
+## ✍️ Have a large set of fonts available anytime
 
-<img src="https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png" data-canonical-src="https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png" width="200" height="200" />
+More than 1800 fonts are included by default in PhotoGimp so you can speed up your creative workflow.
 
-## Included Fonts
+<!-- TODO: Add Screenshot utilizing one of included fonts. -->
 
-https://github.com/Diolinux/PhotoGIMP/blob/master/fonts.txt
+[Check out all included fonts](https://github.com/Diolinux/PhotoGIMP/blob/master/fonts.txt)
 
-# How to Install
+# 🖥️ How to Install
 
 This build is all about flatpak, but it also contains "just files" that you can use on any version of GIMP (.deb,.rpm, Snap, AppImage, Windows, macOS). Just check the localization of the GIMP files on every system/package.
 
@@ -53,10 +60,10 @@ If you just want the PhotoGIMP customization without changing the original GIMP 
 
 Since it's just files, the only thing you need to do is to copy all the files that reside on a particular folder from this patch ```/.var/app/org.gimp.GIMP/config/GIMP/2.10``` to the the GIMP's folder on each particular system, overriding the existent ones:
 
-* Windows: `C:/Users/YOUR_USER/AppData/Roaming/GIMP/2.10`
+* Windows: `%APPDATA%\GIMP\2.10`
 
 * macOS: `~/Library/Application Support/GIMP/2.10/`
-  
+
   This one-liner will do the job: download release 1.0 into `Downloads` folder, unzip and copy patch files, then remove previously downloaded zip:
   ```bash
   curl -L "https://github.com/Diolinux/PhotoGIMP/releases/download/1.0/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip" -o ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip && unzip ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip -d ~/Downloads && sudo cp -R ~/Downloads/PhotoGIMP\ by\ Diolinux\ v2020\ for\ Flatpak/.var/app/org.gimp.GIMP/config/GIMP/2.10/ ~/Library/Application\ Support/GIMP/2.10 && rm ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip
@@ -75,4 +82,5 @@ The new icon will only work through the patch extration process on Linux envirom
 * The Photo in the new Splash is from [Isabella Mariana](https://www.pexels.com/pt-br/@isabella-mariana-1022505)
 * A BIG thanks to all Diolinux's supporters on [Twitch](https://twitch.tv/Diolinux) and [YouTube](https://youtube.com/Diolinux).
 
-Nota de lançamento em Português: https://diolinux.com.br/2020/06/photogimp-2020.html 
+## Patch Notes
+-  [Veja as Notas de Lançamento em Português](https://diolinux.com.br/2020/06/photogimp-2020.html)
