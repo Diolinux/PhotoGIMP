@@ -4,3 +4,6 @@
 # Ignore Personal GIMP Files
 .var/app/org.gimp.GIMP/data
 .var/app/org.gimp.GIMP/current
+
+# Ignore VSCode Files
+.vscode/*
