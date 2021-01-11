@@ -17,7 +17,7 @@ A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features 
 * New default settings to maximize space on the canvas;
 * Shortcuts similar to the ones on Photoshop, following Adobe's Documentation;
 * New icon and Name from custom .desktop file.
-* The new default language is English (you can still change in the Settings if you want)
+* System Language is now used by default, you can still change in settings if you want.
 
 ## 📷 Screenshots
 
