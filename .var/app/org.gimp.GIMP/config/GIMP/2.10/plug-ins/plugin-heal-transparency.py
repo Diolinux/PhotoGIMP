@@ -31,7 +31,6 @@ gettext.install("resynthesizer", gimp.locale_directory, unicode=True)
 
 
 def heal_transparency(timg, tdrawable, samplingRadiusParam=50, orderParam=2):
-
     # precondition should be enforced by Gimp according to image modes allowed.
     if not pdb.gimp_drawable_has_alpha(tdrawable):
         pdb.gimp_message("The active layer has no alpha channel to heal.")

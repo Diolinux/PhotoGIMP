@@ -12,6 +12,58 @@
 #
 # You can add your own GIMP-specific GTK styles here.
 
+# Override GIMP Dark Mode
+
+# Overall Font Family
+# gtk-font-name = "Sans 10"
+
+style "gimp-dark-default-style"
+{
+  # Font Family for Dark Default Style
+  # font_name = "Sans 10"
+
+  # Color Variables
+  color["clr1"]  = "#DDDDDD"
+  color["clr2"]  = "#FFFFFF"
+  color["clr3"]  = "#C1C1C1"
+  color["clr4"]  = "#383838"
+  color["clr5"]  = "#555555"
+  color["clr6"]  = "#828282"
+  color["clr7"]  = "#3B3B3B"
+  color["clr8"]  = "#383838"
+  color["clr9"]  = "#353535"
+  color["clrA"]  = "#303030"
+
+  # Foreground
+  fg[NORMAL] = @clr1
+  fg[PRELIGHT] = @clr2
+  fg[ACTIVE] = @clr3
+  fg[SELECTED] = @clr1
+  fg[INSENSITIVE] = @clr3
+
+  # Background
+  bg[NORMAL] = @clr9
+  bg[PRELIGHT] = @clr7
+  bg[ACTIVE] = @clr4
+  bg[SELECTED] = @clr5
+  bg[INSENSITIVE] = @clr5
+
+  # Base Color
+  base[NORMAL] = @clrA
+  base[PRELIGHT] = @clr7
+  base[ACTIVE] = @clr7
+  base[SELECTED] = @clr1
+  base[INSENSITIVE] = @clr8
+
+  # Text Color
+  text[NORMAL] = @clr1
+  text[PRELIGHT] = @clr1
+  text[ACTIVE] = @clr1
+  text[SELECTED] = @clr7
+  text[INSENSITIVE] = @clr9
+}
+
+# END OF GIMP DARK MODE Override
 
 #
 # Adjust the size of previews in plug-in dialogs:

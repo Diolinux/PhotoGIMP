@@ -1,5 +1,5 @@
 # GIMP gimprc
-# 
+#
 # This is your personal gimprc file.  Any variable defined in this file takes
 # precedence over the value defined in the system-wide gimprc:
 # /app/etc/gimp/2.0/gimprc
@@ -41,8 +41,8 @@
     (snap-to-grid no)
     (snap-to-canvas no)
     (snap-to-path no)
-    (padding-mode default)
-    (padding-color (color-rgb 1 1 1))
+    (padding-mode custom)
+    (padding-color (color-rgb 0.098039215686274508 0.098039215686274508 0.098039215686274508))
     (padding-in-show-all no))
 (filter-tool-show-color-options yes)
 (toolbox-wilber no)
