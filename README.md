@@ -1,4 +1,4 @@
-![PhotoGimp Diolinux Splash Art](https://raw.githubusercontent.com/Diolinux/PhotoGIMP/master/.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
+![PhotoGimp Diolinux Splash Art](./.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
 
 # 🎨 PhotoGIMP
 
