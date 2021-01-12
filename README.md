@@ -41,7 +41,7 @@ This build is all about flatpak, but it also contains "just files" that you can 
 * Install GIMP Flatpak through your AppCenter/Package Manager or terminal:
 ```flatpak install flathub org.gimp.GIMP```
 
-## Installing this Patch (PhotoGIMP)
+## Installing PhotoGIMP
 
 Inside the .zip file from the [releases page](https://github.com/Diolinux/PhotoGIMP/releases) you'll find three hidden folders (on Linux, using the dot before it's name). All of these folders have to be extracted on your ```/home/$USER``` folder, overwriting everything if you already have the same files from an older installation.
 
