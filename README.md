@@ -1,4 +1,4 @@
-![PhotoGimp Diolinux Splash Art](https://raw.githubusercontent.com/Diolinux/PhotoGIMP/master/.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
+![PhotoGimp Diolinux Splash Art](./.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
 
 # 🎨 PhotoGIMP
 
@@ -21,7 +21,7 @@ A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features 
 
 ## 📷 Screenshots
 
-![PhotoGimp Screenshot - Editing Google Takeout](https://raw.githubusercontent.com/Diolinux/PhotoGIMP/master/2020-06-22_12-06.png)
+![PhotoGimp Screenshot - Editing Google Takeout](./screenshots/2020-06-22_12-06.png)
 
 ## ✍️ Have a large set of fonts available anytime
 
@@ -41,7 +41,7 @@ This build is all about flatpak, but it also contains "just files" that you can 
 * Install GIMP Flatpak through your AppCenter/Package Manager or terminal:
 ```flatpak install flathub org.gimp.GIMP```
 
-## Installing this Patch (PhotoGIMP)
+## Installing PhotoGIMP
 
 Inside the .zip file from the [releases page](https://github.com/Diolinux/PhotoGIMP/releases) you'll find three hidden folders (on Linux, using the dot before it's name). All of these folders have to be extracted on your ```/home/$USER``` folder, overwriting everything if you already have the same files from an older installation.
 
@@ -55,8 +55,8 @@ If you just want the PhotoGIMP customization without changing the original GIMP 
 
 ## Want to use on Windows, macOS or Ubuntu(Snap)?
 
-* Vídeo Tutorial by Davies Media Desing on macOS: https://youtu.be/5nXhtaGQs9U
-* Vídeo Tutorial by Davies Media Desing on Windows: https://youtu.be/57DNUsf4A-0
+* [Vídeo Tutorial by Davies Media Desing on macOS](https://youtu.be/5nXhtaGQs9U)
+* [Vídeo Tutorial by Davies Media Desing on Windows](https://youtu.be/57DNUsf4A-0)
 
 Since it's just files, the only thing you need to do is to copy all the files that reside on a particular folder from this patch ```/.var/app/org.gimp.GIMP/config/GIMP/2.10``` to the the GIMP's folder on each particular system, overriding the existent ones:
 
