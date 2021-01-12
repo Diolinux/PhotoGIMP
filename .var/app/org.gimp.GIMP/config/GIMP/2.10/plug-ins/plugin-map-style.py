@@ -146,6 +146,7 @@ def make_grayscale_map(image, drawable):
     original_selection = pdb.gimp_selection_save(image)
     pdb.gimp_selection_all(image)  # copy requires selection
     pdb.gimp_edit_copy(drawable)
+
     if original_selection:
         pdb.gimp_selection_load(original_selection)  # restore selection in image
         pdb.gimp_image_remove_channel(
@@ -199,6 +200,7 @@ def copy_selection_to_image(drawable):
     layer_copy = pdb.gimp_image_get_active_layer(image_copy)
     # In earlier version, futzed with selection to deal with transparencey
     display_debug_image(image_copy)
+
     return image_copy, layer_copy
 
 
@@ -227,7 +229,7 @@ def synchronize_contrast(drawable, source_drawable, percent_transfer):
     # 2.5 is from experimentation with gimp_brightness_contrast which seems linear in its effect.
     contrast_control = (mean - source_mean) * 2.5 * (1 - (percent_transfer / 100))
 
-    # clamp to valid range (above formula is lazy, ad hoc)
+    # clamp to valid range
     contrast_control = max(min(contrast_control, 127), -127)
 
     pdb.gimp_brightness_contrast(source_drawable, 0, contrast_control)

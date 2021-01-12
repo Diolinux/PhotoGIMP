@@ -1,5 +1,5 @@
 # GIMP sessionrc
-# 
+#
 # This file takes session-specific info (that is info, you want to keep
 # between two GIMP sessions).  You are not supposed to edit it manually, but
 # of course you can do.  The sessionrc will be entirely rewritten every time
@@ -11,29 +11,33 @@
     (size 620 200))
 (session-info "toplevel"
     (factory-entry "gimp-single-image-window")
-    (position 255 82)
-    (size 1920 856)
+    (position 0 0)
+    (size 1280 720)
     (open-on-exit)
     (aux-info
         (left-docks-width "52")
-        (right-docks-width "363")
-        (maximized "no"))
+        (right-docks-width "372")
+        (maximized "yes"))
     (gimp-toolbox
         (side left))
     (gimp-dock
         (side right)
         (book
             (current-page 0)
-            (dockable "gimp-tool-options"
+            (dockable "gimp-color-editor"
+                (tab-style automatic)
+                (aux-info
+                    (current-page "GimpColorSelect")))
+            (dockable "gimp-font-list"
                 (tab-style automatic)
                 (aux-info
                     (show-button-bar "true")))
-            (dockable "gimp-font-list"
+            (dockable "gimp-tool-options"
                 (tab-style automatic)
                 (aux-info
                     (show-button-bar "true"))))
         (book
-            (position 492)
+            (position 293)
             (current-page 0)
             (dockable "gimp-layer-list"
                 (tab-style automatic)
@@ -41,6 +45,11 @@
                 (aux-info
                     (show-button-bar "true")))
             (dockable "gimp-channel-list"
+                (tab-style automatic)
+                (preview-size 32)
+                (aux-info
+                    (show-button-bar "true")))
+            (dockable "gimp-vectors-list"
                 (tab-style automatic)
                 (preview-size 32)
                 (aux-info

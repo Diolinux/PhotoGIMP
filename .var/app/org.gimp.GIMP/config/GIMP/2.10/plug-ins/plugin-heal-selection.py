@@ -55,6 +55,7 @@ def heal_selection(timg, tdrawable, samplingRadiusParam=50, directionParam=0, or
 
   # !!! The drawable can be a mask (grayscale channel), don't restrict to layer.
   work_drawable = pdb.gimp_image_get_active_drawable(tempImage)
+
   if not work_drawable:
       raise RuntimeError, "Failed get active drawable"
 
@@ -84,10 +85,12 @@ def heal_selection(timg, tdrawable, samplingRadiusParam=50, directionParam=0, or
 
   # crop the temp image to size of selection to save memory and for directional healing!!
   frisketBounds = grownSelection.mask_bounds
+
   frisketLowerLeftX = frisketBounds[0]
   frisketLowerLeftY = frisketBounds[1]
   frisketUpperRightX = frisketBounds[2]
   frisketUpperRightY = frisketBounds[3]
+
   targetLowerLeftX = targetBounds[0]
   targetLowerLeftY = targetBounds[1]
   targetUpperRightX = targetBounds[2]
@@ -111,6 +114,7 @@ def heal_selection(timg, tdrawable, samplingRadiusParam=50, directionParam=0, or
       # X
       newWidth, newHeight, newLLX, newLLY = ( targetUpperRightX-targetLowerLeftX, frisketHeight,
         targetLowerLeftX, frisketLowerLeftY )
+
   # Restrict crop to image size (condition of gimp_image_crop) eg when off edge of image
   newWidth = min(pdb.gimp_image_width(tempImage) - newLLX, newWidth)
   newHeight = min(pdb.gimp_image_height(tempImage) - newLLY, newHeight)
@@ -122,13 +126,13 @@ def heal_selection(timg, tdrawable, samplingRadiusParam=50, directionParam=0, or
   if not orderParam :
       useBorder = 1   # User wants NO order, ie random filling
   elif orderParam == 1 :  # Inward to corpus.  2,3,4
-      useBorder = directionParam+2   # !!! Offset by 2 to get past the original two boolean values
+      useBorder = directionParam + 2   # !!! Offset by 2 to get past the original two boolean values
   else:
       # Outward from image center.
       # 5+0=5 outward concentric
       # 5+1=6 outward from sides
       # 5+2=7 outward above and below
-      useBorder = directionParam+5
+      useBorder = directionParam + 5
 
   # Note that the old resynthesizer required an inverted selection !!
 
@@ -138,6 +142,7 @@ def heal_selection(timg, tdrawable, samplingRadiusParam=50, directionParam=0, or
       gimp.displays_flush()
     except RuntimeError:  # thrown if non-interactive
       pass
+
     from time import sleep
     sleep(2)
 

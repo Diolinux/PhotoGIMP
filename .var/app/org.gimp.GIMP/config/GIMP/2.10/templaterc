@@ -1,8 +1,8 @@
 # GIMP templaterc
-# 
+#
 # This file will be entirely rewritten each time you exit.
 
-(GimpTemplate "Imagem blog"
+(GimpTemplate "Diolinux: Blog Post Image"
     (width 800)
     (height 450)
     (unit pixels)
@@ -14,7 +14,7 @@
     (color-managed yes)
     (color-profile NULL)
     (fill-type background)
-    (comment "Created with GIMP"))
+    (comment "Default resolution for Diolinux's blog post images"))
 (GimpTemplate "640x480"
     (width 640)
     (height 480)
