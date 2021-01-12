@@ -21,7 +21,7 @@ A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features 
 
 ## 📷 Screenshots
 
-![PhotoGimp Screenshot - Editing Google Takeout](https://raw.githubusercontent.com/Diolinux/PhotoGIMP/master/2020-06-22_12-06.png)
+![PhotoGimp Screenshot - Editing Google Takeout](./screenshots/2020-06-22_12-06.png)
 
 ## ✍️ Have a large set of fonts available anytime
 
