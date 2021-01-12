@@ -55,8 +55,8 @@ If you just want the PhotoGIMP customization without changing the original GIMP 
 
 ## Want to use on Windows, macOS or Ubuntu(Snap)?
 
-* Vídeo Tutorial by Davies Media Desing on macOS: https://youtu.be/5nXhtaGQs9U
-* Vídeo Tutorial by Davies Media Desing on Windows: https://youtu.be/57DNUsf4A-0
+* [Vídeo Tutorial by Davies Media Desing on macOS](https://youtu.be/5nXhtaGQs9U)
+* [Vídeo Tutorial by Davies Media Desing on Windows](https://youtu.be/57DNUsf4A-0)
 
 Since it's just files, the only thing you need to do is to copy all the files that reside on a particular folder from this patch ```/.var/app/org.gimp.GIMP/config/GIMP/2.10``` to the the GIMP's folder on each particular system, overriding the existent ones:
 
