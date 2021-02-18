@@ -8,7 +8,7 @@ Extract all hidden folders
 - `.var`
 - `.local`
 
-to your Home directory and you are done.
+to your Home directory. Make sure there is no `~/.config/gimp` folder!
 
 ## On Linux with GIMP installed through package manager —or— On&nbsp;*BSD
 
