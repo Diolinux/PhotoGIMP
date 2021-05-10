@@ -23,7 +23,7 @@ A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features 
 
 ![PhotoGimp Screenshot - Editing Google Takeout](./screenshots/2020-06-22_12-06.png)
 
-## ✍️ Have a large set of fonts available anytime
+## 🈂 Have a large set of fonts available anytime 
 
 More than 1800 fonts are included by default in PhotoGimp so you can speed up your creative workflow.
 
@@ -31,7 +31,7 @@ More than 1800 fonts are included by default in PhotoGimp so you can speed up yo
 
 [Check out all included fonts](https://github.com/Diolinux/PhotoGIMP/blob/master/fonts.txt)
 
-# 🖥️ How to Install
+# ⚙ How to Install
 
 This build is all about flatpak, but it also contains "just files" that you can use on any version of GIMP (.deb,.rpm, Snap, AppImage, Windows, macOS). Just check the localization of the GIMP files on every system/package.
 
