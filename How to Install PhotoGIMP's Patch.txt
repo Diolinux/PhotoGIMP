@@ -1,7 +1,0 @@
-Just Extract all *hidden* folder to your home repository
-
-.icons
-.var
-.local
-
-Only works with flatpak version for GIMP.
