@@ -18,9 +18,9 @@ Extract all hidden folders
 - `.var`
 - `.local`
 
-to your Home directory and then move the subfolder 
+to your Home directory and then move the subfolder
 
-- `.var/app/org.gimp.GIMP/config/GIMP/2.10`  
+- `.var/app/org.gimp.GIMP/config/GIMP/2.10`
 
 to `~/.config/gimp/2.10`.
 
@@ -28,11 +28,11 @@ Afterwards you can delete `.var/app/org.gimp.GIMP` respectively `.var` (if not u
 
 ## On macOS
 
-Unpack the whole archive and copy/move only the subfolder  
-—or—  
+Unpack the whole archive and copy/move only the subfolder
+—or—
 Extract only the subfolder
 
-- `.var/app/org.gimp.GIMP/config/GIMP/2.10`  
+- `.var/app/org.gimp.GIMP/config/GIMP/2.10`
 (inside the hidden folder `.var`)
 
 into the folder `~/Library/Application Support/GIMP`.
