@@ -3,7 +3,7 @@
 # 🎨 PhotoGIMP
 
 <img
-  src="https://raw.githubusercontent.com/Diolinux/PhotoGIMP/master/.icons/photogimp.png"
+  src="./.icons/photogimp.png"
   alt="PhotoGimp Icon"
   title="PhotoGimp"
   width="200px">
@@ -23,7 +23,7 @@ A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features 
 
 ![PhotoGimp Screenshot - Editing Google Takeout](./screenshots/2020-06-22_12-06.png)
 
-## 🈂 Have a large set of fonts available anytime 
+## 🈂 Have a large set of fonts available anytime
 
 More than 1800 fonts are included by default in PhotoGimp so you can speed up your creative workflow.
 
@@ -61,6 +61,12 @@ If you just want the PhotoGIMP customization without changing the original GIMP 
 Since it's just files, the only thing you need to do is to copy all the files that reside on a particular folder from this patch ```/.var/app/org.gimp.GIMP/config/GIMP/2.10``` to the the GIMP's folder on each particular system, overriding the existent ones:
 
 * Windows: `%APPDATA%\GIMP\2.10`
+
+Or install via [Chocolatey](https://chocolatey.org/):
+```powershell
+choco install photogimp
+```
+Maintained by: [André Augusto](https://github.com/AndreAugustoAAQ)
 
 * macOS: `~/Library/Application Support/GIMP/2.10/`
 
