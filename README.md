@@ -44,7 +44,7 @@ This package is all about flatpak, but it also contains "just files" that you ca
 
 ### Install PhotoGIMP
 
-Inside the .zip file from the [releases page](https://github.com/Diolinux/PhotoGIMP/releases) you’ll find three folders (hidden on non-Windows systems as their names beginn with a dot). All of these folders have to be extracted to your `$HOME` folder, overwriting everything if you already have the same files from an older installation.
+Inside the .zip file from the [releases page](https://github.com/Diolinux/PhotoGIMP/releases) you’ll find three folders (hidden on non-Windows systems as their names begin with a dot). All of these folders have to be extracted to your `$HOME` folder, overwriting everything if you already have the same files from an older installation.
 
 The file contains these directories:
 
