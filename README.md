@@ -1,7 +1,7 @@
 # 🎨 PhotoGIMP
 
 <img
-  src="./.icons/photogimp.png"
+  src="./.local/share/icons/hicolor/256x256/apps/photogimp.png"
   alt="PhotoGimp application icon" title="PhotoGimp application icon"
   width="200px" align="right">
 
