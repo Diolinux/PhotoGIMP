@@ -1,9 +1,6 @@
 # 🎨 PhotoGIMP
 
-<img
-  src="./.icons/photogimp.png"
-  alt="PhotoGimp application icon" title="PhotoGimp application icon"
-  width="200px" align="right">
+<img src="./.local/share/icons/hicolor/256x256/apps/photogimp.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
 
 A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features like:
 
