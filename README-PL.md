@@ -4,6 +4,7 @@
 
 Prosta modyfikacja do GIMP-a 2.10+, aby pomóc użytkownikom <span style="color: blue;">_Photoshop-a_.
 _Od Tłumacza: lub dla nowych użytkowników GIMP-a którzy, chcą się czuć jak na Photoshop-ie_</span>
+
 Jakie zostaną wprowadzone nowe zmiany:
 
 *	Zmiana położenia narzędzi przypominająca Adobe Photoshop-a;
