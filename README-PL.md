@@ -1,5 +1,3 @@
-_Original Repository_(https://github.com/Diolinux/PhotoGIMP/)
-
 ![](https://github.com/Diolinux/PhotoGIMP/blob/master/.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
 
 # PhotoGIMP
