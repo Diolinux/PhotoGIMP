@@ -22,7 +22,7 @@ Może ci się przydać:
 )
 
 
-<img src="https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png" data-canonical-src="https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png" width="200" height="200" />
+<img src="https://github.com/Diolinux/PhotoGIMP/blob/master/.local/share/icons/hicolor/256x256/apps/photogimp.png" data-canonical-src="https://github.com/Diolinux/PhotoGIMP/blob/master/.icons/photogimp.png" width="200" height="200" />
 
 ## Wbudowane Czczionki
 
