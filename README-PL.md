@@ -77,4 +77,4 @@ Nowa ikona będzie tylko działać, podczas poprawek w środowiskach, ale możes
 * Za zrobienie nowego zdjęcia do Ekranu Ładowania dla [Isabella Mariana](https://www.pexels.com/pt-br/@isabella-mariana-1022505)
 * Specjalne podziękowania do wszystkich pomocników Diolinux's  [Twitch-u](https://twitch.tv/Diolinux) i na [YouTube](https://youtube.com/Diolinux).
 
-Nota de lançamento em Português: https://diolinux.com.br/2020/06/photogimp-2020.html 
+Patch notes in Brazilian Portuguese: https://diolinux.com.br/2020/06/photogimp-2020.html 
