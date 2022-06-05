@@ -30,7 +30,7 @@ style "gimp-dark-default-style"
   color["clr6"]  = "#828282"
   color["clr7"]  = "#3B3B3B"
   color["clr8"]  = "#383838"
-  color["clr9"]  = "#353535"
+  color["clr9"]  = "#2d2d2d"
   color["clrA"]  = "#303030"
 
   fg[NORMAL] = @clr1
