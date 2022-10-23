@@ -5,7 +5,6 @@
 A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features like:
 
 * Tool organization to mimic the position of Adobe Photoshop;
-* Hundreds of new fonts by default;
 * New Python filters installed by default, such as "heal selection";
 * New Splash Screen
 * New default settings to maximize space on the canvas;
@@ -18,14 +17,6 @@ A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features 
 **📷 Screenshot**
 
 ![PhotoGimp Screenshot - Editing Google Takeout](./screenshots/2020-06-22_12-06.png)
-
-**🈂 Have a large set of fonts available anytime**
-
-More than 1800 fonts are included by default in PhotoGimp so you can speed up your creative workflow.
-
-<!-- TODO: Add Screenshot utilizing one of included fonts. -->
-
-[Check out all included fonts](https://github.com/Diolinux/PhotoGIMP/blob/master/fonts.txt)
 
 ## ⚙ How to Install (using Flatpak)
 
