@@ -72,6 +72,12 @@ curl -L https://github.com/Diolinux/PhotoGIMP/releases/download/1.0/PhotoGIMP.by
 
 *Notice*: GIMP on macOS is a bit late on its release. This way, this patch still works, specially on the shortcuts matter, but somethings, such the toolbox organization, will not work properly. Until the macOS version reaches the version 2.10.20, expect this behavior.
 
+### Mac OS Easy Installer (maded by: [@MatthijsKamstra](https://github.com/MatthijsKamstra))
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/master/install/photogimp_osx.sh)"
+```
+
 ### Windows
 
 Configuration folder: `%APPDATA%\GIMP\2.10`
