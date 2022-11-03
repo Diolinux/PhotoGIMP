@@ -26,6 +26,7 @@ This package is all about flatpak, but it also contains "just files" that you ca
 
 ### Prepare the Flatpak enviroment
 
+*If you have previously had GIMP installed via .deb, .rpm, etc., please ensure you delete the directory `$HOME/.config/GIMP`, as this may cause conflicts with the Flatpak config files.*
 * First of all, you need to have the latest GIMP installed on your system [using Flatpak](https://flatpak.org/setup/)
 * Install GIMP Flatpak through your AppCenter/Package Manager or terminal:
 ```flatpak install flathub org.gimp.GIMP```
