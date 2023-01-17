@@ -85,6 +85,12 @@ curl -L "https://github.com/Diolinux/PhotoGIMP/releases/download/1.0/PhotoGIMP.b
   
 **Ważne** : GIMP na macOS jest troche spóżnioną wersją. Dlatego, ta modyfikacja działa w skrótach klawiszowych, ale nie, które opcję mogą nie działać, takie jak organizacje zestawu narzędzi. Trzeba poczekać, aż dla macOS będzie dostępna wersja 2.10.20, inaczej możesz spodziewać takich problemów.
 
+### Łatwy instalator, dla macOS (stworzony przez: [@MatthijsKamstra](https://github.com/MatthijsKamstra))
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/master/install/photogimp_osx.sh)"
+```
+
 ### Windows
 
 Folder Konfiguracyjny: `%APPDATA%\GIMP\2.10`
