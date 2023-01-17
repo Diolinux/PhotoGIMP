@@ -8,7 +8,6 @@ _Od Tłumacza: Oraz dla nowych użytkowników GIMP-a, którzy chcą się poczuć
 Co zostanie zmienione:
 
 *	Zmiana położenia narzędzi, podobna do Adobe Photoshop-a;
-*	Setki nowych domyślnych czcionek;
 *	Nowe domyślne filtry Python-a, takie jak "heal selection";
 *	Nowy Ekran Ładowania;
 *	Nowe domyślne ustawienia, zwiększające przestrzeń roboczą;
@@ -22,14 +21,6 @@ Co zostanie zmienione:
 **📷 Zrzut Ekranu**
 
 ![Zrzut ekranu z PhotoGIMP - edytowany na Google Takeout](./screenshots/2020-06-22_12-06.png)
-
-**🈂 Dużo nowych czcionek, dostępnych w każdej chwili**
-
-Ponad 1800 nowych/domyślnych czcionek, które przyśpieszą tobie pracę.
-
-<!-- TODO: Zostanie dodany nowy zrzut ekranu, przedstawiający jedną, z dołączonych czcionek. -->
-
-[Zobacz wszystkie zaimplementowane czcionki](https://github.com/Diolinux/PhotoGIMP/blob/master/fonts.txt)
 
 ## ⚙ Jak zainstalować (używając Flatpak)
 Ta paczka dotyczy tylko flatpaka, ale można również jej użyć w innych wersjach GIMP-a (.deb, .rpm, Snap, AppImage, Windows, macOS). Sprawdź lokalizację konfiguracyjnych plików GIMP-a
