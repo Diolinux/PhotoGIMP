@@ -36,8 +36,8 @@ Ta paczka dotyczy tylko flatpaka, ale można również jej użyć w innych wersj
 
 **Aby kontynuować, przed instalacją uruchom i zamknij GIMP-a**
 
-### Przygotowanie do instalacji środowiska Flatpak
-
+### Przygotowanie do instalacji, z środowiska Flatpak
+*Jeśli miałeś, wcześniej zainstalowany GIMP, za pomocą .deb, .rpm itd., to upewnij się, że usunąłeś folder `$HOME/.config/GIMP`, ponieważ może to powodować problemy z plikami konfiguracji Flatpak*
 * Na początku, upewnij się że masz najnowszą wersję GIMP-a, [z Flatpak-a](https://flatpak.org/setup/)
 *   Zainstaluj GIMP-a [Flatpak] z centrum aplikacji/instalatora oprogramowania lub używając poniższego polecenia, w terminalu: 
 ```flatpak install flathub org.gimp.GIMP```
@@ -49,7 +49,7 @@ W pliku ZIP z [strony nowych wydań (Releases)](https://github.com/Diolinux/Phot
 Plik (ZIP) zawiera poniższe foldery:
 
 *  `.icons` (nowe ikony PhotoGimp)
-*  `.local` (modyfikacja personalizacji pliku .desktop)
+*  `.local` (modyfikacja wyglądu, dla pliku .desktop)
 *  `.var` (modyfikacja flatpak dla GIMP-a 2.10+)
 
 
