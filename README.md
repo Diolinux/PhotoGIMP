@@ -14,7 +14,7 @@ A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features 
 
 ![PhotoGimp Diolinux Splash Art](./.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
 
-**📷 Screenshot**
+**📷 Screenshots**
 
 ![PhotoGimp Screenshot - Editing Google Takeout](./screenshots/2020-06-22_12-06.png)
 ![PhotoGimp Screenshot OSX](./screenshots/osx.png)
