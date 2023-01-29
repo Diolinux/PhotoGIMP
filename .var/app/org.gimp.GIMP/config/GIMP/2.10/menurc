@@ -27,3 +27,5 @@
 (gtk_accel_path "<Actions>/tools/tools-scale" "<Primary>t")
 (gtk_accel_path "<Actions>/image/image-merge-layers" "")
 (gtk_accel_path "<Actions>/tools/tools-eraser" "e")
+(gtk_accel_path "<Actions>/dialogs/dialogs-colors" "F6")
+(gtk_accel_path "<Actions>/dialogs/dialogs-layers" "F7")
