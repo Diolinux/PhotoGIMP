@@ -17,6 +17,7 @@ A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features 
 **📷 Screenshot**
 
 ![PhotoGimp Screenshot - Editing Google Takeout](./screenshots/2020-06-22_12-06.png)
+![PhotoGimp Screenshot OSX](./screenshots/osx.png)
 
 ## ⚙ How to Install (using Flatpak)
 
@@ -73,7 +74,28 @@ curl -L https://github.com/Diolinux/PhotoGIMP/releases/download/1.0/PhotoGIMP.by
 
 *Notice*: GIMP on macOS is a bit late on its release. This way, this patch still works, specially on the shortcuts matter, but somethings, such the toolbox organization, will not work properly. Until the macOS version reaches the version 2.10.20, expect this behavior.
 
-### Mac OS Easy Installer (maded by: [@MatthijsKamstra](https://github.com/MatthijsKamstra))
+### Mac OS Easy Installer (made by: [@MatthijsKamstra](https://github.com/MatthijsKamstra))
+
+> Gimp needs to be installed ([brew](https://formulae.brew.sh/cask/gimp) or [otherwise](https://www.gimp.org/downloads/))
+
+What will the [bash](https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/master/install/photogimp_osx.sh) script do?
+
+* Download `Flatpak.zip` and copies the files to the Gimp folder
+* Creates an OSX PhotoGimp icon 
+* Copies icon to Gimp folder
+* Cleans up all files generated/downloaded
+
+##### Run bash how to
+
+you can [down](https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/master/install/photogimp_osx.sh) and run the bash script:
+
+```bash
+cd /path/to/download/folder
+sh photogimp_osx.sh
+```
+
+##### Run script (the easy way)
+
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/master/install/photogimp_osx.sh)"
