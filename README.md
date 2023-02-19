@@ -103,8 +103,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/
 
 ### Windows
 
-Configuration folder: `%APPDATA%\GIMP\2.10`
-
+* Download the file [PhotoGIMP.zip](https://github.com/Diolinux/PhotoGIMP/releases)
+* Access the path `.var\app\org.gimp.GIMP\config\GIMP\2.10` from the ZIP, copy the files to the path `%APPDATA%\GIMP\2.10`
 * [Video Tutorial by Davies Media Design on Windows](https://youtu.be/57DNUsf4A-0)
 
 Or install via [Chocolatey](https://chocolatey.org/):
