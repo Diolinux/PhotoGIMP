@@ -120,5 +120,10 @@ Maintained by: [André Augusto](https://github.com/AndreAugustoAAQ)
 * The Photo in the new Splash is from [Isabella Mariana](https://www.pexels.com/pt-br/@isabella-mariana-1022505)
 * A BIG thanks to all Diolinux’s supporters on [Twitch](https://twitch.tv/Diolinux) and [YouTube](https://youtube.com/Diolinux).
 
+## Contributors
+<a align="center" href="https://github.com/Diolinux/PhotoGIMP/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Diolinux/PhotoGIMP" />
+</a>
+
 ## Patch Notes
 -  [Veja as Notas de Lançamento em Português](https://diolinux.com.br/2020/06/photogimp-2020.html)
