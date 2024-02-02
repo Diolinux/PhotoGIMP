@@ -1,3 +1,6 @@
+NOTE:  Although the project is very functional as it is and you probably can use it with minor to no problems, it's important to notice that i'm note not able to implement new features or analyse bug reports for now.
+Other than that, enjoy Photogimp! :)
+
 # 🎨 PhotoGIMP
 
 <img src="./.local/share/icons/hicolor/256x256/apps/photogimp.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
