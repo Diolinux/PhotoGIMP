@@ -2357,3 +2357,23 @@ style "gimp-large-preview"
 }
 
 # class "GimpPreview" style "gimp-large-preview"
+
+#######################################################
+# GimpDisplay = Main GIMP Window - with Big Wilber
+#######################################################
+style "gimp-display-style" = "gimp-default-style"
+{
+    bg[NORMAL]        = "#2d2d2d" # Main Window BG
+    bg[PRELIGHT]      = "#2d2d2d" # Unknow
+    bg[SELECTED]      = "#2d2d2d" # Unknow
+    bg[INSENSITIVE]   = "#2d2d2d" # Unknow
+    bg[ACTIVE]        = "#2d2d2d" # Unknow                         
+}
+widget "*GimpDisplayShell.*" style "gimp-display-style"
+
+#######################################################
+# Big Wilber in Main-Window "OFF"
+#######################################################
+style "gimp-display-style" = "BigWilber"
+{  fg[NORMAL]   = "#333333"} # 333333 = 2d2d2d +2 to B(rigthness) in HSB color value                        
+widget "*GimpDisplayShell.*" style "BigWilber"
