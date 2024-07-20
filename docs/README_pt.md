@@ -1,6 +1,6 @@
 # 🎨 PhotoGIMP
 
-<img src="./.local/share/icons/hicolor/256x256/apps/photogimp.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
+<img src="../.local/share/icons/hicolor/256x256/apps/photogimp.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
 
 Um patch para otimizar o GIMP 2.10+ para usuários do Adobe Photoshop, incluindo recursos como:
 
@@ -13,11 +13,11 @@ Um patch para otimizar o GIMP 2.10+ para usuários do Adobe Photoshop, incluindo
 * Novo ícone e nome do arquivo .desktop personalizado;
 * O idioma do sistema agora é usado por padrão, você ainda pode alterar isso nas configurações, se desejar.
 
-![PhotoGimp Diolinux Splash Art](./.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
+![PhotoGimp Diolinux Splash Art](../.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
 
 **📷 Captura de Tela**
 
-![PhotoGimp Screenshot - Editing Google Takeout](./screenshots/2020-06-22_12-06.png)
+![PhotoGimp Screenshot - Editing Google Takeout](../screenshots/2020-06-22_12-06.png)
 
 **🈂 Tenha um grande conjunto de fontes disponíveis a qualquer momento**
 

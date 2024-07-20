@@ -1,6 +1,6 @@
 # 🎨 PhotoGIMP
 
-<img src="./.local/share/icons/hicolor/256x256/apps/photogimp.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
+<img src="../.local/share/icons/hicolor/256x256/apps/photogimp.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
 
 Prosta modyfikacja do GIMP-a 2.10+, aby pomóc użytkownikom <span style="color: blue;">_Photoshop-a_.
 _Od Tłumacza: Oraz dla nowych użytkowników GIMP-a, którzy chcą się poczuć jak na Photoshop-ie_</span>
@@ -15,12 +15,12 @@ Co zostanie zmienione:
 *	Nowa ikona i nazwa dla dowolnego pliku .desktop ;
 *	Po instalacji, domyślnym językiem, będzie systemowy. Możesz to łatwo zmienić w ustawieniach
 
-![PhotoGimp Diolinux - nowy ekran ładowania](./.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
+![PhotoGimp Diolinux - nowy ekran ładowania](../.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
 
 
 **📷 Zrzut Ekranu**
 
-![Zrzut ekranu z PhotoGIMP - edytowany na Google Takeout](./screenshots/2020-06-22_12-06.png)
+![Zrzut ekranu z PhotoGIMP - edytowany na Google Takeout](../screenshots/2020-06-22_12-06.png)
 
 ## ⚙ Jak zainstalować (używając Flatpak)
 Ta paczka dotyczy tylko flatpaka, ale można również jej użyć w innych wersjach GIMP-a (.deb, .rpm, Snap, AppImage, Windows, macOS). Sprawdź lokalizację konfiguracyjnych plików GIMP-a
@@ -30,7 +30,7 @@ Ta paczka dotyczy tylko flatpaka, ale można również jej użyć w innych wersj
 ### Przygotowanie do instalacji, z środowiska Flatpak
 *Jeśli miałeś, wcześniej zainstalowany GIMP, za pomocą .deb, .rpm itd., to upewnij się, że usunąłeś folder `$HOME/.config/GIMP`, ponieważ może to powodować problemy z plikami konfiguracji Flatpak*
 * Na początku, upewnij się że masz najnowszą wersję GIMP-a, [z Flatpak-a](https://flatpak.org/setup/)
-*   Zainstaluj GIMP-a [Flatpak] z centrum aplikacji/instalatora oprogramowania lub używając poniższego polecenia, w terminalu: 
+*   Zainstaluj GIMP-a [Flatpak] z centrum aplikacji/instalatora oprogramowania lub używając poniższego polecenia, w terminalu:
 ```flatpak install flathub org.gimp.GIMP```
 
 ### Instalacja (PhotoGIMP)
@@ -65,7 +65,7 @@ Folder Konfiguracyjny: `$HOME/.config/GIMP/2.10/`
 
 ### macOS
 Folder konfiguracyjny: `"$HOME/Library/Application Support/GIMP/2.10/"`
- 
+
 * [Poradnik Wideo stworzony przez Davies Media Design na macOS](https://youtu.be/5nXhtaGQs9U)
 
 Ta poniższa linijka zainstaluje wszystko, co potrzebujesz do działania programu:
@@ -73,7 +73,7 @@ Ta poniższa linijka zainstaluje wszystko, co potrzebujesz do działania program
 curl -L "https://github.com/Diolinux/PhotoGIMP/releases/download/1.0/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip" -o ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip && unzip ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip -d ~/Downloads && sudo cp -R ~/Downloads/PhotoGIMP\ by\ Diolinux\ v2020\ for\ Flatpak/.var/app/org.gimp.GIMP/config/GIMP/2.10/ ~/Library/Application\ Support/GIMP/2.10 && rm ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip
 ```
 (Pobierze wersję 1.0 do folderu `Downloads` lub do folderu `Pobrane`, rozpakuje i skopiuje zmodyfikowane pliki, a na końcu usunie wcześniej pobrany plik `.zip`)
-  
+
 **Ważne** : GIMP na macOS jest troche spóżnioną wersją. Dlatego, ta modyfikacja działa w skrótach klawiszowych, ale nie, które opcję mogą nie działać, takie jak organizacje zestawu narzędzi. Trzeba poczekać, aż dla macOS będzie dostępna wersja 2.10.20, inaczej możesz spodziewać takich problemów.
 
 ### Łatwy instalator, dla macOS (stworzony przez: [@MatthijsKamstra](https://github.com/MatthijsKamstra))
