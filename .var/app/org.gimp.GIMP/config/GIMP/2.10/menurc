@@ -20,6 +20,8 @@
 (gtk_accel_path "<Actions>/tools/tools-mypaint-brush" "")
 (gtk_accel_path "<Actions>/tools/tools-crop" "c")
 (gtk_accel_path "<Actions>/tools/tools-rotate-arbitrary" "r")
+(gtk_accel_path "<Actions>/image/image-scale" "<Primary><Alt>i")
+(gtk_accel_path "<Actions>/image/image-resize" "<Primary><Alt>c")
 (gtk_accel_path "<Actions>/image/image-duplicate" "")
 (gtk_accel_path "<Actions>/view/view-shrink-wrap" "")
 (gtk_accel_path "<Actions>/plug-in/file-print-gtk" "<Primary>p")
