@@ -19,7 +19,6 @@ A patch for optimizing GIMP 2.10+ for Adobe Photoshop users, including features 
 
 ## 📷 Screenshots
 
-![PhotoGimp Screenshot - Editing Google Takeout](./screenshots/2020-06-22_12-06.png)
 ![PhotoGimp Screenshot OSX](./screenshots/osx.png)
 
 ## ⚙ How to Install (using Flatpak)
@@ -85,7 +84,7 @@ curl -L https://github.com/Diolinux/PhotoGIMP/releases/download/1.0/PhotoGIMP.by
 What will the [bash](https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/master/install/photogimp_osx.sh) script do?
 
 * Download `Flatpak.zip` and copies the files to the Gimp folder
-* Creates an OSX PhotoGimp icon 
+* Creates an OSX PhotoGimp icon
 * Copies icon to Gimp folder
 * Cleans up all files generated/downloaded
 
