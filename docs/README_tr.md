@@ -2,7 +2,7 @@ NOT: Proje şu anki hali ile oldukça kullanışlı olsa da ve muhtemelen küç�
 
 # 🎨 PhotoGIMP
 
-<img src="./.local/share/icons/hicolor/256x256/apps/photogimp.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
+<img src="../.local/share/icons/hicolor/256x256/apps/photogimp.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
 
 Adobe Photoshop kullanıcıları için GIMP 2.10+ sürümünü optimize etmek için aşağıdaki gibi özellikleri içeren bir yama:
 
@@ -14,7 +14,7 @@ Adobe Photoshop kullanıcıları için GIMP 2.10+ sürümünü optimize etmek i�
 * Özel .desktop dosyasından yeni ikon ve ad.
 * Sistem dili artık varsayılan olarak kullanılıyor, hala ayarlardan değiştirilebilir.
 
-![PhotoGimp Diolinux Splash Art](./.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
+![PhotoGimp Diolinux Splash Art](../.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
 
 ## 📷 Screenshots
 
