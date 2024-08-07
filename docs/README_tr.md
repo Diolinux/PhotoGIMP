@@ -18,7 +18,7 @@ Adobe Photoshop kullanıcıları için GIMP 2.10+ sürümünü optimize etmek i�
 
 ## 📷 Screenshots
 
-![PhotoGimp Screenshot OSX](./screenshots/osx.png)
+![PhotoGimp Screenshot OSX](../screenshots/osx.png)
 
 ## ⚙ Nasıl Yüklenir (Flatpak kullanarak)
 
