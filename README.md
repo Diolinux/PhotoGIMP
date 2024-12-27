@@ -90,7 +90,7 @@ What will the [bash](https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup
 
 ##### Run bash how to
 
-you can [down](https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/master/install/photogimp_osx.sh) and run the bash script:
+you can [download](https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/master/install/photogimp_osx.sh) and run the bash script:
 
 ```bash
 cd /path/to/download/folder
