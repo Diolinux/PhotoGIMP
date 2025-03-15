@@ -63,6 +63,11 @@ Configuration folder: `$HOME/snap/gimp/47/.config/GIMP/2.10/`
 
 Configuration folder: `$HOME/.config/GIMP/2.10/`
 
+Automated installation script by eweerfr:
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/eweerfr/photo_gimp_mac/refs/heads/main/photogimp_installer.sh)"
+```
+
 ### macOS
 
 Configuration folder: `"$HOME/Library/Application Support/GIMP/2.10/"`
