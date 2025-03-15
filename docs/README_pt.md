@@ -65,6 +65,11 @@ Pasta de configuração: `$HOME/snap/gimp/47/.config/GIMP/2.10/`
 
 Pasta de configuração: `$HOME/.config/GIMP/2.10/`
 
+Instalação automatizada feita pelo [eweerfr](https://github.com/eweerfr):
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/eweerfr/photo_gimp_mac/refs/heads/main/photogimp_installer.sh)"
+```
+
 ### macOS
 
 Pasta de configuração: `"$HOME/Library/Application Support/GIMP/2.10/"`
