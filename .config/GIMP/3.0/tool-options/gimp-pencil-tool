@@ -1,0 +1,11 @@
+# GIMP gimp-pencil-tool options
+
+(brush "2. Hardness 050")
+(dynamics "Pressure Size")
+(pattern "Starfield")
+(gradient "Skyline")
+(palette "Standard")
+(brush-size 52)
+(brush-hardness 0.5)
+
+# end of gimp-pencil-tool options

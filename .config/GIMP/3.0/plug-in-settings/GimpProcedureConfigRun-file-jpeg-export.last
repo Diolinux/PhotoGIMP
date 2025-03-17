@@ -1,0 +1,27 @@
+# settings
+
+(quality 1)
+(smoothing 0)
+(optimize yes)
+(progressive yes)
+(cmyk no)
+(sub-sampling "sub-sampling-1x1")
+(baseline yes)
+(restart 16)
+(dct "integer")
+(include-exif no)
+(include-iptc no)
+(include-xmp no)
+(include-color-profile no)
+(include-thumbnail no)
+(include-comment no)
+(use-original-quality yes)
+(original-quality 100)
+(original-sub-sampling 2)
+(original-num-quant-tables 0)
+(show-preview no)
+(use-arithmetic-coding no)
+(use-restart no)
+(gimp-comment "Created with GIMP")
+
+# end of settings
