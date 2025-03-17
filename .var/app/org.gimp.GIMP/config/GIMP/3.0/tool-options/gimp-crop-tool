@@ -1,0 +1,9 @@
+# GIMP gimp-crop-tool options
+
+(aspect-denominator 1080)
+(aspect-numerator 1920)
+(foreground
+    (color "HSVA float" 16 "\0\0\0\0d\22P\77\134\354y\77\0\0\200\77" 0))
+(pattern "Starfield")
+
+# end of gimp-crop-tool options

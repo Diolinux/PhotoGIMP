@@ -1,5 +1,0 @@
-# GIMP gimp-scale-tool options
-
-(interpolation linear)(gtk_accel_path "<Actions>/tools/tools-scale" "<Primary>t")
-
-# end of gimp-scale-tool options
