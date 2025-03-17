@@ -23,74 +23,9 @@ This package is all about flatpak, but it also contains "just files" that you ca
 
 **Start and quit GIMP after you installed before you continue!**
 
-### Prepare the Flatpak environment
-
-*If you have previously had GIMP installed via .deb, .rpm, etc., please ensure you delete the directory `$HOME/.config/GIMP`, as this may cause conflicts with the Flatpak config files.*
-
-1. First of all, you need to have the latest GIMP installed on your system [using Flatpak](https://flatpak.org/setup/)
-2. Install GIMP Flatpak through your AppCenter/Package Manager or terminal:
-   ```flatpak install flathub org.gimp.GIMP```
-
-### Install PhotoGIMP
-
-Inside the .zip file from the [releases page](https://github.com/Diolinux/PhotoGIMP/releases) you’ll find three folders (hidden on non-Windows systems as their names begin with a dot). All of these folders have to be extracted to your `$HOME` folder, overwriting everything if you already have the same files from an older installation.
-
-The file contains these directories:
-
-* `.icons` (which has a new PhotoGIMP icon)
-* `.local` (which contains the personalized .desktop file)
-* `.var` (which contains the flatpak patch customization for GIMP 2.10+)
-
-If you just want the PhotoGIMP customization without changing the original GIMP icon and its name, just extract only the ```.var``` folder to your home directory.
-
-## ⚙ How to Install (others)
-
-Since it’s just files, the only thing you need to do is to copy all the files that reside on a particular folder from this package `/.var/app/org.gimp.GIMP/config/GIMP/3.0` to your GIMP’s configuration folder on each particular system, overriding the existent ones.
-
-**Start and quit GIMP after you installed before you continue!**
-
-The new icon needs to be set manually.
-
-### Ubuntu Snap
-
-Configuration folder: `$HOME/snap/gimp/47/.config/GIMP/3.10/`
-
-### Other Linux or Unix(-like) systems (.deb, .rpm, etc.)
-
-Configuration folder: `$HOME/.config/GIMP/3.10/`
-
-### macOS
-
-Configuration folder: `"$HOME/Library/Application Support/GIMP/3.10/"`
-
-* [Video Tutorial by Davies Media Design on macOS](https://youtu.be/5nXhtaGQs9U)
-
-##### Run bash how to
-
-you can [down](https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/master/install/photogimp_osx.sh) and run the bash script:
-
-```bash
-cd /path/to/download/folder
-sh photogimp_osx.sh
-```
-
-##### Run script (the easy way)
-
-
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/MatthijsKamstra/Mac-setup/master/install/photogimp_osx.sh)"
-```
-
-### Windows
-
-* Download the file [PhotoGIMP.zip](https://github.com/Diolinux/PhotoGIMP/releases)
-* Access the path `.var\app\org.gimp.GIMP\config\GIMP\3.0` from the ZIP, copy the files to the path `%APPDATA%\GIMP\3.0`
-* [Video Tutorial by Davies Media Design on Windows](https://youtu.be/57DNUsf4A-0)
-
 ## Credits
 
 * This project would not be possible without the amazing GIMP team.
-* The Photo in the new Splash is from [Isabella Mariana](https://www.pexels.com/pt-br/@isabella-mariana-1022505)
 * A BIG thanks to all Diolinux’s supporters on [Twitch](https://twitch.tv/Diolinux) and [YouTube](https://youtube.com/Diolinux).
 
 ## Contributors
