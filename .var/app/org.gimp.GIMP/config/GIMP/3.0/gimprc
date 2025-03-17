@@ -1,5 +1,5 @@
 # GIMP gimprc
-# 
+#
 # This is your personal gimprc file.  Any variable defined in this file takes
 # precedence over the value defined in the system-wide gimprc:
 # /app/etc/gimp/3.0/gimprc
@@ -36,7 +36,8 @@
     (padding-mode custom)
     (padding-color
         (color "HSV float" 12 "\363\24\54\77K\12\330\75i\23\365\75" 0))
-    (padding-in-show-all no))
+    (padding-in-show-all no)
+    (fullscreen yes))
 (default-fullscreen-view
     (show-menubar yes)
     (show-statusbar yes)
