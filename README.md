@@ -12,7 +12,7 @@ A patch for optimizing GIMP 3.0+ for Adobe Photoshop users, including features l
 * New icon and Name from custom .desktop file.
 * System Language is now used by default, you can still change in settings if you want.
 
-![PhotoGimp Diolinux Splash Art](./.var/app/org.gimp.GIMP/config/GIMP/3.0/splashes/photogimp-diolinux-splash.png)
+![PhotoGimp Diolinux Splash Art](./.var/app/org.gimp.GIMP/config/GIMP/3.0/splashes/splash-screen-2025-v2.png)
 
 ## 📷 Screenshots
 
