@@ -5,7 +5,6 @@
 A patch for optimizing GIMP 3.0+ for Adobe Photoshop users, including features like:
 
 * Tool organization to mimic the position of Adobe Photoshop;
-* New Python filters installed by default, such as "heal selection";
 * New Splash Screen
 * New default settings to maximize space on the canvas;
 * Shortcuts similar to the ones in Photoshop for Windows, following Adobe’s Documentation;
