@@ -1,6 +1,6 @@
 # 🎨 PhotoGIMP
 
-<img src="./.local/share/icons/icons/hicolor/256x256/256x256.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
+<img src="./.local/share/icons/hicolor/256x256/256x256.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
 
 A patch for optimizing GIMP 3.0+ for Adobe Photoshop users, including features like:
 
