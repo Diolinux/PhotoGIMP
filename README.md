@@ -16,7 +16,7 @@ A patch for optimizing GIMP 3.0+ for Adobe Photoshop users, including features l
 
 ## 📷 Screenshots
 
-![PhotoGimp Screenshot OSX](./screenshots/osx.png)
+![PhotoGimp 3](./screenshots/photogimp_3_-_diolinux.png)
 
 ## ⚙ How to Install (using Flatpak)
 
