@@ -1,0 +1,6 @@
+# GIMP gimp-color-picker-tool options
+
+(foreground
+    (color "HSVA float" 16 "\0\0\0\0d\22P\77\134\354y\77\0\0\200\77" 0))
+
+# end of gimp-color-picker-tool options
