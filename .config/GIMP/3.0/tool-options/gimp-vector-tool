@@ -1,0 +1,9 @@
+# GIMP gimp-vector-tool options
+
+(brush "2. Hardness 050")
+(dynamics "Pressure Size")
+(pattern "Starfield")
+(gradient "Skyline")
+(palette "Standard")
+
+# end of gimp-vector-tool options

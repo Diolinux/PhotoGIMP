@@ -1,0 +1,16 @@
+/* GIMP theme.css
+ *
+ * This file is written on GIMP startup and on every theme change.
+ * It is NOT supposed to be edited manually. Edit your personal
+ * gimp.css file instead (/home/diolinux/.var/app/org.gimp.GIMP/config/GIMP/3.0/gimp.css).
+ */
+
+@import url("file:///app/share/gimp/3.0/themes/Default/gimp-dark.css");
+@import url("file:///app/etc/gimp/3.0/gimp.css");
+
+* { -gtk-icon-style: symbolic; }
+
+/* prefer-dark-theme */
+
+
+/* end of theme.css */

@@ -1,0 +1,10 @@
+# GIMP gimp-heal-tool options
+
+(brush "2. Hardness 050")
+(dynamics "Pressure Size")
+(pattern "Starfield")
+(palette "Standard")
+(brush-size 52)
+(brush-hardness 0.5)
+
+# end of gimp-heal-tool options

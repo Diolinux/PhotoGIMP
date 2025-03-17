@@ -1,0 +1,85 @@
+# GIMP gimprc
+#
+# This is your personal gimprc file.  Any variable defined in this file takes
+# precedence over the value defined in the system-wide gimprc:
+# /app/etc/gimp/3.0/gimprc
+# Most values can be set within GIMP by changing some options in the
+# Preferences dialog.
+
+(language "")
+(config-version "3.0.0")
+(undo-levels 8)
+(undo-preview-size medium)
+(layer-preview-size extra-large)
+(thumbnail-size large)
+(import-raw-plug-in "${gimp_plug_in_dir}/plug-ins/file-raw-placeholder/file-raw-placeholder")
+(monitor-xresolution 140)
+(monitor-yresolution 140)
+(default-view
+    (show-menubar yes)
+    (show-statusbar yes)
+    (show-rulers yes)
+    (show-scrollbars yes)
+    (show-selection yes)
+    (show-layer-boundary no)
+    (show-canvas-boundary no)
+    (show-guides yes)
+    (show-grid no)
+    (show-sample-points yes)
+    (snap-to-guides yes)
+    (snap-to-grid no)
+    (snap-to-canvas yes)
+    (snap-to-path no)
+    (snap-to-bbox no)
+    (snap-to-equidistance no)
+    (padding-mode custom)
+    (padding-color
+        (color "HSV float" 12 "\363\24\54\77K\12\330\75i\23\365\75" 0))
+    (padding-in-show-all no)
+    (fullscreen yes))
+(default-fullscreen-view
+    (show-menubar yes)
+    (show-statusbar yes)
+    (show-rulers yes)
+    (show-scrollbars yes)
+    (show-selection yes)
+    (show-layer-boundary no)
+    (show-canvas-boundary no)
+    (show-guides yes)
+    (show-grid no)
+    (show-sample-points yes)
+    (snap-to-guides yes)
+    (snap-to-grid no)
+    (snap-to-canvas yes)
+    (snap-to-path no)
+    (snap-to-bbox no)
+    (snap-to-equidistance no)
+    (padding-mode custom)
+    (padding-color
+        (color "R'G'B' u8" 3 "\33\33\37" 1536 "\0\0\6\0lcms\4\60\0\0mntrRGB\40XYZ\40\7\350\0\2\0\4\0\26\0\61\0\25acspAPPL\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\366\326\0\1\0\0\0\0\323\55lcms\72\351\350\240Q\325\267\306JC\252\323\203\222\177\6\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\16desc\0\0\1\54\0\0\0\52cprt\0\0\1X\0\0\0\206wtpt\0\0\1\340\0\0\0\24chad\0\0\1\364\0\0\0\54rXYZ\0\0\2\40\0\0\0\24bXYZ\0\0\2\64\0\0\0\24gXYZ\0\0\2H\0\0\0\24rTRC\0\0\2\134\0\0\0\20gTRC\0\0\2\134\0\0\0\20bTRC\0\0\2\134\0\0\0\20chrm\0\0\2l\0\0\0\44meta\0\0\2\220\0\0\2\366dmnd\0\0\5\210\0\0\0Ldmdd\0\0\5\324\0\0\0\52mluc\0\0\0\0\0\0\0\1\0\0\0\14enUS\0\0\0\16\0\0\0\34\0U\0\63\0\62\0J\0\65\0\71\0x\0\0mluc\0\0\0\0\0\0\0\1\0\0\0\14enUS\0\0\0j\0\0\0\34\0T\0h\0i\0s\0\40\0p\0r\0o\0f\0i\0l\0e\0\40\0i\0s\0\40\0f\0r\0e\0e\0\40\0o\0f\0\40\0k\0n\0o\0w\0n\0\40\0c\0o\0p\0y\0r\0i\0g\0h\0t\0\40\0r\0e\0s\0t\0r\0i\0c\0t\0i\0o\0n\0s\0\56\0\0XYZ\40\0\0\0\0\0\0\366\326\0\1\0\0\0\0\323\55sf\63\62\0\0\0\0\0\1\13\267\0\0\5\226\377\377\363V\0\0\7\51\0\0\375\327\377\377\373\266\377\377\375\245\0\0\3\332\0\0\300\366XYZ\40\0\0\0\0\0\0\204\224\0\0\73\355\0\0\0\75XYZ\40\0\0\0\0\0\0\47\345\0\0\21\6\0\0\306NXYZ\40\0\0\0\0\0\0J\135\0\0\263\15\0\0\14\241para\0\0\0\0\0\0\0\0\0\2\63\63chrm\0\0\0\0\0\3\0\0\0\0\257\200\0\0O\200\0\0B\300\0\0\257\200\0\0\46\200\0\0\17\200dict\0\0\0\0\0\0\0\12\0\0\0\20\0\0\0\260\0\0\0\26\0\0\0\306\0\0\0\52\0\0\0\360\0\0\0\24\0\0\1\4\0\0\0\16\0\0\1\22\0\0\0\26\0\0\1\50\0\0\0\24\0\0\1\74\0\0\0\26\0\0\1R\0\0\0\10\0\0\1Z\0\0\0\42\0\0\1\174\0\0\0\60\0\0\1\254\0\0\0\22\0\0\1\276\0\0\0\6\0\0\1\304\0\0\0\24\0\0\1\330\0\0\0\52\0\0\2\2\0\0\0\20\0\0\2\22\0\0\0\100\0\0\2R\0\0\0\26\0\0\2h\0\0\0\10\0\0\2p\0\0\0\42\0\0\2\222\0\0\0d\0C\0M\0F\0\137\0p\0r\0o\0d\0u\0c\0t\0g\0n\0o\0m\0e\0\55\0s\0e\0t\0t\0i\0n\0g\0s\0\55\0d\0a\0e\0m\0o\0n\0E\0D\0I\0D\0\137\0m\0o\0d\0e\0l\0U\0\63\0\62\0J\0\65\0\71\0x\0E\0D\0I\0D\0\137\0s\0e\0r\0i\0a\0l\0H\0\64\0Z\0R\0A\0\60\0\60\0\61\0\71\0\64\0D\0A\0T\0A\0\137\0s\0o\0u\0r\0c\0e\0e\0d\0i\0d\0E\0D\0I\0D\0\137\0m\0a\0n\0u\0f\0a\0c\0t\0u\0r\0e\0r\0S\0a\0m\0s\0u\0n\0g\0\40\0E\0l\0e\0c\0t\0r\0i\0c\0\40\0C\0o\0m\0p\0a\0n\0y\0E\0D\0I\0D\0\137\0m\0n\0f\0t\0S\0A\0M\0C\0M\0F\0\137\0b\0i\0n\0a\0r\0y\0g\0n\0o\0m\0e\0\55\0s\0e\0t\0t\0i\0n\0g\0s\0\55\0d\0a\0e\0m\0o\0n\0E\0D\0I\0D\0\137\0m\0d\0\65\0\60\0\65\0\65\0e\0\66\0\61\0e\0d\0a\0\64\0\64\0c\0\66\0\71\0\63\0b\0\71\0d\0\71\0b\0f\0\71\0f\0e\0\70\0\62\0f\0\67\0\67\0\65\0\66\0\63\0C\0M\0F\0\137\0v\0e\0r\0s\0i\0o\0n\0\64\0\62\0\56\0\61\0M\0A\0P\0P\0I\0N\0G\0\137\0d\0e\0v\0i\0c\0e\0\137\0i\0d\0x\0r\0a\0n\0d\0r\0\55\0S\0a\0m\0s\0u\0n\0g\0\40\0E\0l\0e\0c\0t\0r\0i\0c\0\40\0C\0o\0m\0p\0a\0n\0y\0\55\0U\0\63\0\62\0J\0\65\0\71\0x\0\55\0H\0\64\0Z\0R\0A\0\60\0\60\0\61\0\71\0\64\0\0mluc\0\0\0\0\0\0\0\1\0\0\0\14enUS\0\0\0\60\0\0\0\34\0S\0a\0m\0s\0u\0n\0g\0\40\0E\0l\0e\0c\0t\0r\0i\0c\0\40\0C\0o\0m\0p\0a\0n\0ymluc\0\0\0\0\0\0\0\1\0\0\0\14enUS\0\0\0\16\0\0\0\34\0U\0\63\0\62\0J\0\65\0\71\0x\0\0"))
+    (padding-in-show-all no))
+(toolbox-foo-area yes)
+(fill-options
+    (style fg-color)
+    (custom-style solid-color)
+    (antialias yes)
+    (feather no)
+    (feather-radius 10))
+(stroke-options
+    (style fg-color)
+    (custom-style solid-color)
+    (antialias yes)
+    (feather no)
+    (feather-radius 10)
+    (method line)
+    (width 6)
+    (unit pixels)
+    (cap-style butt)
+    (join-style miter)
+    (miter-limit 10)
+    (dash-offset 0)
+    (dash-info 0)
+    (emulate-brush-dynamics no))
+
+
+# end of gimprc

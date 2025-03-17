@@ -1,9 +1,0 @@
-# GIMP gimp-ink-tool options
-
-(foreground
-    (color "HSVA float" 16 "\0\0\0\0d\22P\77\134\354y\77\0\0\200\77" 0))
-(pattern "Starfield")
-(brush-size 51)
-(brush-hardness 0.5)
-
-# end of gimp-ink-tool options

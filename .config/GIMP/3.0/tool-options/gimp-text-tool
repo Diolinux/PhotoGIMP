@@ -1,0 +1,6 @@
+# GIMP gimp-text-tool options
+
+(palette "Standard")
+(font "Sans-serif")
+
+# end of gimp-text-tool options
