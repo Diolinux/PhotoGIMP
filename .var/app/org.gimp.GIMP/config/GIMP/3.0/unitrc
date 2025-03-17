@@ -1,0 +1,39 @@
+# GIMP units
+# 
+# This file contains the user unit database. You can edit this list with the
+# unit editor. You are not supposed to edit it manually, but of course you
+# can do.
+# This file will be entirely rewritten each time you exit.
+
+(unit-info "centimeters"
+    (factor 2.54)
+    (digits 2)
+    (symbol "cm")
+    (abbreviation "cm"))
+(unit-info "meters"
+    (factor 0.025399999999999999)
+    (digits 4)
+    (symbol "m")
+    (abbreviation "m"))
+(unit-info "feet"
+    (factor 0.083333000000000004)
+    (digits 4)
+    (symbol "'")
+    (abbreviation "ft"))
+(unit-info "yards"
+    (factor 0.027778000000000001)
+    (digits 4)
+    (symbol "yd")
+    (abbreviation "yd"))
+(unit-info "typogr. points"
+    (factor 72.269999999999996)
+    (digits 0)
+    (symbol "tpt")
+    (abbreviation "tpt"))
+(unit-info "typogr. picas"
+    (factor 6.0225)
+    (digits 1)
+    (symbol "tpc")
+    (abbreviation "tpc"))
+
+# end of units
