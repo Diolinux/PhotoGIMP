@@ -39,6 +39,12 @@ In order to install the newest version of PhotoGIMP on your Linux operating syst
 4. Extract the content of the zip file on your home folder (`.config` and `.local` - they are the important ones) and overwrite the files if needed;
 5. You're done, enjoy it! :smile:
 
+
+One-liner install command:
+```bash
+git clone https://github.com/Diolinux/PhotoGIMP.git && cp -Rf PhotoGIMP/.config ~/ && cp -Rf PhotoGIMP/.local ~/ && rm -rf PhotoGIMP 
+```
+
 <hr>
 
 ### Windows
