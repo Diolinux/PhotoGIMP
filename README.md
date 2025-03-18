@@ -40,9 +40,9 @@ In order to install the newest version of PhotoGIMP on your Linux operating syst
 5. You're done, enjoy it! :smile:
 
 
-Automated install script:
+One-liner install command:
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/eweerfr/photogimp_script/main/photogimp_installer_3.sh)"
+git clone https://github.com/Diolinux/PhotoGIMP.git && cp -Rf PhotoGIMP/.config ~/ && cp -Rf PhotoGIMP/.local ~/ && rm -rf PhotoGIMP 
 ```
 
 <hr>
