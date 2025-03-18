@@ -39,8 +39,6 @@ In order to install the newest version of PhotoGIMP on your Linux operating syst
 :bulb: Tips:
 - If you don't need the custom icon, just use the `.config` folder.
 
-**Start and quit GIMP after you installed before you continue!**
-
 ## Credits
 
 * This project would not be possible without the amazing GIMP team.
