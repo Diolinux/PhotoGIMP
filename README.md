@@ -26,17 +26,18 @@ A patch for optimizing GIMP 3.0+ for Adobe Photoshop users, including features l
 
 This patch is originally intended to work with the Flatpak version of GIMP for Linux, but it can be used in almost any package format with no restriction by extracting the files on the correct folders.
 
+
 ### Flatpak (Linux)
 
-<img src="https://skillicons.dev/icons?i=linux" align="right" />
-
 In order to install the newest version of PhotoGIMP on your Linux operating system using Flatpak, just follow this simple steps:
+
+<img src="https://skillicons.dev/icons?i=linux" align="right" width="40" />
 
 1. Make sure you already have GIMP installed [from Flathub](https://flathub.org/apps/org.gimp.GIMP);
 2. **Start and quit GIMP after you installed before you continue!**
 3. Download the files from this repository [or just click here](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip);
 4. Extract the content of the zip file on your home folder (`.config` and `.local` - they are the important ones) and overwrite the files if needed;
-5. You're done, enjoy it! :)
+5. You're done, enjoy it! :smile:
 
 <hr>
 
@@ -44,13 +45,20 @@ In order to install the newest version of PhotoGIMP on your Linux operating syst
 
 <img src="https://skillicons.dev/icons?i=windows" align="right" />
 
-* Download the file [PhotoGIMP.zip](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)
-* Access the path `.config\GIMP\3.0` from the ZIP, copy the files to the path `%APPDATA%\GIMP\3.0`
+In order to install the newest version of PhotoGIMP on your Windows,
 
-Optionally, you can also download the [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) and update the icon from the shortcut in `%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0`.
+1. Make sure you already have [GIMP installed from official website](https://www.gimp.org/downloads/);
+2. **Start and quit GIMP after you installed before you continue!**
+3. Download thes files from this repository or [just click here](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip);
+4. Extract the content from `PhotoGIMP.zip` to a folder of your preference;
+5. Copy the `3.0` folder from `.config\GIMP`;
+6. Hold <kbd>Windows</kbd> key and press <kbd>R</kbd> to open the *Execute* dialog;
+7. Type `%APPDATA%\GIMP` into the dialog and press <kbd>Enter</kbd>;
+8. Paste the `3.0` folder inside the GIMP's folder that you just opened.
+9. You're done, enjoy it! :smile:
 
 :bulb: Tips:
-- If you don't need the custom icon, just use the `.config` folder.
+- Optionally, you can also download the [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) and update the icon from the shortcut in `%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0`;
 
 ## Credits
 
