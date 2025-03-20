@@ -57,6 +57,13 @@ In order to install the newest version of PhotoGIMP on your Windows,
 8. Paste the `3.0` folder inside the GIMP's folder that you just opened.
 9. You're done, enjoy it! :smile:
 
+Or install via [Chocolatey](https://chocolatey.org/):
+```powershell
+choco install photogimp
+```
+Maintained by: [André Augusto](https://github.com/AndreAugustoDev)
+
+
 :bulb: Tips:
 - Optionally, you can also download the [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) and update the icon from the shortcut in `%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0`;
 
