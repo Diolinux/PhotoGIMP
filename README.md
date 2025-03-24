@@ -60,6 +60,19 @@ In order to install the newest version of PhotoGIMP on your Windows,
 :bulb: Tips:
 - Optionally, you can also download the [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) and update the icon from the shortcut in `%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0`;
 
+### MacOS
+
+In order to install the newest version of PhotoGIMP on your Mac,
+In order to install the newest version of PhotoGIMP on your Windows,
+
+1. Make sure you already have [GIMP installed from official website](https://www.gimp.org/downloads/);
+2. **Start and quit GIMP after you installed before you continue!**
+3. Download thes files from this repository or [just click here](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip);
+4. Extract the content from `PhotoGIMP.zip` to a folder of your preference;
+5. Copy the `3.0` folder to ~/Library/Application Support/GIMP/3.0;
+9. You're done, enjoy it! :smile:
+
+
 ## Credits
 
 * This project would not be possible without the amazing GIMP team.
