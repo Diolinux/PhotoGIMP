@@ -70,7 +70,7 @@ In order to install the newest version of PhotoGIMP on your Windows,
 3. Download thes files from this repository or [just click here](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip);
 4. Extract the content from `PhotoGIMP.zip` to a folder of your preference;
 5. Copy the `3.0` folder to ~/Library/Application Support/GIMP/3.0;
-9. You're done, enjoy it! :smile:
+6. You're done, enjoy it! :smile:
 
 
 ## Credits
