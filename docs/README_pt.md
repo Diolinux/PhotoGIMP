@@ -1,101 +1,94 @@
 # 🎨 PhotoGIMP
 
-<img src="../.local/share/icons/hicolor/256x256/apps/photogimp.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
+<img src="../.local/share/icons/hicolor/256x256/256x256.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
 
-Um patch para otimizar o GIMP 2.10+ para usuários do Adobe Photoshop, incluindo recursos como:
+Um patch para otimizar o GIMP 3.0+ para usuários do Adobe Photoshop, incluindo recursos como:
 
 * Organização de ferramentas para imitar a posição do Adobe Photoshop;
-* Centenas de novas fontes por padrão;
-* Novos filtros Python instalados por padrão, como "heal selection";
 * Nova tela inicial;
 * Novas configurações padrão para maximizar o espaço na tela;
 * Atalhos semelhantes aos do Photoshop para Windows, seguindo a Documentação da Adobe;
-* Novo ícone e nome do arquivo .desktop personalizado;
-* O idioma do sistema agora é usado por padrão, você ainda pode alterar isso nas configurações, se desejar.
+* Novo ícone e nome do arquivo .desktop personalizado.
 
-![PhotoGimp Diolinux Splash Art](../.var/app/org.gimp.GIMP/config/GIMP/2.10/splashes/photogimp-diolinux-splash.png)
+## 📷 Capturas de Tela
 
-**📷 Captura de Tela**
+<p>
+  <img src="../.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
+  <em>PhotoGIMP Diolinux Splash Art</em>
+</p>
 
-![PhotoGimp Screenshot - Editing Google Takeout](../screenshots/2020-06-22_12-06.png)
+<p>
+  <img src="../screenshots/photogimp_3_-_diolinux.png" alt="PhotoGIMP 3">
+  <em>GIMP 3.0 com o patch PhotoGIMP aplicado</em>
+</p>
 
-**🈂 Tenha um grande conjunto de fontes disponíveis a qualquer momento**
+## ⚙ Como Instalar
 
-Mais de 1800 fontes são incluídas por padrão no PhotoGimp para que você possa acelerar seu fluxo de trabalho criativo.
+Este patch foi originalmente desenvolvido para funcionar com a versão Flatpak do GIMP para Linux, mas pode ser usado em quase qualquer formato de pacote sem restrição, extraindo os arquivos nas pastas corretas.
 
-<!-- TODO: Adicionar captura de tela utilizando uma das fontes incluídas. -->
+### Flatpak (Linux)
 
-[Confira todas as fontes incluídas](https://github.com/Diolinux/PhotoGIMP/blob/master/fonts.txt)
+Para instalar a versão mais recente do PhotoGIMP no seu sistema Linux usando Flatpak, siga estes passos simples:
 
-## ⚙ Como instalar (usando Flatpak)
+<img src="https://skillicons.dev/icons?i=linux" align="right" width="40" />
 
-Este pacote é sobre flatpak, mas também contém "apenas arquivos" que você pode usar em qualquer versão do GIMP (.deb, .rpm, Snap, AppImage, Windows, macOS). Basta verificar a localização dos arquivos de configuração do GIMP.
+1. Certifique-se de que você já tem o GIMP instalado [pelo Flathub](https://flathub.org/apps/org.gimp.GIMP);
+2. **Inicie e saia do GIMP após a instalação antes de continuar!**
+3. Baixe os arquivos deste repositório [ou clique aqui](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip);
+4. Extraia o conteúdo do arquivo zip para sua pasta home (`.config` e `.local` - são os importantes) e substitua os arquivos se necessário;
+5. Pronto, aproveite! :smile:
 
-**Inicie e saia do GIMP após a instalação antes de continuar!**
-
-### Prepare o ambiente Flatpak
-
-* Antes de tudo, você precisa ter o GIMP mais recente instalado em seu sistema [usando Flatpak](https://flatpak.org/setup/)
-* Instale o GIMP Flatpak através do seu AppCenter/Gerenciador de Pacotes ou terminal: ```flatpak install flathub org.gimp.GIMP```
-
-### Instale o PhotoGIMP
-
-Dentro do arquivo .zip da [página de lançamentos](https://github.com/Diolinux/PhotoGIMP/releases) você encontrará três pastas (ocultas em sistemas não Windows, pois seus nomes começam com um ponto). Todas essas pastas devem ser extraídas para sua pasta `$HOME`, substituindo tudo se você já tiver os mesmos arquivos de uma instalação mais antiga.
-
-O arquivo contém estes diretórios:
-* `.icons` (que tem um novo ícone do PhotoGIMP)
-* `.local` (que contém o arquivo .desktop personalizado)
-* `.var` (que contém a personalização do patch flatpak para GIMP 2.10+)
-
-Se você deseja apenas a personalização do PhotoGIMP sem alterar o ícone original do GIMP e seu nome, apenas extraia apenas a pasta ```.var``` para o seu diretório home.
-
-## ⚙ Como instalar (outros)
-
-Como são apenas arquivos, a única coisa que você precisa fazer é copiar todos os arquivos que residem em uma pasta específica deste pacote `/.var/app/org.gimp.GIMP/config/GIMP/2.10` para a configuração do seu GIMP pasta em cada sistema em particular, substituindo os existentes.
-
-**Inicie e saia do GIMP após a instalação antes de continuar!**
-
-O novo ícone precisa ser definido manualmente.
-
-### Snap do Ubuntu
-
-Pasta de configuração: `$HOME/snap/gimp/47/.config/GIMP/2.10/`
-
-### Outros sistemas Linux ou Unix(-like) (.deb, .rpm, etc.)
-
-Pasta de configuração: `$HOME/.config/GIMP/2.10/`
-
-### macOS
-
-Pasta de configuração: `"$HOME/Library/Application Support/GIMP/2.10/"`
-
-* [Video Tutorial de Davies Media Design no macOS](https://youtu.be/5nXhtaGQs9U)
-
-Este one-liner fará o trabalho:
-```console
-curl -L https://github.com/Diolinux/PhotoGIMP/releases/download/1.0/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip -o ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip && unzip ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip -d ~/Downloads && cp -R ~/Downloads/PhotoGIMP\ by\ Diolinux\ v2020\ for\ Flatpak/.var/app/org.gimp.GIMP/config/GIMP/2.10/ ~/Library/Application\ Support/GIMP/2.10 && rm ~/Downloads/PhotoGIMP.by.Diolinux.v2020.for.Flatpak.zip
-```
-(baixa a versão 1.0 na pasta `Downloads`, descompacta e copia os arquivos, depois remove o arquivo .zip baixado)
-
-*Aviso*: o GIMP no macOS está um pouco atrasado em seu lançamento. Desta forma, este patch ainda funciona, especialmente na questão dos atalhos, mas algumas coisas, como a organização da caixa de ferramentas, não funcionarão corretamente. Até que a versão do macOS atinja a versão 2.10.20, espere esse comportamento.
+<hr>
 
 ### Windows
 
-Pasta de configuração: `%APPDATA%\GIMP\2.10`
+<img src="https://skillicons.dev/icons?i=windows" align="right" />
 
-* [Tutorial em vídeo para Davies Media Design no Windows](https://youtu.be/57DNUsf4A-0)
+Para instalar a versão mais recente do PhotoGIMP no Windows:
 
-Ou instale via [Chocolatey](https://chocolatey.org/):
-``` powershell
-choco install photogimp
-```
-Mantido por: [André Augusto](https://github.com/AndreAugustoAAQ)
+1. Certifique-se de que você já tem o [GIMP instalado pelo site oficial](https://www.gimp.org/downloads/);
+2. **Inicie e saia do GIMP após a instalação antes de continuar!**
+3. Baixe os arquivos deste repositório ou [clique aqui](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip);
+4. Extraia o conteúdo de `PhotoGIMP.zip` para uma pasta de sua preferência;
+5. Copie a pasta `3.0`;
+6. Pressione a tecla <kbd>Windows</kbd> e <kbd>R</kbd> para abrir o diálogo *Executar*;
+7. Digite `%APPDATA%\GIMP` no diálogo e pressione <kbd>Enter</kbd>;
+8. Cole a pasta `3.0` dentro da pasta do GIMP que você acabou de abrir;
+9. Quando perguntado sobre arquivos existentes, selecione "Substituir os arquivos no destino";
+10. Pronto, aproveite! :smile:
+
+:bulb: Dicas:
+- Opcionalmente, você também pode baixar o [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) e atualizar o ícone do atalho em `%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0`;
+- Se você quiser fazer backup das suas configurações atuais do GIMP antes de instalar o PhotoGIMP, copie toda a pasta `3.0` de `%APPDATA%\GIMP` para um local seguro antes de prosseguir com a instalação.
+
+### macOS
+
+<img src="https://skillicons.dev/icons?i=macos" align="right" />
+
+Para instalar a versão mais recente do PhotoGIMP no seu macOS:
+
+1. Certifique-se de que você já tem o [GIMP instalado pelo site oficial](https://www.gimp.org/downloads/);
+2. **Inicie e saia do GIMP após a instalação antes de continuar!**
+3. Baixe os arquivos deste repositório ou [clique aqui](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip);
+4. Extraia o conteúdo de `PhotoGIMP.zip` para uma pasta de sua preferência;
+5. Copie a pasta `3.0`;
+6. Abra o Finder, pressione <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> para abrir "Ir para a pasta";
+7. Digite `~/Library/Application Support/GIMP` e pressione <kbd>Enter</kbd>;
+8. Se você tiver uma pasta `2.10` de uma instalação anterior, exclua-a para evitar conflitos;
+9. Cole a pasta `3.0` dentro da pasta do GIMP;
+10. Quando perguntado sobre arquivos existentes, selecione "Substituir" ou "Mesclar";
+11. Pronto, aproveite! :smile:
+
+:bulb: Dicas:
+- Se você quiser fazer backup das suas configurações atuais do GIMP antes de instalar o PhotoGIMP, copie toda a pasta GIMP de `~/Library/Application Support/GIMP` para um local seguro antes de prosseguir com a instalação.
 
 ## Créditos
 
 * Este projeto não seria possível sem a incrível equipe do GIMP.
-* A Foto no novo Splash é da [Isabella Mariana](https://www.pexels.com/pt-br/@isabella-mariana-1022505).
-* Muito obrigado a todos os apoiadores do Diolinux no [Twitch](https://twitch.tv/Diolinux) e no [YouTube](https://youtube.com/Diolinux).
+* Um GRANDE obrigado a todos os apoiadores do Diolinux no [YouTube](https://youtube.com/Diolinux).
+* Tela inicial e ícones de [Adriel Filipe Design](https://bento.me/adrielfilipedesign)
 
-## Notas do patch
-- [Veja as Notas de Lançamento em Português](https://diolinux.com.br/2020/06/photogimp-2020.html).
+## Contribuidores
+<a align="center" href="https://github.com/Diolinux/PhotoGIMP/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Diolinux/PhotoGIMP" />
+</a>
