@@ -61,6 +61,27 @@ Aby zainstalować najnowszą wersję PhotoGIMP na Windows:
 - Opcjonalnie możesz również pobrać [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) i zaktualizować ikonę skrótu w `%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0`;
 - Jeśli chcesz wykonać kopię zapasową swoich obecnych ustawień GIMP-a przed instalacją PhotoGIMP, skopiuj cały folder `3.0` z `%APPDATA%\GIMP` w bezpieczne miejsce przed kontynuowaniem instalacji.
 
+### macOS
+
+<img src="https://skillicons.dev/icons?i=macos" align="right" />
+
+Aby zainstalować najnowszą wersję PhotoGIMP na macOS:
+
+1. Upewnij się, że masz już zainstalowany [GIMP ze strony oficjalnej](https://www.gimp.org/downloads/);
+2. **Uruchom i zamknij GIMP-a po instalacji przed kontynuowaniem!**
+3. Pobierz pliki z tego repozytorium lub [kliknij tutaj](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip);
+4. Rozpakuj zawartość pliku `PhotoGIMP.zip` do folderu według własnego wyboru;
+5. Skopiuj folder `3.0`;
+6. Otwórz Finder, naciśnij <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>, aby otworzyć "Idź do folderu";
+7. Wpisz `~/Library/Application Support/GIMP` i naciśnij <kbd>Enter</kbd>;
+8. Jeśli masz folder `2.10` z poprzedniej instalacji, usuń go, aby uniknąć konfliktów;
+9. Wklej folder `3.0` do folderu GIMP;
+10. Gdy pojawi się pytanie o istniejące pliki, wybierz "Zastąp" lub "Scal";
+11. Gotowe, ciesz się! :smile:
+
+:bulb: Wskazówki:
+- Jeśli chcesz wykonać kopię zapasową swoich obecnych ustawień GIMP-a przed instalacją PhotoGIMP, skopiuj cały folder GIMP z `~/Library/Application Support/GIMP` w bezpieczne miejsce przed kontynuowaniem instalacji.
+
 ## Podziękowania
 
 * Ten projekt nie byłby możliwy bez wspaniałego zespołu GIMP-a.
