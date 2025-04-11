@@ -1,7 +1,6 @@
 # 🎨 PhotoGIMP
 
 <img src="./.local/share/icons/hicolor/256x256/256x256.png" align="right" alt="PhotoGimp application icon" title="PhotoGimp application icon">
-
 A patch for optimizing GIMP 3.0+ for Adobe Photoshop users, including features like:
 
 * Tool organization to mimic the position of Adobe Photoshop;
@@ -13,12 +12,11 @@ A patch for optimizing GIMP 3.0+ for Adobe Photoshop users, including features l
 ## 📷 Screenshots
 
 <p>
-  <img src="./.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
+  <img src="./.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art"><br>
   <em>PhotoGIMP Diolinux Splash Art</em>
 </p>
-
 <p>
-  <img src="./screenshots/photogimp_3_-_diolinux.png" alt="PhotoGIMP 3">
+  <img src="./screenshots/photogimp_3_-_diolinux.png" alt="PhotoGIMP 3"><br>
   <em>GIMP 3.0 with the PhotoGIMP patch applied</em>
 </p>
 
@@ -26,12 +24,10 @@ A patch for optimizing GIMP 3.0+ for Adobe Photoshop users, including features l
 
 This patch is originally intended to work with the Flatpak version of GIMP for Linux, but it can be used in almost any package format with no restriction by extracting the files on the correct folders.
 
-
 ### Flatpak (Linux)
 
-In order to install the newest version of PhotoGIMP on your Linux operating system using Flatpak, just follow this simple steps:
-
 <img src="https://skillicons.dev/icons?i=linux" align="right" width="40" />
+In order to install the newest version of PhotoGIMP on your Linux operating system using Flatpak, just follow this simple steps:
 
 1. Make sure you already have GIMP installed [from Flathub](https://flathub.org/apps/org.gimp.GIMP);
 2. **Start and quit GIMP after you installed before you continue!**
@@ -39,12 +35,9 @@ In order to install the newest version of PhotoGIMP on your Linux operating syst
 4. Extract the content of the zip file on your home folder (`.config` and `.local` - they are the important ones) and overwrite the files if needed;
 5. You're done, enjoy it! :smile:
 
-<hr>
-
 ### Windows
 
 <img src="https://skillicons.dev/icons?i=windows" align="right" />
-
 In order to install the newest version of PhotoGIMP on your Windows:
 
 1. Make sure you already have [GIMP installed from official website](https://www.gimp.org/downloads/);
@@ -59,20 +52,21 @@ In order to install the newest version of PhotoGIMP on your Windows:
 10. You're done, enjoy it! :smile:
 
 Or install via [Chocolatey](https://chocolatey.org/):
+
 ```powershell
 choco install photogimp
 ```
+
 Maintained by: [André Augusto](https://github.com/AndreAugustoDev)
 
-
 :bulb: Tips:
-- Optionally, you can also download the [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) and update the icon from the shortcut in `%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0`;
-- If you want to backup your current GIMP settings before installing PhotoGIMP, copy the entire `3.0` folder from `%APPDATA%\GIMP` to a safe location before proceeding with the installation.
+
+* Optionally, you can also download the [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) and update the icon from the shortcut in `%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0`;
+* If you want to backup your current GIMP settings before installing PhotoGIMP, copy the entire `3.0` folder from `%APPDATA%\GIMP` to a safe location before proceeding with the installation.
 
 ### macOS
 
-<img src="https://skillicons.dev/icons?i=macos" align="right" />
-
+<img src="https://skillicons.dev/icons?i=apple" align="right" />
 In order to install the newest version of PhotoGIMP on your macOS:
 
 1. Make sure you already have [GIMP installed from official website](https://www.gimp.org/downloads/);
@@ -88,7 +82,8 @@ In order to install the newest version of PhotoGIMP on your macOS:
 11. You're done, enjoy it! :smile:
 
 :bulb: Tips:
-- If you want to backup your current GIMP settings before installing PhotoGIMP, copy the entire GIMP folder from `~/Library/Application Support/GIMP` to a safe location before proceeding with the installation.
+
+* If you want to backup your current GIMP settings before installing PhotoGIMP, copy the entire GIMP folder from `~/Library/Application Support/GIMP` to a safe location before proceeding with the installation.
 
 ## Credits
 
@@ -97,6 +92,7 @@ In order to install the newest version of PhotoGIMP on your macOS:
 * Splash screen & icons from [Adriel Filipe Design](https://bento.me/adrielfilipedesign)
 
 ## Contributors
+
 <a align="center" href="https://github.com/Diolinux/PhotoGIMP/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Diolinux/PhotoGIMP" />
 </a>
