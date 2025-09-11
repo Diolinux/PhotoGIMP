@@ -77,15 +77,13 @@ In order to install the newest version of PhotoGIMP on your macOS:
 
 1. Make sure you already have [GIMP installed from official website](https://www.gimp.org/downloads/);
 2. **Start and quit GIMP after you installed before you continue!**
-3. Download the files from this repository or [just click here](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip);
-4. Extract the content from `PhotoGIMP.zip` to a folder of your preference;
-5. Copy the `3.0` folder;
-6. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to open "Go to Folder";
-7. Type `~/Library/Application Support/GIMP` and press <kbd>Enter</kbd>;
-8. If you have a `2.10` folder from a previous installation, delete it to avoid conflicts;
-9. Paste the `3.0` folder inside the GIMP folder;
-10. When prompted about existing files, select "Replace" or "Merge";
-11. You're done, enjoy it! :smile:
+3. Run the command in terminal:
+
+```bash
+curl -L https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip -o PhotoGIMP.zip && unzip -o PhotoGIMP.zip && rm -rf ~/Library/Application\ Support/GIMP/2.10 ~/Library/Application\ Support/GIMP/3.0 && cp -R ./3.0 ~/Library/Application\ Support/GIMP/3.0 && rm -rf ./3.0 ./PhotoGIMP.zip
+```
+
+4. You're done, enjoy it! :smile:
 
 :bulb: Tips:
 - If you want to backup your current GIMP settings before installing PhotoGIMP, copy the entire GIMP folder from `~/Library/Application Support/GIMP` to a safe location before proceeding with the installation.
