@@ -25,12 +25,12 @@
 ## 📷 Скриншоты
 
 <p>
-  <img src="./.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
+  <img src="../.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
   <em>PhotoGIMP Diolinux Splash Art</em>
 </p>
 
 <p>
-  <img src="./screenshots/photogimp_3_-_diolinux.png" alt="PhotoGIMP 3">
+  <img src="../screenshots/photogimp_3_-_diolinux.png" alt="PhotoGIMP 3">
   <em>GIMP 3.0 с примененным патчем PhotoGIMP</em>
 </p>
 
