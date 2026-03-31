@@ -228,6 +228,9 @@ Or restore your backup by pasting the backed-up folder back.
 
 ## ❓ Troubleshooting / FAQ
 
+> [!CAUTION]
+> **PhotoGIMP does not have an official website.** The only official source for the project is its GitHub repository: https://github.com/Diolinux/PhotoGIMP/
+
 <details>
 <summary><strong>PhotoGIMP didn't change anything — GIMP looks the same</strong></summary>
 
