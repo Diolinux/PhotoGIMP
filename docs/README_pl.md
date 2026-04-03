@@ -287,6 +287,7 @@ Ten README jest dostępny w innych językach:
 
 - 🇬🇧 [English (Angielski)](../README.md)
 - 🇧🇷 [Português (Portugalski)](./README_pt.md)
+- 🇮🇹 [Italiano (Włoski)](./README_it.md)
 
 Chcesz dodać swój język? Zrób fork repozytorium, utwórz plik `docs/README_xx.md` i wyślij pull request!
 

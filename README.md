@@ -290,6 +290,7 @@ This README is available in other languages:
 
 - 🇧🇷 [Português (Brazilian Portuguese)](./docs/README_pt.md)
 - 🇵🇱 [Polski (Polish)](./docs/README_pl.md)
+- 🇮🇹 [Italiano (Italian)](./docs/README_it.md)
 
 Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
 
