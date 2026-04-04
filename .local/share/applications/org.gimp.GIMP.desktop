@@ -176,3 +176,4 @@ Keywords[tr]=GIMP;PhotoGIMP;grafik;tasarım;örnekleme;boyama;illüstrasyon;resi
 Keywords[uk]=GIMP;PhotoGIMP;graphic;design;illustration;painting;гімп;ґімп;графіка;дизайн;ілюстрації;малювання;
 Keywords[zh_CN]=GIMP;PhotoGIMP;图形;设计;绘画;graphic;design;illustration;painting;
 StartupNotify=true
+StartupWMClass=gimp-3.0
