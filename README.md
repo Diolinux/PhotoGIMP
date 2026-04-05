@@ -138,11 +138,6 @@ Maintained by: [André Augusto](https://github.com/AndreAugustoDev)
 
 ---
 
-:bulb: Tips:
-- Optionally, you can also download the [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) and update the icon for the GIMP 3.x.x shortcut in `%appdata%\Microsoft\Windows\Start Menu\Programs\`. On Windows 11 the path will likely be `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\` instead;
-
-- If you want to backup your current GIMP settings before installing PhotoGIMP, copy the entire `3.0` folder from `%APPDATA%\GIMP` to a safe location before proceeding with the installation.
-
 ### 🍎 macOS
 
 <img src="https://skillicons.dev/icons?i=macos" align="right" />
