@@ -228,6 +228,9 @@ Or restore your backup by pasting the backed-up folder back.
 
 ## ❓ Troubleshooting / FAQ
 
+> [!CAUTION]
+> **PhotoGIMP does not have an official website.** The only official source for the project is its GitHub repository: https://github.com/Diolinux/PhotoGIMP/
+
 <details>
 <summary><strong>PhotoGIMP didn't change anything — GIMP looks the same</strong></summary>
 
@@ -287,6 +290,7 @@ This README is available in other languages:
 
 - 🇧🇷 [Português (Brazilian Portuguese)](./docs/README_pt.md)
 - 🇵🇱 [Polski (Polish)](./docs/README_pl.md)
+- 🇷🇺 [Русский (Russian)](./docs/README_ru.md)
 
 Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
 
