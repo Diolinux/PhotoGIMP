@@ -285,8 +285,10 @@ Encontrou um bug? Tem uma sugestão? Adoraríamos sua ajuda!
 
 Este README está disponível em outros idiomas:
 
-- 🇬🇧 [English (Inglês)](../README.md)
-- 🇵🇱 [Polski (Polonês)](./README_pl.md)
+- 🇬🇧 [English](../README.md)
+- 🇮🇹 [Italiano](./README_it.md)
+- 🇵🇱 [Polski](./README_pl.md)
+- 🇷🇺 [Русский](./README_ru.md)
 
 Quer adicionar seu idioma? Faça um fork do repositório, crie um arquivo `docs/README_xx.md` e envie um pull request!
 

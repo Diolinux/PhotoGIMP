@@ -286,8 +286,10 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 
 Данный файл README доступен на других языках:
 
-- 🇧🇷 [Português (Brazilian Portuguese)](./docs/README_pt.md)
+- 🇬🇧 [English](../README.md)
+- 🇮🇹 [Italiano](./README_it.md)
 - 🇵🇱 [Polski (Polish)](./docs/README_pl.md)
+- 🇧🇷 [Português (Brazilian Portuguese)](./docs/README_pt.md)
 
 Хотите добавить свой язык? Создайте форк репозитория, создайте в нём файл`docs/README_xx.md` отправьте запрос на слияние!
 
