@@ -11,41 +11,48 @@ CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/3.0"
 
 detect_gimp_config_dir() {
     local config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
-    local base="$config_home/GIMP"
-    local regex='.*/[Gg][Ii][Mm][Pp]/[0-9]+\.[0-9]+'
+    local flatpak_config="$HOME/.var/app/org.gimp.GIMP/config"
+    local regex='.*/[0-9]+\.[0-9]+'
+    local newest
 
-    if [ -d "$base" ]; then
-        local newest
+    # Search native and Flatpak config locations
+    for base in "$config_home/GIMP" "$flatpak_config/GIMP"; do
+        [ -d "$base" ] || continue
         case "$(uname)" in
             Linux)
-                newest=$(find "$base" -maxdepth 1 -type d -regextype posix-egrep -regex "$regex" 2>/dev/null | sort -V | tail -1) ;;
+                newest=$(find "$base" -maxdepth 1 -type d -regextype posix-egrep -regex "$regex" 2>/dev/null | sort -t. -k1,1n -k2,2n | tail -1) ;;
             Darwin|*BSD|DragonFly)
-                newest=$(find -E "$base" -maxdepth 1 -type d -regex "$regex" 2>/dev/null | sort -V | tail -1) ;;
+                newest=$(find -E "$base" -maxdepth 1 -type d -regex "$regex" 2>/dev/null | sort -t. -k1,1n -k2,2n | tail -1) ;;
         esac
         if [ -n "${newest:-}" ]; then
             echo "$newest"
             return
         fi
-    fi
+    done
 
     # Fallback: try to get version from gimp binary
     local version
     for cmd in gimp gimp-3.2 gimp-3.0; do
         if command -v "$cmd" &>/dev/null; then
-            version=$("$cmd" --version 2>/dev/null | grep -oP '\d+\.\d+' | head -1)
-            break
+            version=$("$cmd" --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+' | head -1 || true)
+            [ -n "${version:-}" ] && break
         fi
     done
 
     # Flatpak fallback
     if [ -z "${version:-}" ] && command -v flatpak &>/dev/null; then
-        version=$(flatpak run org.gimp.GIMP --version 2>/dev/null | grep -oP '\d+\.\d+' | head -1 || true)
+        version=$(flatpak run org.gimp.GIMP --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+' | head -1 || true)
     fi
 
     if [ -n "${version:-}" ]; then
-        echo "$base/$version"
+        # Prefer Flatpak path if it exists
+        if [ -d "$flatpak_config/GIMP" ]; then
+            echo "$flatpak_config/GIMP/$version"
+        else
+            echo "$config_home/GIMP/$version"
+        fi
     else
-        echo "$base/3.0"
+        echo "$config_home/GIMP/3.0"
     fi
 }
 
