@@ -33,14 +33,14 @@ detect_gimp_config_dir() {
     # Fallback: try to get version from gimp binary
     local version
     for cmd in gimp gimp-3.2 gimp-3.0; do
-        if command -v "$cmd" >/dev/null 2>&1; then
+        if command -v "$cmd" >/dev/null; then
             version=$("$cmd" --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+' | head -1 || true)
             [ -n "${version:-}" ] && break
         fi
     done
 
     # Flatpak fallback
-    if [ -z "${version:-}" ] && command -v flatpak >/dev/null 2>&1; then
+    if [ -z "${version:-}" ] && command -v flatpak >/dev/null; then
         version=$(flatpak run org.gimp.GIMP --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+' | head -1 || true)
     fi
 
