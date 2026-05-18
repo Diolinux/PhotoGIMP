@@ -8,7 +8,7 @@
 
 **PhotoGIMP** é um patch gratuito e mantido pela comunidade que transforma o [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) em um layout familiar para usuários do **Adobe Photoshop**. Se você está migrando do Photoshop para o GIMP e quer se sentir em casa imediatamente, o PhotoGIMP é para você.
 
-> **Novo no GIMP?** O GIMP é um editor de imagens gratuito e de código aberto disponível para Linux, macOS e Windows. Ele pode fazer quase tudo que o Photoshop faz — retoque de fotos, composição de imagens, design gráfico e muito mais — tudo de graça. O PhotoGIMP apenas faz com que ele *pareça e funcione* mais como o Photoshop.
+> **Novo no GIMP?** O GIMP é um editor de imagens gratuito e de código aberto disponível para Linux, macOS e Windows. Ele pode fazer quase tudo que o Photoshop faz — retoque de fotos, composição de imagens, design gráfico e muito mais — tudo de graça. O PhotoGIMP apenas faz com que ele _pareça e funcione_ mais como o Photoshop.
 
 ---
 
@@ -40,9 +40,9 @@
 
 Antes de instalar o PhotoGIMP, certifique-se de que você tem:
 
-| Requisito | Detalhes |
-|---|---|
-| **GIMP 3.0 ou mais recente** | Baixe em: [gimp.org](https://www.gimp.org/downloads/) ou [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux) |
+| Requisito                              | Detalhes                                                                                                                                                            |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **GIMP 3.0 ou mais recente**           | Baixe em: [gimp.org](https://www.gimp.org/downloads/) ou [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux)                                                  |
 | **Executar o GIMP pelo menos uma vez** | O GIMP precisa gerar seus arquivos de configuração antes que o PhotoGIMP possa sobrescrevê-los. **Instale o GIMP → abra-o → feche-o → depois instale o PhotoGIMP.** |
 
 ---
@@ -73,15 +73,16 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 3. Baixe a versão mais recente:
    👉 **[Baixar PhotoGIMP para Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
 4. Extraia o arquivo `.zip` **na sua pasta pessoal** (`~`).
-   - Isso colocará arquivos em `~/.config` e `~/.local`, que são pastas ocultas.
-   - Para ver pastas ocultas no seu gerenciador de arquivos, pressione <kbd>Ctrl</kbd> + <kbd>H</kbd>.
-   - Quando perguntado sobre arquivos existentes, escolha **"Substituir"** ou **"Sobrescrever"**.
+    - Isso colocará arquivos em `~/.config` e `~/.local`, que são pastas ocultas.
+    - Para ver pastas ocultas no seu gerenciador de arquivos, pressione <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+    - Quando perguntado sobre arquivos existentes, escolha **"Substituir"** ou **"Sobrescrever"**.
 5. Abra o GIMP — você deverá ver o novo layout do PhotoGIMP! 🎉
 
 <details>
 <summary><strong>💡 Usando um GIMP que não é Flatpak?</strong></summary>
 
 Se você instalou o GIMP pelo gerenciador de pacotes da sua distribuição (apt, dnf, pacman, etc.) em vez do Flatpak, a pasta de configuração está no mesmo local (`~/.config/GIMP/3.0`), então os passos acima ainda funcionam. Apenas certifique-se de que você tem o GIMP versão 3.0 ou mais recente.
+
 </details>
 
 ---
@@ -122,6 +123,7 @@ Você também pode baixar o [photogimp.ico](https://github.com/Diolinux/PhotoGIM
 ```
 
 Clique com o botão direito no atalho → **Propriedades** → **Alterar Ícone** → navegue até o arquivo `.ico` baixado.
+
 </details>
 
 <details>
@@ -134,6 +136,7 @@ choco install photogimp
 ```
 
 Mantido por: [André Augusto](https://github.com/AndreAugustoDev)
+
 </details>
 
 ---
@@ -171,19 +174,20 @@ Se você deseja manter suas configurações atuais do GIMP, faça o backup prime
 
 O PhotoGIMP substitui ou adiciona os seguintes arquivos no diretório de configuração do GIMP:
 
-| Arquivo / Pasta | O que faz |
-|---|---|
-| `shortcutsrc` | Atalhos de teclado mapeados para corresponder ao Photoshop |
-| `toolrc` | Configuração e ordenação de ferramentas |
-| `sessionrc` | Layout de janelas e posições de painéis |
-| `dockrc` | Configuração de painéis / docks |
-| `gimprc` | Preferências gerais do GIMP (canvas, grade, etc.) |
-| `contextrc` | Configurações de ferramenta/cor ativas |
-| `splashes/` | Tela inicial personalizada do PhotoGIMP |
-| `theme.css` | Pequenos ajustes no tema da interface |
-| `templaterc` | Modelos de canvas pré-definidos |
+| Arquivo / Pasta | O que faz                                                  |
+| --------------- | ---------------------------------------------------------- |
+| `shortcutsrc`   | Atalhos de teclado mapeados para corresponder ao Photoshop |
+| `toolrc`        | Configuração e ordenação de ferramentas                    |
+| `sessionrc`     | Layout de janelas e posições de painéis                    |
+| `dockrc`        | Configuração de painéis / docks                            |
+| `gimprc`        | Preferências gerais do GIMP (canvas, grade, etc.)          |
+| `contextrc`     | Configurações de ferramenta/cor ativas                     |
+| `splashes/`     | Tela inicial personalizada do PhotoGIMP                    |
+| `theme.css`     | Pequenos ajustes no tema da interface                      |
+| `templaterc`    | Modelos de canvas pré-definidos                            |
 
 No Linux, o patch também instala:
+
 - Um arquivo `.desktop` personalizado (lançador com nome e ícone do PhotoGIMP)
 - Um ícone personalizado em `~/.local/share/icons/`
 
@@ -236,37 +240,41 @@ Ou restaure seu backup colando a pasta de volta.
 - **Windows**: A pasta `3.0` deve estar **dentro** de `%APPDATA%\GIMP`, não ao lado dela.
 - **macOS**: A pasta `3.0` deve estar **dentro** de `~/Library/Application Support/GIMP`.
 - Você **fechou o GIMP** antes de colar os arquivos? O GIMP pode sobrescrever as configurações recebidas ao sair.
-</details>
+  </details>
 
 <details>
 <summary><strong>Recebo um erro ao abrir o GIMP depois de instalar o PhotoGIMP</strong></summary>
 
 - Isso geralmente significa que a versão do GIMP não corresponde. O PhotoGIMP é feito para o **GIMP 3.0+**. Se você está usando o GIMP 2.x, não será compatível.
 - Tente excluir a pasta de configuração e reinstalar — veja a seção [Como Desinstalar](#-como-desinstalar).
-</details>
+  </details>
 
 <details>
 <summary><strong>Posso usar o PhotoGIMP com o GIMP 2.10?</strong></summary>
 
 Não. Esta versão do PhotoGIMP foi projetada exclusivamente para o **GIMP 3.0 e mais recente**. O formato de configuração mudou significativamente entre o GIMP 2.x e 3.x.
+
 </details>
 
 <details>
 <summary><strong>O PhotoGIMP vai apagar meus pincéis, fontes ou plug-ins personalizados?</strong></summary>
 
 Não. O PhotoGIMP substitui apenas arquivos de configuração (atalhos, layout, preferências). Seus pincéis, fontes, gradientes e plug-ins pessoais permanecem intocados.
+
 </details>
 
 <details>
 <summary><strong>Posso personalizar os atalhos depois de instalar o PhotoGIMP?</strong></summary>
 
 Com certeza! O PhotoGIMP apenas define um ponto de partida. Você pode alterar qualquer atalho no GIMP em **Editar → Atalhos de Teclado**.
+
 </details>
 
 <details>
 <summary><strong>Como atualizo o PhotoGIMP para uma nova versão?</strong></summary>
 
 Basta baixar a versão mais recente e seguir os passos de instalação novamente — isso sobrescreverá a configuração anterior do PhotoGIMP.
+
 </details>
 
 ---
@@ -285,10 +293,11 @@ Encontrou um bug? Tem uma sugestão? Adoraríamos sua ajuda!
 
 Este README está disponível em outros idiomas:
 
-- 🇬🇧 [English](../README.md)
-- 🇮🇹 [Italiano](./README_it.md)
-- 🇵🇱 [Polski](./README_pl.md)
-- 🇷🇺 [Русский](./README_ru.md)
+- 🇬🇧 [English (Inglês)](../README.md)
+- 🇮🇹 [Italiano (Italiano)](./README_it.md)
+- 🇵🇱 [Polski (Polonês)](./README_pl.md)
+- 🇷🇺 [Русский (Russo)](./README_ru.md)
+- 🇪🇸 [Español (Espanhol)](./README_es.md)
 
 Quer adicionar seu idioma? Faça um fork do repositório, crie um arquivo `docs/README_xx.md` e envie um pull request!
 
