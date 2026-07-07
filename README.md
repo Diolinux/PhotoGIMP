@@ -292,6 +292,7 @@ This README is available in other languages:
 - 🇵🇱 [Polski (Polish)](./docs/README_pl.md)
 - 🇧🇷 [Português (Brazilian Portuguese)](./docs/README_pt.md)
 - 🇷🇺 [Русский (Russian)](./docs/README_ru.md)
+- 🇮🇱 [עברית (Hebrew)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)
 
 Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
 
