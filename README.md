@@ -157,13 +157,30 @@ If you want to keep your current GIMP settings, back them up first:
 3. Download the latest release:
    👉 **[Download PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
-5. Open the extracted folder and **copy the `3.0` folder**.
-6. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to open "Go to Folder".
-7. Type `~/Library/Application Support/GIMP` and press <kbd>Enter</kbd>.
-8. If you see a `2.10` folder from a previous installation, **delete it** to avoid conflicts.
-9. **Paste** the `3.0` folder inside the GIMP folder.
-10. When prompted about existing files, select **"Replace"** or **"Merge"**.
-11. Open GIMP — you should see the new PhotoGIMP layout! 🎉
+5. Open Terminal and copy the PhotoGIMP files with `rsync`, replacing `/path/to/extracted/3.0/` with the extracted `3.0` folder location:
+
+   ```bash
+   rsync -av --ignore-times /path/to/extracted/3.0/ ~/Library/Application\ Support/GIMP/3.0/
+   ```
+
+   Make sure both paths end with `/`.
+6. If your installed GIMP uses a different version folder, change the destination to match it (for example, use `~/Library/Application\ Support/GIMP/3.2/` for GIMP 3.2).
+7. If you see a `2.10` folder from a previous installation, **delete it** to avoid conflicts.
+8. Open GIMP — you should see the new PhotoGIMP layout! 🎉
+
+<details>
+<summary><strong>Alternative: install with Finder</strong></summary>
+
+Finder's **"Merge"** option can silently skip existing files, so the PhotoGIMP customizations may not apply even if the splash screen changes. If that happens, use the `rsync` command above.
+
+1. Open the extracted folder and **copy the `3.0` folder**.
+2. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to open "Go to Folder".
+3. Type `~/Library/Application Support/GIMP` and press <kbd>Enter</kbd>.
+4. If you see a `2.10` folder from a previous installation, **delete it** to avoid conflicts.
+5. **Paste** the `3.0` folder inside the GIMP folder.
+6. When prompted about existing files, select **"Replace"** or **"Merge"**.
+
+</details>
 
 ---
 
