@@ -8,7 +8,7 @@
 
 **PhotoGIMP** è una patch gratuita, sviluppata dalla community, che trasforma [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) in un'interfaccia familiare per gli utenti di **Adobe Photoshop**. Se stai passando da Photoshop a GIMP e vuoi sentirti subito a casa, PhotoGIMP fa al caso tuo.
 
-> **Nuovo su GIMP?** GIMP è un editor di immagini gratuito e open source disponibile per Linux, macOS e Windows. Può fare gran parte di ciò che fa Photoshop: fotoritocco, composizione di immagini, grafica e molto altro, tutto gratis. PhotoGIMP lo rende solo *più simile a Photoshop* nell'aspetto e nell'esperienza d'uso.
+> **Nuovo su GIMP?** GIMP è un editor di immagini gratuito e open source disponibile per Linux, macOS e Windows. Può fare gran parte di ciò che fa Photoshop: fotoritocco, composizione di immagini, grafica e molto altro, tutto gratis. PhotoGIMP lo rende solo _più simile a Photoshop_ nell'aspetto e nell'esperienza d'uso.
 
 ---
 
@@ -40,9 +40,9 @@
 
 Prima di installare PhotoGIMP, assicurati di avere:
 
-| Requisito | Dettagli |
-|---|---|
-| **GIMP 3.0 o successivo** | Scaricalo da: [gimp.org](https://www.gimp.org/downloads/) o [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux) |
+| Requisito                       | Dettagli                                                                                                                                              |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **GIMP 3.0 o successivo**       | Scaricalo da: [gimp.org](https://www.gimp.org/downloads/) o [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux)                                 |
 | **Avvia GIMP almeno una volta** | GIMP deve generare i file di configurazione prima che PhotoGIMP possa sovrascriverli. **Installa GIMP → aprilo → chiudilo → poi installa PhotoGIMP.** |
 
 ---
@@ -73,15 +73,16 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 3. Scarica l'ultima release:
    👉 **[Scarica PhotoGIMP per Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
 4. Estrai il file `.zip` **nella tua cartella home** (`~`).
-   - In questo modo i file verranno copiati in `~/.config` e `~/.local`, che sono cartelle nascoste.
-   - Per vedere le cartelle nascoste nel file manager, premi <kbd>Ctrl</kbd> + <kbd>H</kbd>.
-   - Quando richiesto sui file esistenti, scegli **"Sostituisci"** o **"Sovrascrivi"**.
+    - In questo modo i file verranno copiati in `~/.config` e `~/.local`, che sono cartelle nascoste.
+    - Per vedere le cartelle nascoste nel file manager, premi <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+    - Quando richiesto sui file esistenti, scegli **"Sostituisci"** o **"Sovrascrivi"**.
 5. Apri GIMP: dovresti vedere il nuovo layout di PhotoGIMP. 🎉
 
 <details>
 <summary><strong>💡 Usi GIMP non installato da Flatpak?</strong></summary>
 
 Se hai installato GIMP dal package manager della tua distribuzione (apt, dnf, pacman, ecc.) invece di Flatpak, la cartella di configurazione è nello stesso percorso (`~/.config/GIMP/3.0`), quindi i passaggi sopra funzionano ugualmente. Assicurati solo di usare GIMP 3.0 o successivo.
+
 </details>
 
 ---
@@ -122,6 +123,7 @@ Puoi anche scaricare [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/relea
 ```
 
 Clic destro sul collegamento → **Proprietà** → **Cambia icona** → seleziona il file `.ico` scaricato.
+
 </details>
 
 <details>
@@ -134,6 +136,7 @@ choco install photogimp
 ```
 
 Mantenuto da: [André Augusto](https://github.com/AndreAugustoDev)
+
 </details>
 
 ---
@@ -171,19 +174,20 @@ Se vuoi mantenere le impostazioni attuali di GIMP, esegui prima un backup:
 
 PhotoGIMP sostituisce o aggiunge i seguenti file nella directory di configurazione di GIMP:
 
-| File / Cartella | Cosa fa |
-|---|---|
-| `shortcutsrc` | Scorciatoie da tastiera mappate per assomigliare a Photoshop |
-| `toolrc` | Configurazione e ordinamento degli strumenti |
-| `sessionrc` | Layout delle finestre e posizione dei pannelli |
-| `dockrc` | Configurazione dei dock / pannelli |
-| `gimprc` | Preferenze generali di GIMP (canvas, griglia, ecc.) |
-| `contextrc` | Impostazioni del contesto attivo (strumento/colore) |
-| `splashes/` | Splash screen personalizzate PhotoGIMP |
-| `theme.css` | Piccole regolazioni al tema dell'interfaccia |
-| `templaterc` | Modelli di canvas predefiniti |
+| File / Cartella | Cosa fa                                                      |
+| --------------- | ------------------------------------------------------------ |
+| `shortcutsrc`   | Scorciatoie da tastiera mappate per assomigliare a Photoshop |
+| `toolrc`        | Configurazione e ordinamento degli strumenti                 |
+| `sessionrc`     | Layout delle finestre e posizione dei pannelli               |
+| `dockrc`        | Configurazione dei dock / pannelli                           |
+| `gimprc`        | Preferenze generali di GIMP (canvas, griglia, ecc.)          |
+| `contextrc`     | Impostazioni del contesto attivo (strumento/colore)          |
+| `splashes/`     | Splash screen personalizzate PhotoGIMP                       |
+| `theme.css`     | Piccole regolazioni al tema dell'interfaccia                 |
+| `templaterc`    | Modelli di canvas predefiniti                                |
 
 Su Linux, la patch installa anche:
+
 - Un file `.desktop` personalizzato (launcher con nome e icona PhotoGIMP)
 - Un'icona applicazione personalizzata in `~/.local/share/icons/`
 
@@ -239,37 +243,41 @@ Oppure ripristina il backup incollando di nuovo la cartella salvata.
 - **Windows**: la cartella `3.0` deve trovarsi dentro `%APPDATA%\GIMP`, non accanto.
 - **macOS**: la cartella `3.0` deve trovarsi dentro `~/Library/Application Support/GIMP`.
 - Hai **chiuso GIMP** prima di incollare i file? In uscita, GIMP può sovrascrivere le impostazioni appena copiate.
-</details>
+    </details>
 
 <details>
 <summary><strong>Ricevo un errore quando apro GIMP dopo aver installato PhotoGIMP</strong></summary>
 
 - Di solito significa che la versione di GIMP non è compatibile. PhotoGIMP è pensato per **GIMP 3.0+**. Se stai usando GIMP 2.x, non funzionerà.
 - Prova a eliminare la cartella di configurazione e reinstallare: vedi la sezione [Come Disinstallare](#-come-disinstallare).
-</details>
+    </details>
 
 <details>
 <summary><strong>Posso usare PhotoGIMP con GIMP 2.10?</strong></summary>
 
 No. Questa versione di PhotoGIMP è progettata esclusivamente per **GIMP 3.0 e versioni successive**. Il formato di configurazione è cambiato in modo significativo tra GIMP 2.x e 3.x.
+
 </details>
 
 <details>
 <summary><strong>PhotoGIMP eliminerà pennelli, font o plug-in personalizzati?</strong></summary>
 
 No. PhotoGIMP sostituisce solo i file di configurazione (scorciatoie, layout, preferenze). I tuoi pennelli, font, gradienti e plug-in personali non vengono toccati.
+
 </details>
 
 <details>
 <summary><strong>Posso personalizzare le scorciatoie dopo l'installazione di PhotoGIMP?</strong></summary>
 
 Assolutamente sì. PhotoGIMP imposta solo un punto di partenza. Puoi modificare qualsiasi scorciatoia in GIMP da **Modifica → Scorciatoie da Tastiera**.
+
 </details>
 
 <details>
 <summary><strong>Come aggiorno PhotoGIMP a una nuova versione?</strong></summary>
 
 Scarica semplicemente l'ultima release e segui di nuovo i passaggi di installazione: la configurazione precedente di PhotoGIMP verrà sovrascritta.
+
 </details>
 
 ---
@@ -288,10 +296,11 @@ Hai trovato un bug? Hai un suggerimento? Il tuo aiuto è benvenuto.
 
 This README is available in other languages:
 
-- 🇬🇧 [English](../README.md)
-- 🇵🇱 [Polski (Polish)](./README_pl.md)
-- 🇧🇷 [Português (Brazilian Portuguese)](./README_pt.md)
-- 🇷🇺 [Русский (Russian)](./README_ru.md)
+- 🇬🇧 [English (Inglese)](../README.md)
+- 🇵🇱 [Polski (Polacco)](./README_pl.md)
+- 🇧🇷 [Português (Portoghese brasiliano)](./README_pt.md)
+- 🇷🇺 [Русский (Russo)](./README_ru.md)
+- 🇪🇸 [Español (Spagnolo)](./README_es.md)
 
 Vuoi aggiungere la tua lingua? Fai un fork del repository, crea un file `docs/README_xx.md` e invia una pull request.
 
