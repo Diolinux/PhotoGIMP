@@ -315,6 +315,7 @@ This README is available in other languages:
 
 - 🇮🇹 [Italiano (Italian)](./docs/README_it.md)
 - 🇵🇱 [Polski (Polish)](./docs/README_pl.md)
+- 🇺🇦 [Українська (Ukrainian)](./docs/README_ua.md)
 - 🇧🇷 [Português (Brazilian Portuguese)](./docs/README_pt.md)
 - 🇷🇺 [Русский (Russian)](./docs/README_ru.md)
 - 🇪🇸 [Español (Spanish)](./docs/README_es.md)
