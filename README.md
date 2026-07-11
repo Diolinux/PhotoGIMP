@@ -24,15 +24,9 @@
 
 ## 📷 Screenshots
 
-<p>
-  <img src="./.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
-  <em>PhotoGIMP Diolinux Splash Art</em>
-</p>
-
-<p>
-  <img src="./screenshots/photogimp_3_-_diolinux.png" alt="PhotoGIMP 3">
-  <em>GIMP 3.0 with the PhotoGIMP patch applied</em>
-</p>
+| Splash Screen | Application Window |
+|-|-|
+| ![[PhotoGIMP Diolinux splash screen]](./.config/GIMP/3.0/splashes/splash-screen-2025-v2.png)<br>PhotoGIMP Diolinux splash screen | ![[PhotoGIMP 3]](./screenshots/photogimp_3_-_diolinux.png)<br>PhotoGIMP 3
 
 ---
 
@@ -161,12 +155,35 @@ If you want to keep your current GIMP settings, back them up first:
    👉 **[Download PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
 5. Open the extracted folder and **copy the `3.0` folder**.
-6. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to open "Go to Folder".
+6. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to
+   open "Go to Folder".
 7. Type `~/Library/Application Support/GIMP` and press <kbd>Enter</kbd>.
-8. If you see a `2.10` folder from a previous installation, **delete it** to avoid conflicts.
+8. If you see a `2.10` folder from a previous installation, **delete it** to
+   avoid conflicts.
 9. **Paste** the `3.0` folder inside the GIMP folder.
 10. When prompted about existing files, select **"Replace"** or **"Merge"**.
 11. Open GIMP — you should see the new PhotoGIMP layout! 🎉
+
+<details>
+<summary><strong>Alternative: install with Terminal</strong></summary>
+
+If Finder's **"Merge"** option silently skips existing files, or if you prefer
+the command line, you can copy the PhotoGIMP files with `rsync`.
+
+1. Open Terminal.
+2. Run `rsync`, replacing `/path/to/extracted/3.0/` with the extracted `3.0`
+   folder location:
+
+   ```bash
+   rsync -av --ignore-times /path/to/extracted/3.0/ ~/Library/Application\ Support/GIMP/3.0/
+   ```
+
+   Make sure both paths end with `/`.
+3. If your installed GIMP uses a different version folder, change the
+   destination to match it (for example, use
+   `~/Library/Application\ Support/GIMP/3.2/` for GIMP 3.2).
+
+</details>
 
 ---
 
@@ -301,6 +318,9 @@ This README is available in other languages:
 - 🇧🇷 [Português (Brazilian Portuguese)](./docs/README_pt.md)
 - 🇷🇺 [Русский (Russian)](./docs/README_ru.md)
 - 🇪🇸 [Español (Spanish)](./docs/README_es.md)
+- 🇮🇱 [עברית (Hebrew)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)
+- 🇰🇷 [Korean (한국어)](./docs/README_ko.md)
+- 🇨🇳 [简体中文 (Simplified Chinese)](./docs/README_zh.md)
 
 Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
 
