@@ -292,6 +292,7 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 
 - 🇮🇹 [Italiano (איטלקית)](./README_it.md)
 - 🇵🇱 [Polski (פולנית)](./README_pl.md)
+- 🇺🇦 [Українська (אוקראינית)](./README_ua.md)
 - 🇧🇷 [Português (פורטוגזית ברזילאית)](./README_pt.md)
 - 🇷🇺 [Русский (רוסית)](./README_ru.md)
 - 🇮🇱 [עברית (Hebrew)](./README_he.md)

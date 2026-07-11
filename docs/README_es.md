@@ -266,6 +266,7 @@ Este README está disponible en otros idiomas:
 
 - 🇬🇧 [English (Inglés)](../README.md)
 - 🇮🇹 [Italiano (Italiano)](./README_it.md)
+- 🇺🇦 [Українська (Ucraniano)](./README_ua.md)
 - 🇵🇱 [Polski (Polaco)](./README_pl.md)
 - 🇧🇷 [Português (Portugués brasileño)](./README_pt.md)
 - 🇷🇺 [Русский (Ruso)](./README_ru.md)

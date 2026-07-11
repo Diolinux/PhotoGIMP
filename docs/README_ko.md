@@ -289,6 +289,7 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 - 🇰🇷 [Korean (한국어)](./docs/README_ko.md)
 - 🇧🇷 [Português (브라질 포르투칼어)](./docs/README_pt.md)
 - 🇵🇱 [Polski (폴란드어)](./docs/README_pl.md)
+- 🇺🇦 [Українська (우크라이나어)](./README_ua.md)
 - 🇷🇺 [Русский (러시아어)](./docs/README_ru.md)
 
 언어를 추가하시겠습니까? 레포를 포크하고 `docs/README_xx.md` 파일을 만든 다음 풀 요청을 제출하세요!

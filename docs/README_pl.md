@@ -294,6 +294,7 @@ Znalazłeś błąd? Masz sugestię? Chętnie przyjmiemy Twoją pomoc!
 Ten README jest dostępny w innych językach:
 
 - 🇬🇧 [English (Angielski)](../README.md)
+- 🇺🇦 [Українська (Ukraiński)](./README_ua.md)
 - 🇮🇹 [Italiano (Włoski)](./README_it.md)
 - 🇧🇷 [Português (Portugalski brazylijski)](./README_pt.md)
 - 🇷🇺 [Русский (Rosyjski)](./README_ru.md)
