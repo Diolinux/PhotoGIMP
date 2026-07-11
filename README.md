@@ -309,6 +309,7 @@ This README is available in other languages:
 - 🇵🇱 [Polski (Polish)](./docs/README_pl.md)
 - 🇧🇷 [Português (Brazilian Portuguese)](./docs/README_pt.md)
 - 🇷🇺 [Русский (Russian)](./docs/README_ru.md)
+- 🇮🇱 [עברית (Hebrew)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)
 - 🇰🇷 [Korean (한국어)](./docs/README_ko.md)
 - 🇨🇳 [简体中文 (Simplified Chinese)](./docs/README_zh.md)
 
