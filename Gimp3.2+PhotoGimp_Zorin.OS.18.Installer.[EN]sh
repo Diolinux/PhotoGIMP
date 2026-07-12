@@ -1,0 +1,93 @@
+# Create the script
+cat > ~/install_photogimp.sh << 'EOF'
+#!/bin/bash
+# Script to install PhotoGIMP on GIMP 3.2 (Zorin OS)
+
+echo "=========================================="
+echo "  PhotoGIMP Installer for GIMP 3.2"
+echo "=========================================="
+echo ""
+
+ZIP_FILE="$HOME/Transferências/PhotoGIMP-master.zip"
+
+if [ ! -f "$ZIP_FILE" ]; then
+    echo "❌ ERROR: PhotoGIMP-master.zip file not found!"
+    echo "   Expected location: $ZIP_FILE"
+    echo ""
+    echo "Please download the file from:"
+    echo "https://github.com/Diolinux/PhotoGIMP"
+    echo ""
+    exit 1
+fi
+
+echo "✅ ZIP file found: $ZIP_FILE"
+echo ""
+
+if ! command -v gimp &> /dev/null; then
+    echo "❌ ERROR: GIMP is not installed!"
+    echo "   Install with: sudo apt install gimp"
+    echo ""
+    exit 1
+fi
+
+echo "✅ GIMP installed: $(gimp --version | head -1)"
+echo ""
+
+echo "🔒 Closing GIMP (if running)..."
+pkill -f gimp 2>/dev/null
+sleep 2
+
+echo "📦 Extracting files..."
+cd /tmp
+rm -rf /tmp/photogimp
+unzip -q "$ZIP_FILE" -d /tmp/photogimp/
+
+if [ $? -ne 0 ]; then
+    echo "❌ ERROR: Failed to extract ZIP file!"
+    exit 1
+fi
+echo "✅ Extraction complete!"
+echo ""
+
+echo "📂 Copying PhotoGIMP configurations..."
+mkdir -p ~/.config/GIMP/3.2/
+cp -rf /tmp/photogimp/PhotoGIMP-master/.config/GIMP/3.0/* ~/.config/GIMP/3.2/
+
+if [ $? -ne 0 ]; then
+    echo "❌ ERROR: Failed to copy configurations!"
+    exit 1
+fi
+echo "✅ Configurations copied!"
+
+echo "🖼️  Copying icons..."
+cp -rf /tmp/photogimp/PhotoGIMP-master/.local/share/* ~/.local/share/
+echo "✅ Icons copied!"
+
+echo "🔄 Updating application menu..."
+update-desktop-database ~/.local/share/applications/ 2>/dev/null
+echo "✅ Menu updated!"
+
+echo "🧹 Clearing GIMP cache..."
+rm -rf ~/.cache/gimp*
+echo "✅ Cache cleared!"
+
+rm -rf /tmp/photogimp
+
+echo ""
+echo "=========================================="
+echo "✅ INSTALLATION COMPLETED SUCCESSFULLY!"
+echo "=========================================="
+echo ""
+echo "📌 To open GIMP:"
+echo "   gimp"
+echo "   or search for it in the applications menu"
+echo ""
+echo "📌 Test the Ctrl+J shortcut to duplicate layers"
+echo "=========================================="
+EOF
+
+# Give permission
+chmod +x ~/install_photogimp.sh
+
+echo "✅ Script created at: ~/install_photogimp.sh"
+echo "   To use: ~/install_photogimp.sh"
