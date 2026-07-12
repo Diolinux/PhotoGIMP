@@ -1,6 +1,6 @@
 # 🎨 PhotoGIMP
 
-<img src="./.local/share/icons/hicolor/256x256/256x256.png" align="right" alt="PhotoGIMP application icon" title="PhotoGIMP application icon">
+<img src="../.local/share/icons/hicolor/256x256/256x256.png" align="right" alt="PhotoGIMP application icon" title="PhotoGIMP application icon">
 
 [![GitHub stars](https://img.shields.io/github/stars/Diolinux/PhotoGIMP?style=social)](https://github.com/Diolinux/PhotoGIMP)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
@@ -25,12 +25,12 @@
 ## 📷 Знімки екрану
 
 <p>
-  <img src="./.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
+  <img src="../.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
   <em>PhotoGIMP Diolinux Splash Art</em>
 </p>
 
 <p>
-  <img src="./screenshots/photogimp_3_-_diolinux.png" alt="PhotoGIMP 3">
+  <img src="../screenshots/photogimp_3_-_diolinux.png" alt="PhotoGIMP 3">
   <em>GIMP 3.0 із застосованим патчем PhotoGIMP</em>
 </p>
 
