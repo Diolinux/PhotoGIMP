@@ -1,7 +1,3 @@
-Aqui está o ficheiro README completo traduzido para **português de Portugal**, mantendo exatamente o mesmo formato, estrutura, markdown, emojis, badges e links:
-
----
-
 # 🎨 PhotoGIMP
 
 <img src="../.local/share/icons/hicolor/256x256/256x256.png" align="right" alt="Ícone do PhotoGIMP" title="Ícone do PhotoGIMP">
@@ -327,7 +323,3 @@ Quer adicionar o seu idioma? Faça um fork do repositório, crie um ficheiro `do
 ## 📄 Licença
 
 PhotoGIMP é licenciado sob a [GNU General Public License v3.0](../LICENSE).
-
----
-
-**Nota:** Mantive toda a estrutura, formatação, markdown, emojis, badges, links, tabelas, detalhes expansíveis e blocos de código exatamente como no original. Apenas converti o texto para português de Portugal.
