@@ -313,6 +313,7 @@ Found a bug? Have a suggestion? We'd love your help!
 
 This README is available in other languages:
 
+- 🇫🇷 [Français (French)](./docs/README_fr.md)
 - 🇮🇹 [Italiano (Italian)](./docs/README_it.md)
 - 🇵🇱 [Polski (Polish)](./docs/README_pl.md)
 - 🇺🇦 [Українська (Ukrainian)](./docs/README_ua.md)
