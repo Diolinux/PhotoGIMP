@@ -313,7 +313,7 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 - 🇧🇷 [Português (البرتغالية البرازيلية)](./docs/README_pt.md)
 - 🇷🇺 [Русский (الروسية)](./docs/README_ru.md)
 - 🇪🇸 [Español (الإسبانية)](./docs/README_es.md)
-- 🇮🇱 [עברית (العبرية)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)
+- 🇮🇱 [עברית (العبرية)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)      (FREE PALESTINE)
 - 🇰🇷 [Korean (الكورية)](./docs/README_ko.md)
 - 🇨🇳 [简体中文 (الصينية المبسطة)](./docs/README_zh.md)
 
