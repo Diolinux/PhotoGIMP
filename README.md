@@ -6,7 +6,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
-**PhotoGIMP** هو حزمة تعديل (patch) مجانية ومجتمعية تحوّل واجهة [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) إلى تخطيط مألوف لمستخدمي **Adobe Photoshop**. إذا كنت تنتقل من Photoshop إلى GIMP وتريد الشعور بالراحة والاعتياد فوراً، فإن PhotoGIMP مصمم لأجلك.
+**PhotoGIMP** > **جديد على GIMP؟** برنامج GIMP هو محرر صور مجاني ومفتوح المصدر متاح لأنظمة Linux و macOS و Windows. يمكنه القيام بأغلب المهام التي يقدمها Photoshop — من تعديل الصور، والتركيب، والتصميم الجرافيكي، وغير ذلك الكثير — وكل ذلك مجاناً. يقوم PhotoGIMP فقط بجعله _يبدو ويتصرف_ بشكل أقرب إلى Photoshop.
 
 > **جديد على GIMP؟** برنامج GIMP هو محرر صور مجاني ومفتوح المصدر متاح لأنظمة Linux و macOS و Windows. يمكنه القيام بصلب ما يفعله Photoshop — من تعديل الصور، والتركيب، والتصميم الجرافيكي، وغير ذلك الكثير — وكل ذلك مجاناً. يقوم PhotoGIMP فقط بجعله _يبدو ويتصرف_ بشكل أقرب إلى Photoshop.
 
