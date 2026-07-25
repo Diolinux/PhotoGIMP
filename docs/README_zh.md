@@ -165,6 +165,23 @@ choco install photogimp
 10. 当提示覆盖已有文件时，选择 **"Replace"** 或 **"Merge"**。
 11. 打开 GIMP——你应该看到全新的 PhotoGIMP 布局了！🎉
 
+<details>
+<summary><strong>替代方式：通过终端安装</strong></summary>
+
+如果 Finder 的 **「Merge」** 选项会静默跳过已有文件，或者你更喜欢命令行，可以使用 `rsync` 来复制 PhotoGIMP 文件。
+
+1. 打开终端（Terminal）。
+2. 执行 `rsync`，将 `/path/to/extracted/3.0/` 替换为你解压后的 `3.0` 文件夹位置：
+
+   ```bash
+   rsync -av --ignore-times /path/to/extracted/3.0/ ~/Library/Application\ Support/GIMP/3.0/
+   ```
+
+   请确保两个路径结尾都有 `/`。
+3. 如果你安装的 GIMP 使用不同的版本文件夹，请将目标路径改为对应版本（例如若为 GIMP 3.2，则使用 `~/Library/Application\ Support/GIMP/3.2/`）。
+
+</details>
+
 ---
 
 ## 📦 补丁内容说明
@@ -288,11 +305,16 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 
 本 README 提供以下语言的版本：
 
-- 🇮🇹 [Italiano（意大利语）](./docs/README_it.md)
-- 🇵🇱 [Polski（波兰语）](./docs/README_pl.md)
-- 🇧🇷 [Português（巴西葡萄牙语）](./docs/README_pt.md)
-- 🇷🇺 [Русский（俄语）](./docs/README_ru.md)
+- 🇮🇹 [Italiano (意大利文)](./docs/README_it.md)
+- 🇵🇱 [Polski (波兰语)](./docs/README_pl.md)
+- 🇺🇦 [Українська (乌克兰语)](./docs/README_ua.md)
+- 🇧🇷 [Português (巴西葡萄牙语)](./docs/README_pt.md)
+- 🇷🇺 [Русский (俄罗斯语)](./docs/README_ru.md)
+- 🇪🇸 [Español (西班牙语)](./docs/README_es.md)
+- 🇮🇱 [עברית (希伯来语)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)
+- 🇰🇷 [Korean (韩文)](./docs/README_ko.md)
 - 🇨🇳 [简体中文](./docs/README_zh.md)
+- 🇹🇼 [繁体中文（台湾）](./docs/README_zh-TW.md)
 
 想要添加你的语言？Fork 本仓库，创建 `docs/README_xx.md` 文件，然后提交 Pull Request！
 
