@@ -49,15 +49,6 @@ detect_gimp() {
     return 1
 }
 
-# --- Detect StartupWMClass ---
-
-detect_wm_class() {
-    local config_dir="$1"
-    local version
-    version=$(basename "$config_dir")  # e.g. "3.2"
-    echo "gimp-$version"
-}
-
 # --- Main ---
 
 echo "PhotoGIMP Installer"
@@ -97,13 +88,11 @@ if [ "$GIMP_SOURCE" = "flatpak" ]; then
     DESKTOP_SRC="$SCRIPT_DIR/.local/share/applications/org.gimp.GIMP.desktop"
     DESKTOP_DST="$HOME/.local/share/applications/org.gimp.GIMP.desktop"
 
-    # Install desktop file with correct WMClass
+    # Install desktop file
     if [ -f "$DESKTOP_SRC" ]; then
         mkdir -p "$(dirname "$DESKTOP_DST")"
-        WM_CLASS=$(detect_wm_class "$GIMP_CONFIG")
-        sed "s/StartupWMClass=gimp-3\.0/StartupWMClass=$WM_CLASS/" \
-            "$DESKTOP_SRC" > "$DESKTOP_DST"
-        echo "Desktop file installed (StartupWMClass=$WM_CLASS)"
+        cat -- "$DESKTOP_SRC" > "$DESKTOP_DST"
+        echo "Desktop file installed."
     fi
 
     # Install icons
