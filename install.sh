@@ -22,13 +22,14 @@ detect_gimp() {
 		--quit
 	)
 
-    # Ensure flatpak GIMP is actually installed, not just a leftover
+    # Check for flatpak installation
     if command -v flatpak >/dev/null && flatpak info org.gimp.GIMP >/dev/null 2>&1; then
 		GIMP_SOURCE="flatpak"
         GIMP_CONFIG=$(flatpak run org.gimp.GIMP "${gimp_params[@]}" 2>&1 | sed -n 's/^GIMP_CONFIG_DIR=//p')
 		return
     fi
 
+	# Check for native installation
     for cmd in gimp gimp-3.2 gimp-3.0; do
         if command -v "$cmd" >/dev/null; then
             GIMP_SOURCE="native"
