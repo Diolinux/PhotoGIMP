@@ -31,9 +31,6 @@
             (visible yes))
         (GimpToolInfo "gimp-iscissors-tool"
             (icon-name "gimp-tool-iscissors")
-            (visible yes))
-        (GimpToolInfo "gimp-foreground-select-tool"
-            (icon-name "gimp-tool-foreground-select")
             (visible yes))))
 (GimpToolGroup "tool group"
     (visible yes)
@@ -44,13 +41,16 @@
             (visible yes))
         (GimpToolInfo "gimp-by-color-select-tool"
             (icon-name "gimp-tool-by-color-select")
+            (visible yes))
+        (GimpToolInfo "gimp-foreground-select-tool"
+            (icon-name "gimp-tool-foreground-select")
             (visible yes))))
 (GimpToolInfo "gimp-crop-tool"
     (icon-name "gimp-tool-crop")
     (visible yes))
 (GimpToolGroup "tool group"
     (visible yes)
-    (active-tool "gimp-scale-tool")
+    (active-tool "gimp-unified-transform-tool")
     (children
         (GimpToolInfo "gimp-unified-transform-tool"
             (icon-name "gimp-tool-unified-transform")
@@ -78,17 +78,24 @@
             (visible yes))))
 (GimpToolGroup "tool group"
     (visible yes)
-    (active-tool "gimp-color-picker-tool")
+    (active-tool "gimp-warp-tool")
     (children
-        (GimpToolInfo "gimp-color-picker-tool"
-            (icon-name "gimp-tool-color-picker")
+        (GimpToolInfo "gimp-warp-tool"
+            (icon-name "gimp-tool-warp")
             (visible yes))
-        (GimpToolInfo "gimp-measure-tool"
-            (icon-name "gimp-tool-measure")
+        (GimpToolInfo "gimp-cage-tool"
+            (icon-name "gimp-tool-cage")
             (visible yes))))
-(GimpToolInfo "gimp-heal-tool"
-    (icon-name "gimp-tool-heal")
-    (visible yes))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-bucket-fill-tool")
+    (children
+        (GimpToolInfo "gimp-bucket-fill-tool"
+            (icon-name "gimp-tool-bucket-fill")
+            (visible yes))
+        (GimpToolInfo "gimp-gradient-tool"
+            (icon-name "gimp-tool-gradient")
+            (visible yes))))
 (GimpToolGroup "tool group"
     (visible yes)
     (active-tool "gimp-paintbrush-tool")
@@ -108,6 +115,9 @@
         (GimpToolInfo "gimp-mypaint-brush-tool"
             (icon-name "gimp-tool-mypaint-brush")
             (visible yes))))
+(GimpToolInfo "gimp-eraser-tool"
+    (icon-name "gimp-tool-eraser")
+    (visible yes))
 (GimpToolGroup "tool group"
     (visible yes)
     (active-tool "gimp-clone-tool")
@@ -119,47 +129,41 @@
             (icon-name "gimp-tool-perspective-clone")
             (visible yes))))
 (GimpToolGroup "tool group"
-    (visible no)
-    (active-tool "gimp-warp-tool")
+    (visible yes)
+    (active-tool "gimp-heal-tool")
     (children
-        (GimpToolInfo "gimp-warp-tool"
-            (icon-name "gimp-tool-warp")
-            (visible yes))
-        (GimpToolInfo "gimp-cage-tool"
-            (icon-name "gimp-tool-cage")
+        (GimpToolInfo "gimp-heal-tool"
+            (icon-name "gimp-tool-heal")
             (visible yes))))
-(GimpToolInfo "gimp-eraser-tool"
-    (icon-name "gimp-tool-eraser")
-    (visible yes))
 (GimpToolGroup "tool group"
     (visible yes)
-    (active-tool "gimp-gradient-tool")
+    (active-tool "gimp-smudge-tool")
     (children
-        (GimpToolInfo "gimp-bucket-fill-tool"
-            (icon-name "gimp-tool-bucket-fill")
-            (visible yes))
-        (GimpToolInfo "gimp-gradient-tool"
-            (icon-name "gimp-tool-gradient")
-            (visible yes))))
-(GimpToolInfo "gimp-convolve-tool"
-    (icon-name "gimp-tool-blur")
-    (visible yes))
-(GimpToolGroup "tool group"
-    (visible yes)
-    (active-tool "gimp-dodge-burn-tool")
-    (children
-        (GimpToolInfo "gimp-dodge-burn-tool"
-            (icon-name "gimp-tool-dodge")
-            (visible yes))
         (GimpToolInfo "gimp-smudge-tool"
             (icon-name "gimp-tool-smudge")
+            (visible yes))
+        (GimpToolInfo "gimp-convolve-tool"
+            (icon-name "gimp-tool-blur")
+            (visible yes))
+        (GimpToolInfo "gimp-dodge-burn-tool"
+            (icon-name "gimp-tool-dodge")
             (visible yes))))
-(GimpToolInfo "gimp-vector-tool"
+(GimpToolInfo "gimp-path-tool"
     (icon-name "gimp-tool-path")
     (visible yes))
 (GimpToolInfo "gimp-text-tool"
     (icon-name "gimp-tool-text")
     (visible yes))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-color-picker-tool")
+    (children
+        (GimpToolInfo "gimp-color-picker-tool"
+            (icon-name "gimp-tool-color-picker")
+            (visible yes))
+        (GimpToolInfo "gimp-measure-tool"
+            (icon-name "gimp-tool-measure")
+            (visible yes))))
 (GimpToolInfo "gimp-zoom-tool"
     (icon-name "gimp-tool-zoom")
     (visible yes))

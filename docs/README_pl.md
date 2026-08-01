@@ -8,7 +8,7 @@
 
 **PhotoGIMP** to darmowa, utrzymywana przez społeczność modyfikacja, która przekształca [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) w układ znany użytkownikom **Adobe Photoshop**. Jeśli przechodzisz z Photoshopa na GIMP i chcesz od razu poczuć się jak w domu, PhotoGIMP jest dla Ciebie.
 
-> **Nowy w GIMP-ie?** GIMP to darmowy edytor graficzny o otwartym kodzie źródłowym, dostępny na Linuxa, macOS i Windows. Potrafi zrobić większość rzeczy, które robi Photoshop — retusz zdjęć, kompozycja obrazów, projektowanie graficzne i wiele więcej — wszystko za darmo. PhotoGIMP sprawia jedynie, że GIMP *wygląda i działa* bardziej jak Photoshop.
+> **Nowy w GIMP-ie?** GIMP to darmowy edytor graficzny o otwartym kodzie źródłowym, dostępny na Linuxa, macOS i Windows. Potrafi zrobić większość rzeczy, które robi Photoshop — retusz zdjęć, kompozycja obrazów, projektowanie graficzne i wiele więcej — wszystko za darmo. PhotoGIMP sprawia jedynie, że GIMP _wygląda i działa_ bardziej jak Photoshop.
 
 ---
 
@@ -40,9 +40,9 @@
 
 Przed zainstalowaniem PhotoGIMP, upewnij się, że masz:
 
-| Wymaganie | Szczegóły |
-|---|---|
-| **GIMP 3.0 lub nowszy** | Pobierz z: [gimp.org](https://www.gimp.org/downloads/) lub [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux) |
+| Wymaganie                        | Szczegóły                                                                                                                                                                |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **GIMP 3.0 lub nowszy**          | Pobierz z: [gimp.org](https://www.gimp.org/downloads/) lub [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux)                                                     |
 | **Uruchom GIMP co najmniej raz** | GIMP musi wygenerować swoje pliki konfiguracyjne zanim PhotoGIMP będzie mógł je nadpisać. **Zainstaluj GIMP → otwórz go → zamknij go → następnie zainstaluj PhotoGIMP.** |
 
 ---
@@ -73,15 +73,16 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 3. Pobierz najnowszą wersję:
    👉 **[Pobierz PhotoGIMP dla Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
 4. Rozpakuj plik `.zip` **do swojego folderu domowego** (`~`).
-   - Umieści to pliki w `~/.config` i `~/.local`, które są folderami ukrytymi.
-   - Aby zobaczyć ukryte foldery w menedżerze plików, naciśnij <kbd>Ctrl</kbd> + <kbd>H</kbd>.
-   - Gdy pojawi się pytanie o istniejące pliki, wybierz **"Zastąp"** lub **"Nadpisz"**.
+    - Umieści to pliki w `~/.config` i `~/.local`, które są folderami ukrytymi.
+    - Aby zobaczyć ukryte foldery w menedżerze plików, naciśnij <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+    - Gdy pojawi się pytanie o istniejące pliki, wybierz **"Zastąp"** lub **"Nadpisz"**.
 5. Otwórz GIMP — powinieneś zobaczyć nowy układ PhotoGIMP! 🎉
 
 <details>
 <summary><strong>💡 Używasz GIMP-a spoza Flatpak?</strong></summary>
 
 Jeśli zainstalowałeś GIMP-a z menedżera pakietów dystrybucji (apt, dnf, pacman, itp.) zamiast z Flatpaka, folder konfiguracyjny znajduje się w tym samym miejscu (`~/.config/GIMP/3.0`), więc powyższe kroki nadal działają. Upewnij się tylko, że masz GIMP w wersji 3.0 lub nowszej.
+
 </details>
 
 ---
@@ -122,6 +123,7 @@ Możesz również pobrać [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/
 ```
 
 Kliknij prawym przyciskiem myszy na skrót → **Właściwości** → **Zmień ikonę** → wskaż pobrany plik `.ico`.
+
 </details>
 
 <details>
@@ -134,6 +136,7 @@ choco install photogimp
 ```
 
 Opiekun pakietu: [André Augusto](https://github.com/AndreAugustoDev)
+
 </details>
 
 ---
@@ -171,19 +174,20 @@ Jeśli chcesz zachować obecne ustawienia GIMP-a, najpierw zrób kopię zapasow�
 
 PhotoGIMP zastępuje lub dodaje następujące pliki w katalogu konfiguracyjnym GIMP-a:
 
-| Plik / Folder | Co robi |
-|---|---|
+| Plik / Folder | Co robi                                                         |
+| ------------- | --------------------------------------------------------------- |
 | `shortcutsrc` | Skróty klawiaturowe zmapowane tak, aby odpowiadały Photoshopowi |
-| `toolrc` | Konfiguracja i kolejność narzędzi |
-| `sessionrc` | Układ okien i pozycje paneli |
-| `dockrc` | Konfiguracja doków / paneli |
-| `gimprc` | Ogólne preferencje GIMP-a (płótno, siatka, itp.) |
-| `contextrc` | Ustawienia aktywnego narzędzia/koloru |
-| `splashes/` | Własny ekran powitalny PhotoGIMP |
-| `theme.css` | Drobne korekty motywu interfejsu |
-| `templaterc` | Predefiniowane szablony płótna |
+| `toolrc`      | Konfiguracja i kolejność narzędzi                               |
+| `sessionrc`   | Układ okien i pozycje paneli                                    |
+| `dockrc`      | Konfiguracja doków / paneli                                     |
+| `gimprc`      | Ogólne preferencje GIMP-a (płótno, siatka, itp.)                |
+| `contextrc`   | Ustawienia aktywnego narzędzia/koloru                           |
+| `splashes/`   | Własny ekran powitalny PhotoGIMP                                |
+| `theme.css`   | Drobne korekty motywu interfejsu                                |
+| `templaterc`  | Predefiniowane szablony płótna                                  |
 
 Na Linuxie patch instaluje również:
+
 - Własny plik `.desktop` (launcher z nazwą i ikoną PhotoGIMP)
 - Własną ikonę aplikacji w `~/.local/share/icons/`
 
@@ -236,37 +240,41 @@ Lub przywróć kopię zapasową, wklejając folder z powrotem.
 - **Windows**: Folder `3.0` musi znajdować się **wewnątrz** `%APPDATA%\GIMP`, nie obok niego.
 - **macOS**: Folder `3.0` musi znajdować się **wewnątrz** `~/Library/Application Support/GIMP`.
 - Czy **zamknąłeś GIMP-a** przed wklejeniem plików? GIMP może nadpisać przychodzące ustawienia przy zamykaniu.
-</details>
+  </details>
 
 <details>
 <summary><strong>Otrzymuję błąd po otwarciu GIMP-a po zainstalowaniu PhotoGIMP</strong></summary>
 
 - To zwykle oznacza, że wersja GIMP-a nie pasuje. PhotoGIMP jest przeznaczony dla **GIMP 3.0+**. Jeśli używasz GIMP 2.x, nie będzie kompatybilny.
 - Spróbuj usunąć folder konfiguracyjny i zainstalować ponownie — zobacz sekcję [Jak Odinstalować](#-jak-odinstalować).
-</details>
+  </details>
 
 <details>
 <summary><strong>Czy mogę używać PhotoGIMP z GIMP 2.10?</strong></summary>
 
 Nie. Ta wersja PhotoGIMP została zaprojektowana wyłącznie dla **GIMP 3.0 i nowszego**. Format konfiguracji zmienił się znacząco między GIMP 2.x a 3.x.
+
 </details>
 
 <details>
 <summary><strong>Czy PhotoGIMP usunie moje własne pędzle, czcionki lub wtyczki?</strong></summary>
 
 Nie. PhotoGIMP zastępuje jedynie pliki konfiguracyjne (skróty, układ, preferencje). Twoje osobiste pędzle, czcionki, gradienty i wtyczki pozostają nietknięte.
+
 </details>
 
 <details>
 <summary><strong>Czy mogę dostosować skróty po zainstalowaniu PhotoGIMP?</strong></summary>
 
 Oczywiście! PhotoGIMP ustawia jedynie punkt wyjścia. Możesz zmienić dowolny skrót w GIMP-ie przez **Edycja → Skróty klawiaturowe**.
+
 </details>
 
 <details>
 <summary><strong>Jak zaktualizować PhotoGIMP do nowej wersji?</strong></summary>
 
 Wystarczy pobrać najnowszą wersję i ponownie wykonać kroki instalacji — nadpisze to poprzednią konfigurację PhotoGIMP.
+
 </details>
 
 ---
@@ -286,7 +294,11 @@ Znalazłeś błąd? Masz sugestię? Chętnie przyjmiemy Twoją pomoc!
 Ten README jest dostępny w innych językach:
 
 - 🇬🇧 [English (Angielski)](../README.md)
-- 🇧🇷 [Português (Portugalski)](./README_pt.md)
+- 🇺🇦 [Українська (Ukraiński)](./README_ua.md)
+- 🇮🇹 [Italiano (Włoski)](./README_it.md)
+- 🇧🇷 [Português (Portugalski brazylijski)](./README_pt.md)
+- 🇷🇺 [Русский (Rosyjski)](./README_ru.md)
+- 🇪🇸 [Español (Hiszpański)](./README_es.md)
 
 Chcesz dodać swój język? Zrób fork repozytorium, utwórz plik `docs/README_xx.md` i wyślij pull request!
 
