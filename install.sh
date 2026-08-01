@@ -11,38 +11,38 @@ CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/3.0"
 
 detect_gimp() {
     local gimp_params=(
-		--no-interface
-		--console-messages
-		--batch-interpreter=plug-in-script-fu-eval
-		--batch
-		'(begin
-			(display "GIMP_CONFIG_DIR=")
-			(display gimp-directory)
-			(newline))'
-		--quit
-	)
+        --no-interface
+        --console-messages
+        --batch-interpreter=plug-in-script-fu-eval
+        --batch
+        '(begin
+            (display "GIMP_CONFIG_DIR=")
+            (display gimp-directory)
+            (newline))'
+        --quit
+    )
 
     # Check for flatpak installation
     if command -v flatpak >/dev/null && flatpak info org.gimp.GIMP >/dev/null 2>&1; then
-		GIMP_SOURCE="flatpak"
+        GIMP_SOURCE="flatpak"
         GIMP_CONFIG=$(
-			set -o pipefail
-			flatpak run org.gimp.GIMP "${gimp_params[@]}" 2>&1 | sed -n 's/^GIMP_CONFIG_DIR=//p'
-		)
+            set -o pipefail
+            flatpak run org.gimp.GIMP "${gimp_params[@]}" 2>&1 | sed -n 's/^GIMP_CONFIG_DIR=//p'
+        )
 
-		return
+        return
     fi
 
-	# Check for native installation
+    # Check for native installation
     for cmd in gimp gimp-3.2 gimp-3.0; do
         if command -v "$cmd" >/dev/null; then
             GIMP_SOURCE="native"
-			GIMP_CONFIG=$(
-				set -o pipefail
-				"$cmd" "${gimp_params[@]}" 2>&1 | sed -n 's/^GIMP_CONFIG_DIR=//p'
-			)
+            GIMP_CONFIG=$(
+                set -o pipefail
+                "$cmd" "${gimp_params[@]}" 2>&1 | sed -n 's/^GIMP_CONFIG_DIR=//p'
+            )
 
-			return
+            return
         fi
     done
 
@@ -97,7 +97,7 @@ if [ "$GIMP_SOURCE" = "flatpak" ]; then
     DESKTOP_SRC="$SCRIPT_DIR/.local/share/applications/org.gimp.GIMP.desktop"
     DESKTOP_DST="$HOME/.local/share/applications/org.gimp.GIMP.desktop"
 
-	# Install desktop file with correct WMClass
+    # Install desktop file with correct WMClass
     if [ -f "$DESKTOP_SRC" ]; then
         mkdir -p "$(dirname "$DESKTOP_DST")"
         WM_CLASS=$(detect_wm_class "$GIMP_CONFIG")
@@ -106,7 +106,7 @@ if [ "$GIMP_SOURCE" = "flatpak" ]; then
         echo "Desktop file installed (StartupWMClass=$WM_CLASS)"
     fi
 
-	# Install icons
+    # Install icons
     if [ -d "$SCRIPT_DIR/.local/share/icons" ]; then
         cp -a "$SCRIPT_DIR/.local/share/icons"/. "$HOME/.local/share/icons"/
         echo "Icons installed."
