@@ -57,6 +57,7 @@ detect_gimp() {
 			GIMP_VERSION=$("$cmd" --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+' | head -1)
 			GIMP_COMMAND="$cmd"
 
+			# If flatpak was also detected then we need to prompt the user, otherwise we're done
 			if [ -n "$flatpak_command" ]; then
 				break
 			fi
@@ -65,6 +66,7 @@ detect_gimp() {
 		fi
 	done
 
+	# If GIMP_SOURCE is not native at this point then no native was detected so flatpak only
 	case "$GIMP_SOURCE" in
 		flatpak)
 			;;
@@ -82,6 +84,7 @@ detect_gimp() {
 					exit 1
 				fi
 
+				# For flatpak, break to set flatpak values, else native is already set so return
 				case "$selection" in
 					""|1) break ;;
 					2) return ;;
@@ -90,9 +93,11 @@ detect_gimp() {
 			done
 			;;
 		*)
+			# Nothing detected return error
 			return 1;;
 	esac
 
+	# Only flatpak was detected or the user selected flatpak
 	GIMP_SOURCE="flatpak"
 	GIMP_CONFIG="$flatpak_config"
 	GIMP_VERSION="$flatpak_version"
