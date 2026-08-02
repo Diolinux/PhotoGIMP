@@ -305,16 +305,17 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 
 本 README 提供以下語言的版本：
 
-- 🇮🇹 [Italiano (義大利文)](./docs/README_it.md)
-- 🇵🇱 [Polski (波蘭語)](./docs/README_pl.md)
-- 🇺🇦 [Українська (烏克蘭語)](./docs/README_ua.md)
-- 🇧🇷 [Português (巴西葡萄牙語)](./docs/README_pt.md)
-- 🇷🇺 [Русский (俄羅斯語)](./docs/README_ru.md)
-- 🇪🇸 [Español (西班牙語)](./docs/README_es.md)
-- 🇮🇱 [עברית (希伯來語)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)
-- 🇰🇷 [Korean (韓文)](./docs/README_ko.md)
-- 🇨🇳 [简体中文 (簡體中文)](./docs/README_zh.md)
-- 🇹🇼 [繁體中文（台灣）](./docs/README_zh-TW.md)
+- 🇬🇧 [English (英文)](../README.md)
+- 🇮🇹 [Italiano (義大利文)](./README_it.md)
+- 🇵🇱 [Polski (波蘭語)](./README_pl.md)
+- 🇺🇦 [Українська (烏克蘭語)](./README_ua.md)
+- 🇧🇷 [Português (巴西葡萄牙語)](./README_pt.md)
+- 🇷🇺 [Русский (俄羅斯語)](./README_ru.md)
+- 🇪🇸 [Español (西班牙語)](./README_es.md)
+- 🇮🇱 [עברית (希伯來語)](./README_he.md)
+- 🇰🇷 [Korean (韓文)](./README_ko.md)
+- 🇨🇳 [简体中文 (簡體中文)](./README_zh.md)
+- 🇹🇼 [繁體中文（台灣）](./README_zh-TW.md)
 
 想要新增你的語言？Fork 本儲存庫，建立 `docs/README_xx.md` 檔案，然後提交 Pull Request！
 
