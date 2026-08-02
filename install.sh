@@ -7,6 +7,12 @@ set -eu
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/3.0"
 
+# Source - https://stackoverflow.com/a/37939589
+# Posted by yairchu, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-08-02, License - CC BY-SA 4.0
+
+function version { echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; }
+
 # --- Detect GIMP installation and config location ---
 
 detect_gimp() {
@@ -30,6 +36,8 @@ detect_gimp() {
             flatpak run org.gimp.GIMP "${gimp_params[@]}" 2>&1 | sed -n 's/^GIMP_CONFIG_DIR=//p'
         )
 
+        GIMP_VERSION=$(flatpak run org.gimp.GIMP --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+' | head -1)
+        GIMP_COMMAND="org.gimp.GIMP"
         return
     fi
 
@@ -42,6 +50,8 @@ detect_gimp() {
                 "$cmd" "${gimp_params[@]}" 2>&1 | sed -n 's/^GIMP_CONFIG_DIR=//p'
             )
 
+            GIMP_VERSION=$("$cmd" --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+' | head -1)
+            GIMP_COMMAND="$cmd"
             return
         fi
     done
@@ -57,10 +67,19 @@ echo "==================="
 # Check that a supported GIMP installation exists and has been run at least once
 GIMP_SOURCE=""
 GIMP_CONFIG=""
+GIMP_VERSION=""
+GIMP_COMMAND=""
 if ! detect_gimp; then
     echo ""
     echo "No supported GIMP 3.x installation was detected."
     echo "Install GIMP 3.x, start it once, then run this script again."
+    exit 1
+fi
+
+if [ $(version $GIMP_VERSION) -lt $(version "3.0") ]; then
+    echo ""
+    echo "Your version of GIMP $GIMP_VERSION is not supported."
+    echo "Please install GIMP 3.x, start it once, then run this script again."
     exit 1
 fi
 
@@ -73,6 +92,26 @@ if [ ! -d "$GIMP_CONFIG" ]; then
     echo "Please start GIMP once, close it, then run this script again."
     exit 1
 fi
+
+# Ensure GIMP isn't currently running before installation
+case "$GIMP_SOURCE" in
+    flatpak)
+        if flatpak ps --columns=application | grep -Fxq -- "$GIMP_COMMAND"; then
+            echo ""
+            echo "GIMP is currently running"
+            echo "Please close GIMP before running the installer"
+            exit 1
+        fi
+        ;;
+    native)
+        if pgrep -x "$GIMP_COMMAND" >/dev/null; then
+            echo ""
+            echo "GIMP is currently running"
+            echo "Please close GIMP before running the installer"
+            exit 1
+        fi
+        ;;
+esac
 
 # Backup existing config
 BACKUP="$GIMP_CONFIG.backup-$(date +%Y%m%d-%H%M%S)"
