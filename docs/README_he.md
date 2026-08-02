@@ -8,6 +8,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+> [!IMPORTANT]
+> תרגום זה שומר על הוראות ההתקנה הידנית של גרסה 3.0. לדרישות העדכניות של **GIMP 3.0.x** ולמתקין הכולל גיבוי ושחזור, עיינו ב-[README הראשי](../README.md) וב-[תיעוד המתקין](../installer/README.md). במקרה של הבדל, המסמכים האלה באנגלית הם המקור העדכני.
+
 **PhotoGIMP** היא הרחבה (patch) חינמית, מבוססת קהילה, שהופכת את [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) לסביבת עבודה שמרגישה מוכרת למשתמשי **Adobe Photoshop**. אם אתם עוברים מ‑Photoshop ל‑GIMP ורוצים להרגיש בבית כבר מהרגע הראשון — PhotoGIMP נוצרה בשבילכם.
 
 > **חדשים ב‑GIMP?** ‏GIMP הוא עורך תמונות חינמי וקוד פתוח, הזמין ל‑Linux, ל‑macOS ול‑Windows. הוא יודע לעשות כמעט כל מה ש‑Photoshop יודע — ריטוש תמונות, הרכבת תמונות, עיצוב גרפי ועוד — והכול בחינם. ‏PhotoGIMP פשוט גורמת לו *להיראות ולהתנהג* יותר כמו Photoshop.

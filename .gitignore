@@ -8,6 +8,10 @@
 # VSCode Files
 .vscode/*
 
+# Python
+__pycache__/
+*.py[cod]
+
 # General
 .DS_Store
 .AppleDouble

@@ -6,6 +6,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+> [!IMPORTANT]
+> 이 번역문은 3.0 릴리스의 수동 설치 지침을 유지합니다. 현재 **GIMP 3.0.x** 요구 사항과 백업 및 복원을 지원하는 설치 프로그램에 대해서는 [기본 README](../README.md)와 [설치 프로그램 문서](../installer/README.md)를 참조하세요. 내용이 다를 경우 해당 영문 문서가 최신 기준입니다.
+
 **PhotoGIMP**는 무료 커뮤니티 기반 패치로 [GIMP](https://www.gimp.org/) (GNU 이미지 조작 프로그램)를 **Adobe Photoshop** 사용자에게 친숙하게 느껴지는 레이아웃으로 변환합니다. Photoshop에서 GIMP로 전환하고 즉시 집에서 편안함을 느끼고 싶다면 PhotoGIMP가 좋습니다.
 
 > **GIMP가 처음이신가요?** GIMP는 Linux, macOS, Windows에서 사용할 수 있는 무료 오픈 소스 이미지 편집기입니다. 사진 보정, 이미지 합성, 그래픽 디자인 등 Photoshop이 할 수 있는 대부분의 작업을 무료로 수행할 수 있습니다 — PhotoGIMP는 Photoshop 처럼 *보이게 하고 더 느낌*을 줍니다.

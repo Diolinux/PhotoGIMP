@@ -6,6 +6,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+> [!IMPORTANT]
+> 本译文保留了 3.0 版的手动安装说明。有关当前的 **GIMP 3.0.x** 要求以及支持备份和恢复的安装程序，请参阅[主 README](../README.md)和[安装程序文档](../installer/README.md)。如有差异，请以这些英文文档中的最新信息为准。
+
 **PhotoGIMP** 是一个由社区驱动的免费补丁，可将 [GIMP](https://www.gimp.org/)（GNU Image Manipulation Program）转变为一套 **Adobe Photoshop** 用户感到熟悉的界面布局。如果你正从 Photoshop 转向 GIMP 并希望快速上手，PhotoGIMP 就是为你准备的。
 
 > **第一次接触 GIMP？** GIMP 是一款免费开源的图像编辑器，适用于 Linux、macOS 和 Windows。Photoshop 能做的，它大部分也能做——照片修饰、图像合成、图形设计等——而且完全免费。PhotoGIMP 只是让它*看起来和用起来*更像 Photoshop。
