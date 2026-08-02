@@ -323,6 +323,7 @@ This README is available in other languages:
 - 🇰🇷 [Korean (한국어)](./docs/README_ko.md)
 - 🇨🇳 [简体中文 (Simplified Chinese)](./docs/README_zh.md)
 - 🇹🇼 [繁體中文（台灣） (Traditional Chinese (Taiwan))](./docs/README_zh-TW.md)
+- 🇨🇿 [Čeština (Czech)](./docs/README_cs.md)
 
 Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
 
