@@ -46,7 +46,7 @@ detect_gimp() {
 	fi
 
 	# Check for native installation
-	for cmd in gimp gimp-3.2 gimp-3.0; do
+	for cmd in gimp-3.2 gimp-3.0 gimp; do
 		if command -v "$cmd" >/dev/null; then
 			GIMP_SOURCE="native"
 			GIMP_CONFIG=$(
