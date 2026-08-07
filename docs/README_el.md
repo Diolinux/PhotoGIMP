@@ -8,7 +8,7 @@
 
 Το **PhotoGIMP** είναι ένα δωρεάν patch που αναπτύσσεται από την κοινότητα και μετατρέπει το [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) σε μια διάταξη που είναι οικία στους χρήστες του **Adobe Photoshop**. Αν μεταβαίνετε από το Photoshop στο GIMP και θέλετε να νιώσετε αμέσως σαν στο σπίτι σας, το PhotoGIMP είναι για εσάς.
 
-> **Είστε νέοι στο GIMP;** GIMP is a free and open-source image editor available for Linux, macOS, and Windows. It can do most things Photoshop can — photo retouching, image composition, graphic design, and more — all for free. PhotoGIMP just makes it _look and feel_ more like Photoshop.
+> **Είστε νέοι στο GIMP;** Το GIMP είναι ένα δωρεάν πρόγραμμα επεξεργασίας εικόνας ανοιχτού κώδικα για Linux, macOS, και Windows. Μπορεί να κάνει τα περισσότερα πράγματα που μπορεί να κάνει και το Photoshop — ρετουσάρισμα φωτογραφιών, σύνθεση εικόνων, γραφιστική και πολλά άλλα — εντελώς δωρεάν. Το PhotoGIMP απλώς το κάνει να _μοιάζει και να λειτουργεί_ περισσότερο σαν το Photoshop.
 
 ---
 
