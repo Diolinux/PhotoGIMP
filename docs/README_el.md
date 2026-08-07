@@ -14,11 +14,11 @@
 
 ## ✨ Χαρακτηριστικά
 
-- **Διάταξη εργαλείων παρόμοια με του Photoshop** — Tools are reorganized to mimic the positions you're used to in Adobe Photoshop.
-- **Προσαρμοσμένη οθόνη έναρξης** — A unique PhotoGIMP splash screen greets you on startup.
-- **Μεγιστοποιημένος χώρος καμβά** — Default settings are optimized to give you the largest possible working area.
-- **Συντομεύσεις πληκτρολογίου Photoshop** — Keyboard shortcuts follow [Adobe's official documentation](https://helpx.adobe.com/photoshop/using/default-keyboard-shortcuts.html) for the Windows version.
-- **Προσαρμοσμένο εικονίδιο και όνομα** — A dedicated `.desktop` file gives PhotoGIMP its own icon and app name in your system menu.
+- **Διάταξη εργαλείων παρόμοια με του Photoshop** — Τα εργαλεία αναδιοργανώνονται ώστε να μιμούνται τις θέσεις που έχετε συνηθίσει στο Adobe Photoshop.
+- **Προσαρμοσμένη οθόνη έναρξης** — Μια μοναδική οθόνη έναρξης του PhotoGIMP εμφανίζεται κατά την εκκίνηση.
+- **Μεγιστοποιημένος χώρος καμβά** — Οι προεπιλεγμένες ρυθμίσεις είναι βελτιστοποιημένες ώστε να παρέχουν τον μεγαλύτερο δυνατό χώρο εργασίας.
+- **Συντομεύσεις πληκτρολογίου Photoshop** — Οι συντομεύσεις πληκτρολογίου ακολουθούν την [επίσημη τεκμηρίωση της Adobe](https://helpx.adobe.com/photoshop/using/default-keyboard-shortcuts.html) για την έκδοση των Windows.
+- **Προσαρμοσμένο εικονίδιο και όνομα** — Ένα ειδικό αρχείο `.desktop` δίνει στο PhotoGIMP το δικό του εικονίδιο και όνομα εφαρμογής στο μενού του συστήματός σας.
 
 ---
 
