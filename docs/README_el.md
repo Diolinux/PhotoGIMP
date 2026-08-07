@@ -36,7 +36,7 @@ Before installing PhotoGIMP, make sure you have:
 
 | Απαίτηση                | Λεπτομέρειες                                                                                                                                      |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **GIMP 3.0 or newer**      | Download from: [gimp.org](https://www.gimp.org/downloads/) or [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux)                      |
+| **GIMP 3.0 ή νεότερη έκδοση**      | Download from: [gimp.org](https://www.gimp.org/downloads/) or [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux)                      |
 | **Run GIMP at least once** | GIMP needs to generate its config files before PhotoGIMP can overwrite them. **Install GIMP → open it → close it → then install PhotoGIMP.** |
 
 ---
