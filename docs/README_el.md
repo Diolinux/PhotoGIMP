@@ -250,16 +250,16 @@ Or restore your backup by pasting the backed-up folder back.
 ## ❓ Αντιμετώπιση Προβλημάτων / Συχνές Ερωτήσεις
 
 > [!ΠΡΟΣΟΧΗ]
-> **PhotoGIMP does not have an official website.** The only official source for the project is its GitHub repository: https://github.com/Diolinux/PhotoGIMP/
+> **Το PhotoGIMP δεν διαθέτει επίσημη ιστοσελίδα.** Η μόνη επίσημη πηγή για το έργο είναι το αποθετήριό του στο GitHub: https://github.com/Diolinux/PhotoGIMP/
 
 <details>
 <summary><strong>PhotoGIMP didn't change anything — GIMP looks the same</strong></summary>
 
-- Make sure you extracted the files to the **correct location**. The most common mistake is extracting to the wrong folder.
-- **Linux**: The `.config` and `.local` folders must be in your home directory (`~`). They are hidden — press <kbd>Ctrl</kbd> + <kbd>H</kbd> in your file manager to see them.
-- **Windows**: The `3.0` folder must be inside `%APPDATA%\GIMP`, not next to it.
-- **macOS**: The `3.0` folder must be inside `~/Library/Application Support/GIMP`.
-- Did you **close GIMP** before pasting the files? GIMP may overwrite incoming settings on exit.
+- Βεβαιωθείτε ότι αποσυμπιέσατε τα αρχέια στη **σωστή θέση**. Το συνηθέστερο λάθος είναι η αποσυσμπίεση στον λάθος φάκελο.
+- **Linux**: Οι φάκελοι `.config` και `.local` πρέπει να βρίσκονται στον προσωπικό σας φάκελο (`~`). Είναι κρυφοί — πατήστε <kbd>Ctrl</kbd> + <kbd>H</kbd> στη διαχείριση αρχεων για να τους εμφανίσετε.
+- **Windows**: Ο φάκελος `3.0` πρέπει να βρίσκεται μέσα στο `%APPDATA%\GIMP` και όχι δίπλα σε αυτόν.
+- **macOS**: Ο φάκελος `3.0` πρέπει να βρίσκεται μέσα στο `~/Library/Application Support/GIMP`.
+- **Κλείσατε το GIMP** πριν επικολλήσετε τα αρχεία; Το GIMP ενδέχεται να αντικαταστήσει τις εισερχόμενες ρυθμίσεις κατά την έξοδό του.
   </details>
 
 <details>
