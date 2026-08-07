@@ -265,19 +265,19 @@ Or restore your backup by pasting the backed-up folder back.
 <details>
 <summary><strong>Λαμβάνω σφάλμα κατά το άνοιγμα του GIMP μετά την εγκατάσταση του PhotoGIMP</strong></summary>
 
-- This usually means the GIMP version doesn't match. PhotoGIMP is built for **GIMP 3.0+**. If you're running GIMP 2.x, it won't be compatible.
-- Try deleting the config folder and reinstalling — see the [How to Uninstall](#-how-to-uninstall) section.
+- Αυτό συνήθως σημαίνει ότι η έκδοση του GIMP δεν ταιριάζει. Το PhotoGIMP έχει σχεδιαστεί για **GIMP 3.0+**. Αν χρησιμοποιείτε GIMP 2.x, δεν θα είναι συμβατό.
+- Δοκιμάστε να διαγράψετε τον φάκελο ρυθμίσεων και να εγκαταστήσετε ξανά το PhotoGIMP — δείτε την ενότητα [Τρόπος εγκατάστασης](#-how-to-uninstall).
   </details>
 
 <details>
 <summary><strong>Μπορώ να χρησιμοποιήσω στο PhotoGIMP με το GIMP 2.10;</strong></summary>
 
-No. This version of PhotoGIMP is designed exclusively for **GIMP 3.0 and newer**. The configuration format changed significantly between GIMP 2.x and 3.x.
+Όχι. Αυτή η έκδοση του PhotoGIMP έχει σχεδιαστεί αποκλειστικά για **GIMP 3.0 και νεότερη έκδοση**. Η μορφή των ρυθμίσεων άλλαξε σημαντικά μεταξύ των GIMP 2.x και 3.x.
 
 </details>
 
 <details>
-<summary><strong>Θα διαγράψει το PhotoGIMP τα προσαρμοσμένα πινέλαν, τις γραμματοσειρές, ή τα πρόσθετά μου;</strong></summary>
+<summary><strong>Θα διαγράψει το PhotoGIMP τα προσαρμοσμένα πινέλα, τις γραμματοσειρές, ή τα πρόσθετά μου;</strong></summary>
 
 Όχι. Το PhotoGIMP ανικαθιστά μόνο αρχεία ρυθμίσεων (συντομεύσεις, διάταξη, προτιμήσεις). Τα προσωπικά σας πινέλα, οι γραμματοσειρές, οι διαβαθμίσεις και τα πρόσθετα παραμένουν ανέπαφα.
 
