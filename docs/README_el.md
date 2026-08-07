@@ -253,7 +253,7 @@ Or restore your backup by pasting the backed-up folder back.
 > **Το PhotoGIMP δεν διαθέτει επίσημη ιστοσελίδα.** Η μόνη επίσημη πηγή για το έργο είναι το αποθετήριό του στο GitHub: https://github.com/Diolinux/PhotoGIMP/
 
 <details>
-<summary><strong>PhotoGIMP didn't change anything — GIMP looks the same</strong></summary>
+<summary><strong>Το PhotoGIMP δεν άλλαξε τίποτα — Το GIMP φαίνεται ίδιο</strong></summary>
 
 - Βεβαιωθείτε ότι αποσυμπιέσατε τα αρχέια στη **σωστή θέση**. Το συνηθέστερο λάθος είναι η αποσυσμπίεση στον λάθος φάκελο.
 - **Linux**: Οι φάκελοι `.config` και `.local` πρέπει να βρίσκονται στον προσωπικό σας φάκελο (`~`). Είναι κρυφοί — πατήστε <kbd>Ctrl</kbd> + <kbd>H</kbd> στη διαχείριση αρχεων για να τους εμφανίσετε.
@@ -263,37 +263,37 @@ Or restore your backup by pasting the backed-up folder back.
   </details>
 
 <details>
-<summary><strong>I get an error when opening GIMP after installing PhotoGIMP</strong></summary>
+<summary><strong>Λαμβάνω σφάλμα κατά το άνοιγμα του GIMP μετά την εγκατάσταση του PhotoGIMP</strong></summary>
 
 - This usually means the GIMP version doesn't match. PhotoGIMP is built for **GIMP 3.0+**. If you're running GIMP 2.x, it won't be compatible.
 - Try deleting the config folder and reinstalling — see the [How to Uninstall](#-how-to-uninstall) section.
   </details>
 
 <details>
-<summary><strong>Can I use PhotoGIMP with GIMP 2.10?</strong></summary>
+<summary><strong>Μπορώ να χρησιμοποιήσω στο PhotoGIMP με το GIMP 2.10;</strong></summary>
 
 No. This version of PhotoGIMP is designed exclusively for **GIMP 3.0 and newer**. The configuration format changed significantly between GIMP 2.x and 3.x.
 
 </details>
 
 <details>
-<summary><strong>Will PhotoGIMP delete my custom brushes, fonts, or plug-ins?</strong></summary>
+<summary><strong>Θα διαγράψει το PhotoGIMP τα προσαρμοσμένα πινέλαν, τις γραμματοσειρές, ή τα πρόσθετά μου;</strong></summary>
 
-No. PhotoGIMP only replaces configuration files (shortcuts, layout, preferences). Your personal brushes, fonts, gradients, and plug-ins remain untouched.
-
-</details>
-
-<details>
-<summary><strong>Can I customize the shortcuts after installing PhotoGIMP?</strong></summary>
-
-Absolutely! PhotoGIMP just sets a starting point. You can change any shortcut in GIMP via **Edit → Keyboard Shortcuts**.
+Όχι. Το PhotoGIMP ανικαθιστά μόνο αρχεία ρυθμίσεων (συντομεύσεις, διάταξη, προτιμήσεις). Τα προσωπικά σας πινέλα, οι γραμματοσειρές, οι διαβαθμίσεις και τα πρόσθετα παραμένουν ανέπαφα.
 
 </details>
 
 <details>
-<summary><strong>How do I update PhotoGIMP to a new version?</strong></summary>
+<summary><strong>Μπορώ να προσαρμόσω τις συντομεύσεις μετά την εγκατάσταση του PhotoGIMP?</strong></summary>
 
-Just download the latest release and follow the installation steps again — it will overwrite the previous PhotoGIMP configuration.
+Φυσικά! Το PhotoGIMP απλώς ορίζει ένα αρχικό σημείο. Μπορείτε να αλλάξετε οποιαδήποτε συντόμευση στο GIMP μέσω **Επεξεργασία → Συντομεύσεις πληκτρολογίου**.
+
+</details>
+
+<details>
+<summary><strong>Πώς μοπορώ να ενημερώσω το PhotoGIMP σε ένα έκδοση;</strong></summary>
+
+Απλώς κάντε λήψη της πιο πρόσφατης έκδοσης και ακολουθήστε ξανά τα βήματα εγκατάστασης — θα αντικαταστήσει τις προηγούμενες ρυθμίσεις του PhotoGIMP.
 
 </details>
 
