@@ -121,7 +121,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 </details>
 
 <details>
-<summary><strong>🍫 Εγκατάσταση μέσω Chocolatey (alternative)</strong></summary>
+<summary><strong>🍫 Εγκατάσταση μέσω Chocolatey (εναλλακτικά)</strong></summary>
 
 Αν χρησιμοποιείτε το [Chocolatey](https://chocolatey.org/), μπορείτε να εγκαταστήσετε το PhotoGIMP με μία μόνο εντολή:
 
@@ -149,38 +149,38 @@ choco install photogimp
 
 #### Εγκατάσταση
 
-1. Make sure you have [GIMP installed from the official website](https://www.gimp.org/downloads/).
-2. **Ανοίξτε το GIMP μία φορά και κλείστε το** — this creates the config folders that PhotoGIMP needs.
+1. Βεβαιωθείτε ότι έχετε [εγκαστήσει το GIMP από την επίσημη ιστοσελίδα](https://www.gimp.org/downloads/).
+2. **Ανοίξτε το GIMP μία φορά και κλείστε το** — αυτό δημιουργεί τους φακέλους ρυθμίσεων που χρειάζεται το PhotoGIMP.
 3. Κάντε λήψη της τελευταίας έκδοσης:
    👉 **[Λήψη του PhotoGIMP για macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
-4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
-5. Open the extracted folder and **copy the `3.0` folder**.
-6. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to
-   open "Go to Folder".
+4. Αποσυμπιέστε τα περιεχόμενα του `PhotoGIMP.zip` σε οποιονδήποτε φάκελο (π.χ., Επιφάνεια Εργασίας).
+5. Ανοίξτε τον φάκελο που αποσυμπιέσατε και **αντιγράψτε τον φάκελο `3.0`**.
+6. Ανοίξτε το Finder και πατήστε <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> για να
+   ανοίξετε την επιλογή «Go to Folder».
 7. Πληκτρολογήστε `~/Library/Application Support/GIMP` και πατήστε <kbd>Enter</kbd>.
-8. If you see a `2.10` folder from a previous installation, **delete it** to
-   avoid conflicts.
-9. **Επικολλήστε** τον φάκελο `3.0` στον φάκελο GIMP.
-10. When prompted about existing files, select **"Replace"** or **"Merge"**.
-11. Ανοίξτε το GIMP — you should see the new PhotoGIMP layout! 🎉
+8. Αν βλέπετε έναν φάκελο `2.10` από προηγούμενη εγκατάσταση, **διαγράψτε τον** για να
+   αποφύγετε διενέξεις.
+9. **Επικολλήστε** τον φάκελο `3.0` μέσα στον φάκελο GIMP.
+10. Όταν σας ζητηθεί να επιβεβαιώσετε την αντικατάσταση υπαρχόντων αρχείων, επιλέξτε **«Replace"** ή **«Merge»**.
+11. Ανοίξτε το GIMP — θα πρέπει να δείτε τη νέα διάταξη του PhotoGIMP! 🎉
 
 <details>
-<summary><strong>Alternative: install with Terminal</strong></summary>
+<summary><strong>Εναλλακτικά: εγκατάσταση με Terminal</strong></summary>
 
-If Finder's **"Merge"** option silently skips existing files, or if you prefer
-the command line, you can copy the PhotoGIMP files with `rsync`.
+Αν η επιλογή **«Merge»** του Finder παραλείπει σιωπηλά υπάρχοντα αρχείαή αν προτιμάτε
+τη γραμμή εντολών, μπορείτε να αντιγράψετε τα αρχεία του PhotoGIMP με το `rsync`.
 
-1. Open Terminal.
-2. Run `rsync`, replacing `/path/to/extracted/3.0/` with the extracted `3.0`
-   folder location:
+1. Ανοίξτε το Terminal.
+2. Εκτελέστε το `rsync`, αντικαθιστώντας το `/path/to/extracted/3.0/` με τη θέση του φακέλου `3.0`
+   που αποσυμπιέσατε:
 
    ```bash
    rsync -av --ignore-times /path/to/extracted/3.0/ ~/Library/Application\ Support/GIMP/3.0/
    ```
 
-   Make sure both paths end with `/`.
-3. If your installed GIMP uses a different version folder, change the
-   destination to match it (for example, use
+   Βεβαιωθείτε ότι και οι δύο διαδρομές τελειώνουν με `/`.
+3. Αν η εγκατάσταση του GIMP χρησιμοποιεί διαφορετικό φάκελο έκδοσης, αλλάξτε τον
+   προορισμό ώστε να αντιστοιχεί σε αυτόν (για παράδειγμα, χρησιμοποιήστε
    `~/Library/Application\ Support/GIMP/3.2/` for GIMP 3.2).
 
 </details>
