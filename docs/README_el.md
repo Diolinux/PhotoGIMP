@@ -52,7 +52,7 @@ Before installing PhotoGIMP, make sure you have:
 
 <img src="https://skillicons.dev/icons?i=linux" align="right" width="40" />
 
-#### Backup (optional)
+#### Αντίγραφο ασφαλείας (optional)
 
 If you want to keep your current GIMP settings, back them up first:
 
@@ -85,7 +85,7 @@ If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.
 
 <img src="https://skillicons.dev/icons?i=windows" align="right" />
 
-#### Backup (optional)
+#### Αντίγραφο ασφαλείας (optional)
 
 If you want to keep your current GIMP settings, back them up first:
 
@@ -323,6 +323,7 @@ This README is available in other languages:
 - 🇰🇷 [Korean (한국어)](./docs/README_ko.md)
 - 🇨🇳 [简体中文 (Simplified Chinese)](./docs/README_zh.md)
 - 🇨🇿 [Čeština (Czech)](./docs/README_cs.md)
+- EL [Ελληνικά (Greek)](./docs/README_el.md)
 
 Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
 
