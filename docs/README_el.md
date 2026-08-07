@@ -54,7 +54,7 @@
 
 #### Δημιουργία αντιγράφου ασφαλείας (προαιρετικά)
 
-If you want to keep your current GIMP settings, back them up first:
+Ανθέλετε να διατηρήσετε τις τρέχουσες ρυθμίσεις του GIMP, δημιουργήστε πρώτα ένα αντίγραφο ασφαλείας:
 
 ```bash
 cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
@@ -68,8 +68,8 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
    👉 **[Λήψη PhotoGIMP για Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
 4. Αποσυμπιέστε το αρχείο `.zip` **στον προσωπικό σας φάκελο** (`~`).
     - Αυτό θα τοποθετήσει αρχεία στους κρυφούς φακέλους `~/.config` και `~/.local`.
-    - Για να εμφανισετε τους κρυφούς φακέλους στη διαχείριση αρχείων, πατήστε <kbd>Ctrl</kbd> + <kbd>H</kbd>.
-    - Όταν σας ζητηθεί να επιβεβαιώσετε την αντικατάσταση υπαρχόντων αρχείων, επιλέξτε **"Replace"** ή **"Overwrite"**.
+    - Για να εμφανίσετε τους κρυφούς φακέλους στη διαχείριση αρχείων, πατήστε <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+    - Όταν σας ζητηθεί να επιβεβαιώσετε την αντικατάσταση υπαρχόντων αρχείων, επιλέξτε **«Replace»** ή **«Overwrite»**.
 5. Ανοίξτε το GIMP — θα πρέπει να δείτε τη νέα διάταξη του PhotoGIMP! 🎉
 
 <details>
@@ -96,34 +96,34 @@ If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.
 #### Εγκατάσταση
 
 1. Βεβαιωθείτε ότι έχετε [εγκαταστήσει το GIMP από την επίσημη ιστοσελίδα](https://www.gimp.org/downloads/).
-2. **Ανοίξτε το GIMP μία φορά και κλείστε το** — this creates the config folders that PhotoGIMP needs.
+2. **Ανοίξτε το GIMP μία φορά και κλείστε το** — αυτό δημιουργεί τους φακέλους ρυθμίσεων που χρειάζεται το PhotoGIMP.
 3. Κάτε λήψη της τελευταίας έκδοσης:
    👉 **[Λήψη PhotoGIMP για Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Αποσυμπιέστε τα περιεχόμενα του `PhotoGIMP.zip` σε οποιονδήποτε φάκελο (π.χ., Επιφάνεια Εργασίας).
 5. Ανοίξτε τον φάκελο που αποσυμπιέσατε και **αντιγράψτε τον φάκελο `3.0`**.
 6. Πατήστε <kbd>Windows</kbd> + <kbd>R</kbd> για να ανοίξετε το παράθυρο διαλόγου «Εκτέλεση».
-7. Πληκτρολογήστε `%APPDATA%\GIMP` και πατήστε <kbd>Enter</kbd> — this opens GIMP's settings folder.
-8. **Επικολλήστε** τον φάκελο `3.0` εδώ.
-9. When prompted about existing files, επιλέξτε **"Replace the files in the destination"**.
-10. Ανοίξτε το GIMP — you should see the new PhotoGIMP layout! 🎉
+7. Πληκτρολογήστε `%APPDATA%\GIMP` και πατήστε <kbd>Enter</kbd> — αυτό ανοίγει τον φάκελο ρυθμίσεων του GIMP.
+8. **Επικολλήστε** εδώ τον φάκελο `3.0`.
+9. Όταν σας ζητηθεί να επιβεβαιώσετε την αντικατάσταση υπαρχόντων αρχέιων, επιλέξτε **«Replace the files in the destination»**.
+10. Ανοίξτε το GIMP — θα πρέπει να δείτε τη νέα διάταξη του PhotoGIMP! 🎉
 
 <details>
 <summary><strong>💡 Optional: Change the GIMP shortcut icon</strong></summary>
 
-You can also download [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) and update the icon on the GIMP shortcut located at:
+Μπορείτε επίσης να κάνετε λήψη του [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) και να αλλάξετε το εικονίδιο της συντόμευσης του GIMP που βρίσκεται στη θέση:
 
 ```
 %appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
 ```
 
-Κάντε δεξί κλικ στη συντόμευση → **Ιδιότητες** → **Αλλαγή εικονιδίου** → browse to the downloaded `.ico` file.
+Κάντε δεξί κλικ στη συντόμευση → **Ιδιότητες** → **Αλλαγή εικονιδίου** → αναζητήστε το αρχείο `.ico` που κάνατε λήψη.
 
 </details>
 
 <details>
 <summary><strong>🍫 Install via Chocolatey (alternative)</strong></summary>
 
-Εάν χρησιμοποιείτε [Chocolatey](https://chocolatey.org/), μπορείτε να εγκαταστήσετε το PhotoGIMP με μία εντολή:
+Αν χρησιμοποιείτε το [Chocolatey](https://chocolatey.org/), μπορείτε να εγκαταστήσετε το PhotoGIMP με μία εντολή:
 
 ```powershell
 choco install photogimp
