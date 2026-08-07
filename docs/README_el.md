@@ -37,7 +37,7 @@ Before installing PhotoGIMP, make sure you have:
 | Απαίτηση                | Λεπτομέρειες                                                                                                                                      |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | **GIMP 3.0 ή νεότερη έκδοση**      | Download from: [gimp.org](https://www.gimp.org/downloads/) or [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux)                      |
-| **Εκτέλεση του GIMP τουλάχιστον μία φορά** | GIMP needs to generate its config files before PhotoGIMP can overwrite them. **Install GIMP → open it → close it → και εγκατάσταση του PhotoGIMP.** |
+| **Εκτέλεση του GIMP τουλάχιστον μία φορά** | GIMP needs to generate its config files before PhotoGIMP can overwrite them. **Εγκαταστήστε το GIMP → ανοίξτε το → κλείστε το → εγκαταταστήστε το PhotoGIMP.** |
 
 ---
 
@@ -96,16 +96,16 @@ If you want to keep your current GIMP settings, back them up first:
 #### Εγκατάσταση
 
 1. Make sure you have [GIMP installed from the official website](https://www.gimp.org/downloads/).
-2. **Open GIMP once, then close it** — this creates the config folders that PhotoGIMP needs.
-3. Download the latest release:
-   👉 **[Download PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+2. **Ανοίξτε το GIMP μία φορά και κλείστε το** — this creates the config folders that PhotoGIMP needs.
+3. Κάτε λήψη της τελευταίας έκδοσης:
+   👉 **[Λήψη του PhotoGIMP για Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
 5. Open the extracted folder and **copy the `3.0` folder**.
-6. Press <kbd>Windows</kbd> + <kbd>R</kbd> to open the Run dialog.
-7. Type `%APPDATA%\GIMP` and press <kbd>Enter</kbd> — this opens GIMP's settings folder.
-8. **Paste** the `3.0` folder here.
-9. When prompted about existing files, select **"Replace the files in the destination"**.
-10. Open GIMP — you should see the new PhotoGIMP layout! 🎉
+6. Πατήστε <kbd>Windows</kbd> + <kbd>R</kbd> για να ανοίξετε το πλαίσιο διαλόγου Εκτέλεση.
+7. Πληκτρολογήστε `%APPDATA%\GIMP` και πατήστε <kbd>Enter</kbd> — this opens GIMP's settings folder.
+8. **Επικολλήστε** τον φάκελο `3.0` εδώ.
+9. When prompted about existing files, επιλέξτε **"Replace the files in the destination"**.
+10. Ανοίξτε το GIMP — you should see the new PhotoGIMP layout! 🎉
 
 <details>
 <summary><strong>💡 Optional: Change the GIMP shortcut icon</strong></summary>
@@ -116,14 +116,14 @@ You can also download [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/rele
 %appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
 ```
 
-Right-click the shortcut → **Properties** → **Change Icon** → browse to the downloaded `.ico` file.
+Κάντε δεξί κλικ στη συντόμευση → **Ιδιότητες** → **Αλλαγή εικονιδίου** → browse to the downloaded `.ico` file.
 
 </details>
 
 <details>
 <summary><strong>🍫 Install via Chocolatey (alternative)</strong></summary>
 
-If you use [Chocolatey](https://chocolatey.org/), you can install PhotoGIMP with a single command:
+Εάν χρησιμοποιείτε [Chocolatey](https://chocolatey.org/), μπορείτε να εγκαταστήσετε το PhotoGIMP με μία εντολή:
 
 ```powershell
 choco install photogimp
@@ -143,26 +143,26 @@ Maintained by: [André Augusto](https://github.com/AndreAugustoDev)
 
 If you want to keep your current GIMP settings, back them up first:
 
-1. Open Finder.
+1. Ανοίξτε το Finder.
 2. Press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> and go to `~/Library/Application Support/GIMP`.
 3. Copy the entire `GIMP` folder to a safe location (e.g., your Desktop).
 
 #### Εγκατάσταση
 
 1. Make sure you have [GIMP installed from the official website](https://www.gimp.org/downloads/).
-2. **Open GIMP once, then close it** — this creates the config folders that PhotoGIMP needs.
-3. Download the latest release:
-   👉 **[Download PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+2. **Ανοίξτε το GIMP μία φορά και κλείστε το** — this creates the config folders that PhotoGIMP needs.
+3. Κάντε λήψη της τελευταίας έκδοσης:
+   👉 **[Λήψη του PhotoGIMP για macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
 5. Open the extracted folder and **copy the `3.0` folder**.
 6. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to
    open "Go to Folder".
-7. Type `~/Library/Application Support/GIMP` and press <kbd>Enter</kbd>.
+7. Πληκτρολογήστε `~/Library/Application Support/GIMP` και πατήστε <kbd>Enter</kbd>.
 8. If you see a `2.10` folder from a previous installation, **delete it** to
    avoid conflicts.
-9. **Paste** the `3.0` folder inside the GIMP folder.
+9. **Επικολλήστε** τον φάκελο `3.0` στον φάκελο GIMP.
 10. When prompted about existing files, select **"Replace"** or **"Merge"**.
-11. Open GIMP — you should see the new PhotoGIMP layout! 🎉
+11. Ανοίξτε το GIMP — you should see the new PhotoGIMP layout! 🎉
 
 <details>
 <summary><strong>Alternative: install with Terminal</strong></summary>
