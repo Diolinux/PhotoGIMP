@@ -44,7 +44,7 @@
 ## ⚙ Τρόπος εγκατάστασης
 
 > [!ΠΡΟΕΙΔΟΠΟΙΗΣΗ]
-> **Back up your current GIMP settings before installing!** PhotoGIMP overwrites GIMP's configuration files. If you have custom settings you want to keep, save a backup copy first. See the backup instructions in each section below.
+> **Δημιουργήστε αντίγραφο ασφαλείας των τρεχουσών ρυθμίσεων του GIMP πριν από την εγκατάσταση!** Το PhotoGIMP αντικαθιστά τα αρχεία ρυθμίσεων του GIMP. Αν έχετε προσαρμοσμένες ρυθμίσεις που θέλετε να διατηρήσετε, αποθηκεύστε πρώτα ένα αντίγραφο ασφαλείας. Δείτε τις οδηγίες δημιουργίας αντιγράφου ασφαλείας σε κάθε ενότητα παρακάτω.
 
 ---
 
@@ -73,9 +73,9 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 5. Ανοίξτε το GIMP — θα πρέπει να δείτε τη νέα διάταξη του PhotoGIMP! 🎉
 
 <details>
-<summary><strong>💡 Using a non-Flatpak GIMP?</strong></summary>
+<summary><strong>💡 Χρησιμοποιείτε GIMP που δεν είναι Flatpak;</strong></summary>
 
-If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.) instead of Flatpak, the config folder is in the same location (`~/.config/GIMP/3.0`), so the steps above still work. Just make sure you have GIMP version 3.0 or newer.
+Αν εγκαταστήσατε το GIMP από τον διαχειριστή πακέτων τησ διανομής σας (apt, dnf, pacman, κ.λπ.) αντί για Flatpak, ο φάκελος ρυθμίσεων βρίσκεται στην ίδια θέση (`~/.config/GIMP/3.0`), επομένως τα παραπάνω βήματα εξακολουθούν να ισχύουν. Απλώς βεβαιωθείτε ότι χρησιμοποιείτε GIMP εκδοσης 3.0 ή νεότερης.
 
 </details>
 
@@ -89,7 +89,7 @@ If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.
 
 Αν θέλετε να διατηρήσετε τις τρέχουσες ρυθμίσεις του GIMP, δημιουργήστε πρώτα ένα αντίγραφο ασφαλείας:
 
-1. Πατήστε <kbd>Windows</kbd> + <kbd>R</kbd> για να ανοίξετε το παράθυρο διαλόγου «Εκτέλεση».
+1. Πατήστε <kbd>Windows</kbd> + <kbd>R</kbd> για να ανοίξετε το παράθυρου διαλόγου «Εκτέλεση».
 2. Πληκτρολογήστε `%APPDATA%\GIMP` και πατήστε <kbd>Enter</kbd>.
 3. Αντιγράψτε ολόκληρο τον φάκελο `3.0` σε μια ασφαλή θέση (π.χ., Επιφάνεια Εργασίας).
 
@@ -108,7 +108,7 @@ If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.
 10. Ανοίξτε το GIMP — θα πρέπει να δείτε τη νέα διάταξη του PhotoGIMP! 🎉
 
 <details>
-<summary><strong>💡 Optional: Change the GIMP shortcut icon</strong></summary>
+<summary><strong>💡 Προαιρετικά: Αλλαγή του εικονιδίου της συντόμευσης του GIMP</strong></summary>
 
 Μπορείτε επίσης να κάνετε λήψη του [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) και να αλλάξετε το εικονίδιο της συντόμευσης του GIMP που βρίσκεται στη θέση:
 
@@ -121,15 +121,15 @@ If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.
 </details>
 
 <details>
-<summary><strong>🍫 Install via Chocolatey (alternative)</strong></summary>
+<summary><strong>🍫 Εγκατάσταση μέσω Chocolatey (alternative)</strong></summary>
 
-Αν χρησιμοποιείτε το [Chocolatey](https://chocolatey.org/), μπορείτε να εγκαταστήσετε το PhotoGIMP με μία εντολή:
+Αν χρησιμοποιείτε το [Chocolatey](https://chocolatey.org/), μπορείτε να εγκαταστήσετε το PhotoGIMP με μία μόνο εντολή:
 
 ```powershell
 choco install photogimp
 ```
 
-Maintained by: [André Augusto](https://github.com/AndreAugustoDev)
+Συντηρείται από: [André Augusto](https://github.com/AndreAugustoDev)
 
 </details>
 
@@ -139,13 +139,13 @@ Maintained by: [André Augusto](https://github.com/AndreAugustoDev)
 
 <img src="https://skillicons.dev/icons?i=macos" align="right" />
 
-#### Backup (optional)
+#### Δημιουργία αντιγράφου ασφαλείας (προαιρετικά)
 
-If you want to keep your current GIMP settings, back them up first:
+Αν θέλετε να διατηρήσετε τις τρέχουσες ρυθμίσεις του GIMP, δημιουργήστε πρώτα ένα αντίγραφο ασφαλείας:
 
 1. Ανοίξτε το Finder.
-2. Press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> and go to `~/Library/Application Support/GIMP`.
-3. Copy the entire `GIMP` folder to a safe location (e.g., your Desktop).
+2. Πατήστε <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> και μεταβείτε στη διαδρομή `~/Library/Application Support/GIMP`.
+3. Αντιγράψτε ολόκληρο τον φάκελο `GIMP` σε μια ασφαλή θέση (π.χ., Επιφάνεια Εργασίας).
 
 #### Εγκατάσταση
 
