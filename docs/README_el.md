@@ -333,7 +333,7 @@ This README is available in other languages:
 
 - Αυτό το έργο δεν ήταν δυνατό χωρίς την εξαιρετική ομάδα του [GIMP](https://www.gimp.org/).
 - Ένα ΜΕΓΑΛΟ ευχαριστώ σε όλουρς τους υποστηρικτές του Diolinux στο [YouTube](https://youtube.com/Diolinux).
-- Οθόνη έναρξης & εικονίδια προέρχονται από το [Adriel Filipe Design](https://bento.me/adrielfilipedesign).
+- Η οθόνη έναρξης και τα εικονίδια προέρχονται από το [Adriel Filipe Design](https://bento.me/adrielfilipedesign).
 
 ---
 
