@@ -41,7 +41,7 @@
 
 ---
 
-## ⚙ How to Install
+## ⚙ Τρόπος εγκατάστασης
 
 > [!ΠΡΟΕΙΔΟΠΟΙΗΣΗ]
 > **Back up your current GIMP settings before installing!** PhotoGIMP overwrites GIMP's configuration files. If you have custom settings you want to keep, save a backup copy first. See the backup instructions in each section below.
@@ -52,7 +52,7 @@
 
 <img src="https://skillicons.dev/icons?i=linux" align="right" width="40" />
 
-#### Αντίγραφο ασφαλείας (optional)
+#### Δημιουργία αντιγράφου ασφαλείας (προαιρετικά)
 
 If you want to keep your current GIMP settings, back them up first:
 
@@ -62,15 +62,15 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 
 #### Εγκατάσταση
 
-1. Make sure you already have GIMP installed [from Flathub](https://flathub.org/apps/org.gimp.GIMP).
-2. **Open GIMP once, then close it** — this creates the config folders that PhotoGIMP needs.
-3. Download the latest release:
-   👉 **[Download PhotoGIMP for Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
-4. Extract the `.zip` file **into your home folder** (`~`).
-    - This will place files into `~/.config` and `~/.local`, which are hidden folders.
-    - To see hidden folders in your file manager, press <kbd>Ctrl</kbd> + <kbd>H</kbd>.
-    - When prompted about existing files, choose **"Replace"** or **"Overwrite"**.
-5. Open GIMP — you should see the new PhotoGIMP layout! 🎉
+1. Βεβαιωθείτε ότι έχετε ήδη εγκαταστήσει το GIMP [από το Flathub](https://flathub.org/apps/org.gimp.GIMP).
+2. **Ανοίξτε το GIMP μία φορά και κλείστε το** — αυτό δημιουργεί τους φακέλους ρυθμίσεων που χειάζεται το PhotoGIMP.
+3. Κάντε λήψη της τελευταίας έκδοσης:
+   👉 **[Λήψη PhotoGIMP για Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
+4. Αποσυμπιέστε το αρχείο `.zip` **στον προσωπικό σας φάκελο** (`~`).
+    - Αυτό θα τοποθετήσει αρχεία στους κρυφούς φακέλους `~/.config` και `~/.local`.
+    - Για να εμφανισετε τους κρυφούς φακέλους στη διαχείριση αρχείων, πατήστε <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+    - Όταν σας ζητηθεί να επιβεβαιώσετε την αντικατάσταση υπαρχόντων αρχείων, επιλέξτε **"Replace"** ή **"Overwrite"**.
+5. Ανοίξτε το GIMP — θα πρέπει να δείτε τη νέα διάταξη του PhotoGIMP! 🎉
 
 <details>
 <summary><strong>💡 Using a non-Flatpak GIMP?</strong></summary>
@@ -85,23 +85,23 @@ If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.
 
 <img src="https://skillicons.dev/icons?i=windows" align="right" />
 
-#### Αντίγραφο ασφαλείας (optional)
+#### Δημιουργία αντιγράφου ασφαλείας (προαιρετικά)
 
-If you want to keep your current GIMP settings, back them up first:
+Αν θέλετε να διατηρήσετε τις τρέχουσες ρυθμίσεις του GIMP, δημιουργήστε πρώτα ένα αντίγραφο ασφαλείας:
 
-1. Press <kbd>Windows</kbd> + <kbd>R</kbd> to open the Run dialog.
-2. Type `%APPDATA%\GIMP` and press <kbd>Enter</kbd>.
-3. Copy the entire `3.0` folder to a safe location (e.g., your Desktop).
+1. Πατήστε <kbd>Windows</kbd> + <kbd>R</kbd> για να ανοίξετε το παράθυρο διαλόγου «Εκτέλεση».
+2. Πληκτρολογήστε `%APPDATA%\GIMP` και πατήστε <kbd>Enter</kbd>.
+3. Αντιγράψτε ολόκληρο τον φάκελο `3.0` σε μια ασφαλή θέση (π.χ., Επιφάνεια Εργασίας).
 
 #### Εγκατάσταση
 
-1. Make sure you have [GIMP installed from the official website](https://www.gimp.org/downloads/).
+1. Βεβαιωθείτε ότι έχετε [εγκαταστήσει το GIMP από την επίσημη ιστοσελίδα](https://www.gimp.org/downloads/).
 2. **Ανοίξτε το GIMP μία φορά και κλείστε το** — this creates the config folders that PhotoGIMP needs.
 3. Κάτε λήψη της τελευταίας έκδοσης:
-   👉 **[Λήψη του PhotoGIMP για Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
-4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
-5. Open the extracted folder and **copy the `3.0` folder**.
-6. Πατήστε <kbd>Windows</kbd> + <kbd>R</kbd> για να ανοίξετε το πλαίσιο διαλόγου Εκτέλεση.
+   👉 **[Λήψη PhotoGIMP για Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+4. Αποσυμπιέστε τα περιεχόμενα του `PhotoGIMP.zip` σε οποιονδήποτε φάκελο (π.χ., Επιφάνεια Εργασίας).
+5. Ανοίξτε τον φάκελο που αποσυμπιέσατε και **αντιγράψτε τον φάκελο `3.0`**.
+6. Πατήστε <kbd>Windows</kbd> + <kbd>R</kbd> για να ανοίξετε το παράθυρο διαλόγου «Εκτέλεση».
 7. Πληκτρολογήστε `%APPDATA%\GIMP` και πατήστε <kbd>Enter</kbd> — this opens GIMP's settings folder.
 8. **Επικολλήστε** τον φάκελο `3.0` εδώ.
 9. When prompted about existing files, επιλέξτε **"Replace the files in the destination"**.
