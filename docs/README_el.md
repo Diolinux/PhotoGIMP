@@ -325,19 +325,19 @@ This README is available in other languages:
 - 🇨🇿 [Čeština (Czech)](./docs/README_cs.md)
 - 🇬🇷 [Ελληνικά (Greek)](./docs/README_el.md)
 
-Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
+Θέλετε να προσθέσετε τη γλώσσας σας; Κάντε Fork το αποθετήριο, δημιουργήστε ένα αρχείο `docs/README_xx.md` και υποβάλετε ένα pull request!
 
 ---
 
-## 🏆 Credits
+## 🏆 Συντελεστές
 
-- This project would not be possible without the amazing [GIMP](https://www.gimp.org/) team.
-- A BIG thanks to all Diolinux's supporters on [YouTube](https://youtube.com/Diolinux).
-- Splash screen & icons from [Adriel Filipe Design](https://bento.me/adrielfilipedesign).
+- Αυτό το έργο δεν ήταν δυνατό χωρίς την εξαιρετική ομάδα του [GIMP](https://www.gimp.org/).
+- Ένα ΜΕΓΑΛΟ ευχαριστώ σε όλουρς τους υποστηρικτές του Diolinux στο [YouTube](https://youtube.com/Diolinux).
+- Οθόνη έναρξης & εικονίδια προέρχονται από το [Adriel Filipe Design](https://bento.me/adrielfilipedesign).
 
 ---
 
-## 👥 Contributors
+## 👥 Συνεισφέροντες
 
 <a align="center" href="https://github.com/Diolinux/PhotoGIMP/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Diolinux/PhotoGIMP" />
@@ -347,4 +347,4 @@ Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and
 
 ## 📄 Άδεια Χρήσης
 
-PhotoGIMP is licensed under the [GNU General Public License v3.0](./LICENSE).
+Το PhotoGIMP διατίθεται υπό την [GNU General Public License v3.0](./LICENSE).
