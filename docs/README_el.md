@@ -299,19 +299,19 @@ Just download the latest release and follow the installation steps again — it 
 
 ---
 
-## 🤝 Contributing
+## 🤝 Συνεισφορά
 
-Found a bug? Have a suggestion? We'd love your help!
+Βρήκατε κάποιο σφάλμα; Έχετε κάποια πρόταση; Θα χαρούμε πολύ να βοηθήσετε!
 
-- **Report an issue**: [Open an issue](https://github.com/Diolinux/PhotoGIMP/issues)
-- **Submit a fix**: [Create a pull request](https://github.com/Diolinux/PhotoGIMP/pulls)
-- **Translate**: Help us translate the README into more languages! See the [Translations](#-translations) section.
+- **Αναφορά προβλήματος**: [Ανοίξτε ένα issue](https://github.com/Diolinux/PhotoGIMP/issues)
+- **Υποβολή διόρθωσης**: [Δημιουργήστε ένα pull request](https://github.com/Diolinux/PhotoGIMP/pulls)
+- **Μετάφραση**: Βοηθήστε μας να μεταφράσουμε το README σε περισσότερες γλώσσες! Δείτε την ενότητα [Translations](#-translations).
 
 ---
 
 ## 🌍 Μεταφράσεις
 
-This README is available in other languages:
+Αυτό το README είναι διαθέσιμο και στις ακόλουθες γλώσσες:
 
 - 🇮🇹 [Italiano (Italian)](./docs/README_it.md)
 - 🇵🇱 [Polski (Polish)](./docs/README_pl.md)
