@@ -24,7 +24,7 @@
 
 ## 📷 Στιγμιότυπα Οθόνης
 
-| Splash Screen | Application Window |
+| Splash Screen | Παράθυρο Εφαρμογής |
 |-|-|
 | ![[PhotoGIMP Diolinux splash screen]](../.config/GIMP/3.0/splashes/splash-screen-2025-v2.png)<br>PhotoGIMP Diolinux splash screen | ![[PhotoGIMP 3]](../screenshots/photogimp_3_-_diolinux.png)<br>PhotoGIMP 3
 
