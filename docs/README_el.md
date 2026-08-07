@@ -22,7 +22,7 @@
 
 ---
 
-## 📷 Screenshots
+## 📷 Στιγμιότυπα Οθόνης
 
 | Splash Screen | Application Window |
 |-|-|
@@ -30,11 +30,11 @@
 
 ---
 
-## 📋 Requirements
+## 📋 Απαιτήσεις
 
 Before installing PhotoGIMP, make sure you have:
 
-| Requirement                | Details                                                                                                                                      |
+| Απαίτηση                | Λεπτομέρειες                                                                                                                                      |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | **GIMP 3.0 or newer**      | Download from: [gimp.org](https://www.gimp.org/downloads/) or [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux)                      |
 | **Run GIMP at least once** | GIMP needs to generate its config files before PhotoGIMP can overwrite them. **Install GIMP → open it → close it → then install PhotoGIMP.** |
@@ -43,7 +43,7 @@ Before installing PhotoGIMP, make sure you have:
 
 ## ⚙ How to Install
 
-> [!WARNING]
+> [!ΠΡΟΕΙΔΟΠΟΙΗΣΗ]
 > **Back up your current GIMP settings before installing!** PhotoGIMP overwrites GIMP's configuration files. If you have custom settings you want to keep, save a backup copy first. See the backup instructions in each section below.
 
 ---
@@ -60,7 +60,7 @@ If you want to keep your current GIMP settings, back them up first:
 cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 ```
 
-#### Install
+#### Εγκατάσταση
 
 1. Make sure you already have GIMP installed [from Flathub](https://flathub.org/apps/org.gimp.GIMP).
 2. **Open GIMP once, then close it** — this creates the config folders that PhotoGIMP needs.
@@ -93,7 +93,7 @@ If you want to keep your current GIMP settings, back them up first:
 2. Type `%APPDATA%\GIMP` and press <kbd>Enter</kbd>.
 3. Copy the entire `3.0` folder to a safe location (e.g., your Desktop).
 
-#### Install
+#### Εγκατάσταση
 
 1. Make sure you have [GIMP installed from the official website](https://www.gimp.org/downloads/).
 2. **Open GIMP once, then close it** — this creates the config folders that PhotoGIMP needs.
@@ -147,7 +147,7 @@ If you want to keep your current GIMP settings, back them up first:
 2. Press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> and go to `~/Library/Application Support/GIMP`.
 3. Copy the entire `GIMP` folder to a safe location (e.g., your Desktop).
 
-#### Install
+#### Εγκατάσταση
 
 1. Make sure you have [GIMP installed from the official website](https://www.gimp.org/downloads/).
 2. **Open GIMP once, then close it** — this creates the config folders that PhotoGIMP needs.
@@ -191,17 +191,17 @@ the command line, you can copy the PhotoGIMP files with `rsync`.
 
 PhotoGIMP replaces or adds the following files in GIMP's configuration directory:
 
-| File / Folder | What it does                                  |
-| ------------- | --------------------------------------------- |
-| `shortcutsrc` | Keyboard shortcuts mapped to match Photoshop  |
-| `toolrc`      | Tool configuration and ordering               |
-| `sessionrc`   | Window layout and panel positions             |
-| `dockrc`      | Dock / panel configuration                    |
-| `gimprc`      | General GIMP preferences (canvas, grid, etc.) |
-| `contextrc`   | Active tool/color context settings            |
-| `splashes/`   | Custom PhotoGIMP splash screen                |
-| `theme.css`   | Minor UI theme adjustments                    |
-| `templaterc`  | Pre-defined canvas templates                  |
+| Αρχείο / Φάκελος | What it does                                  |
+| ---------------- | --------------------------------------------- |
+| `shortcutsrc`    | Keyboard shortcuts mapped to match Photoshop  |
+| `toolrc`         | Tool configuration and ordering               |
+| `sessionrc`      | Window layout and panel positions             |
+| `dockrc`         | Dock / panel configuration                    |
+| `gimprc`         | General GIMP preferences (canvas, grid, etc.) |
+| `contextrc`      | Active tool/color context settings            |
+| `splashes/`      | Custom PhotoGIMP splash screen                |
+| `theme.css`      | Minor UI theme adjustments                    |
+| `templaterc`     | Pre-defined canvas templates                  |
 
 On Linux, the patch also installs:
 
@@ -247,9 +247,9 @@ Or restore your backup by pasting the backed-up folder back.
 
 ---
 
-## ❓ Troubleshooting / FAQ
+## ❓ Αντιμετώπιση Προβλημάτων / Συχνές Ερωτήσεις
 
-> [!CAUTION]
+> [!ΠΡΟΣΟΧΗ]
 > **PhotoGIMP does not have an official website.** The only official source for the project is its GitHub repository: https://github.com/Diolinux/PhotoGIMP/
 
 <details>
@@ -309,7 +309,7 @@ Found a bug? Have a suggestion? We'd love your help!
 
 ---
 
-## 🌍 Translations
+## 🌍 Μεταφράσεις
 
 This README is available in other languages:
 
@@ -344,6 +344,6 @@ Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and
 
 ---
 
-## 📄 License
+## 📄 Άδεια Χρήσης
 
 PhotoGIMP is licensed under the [GNU General Public License v3.0](./LICENSE).
