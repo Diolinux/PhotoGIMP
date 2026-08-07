@@ -8,6 +8,9 @@
 # VSCode Files
 .vscode/*
 
+# Devcontainer setups
+.devcontainer
+
 # General
 .DS_Store
 .AppleDouble
