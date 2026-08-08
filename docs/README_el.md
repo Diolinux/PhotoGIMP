@@ -212,7 +212,7 @@ choco install photogimp
 
 ## 🗑 Τρόπος απεγκατάστασης
 
-To remove PhotoGIMP and restore GIMP to its default state, simply delete GIMP's config folder and reopen GIMP — it will regenerate fresh default settings.
+Για να αφαιρέσετε το PhotoGIMP και να επαναφέρετε το GIMP στην προεπιλεγμένη του κατάσταση, απλώς διαγράψτε τον φάκελο ρυθμίσεων του GIMP και ανοίξτε ξανά το GIMP — θα δημιουργήσει εκ νέου τις προεπιλεγμένες ρυθμίσεις.
 
 ### Linux
 
@@ -220,9 +220,9 @@ To remove PhotoGIMP and restore GIMP to its default state, simply delete GIMP's 
 rm -rf ~/.config/GIMP/3.0
 ```
 
-Then open GIMP again — it will create a brand new default configuration.
+Στη συνέχεια ανοίξτε ξανά το GIMP — θα δημιουργήσει μια ολοκαίνουργια προεπιλεγμένη διαμόρφωση.
 
-If you made a backup earlier, restore it instead:
+Αν δημιουργήσατε αντίγραφο ασφαλείας νωρίτερα, επαναφέρετέ το:
 
 ```bash
 cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
@@ -230,20 +230,20 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 
 ### Windows
 
-1. Press <kbd>Windows</kbd> + <kbd>R</kbd>, type `%APPDATA%\GIMP` and press <kbd>Enter</kbd>.
-2. Delete the `3.0` folder.
-3. Open GIMP — it will recreate the default settings.
+1. Πατήστε <kbd>Windows</kbd> + <kbd>R</kbd>, πληκτρολογήστε `%APPDATA%\GIMP` και πατήστε <kbd>Enter</kbd>.
+2. Διαγράψτε τον φάκελοe `3.0`.
+3. Ανοίξτε το GIMP — θα δημιουργήσει ξανά τις προεπιλεγμένες ρυθμίσεις.
 
-Or restore your backup by pasting the backed-up `3.0` folder back.
+Εναλλακτικά, επαναφέρετε το αντίγραφο ασφαλείας σας επικολλώντας ξανά τον αντίγραφο του φακέλου `3.0`.
 
 ### macOS
 
-1. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
-2. Go to `~/Library/Application Support/GIMP`.
-3. Delete the `3.0` folder.
-4. Open GIMP — it will recreate the default settings.
+1. Ανοίξτε το Finder, πατήστε <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
+2. Μεταβείτε στη διαδρομή `~/Library/Application Support/GIMP`.
+3. Διαγράψτε τον φάκελο `3.0`.
+4. Ανοίξτε το GIMP — θα δημιουργήσει ξανά τις προεπιλεγμένες ρυθμίσεις.
 
-Or restore your backup by pasting the backed-up folder back.
+Εναλλακτικά, επαναφέρετε το αντίγραφο ασφαλείας σας επικολλώντας ξανά τον αντίστοιχο φάκελο.
 
 ---
 
