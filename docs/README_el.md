@@ -196,7 +196,7 @@ choco install photogimp
 | `shortcutsrc`    | Αντιστοίχιση συντομεύσεων πληκτρολογίου ώστε να ταιριάζουν με του Photoshop  |
 | `toolrc`         | Ρύθμιση παραμέτρων και σειρά εργαλείων                                       |
 | `sessionrc`      | Διάταξη παραθύρου και θέσεις πλαισίων                                        |
-| `dockrc`         | Dock / panel configuration                                                   |
+| `dockrc`         | Ρύθμιση παραμέτρων Dock / πλαισίων                                           |
 | `gimprc`         | Γενικές προτιμήσεις του GIMP (καμβάς, πλέγμα, κ.λπ.)                         |
 | `contextrc`      | Active tool/color context settings                                           |
 | `splashes/`      | Προσαρμοσμένη οθόνη έναρξης του PhotoGIMP                                    |
