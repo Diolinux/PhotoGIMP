@@ -291,7 +291,7 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 </details>
 
 <details>
-<summary><strong>Πώς μοπορώ να ενημερώσω το PhotoGIMP σε ένα έκδοση;</strong></summary>
+<summary><strong>Πώς μπορώ να ενημερώσω το PhotoGIMP σε νέα έκδοση;</strong></summary>
 
 Απλώς κάντε λήψη της πιο πρόσφατης έκδοσης και ακολουθήστε ξανά τα βήματα εγκατάστασης — θα αντικαταστήσει τις προηγούμενες ρυθμίσεις του PhotoGIMP.
 
