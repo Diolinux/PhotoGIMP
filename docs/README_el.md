@@ -198,7 +198,7 @@ choco install photogimp
 | `sessionrc`      | Διάταξη παραθύρου και θέσεις πλαισίων                                        |
 | `dockrc`         | Ρύθμιση παραμέτρων Dock / πλαισίων                                           |
 | `gimprc`         | Γενικές προτιμήσεις του GIMP (καμβάς, πλέγμα, κ.λπ.)                         |
-| `contextrc`      | Active tool/color context settings                                           |
+| `contextrc`      | Ρυθμίσεις ενεργού πλαισίου εργαλείων/χρωμάτων                                |
 | `splashes/`      | Προσαρμοσμένη οθόνη έναρξης του PhotoGIMP                                    |
 | `theme.css`      | Μικρές προσαρμογές στο θέμα του περιβάλλοντος εργασίας                       |
 | `templaterc`     | Προκαθορισμένα πρότυπα καμβά                                                 |
