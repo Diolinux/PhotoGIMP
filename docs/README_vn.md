@@ -36,7 +36,7 @@ Trước khi cài đặt PhotoGIMP, hãy chắc rằng bạn đã làm các bư�
 
 | Yêu cầu                | Chi tiết                                                                                                                                      |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Phần mềm GIMP 3.0 hoặc phiên bản cao hơn**      | |Tải về từ: [gimp.org](https://www.gimp.org/downloads/) hoặc [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux)                      |
+| **Phần mềm GIMP 3.0 hoặc phiên bản cao hơn**      | Tải về từ: [gimp.org](https://www.gimp.org/downloads/) hoặc [Flathub](https://flathub.org/apps/org.gimp.GIMP) (Linux)                      |
 | **Khởi chạy GIMP 1 lần trước khi cài đặt PhotoGIMP** | GIMP cần phải được khởi chạy để tạo các file cần thiết trước khi PhotoGIMP có thể ghi đè lên chúng. **Cài đặt GIMP → khởi chạy → thoát GIMP → sau đó cài PhotoGIMP.** |
 
 ---
