@@ -43,7 +43,7 @@ Trước khi cài đặt PhotoGIMP, hãy chắc rằng bạn đã làm các bư�
 
 ## ⚙ Hướng dẫn cài đặt
 
-> [!Lưu ý]
+> [!WARNING]
 > **Hãy lưu lại thông số cài đặt của GIMP trước khi cài đặt** PhotoGIMP sẽ ghi đè các thông số cài đặt của GIMP. Nếu bạn muốn dùng lại thông số cũ, hãy lưu lại config file cũ. Xem hướng dẫn sao lưu thông số cài đặt bên dưới.
 
 ---
@@ -246,7 +246,7 @@ Hoặc khôi phục bản sao lưu bằng cách dán lại thư mục đã lưu.
 
 ## ❓ Khắc phục sự cố / Câu hỏi thường gặp
 
-> [!Cảnh báo]
+> [!CAUTION]
 > **PhotoGIMP không có website chính thức.** Nguồn chính thức duy nhất của dự án là tại GitHub: https://github.com/Diolinux/PhotoGIMP/
 
 <details>
