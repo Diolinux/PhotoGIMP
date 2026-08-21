@@ -227,7 +227,7 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 
 ### Windows
 
-1. Nhấn tổ hợp phím <kbd>Windows</kbd> + <kbd>R</kbd>, type `%APPDATA%\GIMP` và nhấn <kbd>Enter</kbd>.
+1. Nhấn tổ hợp phím <kbd>Windows</kbd> + <kbd>R</kbd>, nhập `%APPDATA%\GIMP` và nhấn <kbd>Enter</kbd>.
 2. Xóa thư mục `3.0` (Hoặc `3.x` tùy vào phiên bản cài đặt).
 3. Khởi chạy GIMP — nó sẽ tự tạo lại cấu hình mặc định ban đầu.
 
