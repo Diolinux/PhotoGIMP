@@ -320,7 +320,7 @@ README này hiện có sẵn ở các ngôn ngữ khác:
 - 🇰🇷 [Korean (한국어)](./docs/README_ko.md)
 - 🇨🇳 [简体中文 (Simplified Chinese)](./docs/README_zh.md)
 - 🇨🇿 [Čeština (Czech)](./docs/README_cs.md)
-- 🇻🇳 [Vietnam (Vietnamese)](./docs/README_vn.md)
+- 🇻🇳 [Vietnam (Tiếng Việt)](./docs/README_vn.md)
 
 Muốn thêm bản dịch tiếng của bạn? Fork repo này, tạo file `docs/README_xx.md` rồi gửi pull request nhé!
 
