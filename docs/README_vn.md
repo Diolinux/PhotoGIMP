@@ -263,7 +263,7 @@ Hoặc khôi phục bản sao lưu bằng cách dán lại thư mục đã lưu.
 <summary><strong>Mở GIMP lên bị báo lỗi sau khi cài PhotoGIMP</strong></summary>
 
 - Thường là do phiên bản GIMP không khớp. PhotoGIMP được xây dựng cho GIMP **3.0 trở lên**. Nếu bạn đang dùng GIMP 2.x thì sẽ không tương thích..
-- Thử xóa thư mục cấu hình rồi cài lại — xem hướng dẫn gỡ cài đặt ở phần [Hướng dẫn gỡ cài đặt PhotoGIMP](#-how-to-uninstall).
+- Thử xóa thư mục cấu hình rồi cài lại — xem hướng dẫn gỡ cài đặt ở phần [Hướng dẫn gỡ cài đặt PhotoGIMP](#-hướng-dẫn-gỡ-cài-đặt-photogimp).
   </details>
 
 <details>
@@ -302,7 +302,7 @@ Phát hiện lỗi? Có ý tưởng hay? Rất mong nhận được sự đóng 
 
 - **Báo lỗi**: [Mở issue mới](https://github.com/Diolinux/PhotoGIMP/issues)
 - **Gửi bản sửa lỗi**: [Tạo pull request](https://github.com/Diolinux/PhotoGIMP/pulls)
-- **Dịch thuật**: Giúp chúng tôi dịch README sang thêm nhiều ngôn ngữ! Xem phần [Bản dịch](#-translations) section.
+- **Dịch thuật**: Giúp chúng tôi dịch README sang thêm nhiều ngôn ngữ! Xem phần [Bản dịch](#-bản-dịch) section.
 
 ---
 
