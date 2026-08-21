@@ -253,7 +253,7 @@ Hoặc khôi phục bản sao lưu bằng cách dán lại thư mục đã lưu.
 <summary><strong>Cài PhotoGIMP xong nhưng GIMP vẫn không đổi gì cả</strong></summary>
 
 - Kiểm tra lại xem bạn đã giải nén file vào đúng vị trí chưa. Lỗi phổ biến nhất là giải nén nhầm **thư mục**.
-- **Linux**: 2 mục `.config` và `.local` phải nằm trong thư mục home (`~`). TChúng là thư mục ẩn — nhấn tổ hợp phím <kbd>Ctrl</kbd> + <kbd>H</kbd> trong trình quản lý file để hiện chúng lên.
+- **Linux**: 2 mục `.config` và `.local` phải nằm trong thư mục home (`~`). Chúng là thư mục ẩn — nhấn tổ hợp phím <kbd>Ctrl</kbd> + <kbd>H</kbd> trong trình quản lý file để hiện chúng lên.
 - **Windows**: thư mục `3.0` phải nằm trong thư mục `%APPDATA%\GIMP`, không phải nằm cạnh nó.
 - **macOS**: thư mục `3.0` phải nằm trong thư mục `~/Library/Application Support/GIMP`.
 - Bạn đã **đóng GIMP** trước khi paste file vào chưa? Nếu chưa, GIMP có thể ghi đè lại các file vừa paste sau khi thoát.
