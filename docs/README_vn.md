@@ -103,7 +103,7 @@ Nếu bạn muốn giữ lại các thông số cài đặt của GIMP, hãy là
 5. Mở thư mục vừa được giải nén và **copy thư mục `3.0`**.
 6. Nhấn tổ hợp phím <kbd>Windows</kbd> + <kbd>R</kbd> để mở hộp thoại Run.
 7. Nhập `%APPDATA%\GIMP` và nhấn <kbd>Enter</kbd> — Bước này sẽ mở thư mục dữ liệu của GIMP.
-8. **Paste** thư mục `3.0` tại đây (Lưu ý, tùy vào bản GIMP mà bạn cài đặt thì có thể sẽ là 3.x (3.1, 3.2,...) chứ không hẳn là 3.0 như mặc định, bạn hãy đổi tên thư mục trước khi copy và paste.
+8. **Paste** thư mục `3.0` tại đây. Lưu ý, tùy vào bản GIMP mà bạn cài đặt thì có thể sẽ là 3.x (3.1, 3.2,...) chứ không hẳn là 3.0 như mặc định, bạn hãy đổi tên thư mục trước khi copy và paste.
 9. Khi bảng thông báo "existed files" hiện lên, chọn **"Replace the files in the destination"**.
 10. Mở GIMP — Bạn sẽ thấy được giao diện PhotoGIMP mới toanh! 🎉
 
