@@ -168,10 +168,10 @@ Pokud si chcete ponechat aktuální nastavení GIMPu, nejprve si ho zálohujte:
 Pokud možnost **„Sloučit“** ve Finderu tiše přeskočí existující soubory, nebo pokud dáváte přednost příkazové řádce, můžete soubory PhotoGIMPu zkopírovat pomocí `rsync`.
 
 1. Otevřete Terminál.
-2. Spusťte `rsync`, nahraďte `/path/to/extracted/3.0/` umístěním rozbalené složky `3.2`:
+2. Spusťte `rsync`, nahraďte `/path/to/extracted/3.2/` umístěním rozbalené složky `3.2`:
 
    ```bash
-   rsync -av --ignore-times /path/to/extracted/3.0/ ~/Library/Application\ Support/GIMP/3.0/
+   rsync -av --ignore-times /path/to/extracted/3.2/ ~/Library/Application\ Support/GIMP/3.2/
    ```
 
    Ujistěte se, že obě cesty končí znakem `/`.
