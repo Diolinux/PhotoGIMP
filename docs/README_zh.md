@@ -25,7 +25,7 @@
 ## 📷 截图
 
 <p>
-  <img src="../.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux 启动画面">
+  <img src="../.config/GIMP/3.2/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux 启动画面">
   <em>PhotoGIMP Diolinux 启动画面</em>
 </p>
 
@@ -63,7 +63,7 @@
 如果你想保留当前 GIMP 设置，请先备份：
 
 ```bash
-cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
+cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 ```
 
 #### 安装
@@ -81,7 +81,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 <details>
 <summary><strong>💡 使用的是非 Flatpak 版 GIMP？</strong></summary>
 
-如果你是使用发行版包管理器（apt、dnf、pacman 等）而非 Flatpak 安装的 GIMP，配置文件夹的位置相同（`~/.config/GIMP/3.0`），因此上述步骤同样适用。只需确保 GIMP 版本为 3.0 或更高。
+如果你是使用发行版包管理器（apt、dnf、pacman 等）而非 Flatpak 安装的 GIMP，配置文件夹的位置相同（`~/.config/GIMP/3.2`），因此上述步骤同样适用。只需确保 GIMP 版本为 3.0 或更高。
 </details>
 
 ---
@@ -96,7 +96,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 
 1. 按下 <kbd>Windows</kbd> + <kbd>R</kbd> 打开运行对话框。
 2. 输入 `%APPDATA%\GIMP` 并按 <kbd>Enter</kbd>。
-3. 将整个 `3.0` 文件夹复制到安全位置（例如桌面）。
+3. 将整个 `3.2` 文件夹复制到安全位置（例如桌面）。
 
 #### 安装
 
@@ -105,10 +105,10 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 3. 下载最新 release：
    👉 **[下载 PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. 将 `PhotoGIMP.zip` 的内容解压到任意文件夹（例如桌面）。
-5. 打开解压后的文件夹，**复制其中的 `3.0` 文件夹**。
+5. 打开解压后的文件夹，**复制其中的 `3.2` 文件夹**。
 6. 按下 <kbd>Windows</kbd> + <kbd>R</kbd> 打开运行对话框。
 7. 输入 `%APPDATA%\GIMP` 并按 <kbd>Enter</kbd>——这将打开 GIMP 的设置文件夹。
-8. 将 `3.0` 文件夹**粘贴**到此处。
+8. 将 `3.2` 文件夹**粘贴**到此处。
 9. 当提示覆盖已有文件时，选择 **"Replace the files in the destination"**。
 10. 打开 GIMP——你应该看到全新的 PhotoGIMP 布局了！🎉
 
@@ -118,7 +118,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 你也可以下载 [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico)，然后更新以下路径中 GIMP 快捷方式的图标：
 
 ```
-%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
+%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.2.0
 ```
 
 右键点击快捷方式 → **属性** → **更改图标** → 浏览到下载的 `.ico` 文件。
@@ -157,11 +157,11 @@ choco install photogimp
 3. 下载最新 release：
    👉 **[下载 PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. 将 `PhotoGIMP.zip` 的内容解压到任意文件夹（例如桌面）。
-5. 打开解压后的文件夹，**复制其中的 `3.0` 文件夹**。
+5. 打开解压后的文件夹，**复制其中的 `3.2` 文件夹**。
 6. 打开 Finder，按下 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> 打开"前往文件夹"。
 7. 输入 `~/Library/Application Support/GIMP` 并按 <kbd>Enter</kbd>。
 8. 如果你看到之前安装遗留的 `2.10` 文件夹，请**将其删除**以避免冲突。
-9. 将 `3.0` 文件夹**粘贴**到 GIMP 文件夹内。
+9. 将 `3.2` 文件夹**粘贴**到 GIMP 文件夹内。
 10. 当提示覆盖已有文件时，选择 **"Replace"** 或 **"Merge"**。
 11. 打开 GIMP——你应该看到全新的 PhotoGIMP 布局了！🎉
 
@@ -196,7 +196,7 @@ PhotoGIMP 会替换或添加 GIMP 配置目录中的以下文件：
 ### Linux
 
 ```bash
-rm -rf ~/.config/GIMP/3.0
+rm -rf ~/.config/GIMP/3.2
 ```
 
 然后重新打开 GIMP——它会生成全新的默认配置。
@@ -204,22 +204,22 @@ rm -rf ~/.config/GIMP/3.0
 如果你之前做过备份，可以恢复它：
 
 ```bash
-cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
+cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 ```
 
 ### Windows
 
 1. 按下 <kbd>Windows</kbd> + <kbd>R</kbd>，输入 `%APPDATA%\GIMP` 并按 <kbd>Enter</kbd>。
-2. 删除 `3.0` 文件夹。
+2. 删除 `3.2` 文件夹。
 3. 打开 GIMP——它会重新创建默认设置。
 
-或者将之前备份的 `3.0` 文件夹粘贴回来以恢复设置。
+或者将之前备份的 `3.2` 文件夹粘贴回来以恢复设置。
 
 ### macOS
 
 1. 打开 Finder，按下 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>。
 2. 前往 `~/Library/Application Support/GIMP`。
-3. 删除 `3.0` 文件夹。
+3. 删除 `3.2` 文件夹。
 4. 打开 GIMP——它会重新创建默认设置。
 
 或者将之前备份的文件夹粘贴回来以恢复设置。
@@ -236,8 +236,8 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 
 - 请确认你将文件解压到了**正确的位置**。最常见的问题就是解压到了错误的文件夹。
 - **Linux**：`.config` 和 `.local` 文件夹必须位于你的主目录（`~`）中。它们是隐藏文件夹——在文件管理器中按 <kbd>Ctrl</kbd> + <kbd>H</kbd> 即可看到。
-- **Windows**：`3.0` 文件夹必须在 `%APPDATA%\GIMP` 里面，而不是靠在外面。
-- **macOS**：`3.0` 文件夹必须在 `~/Library/Application Support/GIMP` 里面。
+- **Windows**：`3.2` 文件夹必须在 `%APPDATA%\GIMP` 里面，而不是靠在外面。
+- **macOS**：`3.2` 文件夹必须在 `~/Library/Application Support/GIMP` 里面。
 - 你在粘贴文件之前**关闭 GIMP** 了吗？GIMP 退出时可能会覆盖传入的设置。
 </details>
 

@@ -27,7 +27,7 @@
 ## 📷 צילומי מסך
 
 <p>
-  <img src="../.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
+  <img src="../.config/GIMP/3.2/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
   <em>מסך הפתיחה של PhotoGIMP מבית Diolinux</em>
 </p>
 
@@ -65,7 +65,7 @@
 אם ברצונכם לשמור על הגדרות ה‑GIMP הנוכחיות, גבו אותן קודם:
 
 ```bash
-cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
+cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 ```
 
 #### התקנה
@@ -83,7 +83,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 <details>
 <summary><strong>💡 משתמשים ב‑GIMP שאינו מ‑Flatpak?</strong></summary>
 
-אם התקנתם את GIMP ממנהל החבילות של ההפצה שלכם (apt, dnf, pacman וכו') במקום מ‑Flatpak, תיקיית התצורה נמצאת באותו מיקום (`~/.config/GIMP/3.0`), כך שהשלבים שלמעלה עדיין תקפים. פשוט ודאו שברשותכם GIMP בגרסה 3.0 ומעלה.
+אם התקנתם את GIMP ממנהל החבילות של ההפצה שלכם (apt, dnf, pacman וכו') במקום מ‑Flatpak, תיקיית התצורה נמצאת באותו מיקום (`~/.config/GIMP/3.2`), כך שהשלבים שלמעלה עדיין תקפים. פשוט ודאו שברשותכם GIMP בגרסה 3.0 ומעלה.
 </details>
 
 ---
@@ -98,7 +98,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 
 1. לחצו <kbd>Windows</kbd> + <kbd>R</kbd> כדי לפתוח את חלון ההרצה (Run).
 2. הקלידו `%APPDATA%\GIMP` והקישו <kbd>Enter</kbd>.
-3. העתיקו את כל תיקיית `3.0` למקום בטוח (למשל, לשולחן העבודה).
+3. העתיקו את כל תיקיית `3.2` למקום בטוח (למשל, לשולחן העבודה).
 
 #### התקנה
 
@@ -107,10 +107,10 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 3. הורידו את הגרסה האחרונה:
    👈 **[הורדת PhotoGIMP ל‑Windows‏ (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. חלצו את תוכן הקובץ `PhotoGIMP.zip` לכל תיקייה שהיא (למשל, לשולחן העבודה).
-5. פתחו את התיקייה שחולצה **והעתיקו את תיקיית `3.0`**.
+5. פתחו את התיקייה שחולצה **והעתיקו את תיקיית `3.2`**.
 6. לחצו <kbd>Windows</kbd> + <kbd>R</kbd> כדי לפתוח את חלון ההרצה (Run).
 7. הקלידו `%APPDATA%\GIMP` והקישו <kbd>Enter</kbd> — פעולה זו פותחת את תיקיית ההגדרות של GIMP.
-8. **הדביקו** כאן את תיקיית `3.0`.
+8. **הדביקו** כאן את תיקיית `3.2`.
 9. כאשר תישאלו לגבי קבצים קיימים, בחרו **"Replace the files in the destination"** (החלף את הקבצים ביעד).
 10. פתחו את GIMP — אמורה להופיע פריסת PhotoGIMP החדשה! 🎉
 
@@ -120,7 +120,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 ניתן גם להוריד את [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) ולעדכן את הסמל של קיצור הדרך ל‑GIMP הנמצא בנתיב:
 
 ```
-%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
+%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.2.0
 ```
 
 לחצו לחיצה ימנית על קיצור הדרך ← **Properties** (מאפיינים) ← **Change Icon** (שינוי סמל) ← נווטו לקובץ ה‑`.ico` שהורדתם.
@@ -159,11 +159,11 @@ choco install photogimp
 3. הורידו את הגרסה האחרונה:
    👈 **[הורדת PhotoGIMP ל‑macOS‏ (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. חלצו את תוכן הקובץ `PhotoGIMP.zip` לכל תיקייה שהיא (למשל, לשולחן העבודה).
-5. פתחו את התיקייה שחולצה **והעתיקו את תיקיית `3.0`**.
+5. פתחו את התיקייה שחולצה **והעתיקו את תיקיית `3.2`**.
 6. פתחו את Finder, לחצו <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> כדי לפתוח את "Go to Folder" (מעבר לתיקייה).
 7. הקלידו `~/Library/Application Support/GIMP` והקישו <kbd>Enter</kbd>.
 8. אם אתם רואים תיקיית `2.10` מהתקנה קודמת, **מחקו אותה** כדי למנוע התנגשויות.
-9. **הדביקו** את תיקיית `3.0` בתוך תיקיית ה‑GIMP.
+9. **הדביקו** את תיקיית `3.2` בתוך תיקיית ה‑GIMP.
 10. כאשר תישאלו לגבי קבצים קיימים, בחרו **"Replace"** (החלף) או **"Merge"** (מזג).
 11. פתחו את GIMP — אמורה להופיע פריסת PhotoGIMP החדשה! 🎉
 
@@ -198,7 +198,7 @@ choco install photogimp
 ### Linux
 
 ```bash
-rm -rf ~/.config/GIMP/3.0
+rm -rf ~/.config/GIMP/3.2
 ```
 
 לאחר מכן פתחו שוב את GIMP — הוא ייצור תצורת ברירת מחדל חדשה לגמרי.
@@ -206,22 +206,22 @@ rm -rf ~/.config/GIMP/3.0
 אם יצרתם גיבוי קודם לכן, שחזרו אותו במקום זאת:
 
 ```bash
-cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
+cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 ```
 
 ### Windows
 
 1. לחצו <kbd>Windows</kbd> + <kbd>R</kbd>, הקלידו `%APPDATA%\GIMP` והקישו <kbd>Enter</kbd>.
-2. מחקו את תיקיית `3.0`.
+2. מחקו את תיקיית `3.2`.
 3. פתחו את GIMP — הוא ייצור מחדש את הגדרות ברירת המחדל.
 
-לחלופין, שחזרו את הגיבוי שלכם על ידי הדבקת תיקיית `3.0` המגובה בחזרה.
+לחלופין, שחזרו את הגיבוי שלכם על ידי הדבקת תיקיית `3.2` המגובה בחזרה.
 
 ### macOS
 
 1. פתחו את Finder, לחצו <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
 2. עברו אל `~/Library/Application Support/GIMP`.
-3. מחקו את תיקיית `3.0`.
+3. מחקו את תיקיית `3.2`.
 4. פתחו את GIMP — הוא ייצור מחדש את הגדרות ברירת המחדל.
 
 לחלופין, שחזרו את הגיבוי שלכם על ידי הדבקת התיקייה המגובה בחזרה.
@@ -238,8 +238,8 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 
 - ודאו שחילצתם את הקבצים **למיקום הנכון**. הטעות הנפוצה ביותר היא חילוץ לתיקייה שגויה.
 - **Linux**: התיקיות `.config` ו‑`.local` חייבות להיות בתיקיית הבית שלכם (`~`). הן מוסתרות — לחצו <kbd>Ctrl</kbd> + <kbd>H</kbd> במנהל הקבצים כדי לראות אותן.
-- **Windows**: תיקיית `3.0` חייבת להיות **בתוך** `%APPDATA%\GIMP`, ולא לצידה.
-- **macOS**: תיקיית `3.0` חייבת להיות בתוך `~/Library/Application Support/GIMP`.
+- **Windows**: תיקיית `3.2` חייבת להיות **בתוך** `%APPDATA%\GIMP`, ולא לצידה.
+- **macOS**: תיקיית `3.2` חייבת להיות בתוך `~/Library/Application Support/GIMP`.
 - האם **סגרתם את GIMP** לפני הדבקת הקבצים? ‏GIMP עלול לדרוס הגדרות נכנסות בעת היציאה.
 </details>
 

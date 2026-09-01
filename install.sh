@@ -5,7 +5,6 @@
 set -eu
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/3.0"
 
 # Source - https://stackoverflow.com/a/37939589
 # Posted by yairchu, modified by community. See post 'Timeline' for change history
@@ -83,6 +82,24 @@ detect_gimp() {
 			native_command="gimp"
 			native_version="$command_version"
 		fi
+	fi
+
+	# Check standard macOS application locations
+	if [ -z "$native_command" ]; then
+		local macos_apps=(
+			"/Applications/GIMP.app/Contents/MacOS/gimp"
+			"${HOME:-}/Applications/GIMP.app/Contents/MacOS/gimp"
+		)
+		for macos_binary in "${macos_apps[@]}"; do
+			if [ -f "$macos_binary" ] && [ -x "$macos_binary" ]; then
+				command_version=$("$macos_binary" --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+' | head -1)
+				if [ -n "$command_version" ] && [ "$(version "$command_version")" -ge "$(version "3.0")" ]; then
+					native_command="$macos_binary"
+					native_version="$command_version"
+					break
+				fi
+			fi
+		done
 	fi
 
 	if  [ -n "$native_command" ]; then
@@ -198,7 +215,7 @@ case "$GIMP_SOURCE" in
 		fi
 		;;
 	native)
-		if pgrep -x 'gimp|gimp-3\.[0-9]+' >/dev/null; then
+		if pgrep -x 'gimp|gimp-3\.[0-9]+' >/dev/null 2>&1 || pgrep -ix 'gimp' >/dev/null 2>&1; then
 			echo ""
 			echo "GIMP is currently running"
 			echo "Please close GIMP before running the installer"
@@ -206,6 +223,20 @@ case "$GIMP_SOURCE" in
 		fi
 		;;
 esac
+
+# Determine configuration source directory
+CONFIG_SRC=""
+if [ -n "$GIMP_VERSION" ] && [ -d "$SCRIPT_DIR/.config/GIMP/$GIMP_VERSION" ]; then
+	CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/$GIMP_VERSION"
+elif [ -d "$SCRIPT_DIR/.config/GIMP" ]; then
+	CONFIG_SRC="$(find "$SCRIPT_DIR/.config/GIMP" -mindepth 1 -maxdepth 1 -type d | sort | tail -1)"
+fi
+
+if [ -z "$CONFIG_SRC" ] || [ ! -d "$CONFIG_SRC" ]; then
+	echo ""
+	echo "Error: PhotoGIMP configuration source not found in $SCRIPT_DIR/.config/GIMP"
+	exit 1
+fi
 
 # Backup existing config
 BACKUP="$(dirname "$GIMP_CONFIG")/GIMP-backup-$(date +%Y%m%d-%H%M%S)"
@@ -215,7 +246,7 @@ mkdir -p "$BACKUP"
 cp -a "$GIMP_CONFIG" "$BACKUP/"
 
 # Copy PhotoGIMP config files
-echo "Installing PhotoGIMP config..."
+echo "Installing PhotoGIMP config from $(basename "$CONFIG_SRC")..."
 cp -a "$CONFIG_SRC"/. "$GIMP_CONFIG"/
 
 # Only install desktop file and icons for flatpak

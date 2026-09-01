@@ -25,7 +25,7 @@
 ## 📷 스크린샷
 
 <p>
-  <img src="./.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
+  <img src="./.config/GIMP/3.2/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
   <em>PhotoGIMP Diolinux 시작 아트</em>
 </p>
 
@@ -63,7 +63,7 @@ PhotoGIMP를 설치하기 전에 반드시 설치해야 합니다:
 현재 GIMP 설정을 유지하려면 먼저 백업하세요:
 
 ```bash
-cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
+cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 ```
 
 #### 설치
@@ -81,7 +81,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 <details>
 <summary><strong>💡 Flatpak이 아닌 GIMP를 사용하고 계신가요?</strong></summary>
 
-배포자의 패키지 관리자 (apt, dnf, pacman 등)에서 GIMP를 Flatpak 대신 설치한 경우 구성 폴더가 동일한 위치 (`~/.config/GIMP/3.0`)에 있으므로 위의 단계는 계속 작동합니다. GIMP 버전 3.0 이상이 있는지 확인하기만 하면 됩니다.
+배포자의 패키지 관리자 (apt, dnf, pacman 등)에서 GIMP를 Flatpak 대신 설치한 경우 구성 폴더가 동일한 위치 (`~/.config/GIMP/3.2`)에 있으므로 위의 단계는 계속 작동합니다. GIMP 버전 3.0 이상이 있는지 확인하기만 하면 됩니다.
 </details>
 
 ---
@@ -95,20 +95,20 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 현재 GIMP 설정을 유지하려면 먼저 백업하세요:
 
 1. 실행 대화 상자를 열려면 <kbd>Windows</kbd> + <kbd>R</kbd>를 누릅니다.
-2. Type `%APPDATA%\GIMP`를 입력하고 <kbd>Enter</kbd>를 누릅니다.
-3. 전체 `3.0` 폴더를 안전한 위치 (예: 바탕 화면)에 복사합니다.
+2. `%APPDATA%\GIMP`를 입력하고 <kbd>Enter</kbd>를 누릅니다.
+3. 전체 `3.2` 폴더를 안전한 위치 (예: 바탕 화면)에 복사합니다.
 
 #### 설치
 
-1. [공식 웹사이트에서 GIMP를 설치](https://www.gimp.org/downloads/)했는지 획인하세요.
+1. [공식 웹사이트에서 GIMP를 설치](https://www.gimp.org/downloads/)했는지 확인하세요.
 2. **GIMP를 한 번 연 다음 닫기** — 이렇게 하면 PhotoGIMP에 필요한 구성 폴더가 생성됩니다.
 3. 최신 릴리스 다운로드:
    👉 **[Windows용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. `PhotoGIMP.zip`의 내용을 모든 폴더 (예: 바탕화면)로 추출합니다.
-5. 추출된 폴더를 열고 **`3.0` 폴더를 복사합니다**.
+5. 추출된 폴더를 열고 **`3.2` 폴더를 복사합니다**.
 6. 실행 대화 상자를 열려면 <kbd>Windows</kbd> + <kbd>R</kbd>를 누릅니다.
 7. `%APPDATA%\GIMP`를 입력하고 <kbd>Enter</kbd> 를 누르면 — GIMP의 설정 폴더가 열립니다.
-8. 여기에 `3.0` 폴더를 **붙여넣기** 하세요.
+8. 여기에 `3.2` 폴더를 **붙여넣기** 하세요.
 9. 기존 파일에 대한 메시지가 나타나면 **"대상 파일 교체"**를 선택합니다.
 10. GIMP 열기  — 새로운 PhotoGIMP 레이아웃을 확인할 수 있습니다! 🎉
 
@@ -118,7 +118,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico)를 다운로드하고 GIMP 바로가기에서 아이콘을 업데이트할 수도 있습니다:
 
 ```
-%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
+%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.2.0
 ```
 
 Right-click the shortcut → **속성** → **아이콘 변경** → 다운로드한 `.ico` 파일을 찾아 마우스 오른쪽 버튼으로 클릭합니다.
@@ -157,11 +157,11 @@ choco install photogimp
 3. 최신 릴리스 다운로드:
    👉 **[macOS용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. `PhotoGIMP.zip` 의 내용을 모든 폴더 (예: 바탕 화면)로 추출합니다.
-5. 추출된 폴더를 열고 **`3.0` 폴더를 복사합니다**.
+5. 추출된 폴더를 열고 **`3.2` 폴더를 복사합니다**.
 6. 파인더를 열고 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>를 눌러 "폴더로 이동"을 엽니다.
 7. `~/Library/Application Support/GIMP`를 입력하고 <kbd>Enter</kbd>를 누릅니다.
 8. 이전 설치에서 `2.10` 폴더가 보이면, **삭제**하여 충돌을 피하세요.
-9. `3.0` 폴더 안에 **붙여넣기** 하세요.
+9. `3.2` 폴더 안에 **붙여넣기** 하세요.
 10. 기존 파일에 대한 메시지가 나타나면 **"교체"** 또는 **"병합"**을 선택합니다.
 11. GIMP 열기 — 새로운 PhotoGIMP 레이아웃을 확인할 수 있습니다! 🎉
 
@@ -196,7 +196,7 @@ PhotoGIMP를 제거하고 GIMP를 기본 상태로 복원하려면 GIMP의 구�
 ### Linux
 
 ```bash
-rm -rf ~/.config/GIMP/3.0
+rm -rf ~/.config/GIMP/3.2
 ```
 
 그런 다음 GIMP를 다시 열면 새 기본 구성이 생성됩니다.
@@ -204,22 +204,22 @@ rm -rf ~/.config/GIMP/3.0
 이전에 백업을 했다면 대신 복원하세요:
 
 ```bash
-cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
+cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 ```
 
 ### Windows
 
 1. <kbd>Windows</kbd> + <kbd>R</kbd>를 누르고 `%APPDATA%\GIMP`를 입력한 후 <kbd>Enter</kbd>를 누릅니다.
-2. `3.0` 폴더를 삭제합니다.
+2. `3.2` 폴더를 삭제합니다.
 3. GIMP 열기 — 기본 설정이 다시 생성됩니다.
 
-또는 백업된 `3.0` 폴더를 다시 붙여넣어 백업을 복원할 수도 있습니다.
+또는 백업된 `3.2` 폴더를 다시 붙여넣어 백업을 복원할 수도 있습니다.
 
 ### macOS
 
 1. 파인더를 열고 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>를 누릅니다.
 2. `~/Library/Application Support/GIMP`로 이동합니다.
-3. `3.0` 폴더를 삭제합니다.
+3. `3.2` 폴더를 삭제합니다.
 4. GIMP 열기 — 기본 설정을 다시 생성합니다.
 
 또는 백업된 폴더를 다시 붙여넣어 백업을 복원할 수도 있습니다.
@@ -233,15 +233,15 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 
 - 파일을 **정확한 위치**로 추출했는지 확인하세요. 가장 일반적인 실수는 잘못된 폴더로 추출하는 것입니다..
 - **Linux**: `.config` 및 `.local` 폴더는 홈 디렉터리 (`~`)에 있어야 합니다 - 파일 관리자에서 <kbd>Ctrl</kbd> + <kbd>H</kbd>를 눌러 폴더를 확인할 수 있습니다.
-- **Windows**: The `3.0` folder must be inside `%APPDATA%\GIMP`, not next to it.
-- **macOS**: `3.0` 폴더는 `~/Library/Application Support/GIMP` 폴더 안에 있어야 하며 바로 옆에 있으면 안됩니다.
+- **Windows**: `3.2` 폴더는 `%APPDATA%\GIMP` 폴더 안에 있어야 하며 바로 옆에 있으면 안됩니다.
+- **macOS**: `3.2` 폴더는 `~/Library/Application Support/GIMP` 폴더 안에 있어야 하며 바로 옆에 있으면 안됩니다.
 - 파일을 붙여넣기 전에 **GIMP 닫기** 하셨나요? GIMP는 종료 시 들어오는 설정을 덮어쓸 수 있습니다.
 </details>
 
 <details>
 <summary><strong>PhotoGIMP를 설치한 후 GIMP를 열 때 오류가 발생합니다</strong></summary>
 
-- 이는 일반적으로 GIMP 버전이 일치하지 않는다는 것을 의미합니다. PhotoGIMP는 **GIMP 3.0+**용으로 제작되었습니다. GIMP 2.x를 실행 중이라면 호환되지 않습니다..
+- 이는 일반적으로 GIMP 버전이 일치하지 않는다는 것을 의미합니다. PhotoGIMP는 **GIMP 3.x**용으로 제작되었습니다. GIMP 2.x를 실행 중이라면 호환되지 않습니다..
 - 구성 폴더를 삭제하고 다시 설치해 보세요 — [제거하는 방법](#-제거하는 방법) 섹션을 참조하세요.
 </details>
 

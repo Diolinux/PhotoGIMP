@@ -26,7 +26,7 @@
 
 | Úvodní obrazovka | Okno aplikace |
 |-|-|
-| ![[PhotoGIMP Diolinux splash screen]](../.config/GIMP/3.0/splashes/splash-screen-2025-v2.png)<br>Úvodní obrazovka PhotoGIMP Diolinux | ![[PhotoGIMP 3]](../screenshots/photogimp_3_-_diolinux.png)<br>PhotoGIMP 3
+| ![[PhotoGIMP Diolinux splash screen]](../.config/GIMP/3.2/splashes/splash-screen-2025-v2.png)<br>Úvodní obrazovka PhotoGIMP Diolinux | ![[PhotoGIMP 3]](../screenshots/photogimp_3_-_diolinux.png)<br>PhotoGIMP 3
 
 ---
 
@@ -57,7 +57,7 @@ Před instalací PhotoGIMPu se ujistěte, že máte:
 Pokud si chcete ponechat aktuální nastavení GIMPu, nejprve si ho zálohujte:
 
 ```bash
-cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
+cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 ```
 
 #### Instalace
@@ -75,7 +75,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 <details>
 <summary><strong>💡 Používáte jiný GIMP než Flatpak?</strong></summary>
 
-Pokud jste nainstalovali GIMP přes správce balíčků vaší distribuce (apt, dnf, pacman atd.) namísto Flatpaku, složka s konfigurací je na stejném místě (`~/.config/GIMP/3.0`), takže výše uvedené kroky stále fungují. Jen se ujistěte, že máte verzi GIMPu 3.0 nebo novější.
+Pokud jste nainstalovali GIMP přes správce balíčků vaší distribuce (apt, dnf, pacman atd.) namísto Flatpaku, složka s konfigurací je na stejném místě (`~/.config/GIMP/3.2`), takže výše uvedené kroky stále fungují. Jen se ujistěte, že máte verzi GIMPu 3.0 nebo novější.
 
 </details>
 
@@ -91,7 +91,7 @@ Pokud si chcete ponechat aktuální nastavení GIMPu, nejprve si ho zálohujte:
 
 1. Stiskněte <kbd>Windows</kbd> + <kbd>R</kbd> pro otevření dialogu Spustit.
 2. Napište `%APPDATA%\GIMP` a stiskněte <kbd>Enter</kbd>.
-3. Zkopírujte celou složku `3.0` na bezpečné místo (např. na Plochu).
+3. Zkopírujte celou složku `3.2` na bezpečné místo (např. na Plochu).
 
 #### Instalace
 
@@ -100,10 +100,10 @@ Pokud si chcete ponechat aktuální nastavení GIMPu, nejprve si ho zálohujte:
 3. Stáhněte si nejnovější vydání:
    👉 **[Stáhnout PhotoGIMP pro Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Rozbalte obsah `PhotoGIMP.zip` do libovolné složky (např. na Plochu).
-5. Otevřete rozbalenou složku a **zkopírujte složku `3.0`**.
+5. Otevřete rozbalenou složku a **zkopírujte složku `3.2`**.
 6. Stiskněte <kbd>Windows</kbd> + <kbd>R</kbd> pro otevření dialogu Spustit.
 7. Napište `%APPDATA%\GIMP` a stiskněte <kbd>Enter</kbd> — to otevře složku s nastavením GIMPu.
-8. **Vložte** sem složku `3.0`.
+8. **Vložte** sem složku `3.2`.
 9. Když budete dotázáni na existující soubory, zvolte **„Nahradit soubory v cíli“**.
 10. Otevřete GIMP — měli byste vidět nové rozložení PhotoGIMP! 🎉
 
@@ -113,7 +113,7 @@ Pokud si chcete ponechat aktuální nastavení GIMPu, nejprve si ho zálohujte:
 Můžete si také stáhnout [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) a aktualizovat ikonu u zástupce GIMPu umístěného v:
 
 ```
-%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
+%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.2.0
 ```
 
 Klikněte pravým tlačítkem na zástupce → **Vlastnosti** → **Změnit ikonu** → najděte stažený soubor `.ico`.
@@ -154,11 +154,11 @@ Pokud si chcete ponechat aktuální nastavení GIMPu, nejprve si ho zálohujte:
 3. Stáhněte si nejnovější vydání:
    👉 **[Stáhnout PhotoGIMP pro macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Rozbalte obsah `PhotoGIMP.zip` do libovolné složky (např. na Plochu).
-5. Otevřete rozbalenou složku a **zkopírujte složku `3.0`**.
+5. Otevřete rozbalenou složku a **zkopírujte složku `3.2`**.
 6. Otevřete Finder, stiskněte <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> pro otevření "Otevřít složku".
 7. Napište `~/Library/Application Support/GIMP` a stiskněte <kbd>Enter</kbd>.
 8. Pokud uvidíte složku `2.10` z předchozí instalace, **smažte ji**, abyste předešli konfliktům.
-9. **Vložte** složku `3.0` dovnitř složky GIMP.
+9. **Vložte** složku `3.2` dovnitř složky GIMP.
 10. Když budete dotázáni na existující soubory, zvolte **„Nahradit“** nebo **„Sloučit“**.
 11. Otevřete GIMP — měli byste vidět nové rozložení PhotoGIMP! 🎉
 
@@ -168,7 +168,7 @@ Pokud si chcete ponechat aktuální nastavení GIMPu, nejprve si ho zálohujte:
 Pokud možnost **„Sloučit“** ve Finderu tiše přeskočí existující soubory, nebo pokud dáváte přednost příkazové řádce, můžete soubory PhotoGIMPu zkopírovat pomocí `rsync`.
 
 1. Otevřete Terminál.
-2. Spusťte `rsync`, nahraďte `/path/to/extracted/3.0/` umístěním rozbalené složky `3.0`:
+2. Spusťte `rsync`, nahraďte `/path/to/extracted/3.0/` umístěním rozbalené složky `3.2`:
 
    ```bash
    rsync -av --ignore-times /path/to/extracted/3.0/ ~/Library/Application\ Support/GIMP/3.0/
@@ -211,7 +211,7 @@ Chcete-li odstranit PhotoGIMP a obnovit GIMP do výchozího stavu, jednoduše sm
 ### Linux
 
 ```bash
-rm -rf ~/.config/GIMP/3.0
+rm -rf ~/.config/GIMP/3.2
 ```
 
 Poté GIMP znovu otevřete — vytvoří zcela novou výchozí konfiguraci.
@@ -219,22 +219,22 @@ Poté GIMP znovu otevřete — vytvoří zcela novou výchozí konfiguraci.
 Pokud jste si dříve udělali zálohu, obnovte ji raději takto:
 
 ```bash
-cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
+cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 ```
 
 ### Windows
 
 1. Stiskněte <kbd>Windows</kbd> + <kbd>R</kbd>, napište `%APPDATA%\GIMP` a stiskněte <kbd>Enter</kbd>.
-2. Smažte složku `3.0`.
+2. Smažte složku `3.2`.
 3. Otevřete GIMP — znovu se vytvoří výchozí nastavení.
 
-Nebo obnovte zálohu tím, že vložíte zpět zálohovanou složku `3.0`.
+Nebo obnovte zálohu tím, že vložíte zpět zálohovanou složku `3.2`.
 
 ### macOS
 
 1. Otevřete Finder, stiskněte <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
 2. Přejděte do `~/Library/Application Support/GIMP`.
-3. Smažte složku `3.0`.
+3. Smažte složku `3.2`.
 4. Otevřete GIMP — znovu se vytvoří výchozí nastavení.
 
 Nebo obnovte zálohu vložením zpět zálohované složky.
@@ -251,8 +251,8 @@ Nebo obnovte zálohu vložením zpět zálohované složky.
 
 - Ujistěte se, že jste soubory rozbalili do **správného umístění**. Nejčastější chybou je rozbalení do nesprávné složky.
 - **Linux**: Složky `.config` a `.local` musí být ve vašem domovském adresáři (`~`). Jsou skryté — stiskněte <kbd>Ctrl</kbd> + <kbd>H</kbd> ve správci souborů pro jejich zobrazení.
-- **Windows**: Složka `3.0` musí být uvnitř `%APPDATA%\GIMP`, nikoli vedle ní.
-- **macOS**: Složka `3.0` musí být uvnitř `~/Library/Application Support/GIMP`.
+- **Windows**: Složka `3.2` musí být uvnitř `%APPDATA%\GIMP`, nikoli vedle ní.
+- **macOS**: Složka `3.2` musí být uvnitř `~/Library/Application Support/GIMP`.
 - **Zavřeli jste GIMP** před vložením souborů? GIMP může při ukončení přepsat nová nastavení.
   </details>
 

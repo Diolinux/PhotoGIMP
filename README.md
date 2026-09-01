@@ -26,7 +26,7 @@
 
 | Splash Screen | Application Window |
 |-|-|
-| ![[PhotoGIMP Diolinux splash screen]](./.config/GIMP/3.0/splashes/splash-screen-2025-v2.png)<br>PhotoGIMP Diolinux splash screen | ![[PhotoGIMP 3]](./screenshots/photogimp_3_-_diolinux.png)<br>PhotoGIMP 3
+| ![[PhotoGIMP Diolinux splash screen]](./.config/GIMP/3.2/splashes/splash-screen-2025-v2.png)<br>PhotoGIMP Diolinux splash screen | ![[PhotoGIMP 3]](./screenshots/photogimp_3_-_diolinux.png)<br>PhotoGIMP 3
 
 ---
 
@@ -57,7 +57,7 @@ Before installing PhotoGIMP, make sure you have:
 If you want to keep your current GIMP settings, back them up first:
 
 ```bash
-cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
+cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 ```
 
 #### Install
@@ -75,7 +75,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 <details>
 <summary><strong>💡 Using a non-Flatpak GIMP?</strong></summary>
 
-If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.) instead of Flatpak, the config folder is in the same location (`~/.config/GIMP/3.0`), so the steps above still work. Just make sure you have GIMP version 3.0 or newer.
+If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.) instead of Flatpak, the config folder is in the same location (`~/.config/GIMP/3.2`), so the steps above still work. Just make sure you have GIMP version 3.0 or newer.
 
 </details>
 
@@ -91,7 +91,7 @@ If you want to keep your current GIMP settings, back them up first:
 
 1. Press <kbd>Windows</kbd> + <kbd>R</kbd> to open the Run dialog.
 2. Type `%APPDATA%\GIMP` and press <kbd>Enter</kbd>.
-3. Copy the entire `3.0` folder to a safe location (e.g., your Desktop).
+3. Copy the entire `3.2` folder to a safe location (e.g., your Desktop).
 
 #### Install
 
@@ -100,10 +100,10 @@ If you want to keep your current GIMP settings, back them up first:
 3. Download the latest release:
    👉 **[Download PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
-5. Open the extracted folder and **copy the `3.0` folder**.
+5. Open the extracted folder and **copy the `3.2` folder**.
 6. Press <kbd>Windows</kbd> + <kbd>R</kbd> to open the Run dialog.
 7. Type `%APPDATA%\GIMP` and press <kbd>Enter</kbd> — this opens GIMP's settings folder.
-8. **Paste** the `3.0` folder here.
+8. **Paste** the `3.2` folder here.
 9. When prompted about existing files, select **"Replace the files in the destination"**.
 10. Open GIMP — you should see the new PhotoGIMP layout! 🎉
 
@@ -154,13 +154,13 @@ If you want to keep your current GIMP settings, back them up first:
 3. Download the latest release:
    👉 **[Download PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
-5. Open the extracted folder and **copy the `3.0` folder**.
+5. Open the extracted folder and **copy the `3.2` folder**.
 6. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to
    open "Go to Folder".
 7. Type `~/Library/Application Support/GIMP` and press <kbd>Enter</kbd>.
 8. If you see a `2.10` folder from a previous installation, **delete it** to
    avoid conflicts.
-9. **Paste** the `3.0` folder inside the GIMP folder.
+9. **Paste** the `3.2` folder inside the GIMP folder.
 10. When prompted about existing files, select **"Replace"** or **"Merge"**.
 11. Open GIMP — you should see the new PhotoGIMP layout! 🎉
 
@@ -171,17 +171,14 @@ If Finder's **"Merge"** option silently skips existing files, or if you prefer
 the command line, you can copy the PhotoGIMP files with `rsync`.
 
 1. Open Terminal.
-2. Run `rsync`, replacing `/path/to/extracted/3.0/` with the extracted `3.0`
+2. Run `rsync`, replacing `/path/to/extracted/3.2/` with the extracted `3.2`
    folder location:
 
    ```bash
-   rsync -av --ignore-times /path/to/extracted/3.0/ ~/Library/Application\ Support/GIMP/3.0/
+   rsync -av --ignore-times /path/to/extracted/3.2/ ~/Library/Application\ Support/GIMP/3.2/
    ```
 
    Make sure both paths end with `/`.
-3. If your installed GIMP uses a different version folder, change the
-   destination to match it (for example, use
-   `~/Library/Application\ Support/GIMP/3.2/` for GIMP 3.2).
 
 </details>
 
@@ -217,7 +214,7 @@ To remove PhotoGIMP and restore GIMP to its default state, simply delete GIMP's 
 ### Linux
 
 ```bash
-rm -rf ~/.config/GIMP/3.0
+rm -rf ~/.config/GIMP/3.2
 ```
 
 Then open GIMP again — it will create a brand new default configuration.
@@ -225,22 +222,22 @@ Then open GIMP again — it will create a brand new default configuration.
 If you made a backup earlier, restore it instead:
 
 ```bash
-cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
+cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 ```
 
 ### Windows
 
 1. Press <kbd>Windows</kbd> + <kbd>R</kbd>, type `%APPDATA%\GIMP` and press <kbd>Enter</kbd>.
-2. Delete the `3.0` folder.
+2. Delete the `3.2` folder.
 3. Open GIMP — it will recreate the default settings.
 
-Or restore your backup by pasting the backed-up `3.0` folder back.
+Or restore your backup by pasting the backed-up `3.2` folder back.
 
 ### macOS
 
 1. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
 2. Go to `~/Library/Application Support/GIMP`.
-3. Delete the `3.0` folder.
+3. Delete the `3.2` folder.
 4. Open GIMP — it will recreate the default settings.
 
 Or restore your backup by pasting the backed-up folder back.
@@ -257,15 +254,15 @@ Or restore your backup by pasting the backed-up folder back.
 
 - Make sure you extracted the files to the **correct location**. The most common mistake is extracting to the wrong folder.
 - **Linux**: The `.config` and `.local` folders must be in your home directory (`~`). They are hidden — press <kbd>Ctrl</kbd> + <kbd>H</kbd> in your file manager to see them.
-- **Windows**: The `3.0` folder must be inside `%APPDATA%\GIMP`, not next to it.
-- **macOS**: The `3.0` folder must be inside `~/Library/Application Support/GIMP`.
+- **Windows**: The `3.2` folder must be inside `%APPDATA%\GIMP`, not next to it.
+- **macOS**: The `3.2` folder must be inside `~/Library/Application Support/GIMP`.
 - Did you **close GIMP** before pasting the files? GIMP may overwrite incoming settings on exit.
   </details>
 
 <details>
 <summary><strong>I get an error when opening GIMP after installing PhotoGIMP</strong></summary>
 
-- This usually means the GIMP version doesn't match. PhotoGIMP is built for **GIMP 3.0+**. If you're running GIMP 2.x, it won't be compatible.
+- This usually means the GIMP version doesn't match. PhotoGIMP is built for **GIMP 3.x**. If you're running GIMP 2.x, it won't be compatible.
 - Try deleting the config folder and reinstalling — see the [How to Uninstall](#-how-to-uninstall) section.
   </details>
 

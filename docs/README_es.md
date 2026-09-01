@@ -24,7 +24,7 @@
 
 ## 📷 Capturas de pantalla
 
-![PhotoGIMP Diolinux Splash Art](https://github.com/Diolinux/PhotoGIMP/raw/master/.config/GIMP/3.0/splashes/splash-screen-2025-v2.png)
+![PhotoGIMP Diolinux Splash Art](https://github.com/Diolinux/PhotoGIMP/raw/master/.config/GIMP/3.2/splashes/splash-screen-2025-v2.png)
 _PhotoGIMP Diolinux Splash Art_
 
 ![PhotoGIMP 3](https://github.com/Diolinux/PhotoGIMP/raw/master/screenshots/photogimp_3_-_diolinux.png)
@@ -59,7 +59,7 @@ Antes de instalar PhotoGIMP, asegúrate de tener:
 Si quieres conservar tu configuración actual de GIMP, haz primero una copia de seguridad:
 
 ```bash
-cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
+cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 ```
 
 #### Instalación
@@ -76,7 +76,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 
 **💡 ¿Usas un GIMP que no es Flatpak?**
 
-Si instalaste GIMP desde el gestor de paquetes de tu distribución (apt, dnf, pacman, etc.) en lugar de Flatpak, la carpeta de configuración se encuentra en la misma ubicación (`~/.config/GIMP/3.0`), así que los pasos anteriores siguen siendo válidos. Solo asegúrate de tener GIMP versión 3.0 o superior.
+Si instalaste GIMP desde el gestor de paquetes de tu distribución (apt, dnf, pacman, etc.) en lugar de Flatpak, la carpeta de configuración se encuentra en la misma ubicación (`~/.config/GIMP/3.2`), así que los pasos anteriores siguen siendo válidos. Solo asegúrate de tener GIMP versión 3.0 o superior.
 
 ---
 
@@ -90,7 +90,7 @@ Si quieres conservar tu configuración actual de GIMP, haz primero una copia de 
 
 1. Pulsa `Windows` + `R` para abrir el cuadro de diálogo Ejecutar.
 2. Escribe `%APPDATA%\GIMP` y pulsa `Enter`.
-3. Copia toda la carpeta `3.0` a un lugar seguro (por ejemplo, tu Escritorio).
+3. Copia toda la carpeta `3.2` a un lugar seguro (por ejemplo, tu Escritorio).
 
 #### Instalación
 
@@ -99,10 +99,10 @@ Si quieres conservar tu configuración actual de GIMP, haz primero una copia de 
 3. Descarga la última versión:
    👉 **[Descargar PhotoGIMP para Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Extrae el contenido de `PhotoGIMP.zip` en cualquier carpeta (por ejemplo, tu Escritorio).
-5. Abre la carpeta extraída y **copia la carpeta `3.0`**.
+5. Abre la carpeta extraída y **copia la carpeta `3.2`**.
 6. Pulsa `Windows` + `R` para abrir el cuadro de diálogo Ejecutar.
 7. Escribe `%APPDATA%\GIMP` y pulsa `Enter` — esto abre la carpeta de configuración de GIMP.
-8. **Pega** la carpeta `3.0` aquí.
+8. **Pega** la carpeta `3.2` aquí.
 9. Cuando te pregunte sobre los archivos existentes, selecciona **«Reemplazar los archivos en el destino»**.
 10. Abre GIMP — ¡deberías ver la nueva interfaz de PhotoGIMP! 🎉
 
@@ -111,7 +111,7 @@ Si quieres conservar tu configuración actual de GIMP, haz primero una copia de 
 También puedes descargar [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) y actualizar el icono en el acceso directo de GIMP situado en:
 
 ```
-%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
+%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.2.0
 ```
 
 Haz clic derecho en el acceso directo → **Propiedades** → **Cambiar icono** → busca el archivo `.ico` descargado.
@@ -147,11 +147,11 @@ Si quieres conservar tu configuración actual de GIMP, haz primero una copia de 
 3. Descarga la última versión:
    👉 **[Descargar PhotoGIMP para macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Extrae el contenido de `PhotoGIMP.zip` en cualquier carpeta (por ejemplo, tu Escritorio).
-5. Abre la carpeta extraída y **copia la carpeta `3.0`**.
+5. Abre la carpeta extraída y **copia la carpeta `3.2`**.
 6. Abre el Finder, pulsa `Cmd` + `Shift` + `G` para abrir «Ir a la carpeta».
 7. Escribe `~/Library/Application Support/GIMP` y pulsa `Enter`.
 8. Si ves una carpeta `2.10` de una instalación anterior, **elimínala** para evitar conflictos.
-9. **Pega** la carpeta `3.0` dentro de la carpeta de GIMP.
+9. **Pega** la carpeta `3.2` dentro de la carpeta de GIMP.
 10. Cuando te pregunte sobre los archivos existentes, selecciona **«Reemplazar»** o **«Combinar»**.
 11. Abre GIMP — ¡deberías ver la nueva interfaz de PhotoGIMP! 🎉
 
@@ -187,7 +187,7 @@ Para eliminar PhotoGIMP y restaurar GIMP a su estado por defecto, basta con borr
 ### Linux
 
 ```bash
-rm -rf ~/.config/GIMP/3.0
+rm -rf ~/.config/GIMP/3.2
 ```
 
 Después abre GIMP de nuevo — creará una configuración por defecto totalmente nueva.
@@ -195,22 +195,22 @@ Después abre GIMP de nuevo — creará una configuración por defecto totalment
 Si hiciste una copia de seguridad anteriormente, restáurala:
 
 ```bash
-cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
+cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 ```
 
 ### Windows
 
 1. Pulsa `Windows` + `R`, escribe `%APPDATA%\GIMP` y pulsa `Enter`.
-2. Elimina la carpeta `3.0`.
+2. Elimina la carpeta `3.2`.
 3. Abre GIMP — recreará la configuración por defecto.
 
-O restaura tu copia de seguridad pegando de nuevo la carpeta `3.0`.
+O restaura tu copia de seguridad pegando de nuevo la carpeta `3.2`.
 
 ### macOS
 
 1. Abre el Finder, pulsa `Cmd` + `Shift` + `G`.
 2. Ve a `~/Library/Application Support/GIMP`.
-3. Elimina la carpeta `3.0`.
+3. Elimina la carpeta `3.2`.
 4. Abre GIMP — recreará la configuración por defecto.
 
 O restaura tu copia de seguridad pegando de nuevo la carpeta.
@@ -223,8 +223,8 @@ O restaura tu copia de seguridad pegando de nuevo la carpeta.
 
 - Asegúrate de haber extraído los archivos en la **ubicación correcta**. El error más habitual es extraerlos en la carpeta equivocada.
 - **Linux**: las carpetas `.config` y `.local` deben estar en tu directorio personal (`~`). Son ocultas — pulsa `Ctrl` + `H` en tu gestor de archivos para verlas.
-- **Windows**: la carpeta `3.0` debe estar **dentro** de `%APPDATA%\GIMP`, no al lado.
-- **macOS**: la carpeta `3.0` debe estar **dentro** de `~/Library/Application Support/GIMP`.
+- **Windows**: la carpeta `3.2` debe estar **dentro** de `%APPDATA%\GIMP`, no al lado.
+- **macOS**: la carpeta `3.2` debe estar **dentro** de `~/Library/Application Support/GIMP`.
 - ¿**Cerraste GIMP** antes de pegar los archivos? GIMP puede sobrescribir los ajustes recibidos al cerrarse.
 
 **Recibo un error al abrir GIMP después de instalar PhotoGIMP**
