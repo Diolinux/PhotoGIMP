@@ -60,7 +60,7 @@ Prima di installare PhotoGIMP, assicurati di avere:
 
 #### Backup (opzionale)
 
-Se vuoi mantenere le impostazioni attuali di GIMP, esegui prima un backup:
+Lo script `install.sh` usato qui sotto **esegue automaticamente un backup della tua configurazione attuale**, quindi questo passaggio serve solo se intendi copiare i file a mano:
 
 ```bash
 cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
@@ -72,16 +72,43 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 2. **Apri GIMP una volta e poi chiudilo**: questo crea le cartelle di configurazione necessarie a PhotoGIMP.
 3. Scarica l'ultima release:
    👉 **[Scarica PhotoGIMP per Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
-4. Estrai il file `.zip` **nella tua cartella home** (`~`).
-    - In questo modo i file verranno copiati in `~/.config` e `~/.local`, che sono cartelle nascoste.
-    - Per vedere le cartelle nascoste nel file manager, premi <kbd>Ctrl</kbd> + <kbd>H</kbd>.
-    - Quando richiesto sui file esistenti, scegli **"Sostituisci"** o **"Sovrascrivi"**.
-5. Apri GIMP: dovresti vedere il nuovo layout di PhotoGIMP. 🎉
+4. Estrai il file `.zip` **in una cartella qualsiasi** (per esempio la cartella `Downloads`). Verrà creata una cartella chiamata `PhotoGIMP-linux/` che contiene `.config`, `.local` e `install.sh`.
+   - ⚠️ Estrarre il `.zip` *dentro* la tua cartella home **non** installa PhotoGIMP: crea soltanto `~/PhotoGIMP-linux/`. Devi comunque eseguire il passaggio 5.
+5. Esegui l'installer incluso dall'interno di quella cartella:
+
+   ```bash
+   cd ~/Downloads/PhotoGIMP-linux
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+   Rileva se il tuo GIMP è Flatpak o un'installazione nativa, esegue un backup della configurazione attuale e copia i file nella posizione corretta.
+6. Apri GIMP: dovresti vedere il nuovo layout di PhotoGIMP. 🎉
+
+<details>
+<summary><strong>📂 Preferisci copiare i file manualmente?</strong></summary>
+
+Copia il **contenuto** di `.config` e `.local` nella tua cartella home, non la cartella `PhotoGIMP-linux` stessa. Il `/.` finale è ciò che copia i file nascosti:
+
+```bash
+cp -a ~/Downloads/PhotoGIMP-linux/.config/. ~/.config/
+cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
+```
+
+Se preferisci usare il file manager:
+
+- I file devono finire in `~/.config` e `~/.local`, che sono cartelle nascoste.
+- Per vedere le cartelle nascoste nel file manager, premi <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+- Quando richiesto sui file esistenti, scegli **"Sostituisci"** o **"Sovrascrivi"**.
+
+</details>
 
 <details>
 <summary><strong>💡 Usi GIMP non installato da Flatpak?</strong></summary>
 
 Se hai installato GIMP dal package manager della tua distribuzione (apt, dnf, pacman, ecc.) invece di Flatpak, la cartella di configurazione è nello stesso percorso (`~/.config/GIMP/3.0`), quindi i passaggi sopra funzionano ugualmente. Assicurati solo di usare GIMP 3.0 o successivo.
+
+`install.sh` rileva anche le installazioni native e chiede quale aggiornare se hai sia GIMP Flatpak sia nativo. Per le installazioni native sostituisce solo la configurazione di GIMP: il launcher e le icone personalizzate in `.local` vengono applicati per Flatpak.
 
 </details>
 
@@ -239,7 +266,7 @@ Oppure ripristina il backup incollando di nuovo la cartella salvata.
 <summary><strong>PhotoGIMP non ha cambiato nulla: GIMP è uguale a prima</strong></summary>
 
 - Assicurati di aver estratto i file nella **posizione corretta**. L'errore più comune è estrarre nella cartella sbagliata.
-- **Linux**: le cartelle `.config` e `.local` devono trovarsi nella tua home (`~`). Sono nascoste: premi <kbd>Ctrl</kbd> + <kbd>H</kbd> nel file manager per visualizzarle.
+- **Linux**: le cartelle `.config` e `.local` devono trovarsi nella tua home (`~`). Sono nascoste: premi <kbd>Ctrl</kbd> + <kbd>H</kbd> nel file manager per visualizzarle. Se hai una cartella `~/PhotoGIMP-linux/`, hai estratto l'archivio ma non lo hai installato: apri quella cartella ed esegui `./install.sh`.
 - **Windows**: la cartella `3.0` deve trovarsi dentro `%APPDATA%\GIMP`, non accanto.
 - **macOS**: la cartella `3.0` deve trovarsi dentro `~/Library/Application Support/GIMP`.
 - Hai **chiuso GIMP** prima di incollare i file? In uscita, GIMP può sovrascrivere le impostazioni appena copiate.

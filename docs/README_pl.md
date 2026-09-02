@@ -60,7 +60,7 @@ Przed zainstalowaniem PhotoGIMP, upewnij się, że masz:
 
 #### Kopia zapasowa (opcjonalnie)
 
-Jeśli chcesz zachować obecne ustawienia GIMP-a, najpierw zrób kopię zapasową:
+Skrypt `install.sh` używany poniżej **automatycznie tworzy kopię zapasową obecnej konfiguracji**, więc ten krok jest potrzebny tylko wtedy, gdy zamierzasz skopiować pliki ręcznie:
 
 ```bash
 cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
@@ -72,16 +72,43 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 2. **Otwórz GIMP-a raz, a następnie go zamknij** — to tworzy foldery konfiguracyjne potrzebne dla PhotoGIMP.
 3. Pobierz najnowszą wersję:
    👉 **[Pobierz PhotoGIMP dla Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
-4. Rozpakuj plik `.zip` **do swojego folderu domowego** (`~`).
-    - Umieści to pliki w `~/.config` i `~/.local`, które są folderami ukrytymi.
-    - Aby zobaczyć ukryte foldery w menedżerze plików, naciśnij <kbd>Ctrl</kbd> + <kbd>H</kbd>.
-    - Gdy pojawi się pytanie o istniejące pliki, wybierz **"Zastąp"** lub **"Nadpisz"**.
-5. Otwórz GIMP — powinieneś zobaczyć nowy układ PhotoGIMP! 🎉
+4. Rozpakuj plik `.zip` **w dowolnym miejscu** (na przykład do folderu `Downloads`). Powstanie folder o nazwie `PhotoGIMP-linux/` zawierający `.config`, `.local` i `install.sh`.
+   - ⚠️ Rozpakowanie pliku `.zip` *do* folderu domowego **nie** instaluje PhotoGIMP — tworzy jedynie `~/PhotoGIMP-linux/`. Nadal musisz wykonać krok 5.
+5. Uruchom dołączony instalator z wnętrza tego folderu:
+
+   ```bash
+   cd ~/Downloads/PhotoGIMP-linux
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+   Wykrywa, czy Twój GIMP pochodzi z Flatpaka, czy jest instalacją natywną, tworzy kopię zapasową obecnej konfiguracji i kopiuje pliki we właściwe miejsce.
+6. Otwórz GIMP — powinieneś zobaczyć nowy układ PhotoGIMP! 🎉
+
+<details>
+<summary><strong>📂 Wolisz skopiować pliki ręcznie?</strong></summary>
+
+Skopiuj **zawartość** folderów `.config` i `.local` do swojego folderu domowego, a nie sam folder `PhotoGIMP-linux`. Końcowe `/.` odpowiada za skopiowanie ukrytych plików:
+
+```bash
+cp -a ~/Downloads/PhotoGIMP-linux/.config/. ~/.config/
+cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
+```
+
+Jeśli wolisz menedżer plików:
+
+- Pliki muszą trafić do `~/.config` i `~/.local`, które są folderami ukrytymi.
+- Aby zobaczyć ukryte foldery w menedżerze plików, naciśnij <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+- Gdy pojawi się pytanie o istniejące pliki, wybierz **"Zastąp"** lub **"Nadpisz"**.
+
+</details>
 
 <details>
 <summary><strong>💡 Używasz GIMP-a spoza Flatpak?</strong></summary>
 
 Jeśli zainstalowałeś GIMP-a z menedżera pakietów dystrybucji (apt, dnf, pacman, itp.) zamiast z Flatpaka, folder konfiguracyjny znajduje się w tym samym miejscu (`~/.config/GIMP/3.0`), więc powyższe kroki nadal działają. Upewnij się tylko, że masz GIMP w wersji 3.0 lub nowszej.
+
+`install.sh` wykrywa również instalacje natywne i pyta, którą z nich zmodyfikować, jeśli masz jednocześnie GIMP-a z Flatpaka i natywnego. W przypadku instalacji natywnych zastępuje wyłącznie konfigurację GIMP-a — własny skrót i ikony z `.local` są stosowane dla Flatpaka.
 
 </details>
 
@@ -236,7 +263,7 @@ Lub przywróć kopię zapasową, wklejając folder z powrotem.
 <summary><strong>PhotoGIMP nic nie zmienił — GIMP wygląda tak samo</strong></summary>
 
 - Upewnij się, że rozpakowałeś pliki we **właściwym miejscu**. Najczęstszym błędem jest rozpakowanie do złego folderu.
-- **Linux**: Foldery `.config` i `.local` muszą znajdować się w Twoim katalogu domowym (`~`). Są one ukryte — naciśnij <kbd>Ctrl</kbd> + <kbd>H</kbd> w menedżerze plików, aby je zobaczyć.
+- **Linux**: Foldery `.config` i `.local` muszą znajdować się w Twoim katalogu domowym (`~`). Są one ukryte — naciśnij <kbd>Ctrl</kbd> + <kbd>H</kbd> w menedżerze plików, aby je zobaczyć. Jeśli masz folder `~/PhotoGIMP-linux/`, archiwum zostało rozpakowane, ale nie zainstalowane — otwórz ten folder i uruchom `./install.sh`.
 - **Windows**: Folder `3.0` musi znajdować się **wewnątrz** `%APPDATA%\GIMP`, nie obok niego.
 - **macOS**: Folder `3.0` musi znajdować się **wewnątrz** `~/Library/Application Support/GIMP`.
 - Czy **zamknąłeś GIMP-a** przed wklejeniem plików? GIMP może nadpisać przychodzące ustawienia przy zamykaniu.

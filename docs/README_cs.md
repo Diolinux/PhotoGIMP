@@ -54,7 +54,7 @@ Před instalací PhotoGIMPu se ujistěte, že máte:
 
 #### Záloha (volitelné)
 
-Pokud si chcete ponechat aktuální nastavení GIMPu, nejprve si ho zálohujte:
+Skript `install.sh` použitý níže **zálohuje vaši aktuální konfiguraci automaticky**, takže tento krok je potřeba pouze tehdy, pokud plánujete kopírovat soubory ručně:
 
 ```bash
 cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
@@ -66,16 +66,43 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 2. **Jednou GIMP otevřete a poté jej zavřete** — tím se vytvoří konfigurační složky, které PhotoGIMP potřebuje.
 3. Stáhněte si nejnovější vydání:
    👉 **[Stáhnout PhotoGIMP pro Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
-4. Rozbalte soubor `.zip` **do své domovské složky** (`~`).
-    - Tím se umístí soubory do `~/.config` a `~/.local`, což jsou skryté složky.
-    - Chcete-li zobrazit skryté složky ve správci souborů, stiskněte <kbd>Ctrl</kbd> + <kbd>H</kbd>.
-    - Když budete dotázáni na existující soubory, zvolte **„Nahradit“** nebo **„Přepsat“**.
-5. Otevřete GIMP — měli byste vidět nové rozložení PhotoGIMP! 🎉
+4. Rozbalte soubor `.zip` **kamkoli** (například do složky `Downloads`). Vytvoří se složka s názvem `PhotoGIMP-linux/`, která obsahuje `.config`, `.local` a `install.sh`.
+   - ⚠️ Rozbalení souboru `.zip` *do* vaší domovské složky PhotoGIMP **nenainstaluje** — vytvoří pouze `~/PhotoGIMP-linux/`. Stále musíte provést krok 5.
+5. Spusťte přiložený instalátor z této složky:
+
+   ```bash
+   cd ~/Downloads/PhotoGIMP-linux
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+   Zjistí, zda je váš GIMP z Flatpaku nebo nativní instalace, zálohuje vaši aktuální konfiguraci a zkopíruje soubory na správné místo.
+6. Otevřete GIMP — měli byste vidět nové rozložení PhotoGIMP! 🎉
+
+<details>
+<summary><strong>📂 Chcete soubory zkopírovat ručně?</strong></summary>
+
+Zkopírujte **obsah** složek `.config` a `.local` do své domovské složky — nikoli samotnou složku `PhotoGIMP-linux`. Koncové `/.` je to, co zkopíruje skryté soubory:
+
+```bash
+cp -a ~/Downloads/PhotoGIMP-linux/.config/. ~/.config/
+cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
+```
+
+Pokud dáváte přednost správci souborů:
+
+- Soubory musí skončit v `~/.config` a `~/.local`, což jsou skryté složky.
+- Chcete-li zobrazit skryté složky ve správci souborů, stiskněte <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+- Když budete dotázáni na existující soubory, zvolte **„Nahradit“** nebo **„Přepsat“**.
+
+</details>
 
 <details>
 <summary><strong>💡 Používáte jiný GIMP než Flatpak?</strong></summary>
 
 Pokud jste nainstalovali GIMP přes správce balíčků vaší distribuce (apt, dnf, pacman atd.) namísto Flatpaku, složka s konfigurací je na stejném místě (`~/.config/GIMP/3.0`), takže výše uvedené kroky stále fungují. Jen se ujistěte, že máte verzi GIMPu 3.0 nebo novější.
+
+`install.sh` rozpozná i nativní instalace a zeptá se, kterou z nich upravit, pokud máte GIMP z Flatpaku i nativní. U nativních instalací nahrazuje pouze konfiguraci GIMPu — vlastní spouštěč a ikony ze složky `.local` se používají pro Flatpak.
 
 </details>
 
@@ -250,7 +277,7 @@ Nebo obnovte zálohu vložením zpět zálohované složky.
 <summary><strong>PhotoGIMP nic nezměnil — GIMP vypadá stejně</strong></summary>
 
 - Ujistěte se, že jste soubory rozbalili do **správného umístění**. Nejčastější chybou je rozbalení do nesprávné složky.
-- **Linux**: Složky `.config` a `.local` musí být ve vašem domovském adresáři (`~`). Jsou skryté — stiskněte <kbd>Ctrl</kbd> + <kbd>H</kbd> ve správci souborů pro jejich zobrazení.
+- **Linux**: Složky `.config` a `.local` musí být ve vašem domovském adresáři (`~`). Jsou skryté — stiskněte <kbd>Ctrl</kbd> + <kbd>H</kbd> ve správci souborů pro jejich zobrazení. Pokud máte složku `~/PhotoGIMP-linux/`, rozbalili jste archiv, ale nenainstalovali jej — otevřete tuto složku a spusťte `./install.sh`.
 - **Windows**: Složka `3.0` musí být uvnitř `%APPDATA%\GIMP`, nikoli vedle ní.
 - **macOS**: Složka `3.0` musí být uvnitř `~/Library/Application Support/GIMP`.
 - **Zavřeli jste GIMP** před vložením souborů? GIMP může při ukončení přepsat nová nastavení.

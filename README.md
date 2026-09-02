@@ -54,7 +54,7 @@ Before installing PhotoGIMP, make sure you have:
 
 #### Backup (optional)
 
-If you want to keep your current GIMP settings, back them up first:
+The `install.sh` script used below **backs up your current configuration automatically**, so this step is only needed if you plan to copy the files by hand:
 
 ```bash
 cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
@@ -66,16 +66,43 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 2. **Open GIMP once, then close it** — this creates the config folders that PhotoGIMP needs.
 3. Download the latest release:
    👉 **[Download PhotoGIMP for Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
-4. Extract the `.zip` file **into your home folder** (`~`).
-    - This will place files into `~/.config` and `~/.local`, which are hidden folders.
-    - To see hidden folders in your file manager, press <kbd>Ctrl</kbd> + <kbd>H</kbd>.
-    - When prompted about existing files, choose **"Replace"** or **"Overwrite"**.
-5. Open GIMP — you should see the new PhotoGIMP layout! 🎉
+4. Extract the `.zip` file **anywhere** (for example, your `Downloads` folder). It creates a folder named `PhotoGIMP-linux/` containing `.config`, `.local` and `install.sh`.
+   - ⚠️ Extracting the `.zip` *into* your home folder does **not** install PhotoGIMP — it only creates `~/PhotoGIMP-linux/`. You still need step 5.
+5. Run the included installer from inside that folder:
+
+   ```bash
+   cd ~/Downloads/PhotoGIMP-linux
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+   It detects whether your GIMP is a Flatpak or a native install, backs up your current configuration, and copies the files to the right place.
+6. Open GIMP — you should see the new PhotoGIMP layout! 🎉
+
+<details>
+<summary><strong>📂 Prefer to copy the files manually?</strong></summary>
+
+Copy the **contents** of `.config` and `.local` into your home folder — not the `PhotoGIMP-linux` folder itself. The trailing `/.` is what copies the hidden files:
+
+```bash
+cp -a ~/Downloads/PhotoGIMP-linux/.config/. ~/.config/
+cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
+```
+
+If you prefer your file manager:
+
+- The files must end up in `~/.config` and `~/.local`, which are hidden folders.
+- To see hidden folders in your file manager, press <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+- When prompted about existing files, choose **"Replace"** or **"Overwrite"**.
+
+</details>
 
 <details>
 <summary><strong>💡 Using a non-Flatpak GIMP?</strong></summary>
 
 If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.) instead of Flatpak, the config folder is in the same location (`~/.config/GIMP/3.0`), so the steps above still work. Just make sure you have GIMP version 3.0 or newer.
+
+`install.sh` detects native installations too, and asks which one to patch if you have both Flatpak and native GIMP. For native installations it replaces the GIMP configuration only — the custom launcher and icons from `.local` are applied for Flatpak.
 
 </details>
 
@@ -256,7 +283,7 @@ Or restore your backup by pasting the backed-up folder back.
 <summary><strong>PhotoGIMP didn't change anything — GIMP looks the same</strong></summary>
 
 - Make sure you extracted the files to the **correct location**. The most common mistake is extracting to the wrong folder.
-- **Linux**: The `.config` and `.local` folders must be in your home directory (`~`). They are hidden — press <kbd>Ctrl</kbd> + <kbd>H</kbd> in your file manager to see them.
+- **Linux**: The `.config` and `.local` folders must be in your home directory (`~`). They are hidden — press <kbd>Ctrl</kbd> + <kbd>H</kbd> in your file manager to see them. If you have a `~/PhotoGIMP-linux/` folder, you extracted the archive but never installed it — open that folder and run `./install.sh`.
 - **Windows**: The `3.0` folder must be inside `%APPDATA%\GIMP`, not next to it.
 - **macOS**: The `3.0` folder must be inside `~/Library/Application Support/GIMP`.
 - Did you **close GIMP** before pasting the files? GIMP may overwrite incoming settings on exit.

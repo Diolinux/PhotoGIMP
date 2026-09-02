@@ -56,7 +56,7 @@ Antes de instalar PhotoGIMP, asegúrate de tener:
 
 #### Copia de seguridad (opcional)
 
-Si quieres conservar tu configuración actual de GIMP, haz primero una copia de seguridad:
+El script `install.sh` que se usa más abajo **hace una copia de seguridad de tu configuración actual automáticamente**, así que este paso solo es necesario si piensas copiar los archivos a mano:
 
 ```bash
 cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
@@ -68,15 +68,39 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 2. **Abre GIMP una vez y después ciérralo** — esto crea las carpetas de configuración que PhotoGIMP necesita.
 3. Descarga la última versión:
    👉 **[Descargar PhotoGIMP para Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
-4. Extrae el archivo `.zip` **en tu carpeta personal** (`~`).
-    - Esto colocará archivos en `~/.config` y `~/.local`, que son carpetas ocultas.
-    - Para ver las carpetas ocultas en tu gestor de archivos, pulsa `Ctrl` + `H`.
-    - Cuando te pregunte sobre los archivos existentes, elige **«Reemplazar»** o **«Sobrescribir»**.
-5. Abre GIMP — ¡deberías ver la nueva interfaz de PhotoGIMP! 🎉
+4. Extrae el archivo `.zip` **en cualquier carpeta** (por ejemplo, tu carpeta `Downloads`). Se creará una carpeta llamada `PhotoGIMP-linux/` que contiene `.config`, `.local` e `install.sh`.
+   - ⚠️ Extraer el `.zip` *dentro* de tu carpeta personal **no** instala PhotoGIMP: solo crea `~/PhotoGIMP-linux/`. Todavía necesitas el paso 5.
+5. Ejecuta el instalador incluido desde dentro de esa carpeta:
+
+   ```bash
+   cd ~/Downloads/PhotoGIMP-linux
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+   Detecta si tu GIMP es Flatpak o una instalación nativa, hace una copia de seguridad de tu configuración actual y copia los archivos en el lugar correcto.
+6. Abre GIMP — ¡deberías ver la nueva interfaz de PhotoGIMP! 🎉
+
+**📂 ¿Prefieres copiar los archivos manualmente?**
+
+Copia el **contenido** de `.config` y `.local` a tu carpeta personal, no la carpeta `PhotoGIMP-linux` en sí. El `/.` final es lo que copia los archivos ocultos:
+
+```bash
+cp -a ~/Downloads/PhotoGIMP-linux/.config/. ~/.config/
+cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
+```
+
+Si prefieres tu gestor de archivos:
+
+- Los archivos deben acabar en `~/.config` y `~/.local`, que son carpetas ocultas.
+- Para ver las carpetas ocultas en tu gestor de archivos, pulsa `Ctrl` + `H`.
+- Cuando te pregunte sobre los archivos existentes, elige **«Reemplazar»** o **«Sobrescribir»**.
 
 **💡 ¿Usas un GIMP que no es Flatpak?**
 
 Si instalaste GIMP desde el gestor de paquetes de tu distribución (apt, dnf, pacman, etc.) en lugar de Flatpak, la carpeta de configuración se encuentra en la misma ubicación (`~/.config/GIMP/3.0`), así que los pasos anteriores siguen siendo válidos. Solo asegúrate de tener GIMP versión 3.0 o superior.
+
+`install.sh` también detecta las instalaciones nativas y te pregunta cuál quieres modificar si tienes GIMP de Flatpak y nativo a la vez. En las instalaciones nativas solo reemplaza la configuración de GIMP: el lanzador y los iconos personalizados de `.local` se aplican en Flatpak.
 
 ---
 
@@ -222,7 +246,7 @@ O restaura tu copia de seguridad pegando de nuevo la carpeta.
 **PhotoGIMP no ha cambiado nada — GIMP se ve igual**
 
 - Asegúrate de haber extraído los archivos en la **ubicación correcta**. El error más habitual es extraerlos en la carpeta equivocada.
-- **Linux**: las carpetas `.config` y `.local` deben estar en tu directorio personal (`~`). Son ocultas — pulsa `Ctrl` + `H` en tu gestor de archivos para verlas.
+- **Linux**: las carpetas `.config` y `.local` deben estar en tu directorio personal (`~`). Son ocultas — pulsa `Ctrl` + `H` en tu gestor de archivos para verlas. Si tienes una carpeta `~/PhotoGIMP-linux/`, extrajiste el archivo pero no lo instalaste: abre esa carpeta y ejecuta `./install.sh`.
 - **Windows**: la carpeta `3.0` debe estar **dentro** de `%APPDATA%\GIMP`, no al lado.
 - **macOS**: la carpeta `3.0` debe estar **dentro** de `~/Library/Application Support/GIMP`.
 - ¿**Cerraste GIMP** antes de pegar los archivos? GIMP puede sobrescribir los ajustes recibidos al cerrarse.
