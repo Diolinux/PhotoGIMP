@@ -6,6 +6,26 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+<details id="-translations">
+<summary><strong>🌍 Translations</strong></summary>
+
+This README is available in other languages:
+
+- 🇮🇹 [Italiano (Italian)](./docs/README_it.md)
+- 🇵🇱 [Polski (Polish)](./docs/README_pl.md)
+- 🇺🇦 [Українська (Ukrainian)](./docs/README_ua.md)
+- 🇧🇷 [Português (Brazilian Portuguese)](./docs/README_pt.md)
+- 🇷🇺 [Русский (Russian)](./docs/README_ru.md)
+- 🇪🇸 [Español (Spanish)](./docs/README_es.md)
+- 🇮🇱 [עברית (Hebrew)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)
+- 🇰🇷 [Korean (한국어)](./docs/README_ko.md)
+- 🇨🇳 [简体中文 (Simplified Chinese)](./docs/README_zh.md)
+- 🇨🇿 [Čeština (Czech)](./docs/README_cs.md)
+
+Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
+
+</details>
+
 **PhotoGIMP** is a free, community-driven patch that transforms [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) into a layout that feels familiar to **Adobe Photoshop** users. If you're switching from Photoshop to GIMP and want to feel at home right away, PhotoGIMP is for you.
 
 > **New to GIMP?** GIMP is a free and open-source image editor available for Linux, macOS, and Windows. It can do most things Photoshop can — photo retouching, image composition, graphic design, and more — all for free. PhotoGIMP just makes it _look and feel_ more like Photoshop.
@@ -333,25 +353,6 @@ Found a bug? Have a suggestion? We'd love your help!
 - **Report an issue**: [Open an issue](https://github.com/Diolinux/PhotoGIMP/issues)
 - **Submit a fix**: [Create a pull request](https://github.com/Diolinux/PhotoGIMP/pulls)
 - **Translate**: Help us translate the README into more languages! See the [Translations](#-translations) section.
-
----
-
-## 🌍 Translations
-
-This README is available in other languages:
-
-- 🇮🇹 [Italiano (Italian)](./docs/README_it.md)
-- 🇵🇱 [Polski (Polish)](./docs/README_pl.md)
-- 🇺🇦 [Українська (Ukrainian)](./docs/README_ua.md)
-- 🇧🇷 [Português (Brazilian Portuguese)](./docs/README_pt.md)
-- 🇷🇺 [Русский (Russian)](./docs/README_ru.md)
-- 🇪🇸 [Español (Spanish)](./docs/README_es.md)
-- 🇮🇱 [עברית (Hebrew)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)
-- 🇰🇷 [Korean (한국어)](./docs/README_ko.md)
-- 🇨🇳 [简体中文 (Simplified Chinese)](./docs/README_zh.md)
-- 🇨🇿 [Čeština (Czech)](./docs/README_cs.md)
-
-Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
 
 ---
 

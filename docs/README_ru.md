@@ -6,6 +6,21 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+<details id="-translations">
+<summary><strong>🌍 Переводы</strong></summary>
+
+Данный файл README доступен на других языках:
+
+- 🇬🇧 [English (Английский)](../README.md)
+- 🇮🇹 [Italiano (Итальянский)](./README_it.md)
+- 🇵🇱 [Polski (Польский)](./README_pl.md)
+- 🇧🇷 [Português (Португальский)](./README_pt.md)
+- 🇪🇸 [Español (Испанский)](./README_es.md)
+
+Хотите добавить свой язык? Создайте форк репозитория, создайте в нём файл`docs/README_xx.md` отправьте запрос на слияние!
+
+</details>
+
 **PhotoGIMP** — это бесплатный, разработанный сообществом патч, который преобразует [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) в интерфейс, знакомый пользователям **Adobe Photoshop**. Если вы переходите с Photoshop на GIMP и хотите сразу почувствовать себя как дома, PhotoGIMP — это то, что вам нужно.
 
 > **Впервые работаете в GIMP?** GIMP — это бесплатный графический редактор с открытым исходным кодом, доступный для Linux, macOS и Windows. Он может делать большинство вещей, которые может делать Photoshop — ретушь фотографий, композицию изображений, графический дизайн и многое другое — и всё это бесплатно. PhotoGIMP просто делает его похожим на Photoshop по _внешнему виду и функциональности_.
@@ -314,20 +329,6 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 - **Сообщить о проблеме**: [Открыть заявку](https://github.com/Diolinux/PhotoGIMP/issues)
 - **Отправьте исправление**: [создайте запрос на слияние (pull request).](https://github.com/Diolinux/PhotoGIMP/pulls)
 - **Перевод**: Help us translate the README into more languages! See the [Переводы](#-translations).
-
----
-
-## 🌍 Переводы
-
-Данный файл README доступен на других языках:
-
-- 🇬🇧 [English (Английский)](../README.md)
-- 🇮🇹 [Italiano (Итальянский)](./README_it.md)
-- 🇵🇱 [Polski (Польский)](./README_pl.md)
-- 🇧🇷 [Português (Португальский)](./README_pt.md)
-- 🇪🇸 [Español (Испанский)](./README_es.md)
-
-Хотите добавить свой язык? Создайте форк репозитория, создайте в нём файл`docs/README_xx.md` отправьте запрос на слияние!
 
 ---
 

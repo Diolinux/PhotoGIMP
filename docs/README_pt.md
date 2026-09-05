@@ -6,6 +6,22 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+<details id="-translations">
+<summary><strong>🌍 Traduções</strong></summary>
+
+Este README está disponível em outros idiomas:
+
+- 🇬🇧 [English (Inglês)](../README.md)
+- 🇮🇹 [Italiano (Italiano)](./README_it.md)
+- 🇵🇱 [Polski (Polonês)](./README_pl.md)
+- 🇺🇦 [Українська (Ucraniano)](./README_ua.md)
+- 🇷🇺 [Русский (Russo)](./README_ru.md)
+- 🇪🇸 [Español (Espanhol)](./README_es.md)
+
+Quer adicionar seu idioma? Faça um fork do repositório, crie um arquivo `docs/README_xx.md` e envie um pull request!
+
+</details>
+
 **PhotoGIMP** é um patch gratuito e mantido pela comunidade que transforma o [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) em um layout familiar para usuários do **Adobe Photoshop**. Se você está migrando do Photoshop para o GIMP e quer se sentir em casa imediatamente, o PhotoGIMP é para você.
 
 > **Novo no GIMP?** O GIMP é um editor de imagens gratuito e de código aberto disponível para Linux, macOS e Windows. Ele pode fazer quase tudo que o Photoshop faz — retoque de fotos, composição de imagens, design gráfico e muito mais — tudo de graça. O PhotoGIMP apenas faz com que ele _pareça e funcione_ mais como o Photoshop.
@@ -313,21 +329,6 @@ Encontrou um bug? Tem uma sugestão? Adoraríamos sua ajuda!
 - **Relatar um problema**: [Abrir uma issue](https://github.com/Diolinux/PhotoGIMP/issues)
 - **Enviar uma correção**: [Criar um pull request](https://github.com/Diolinux/PhotoGIMP/pulls)
 - **Traduzir**: Ajude-nos a traduzir o README para mais idiomas! Veja a seção [Traduções](#-traduções).
-
----
-
-## 🌍 Traduções
-
-Este README está disponível em outros idiomas:
-
-- 🇬🇧 [English (Inglês)](../README.md)
-- 🇮🇹 [Italiano (Italiano)](./README_it.md)
-- 🇵🇱 [Polski (Polonês)](./README_pl.md)
-- 🇺🇦 [Українська (Ucraniano)](./README_ua.md)
-- 🇷🇺 [Русский (Russo)](./README_ru.md)
-- 🇪🇸 [Español (Espanhol)](./README_es.md)
-
-Quer adicionar seu idioma? Faça um fork do repositório, crie um arquivo `docs/README_xx.md` e envie um pull request!
 
 ---
 

@@ -8,6 +8,22 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+<details id="-translations">
+<summary><strong>🌍 תרגומים</strong></summary>
+
+קובץ README זה זמין בשפות נוספות:
+
+- 🇮🇹 [Italiano (איטלקית)](./README_it.md)
+- 🇵🇱 [Polski (פולנית)](./README_pl.md)
+- 🇺🇦 [Українська (אוקראינית)](./README_ua.md)
+- 🇧🇷 [Português (פורטוגזית ברזילאית)](./README_pt.md)
+- 🇷🇺 [Русский (רוסית)](./README_ru.md)
+- 🇮🇱 [עברית (Hebrew)](./README_he.md)
+
+רוצים להוסיף את השפה שלכם? עשו fork למאגר, צרו קובץ `docs/README_xx.md` והגישו pull request!
+
+</details>
+
 **PhotoGIMP** היא הרחבה (patch) חינמית, מבוססת קהילה, שהופכת את [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) לסביבת עבודה שמרגישה מוכרת למשתמשי **Adobe Photoshop**. אם אתם עוברים מ‑Photoshop ל‑GIMP ורוצים להרגיש בבית כבר מהרגע הראשון — PhotoGIMP נוצרה בשבילכם.
 
 > **חדשים ב‑GIMP?** ‏GIMP הוא עורך תמונות חינמי וקוד פתוח, הזמין ל‑Linux, ל‑macOS ול‑Windows. הוא יודע לעשות כמעט כל מה ש‑Photoshop יודע — ריטוש תמונות, הרכבת תמונות, עיצוב גרפי ועוד — והכול בחינם. ‏PhotoGIMP פשוט גורמת לו *להיראות ולהתנהג* יותר כמו Photoshop.
@@ -310,21 +326,6 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 - **דיווח על תקלה**: [פתחו issue](https://github.com/Diolinux/PhotoGIMP/issues)
 - **הגשת תיקון**: [צרו pull request](https://github.com/Diolinux/PhotoGIMP/pulls)
 - **תרגום**: עזרו לנו לתרגם את ה‑README לשפות נוספות! ראו את סעיף [התרגומים](#-תרגומים).
-
----
-
-## 🌍 תרגומים
-
-קובץ README זה זמין בשפות נוספות:
-
-- 🇮🇹 [Italiano (איטלקית)](./README_it.md)
-- 🇵🇱 [Polski (פולנית)](./README_pl.md)
-- 🇺🇦 [Українська (אוקראינית)](./README_ua.md)
-- 🇧🇷 [Português (פורטוגזית ברזילאית)](./README_pt.md)
-- 🇷🇺 [Русский (רוסית)](./README_ru.md)
-- 🇮🇱 [עברית (Hebrew)](./README_he.md)
-
-רוצים להוסיף את השפה שלכם? עשו fork למאגר, צרו קובץ `docs/README_xx.md` והגישו pull request!
 
 ---
 

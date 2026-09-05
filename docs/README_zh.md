@@ -6,6 +6,21 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+<details id="-translations">
+<summary><strong>🌍 翻译</strong></summary>
+
+本 README 提供以下语言的版本：
+
+- 🇮🇹 [Italiano（意大利语）](./docs/README_it.md)
+- 🇵🇱 [Polski（波兰语）](./docs/README_pl.md)
+- 🇧🇷 [Português（巴西葡萄牙语）](./docs/README_pt.md)
+- 🇷🇺 [Русский（俄语）](./docs/README_ru.md)
+- 🇨🇳 [简体中文](./docs/README_zh.md)
+
+想要添加你的语言？Fork 本仓库，创建 `docs/README_xx.md` 文件，然后提交 Pull Request！
+
+</details>
+
 **PhotoGIMP** 是一个由社区驱动的免费补丁，可将 [GIMP](https://www.gimp.org/)（GNU Image Manipulation Program）转变为一套 **Adobe Photoshop** 用户感到熟悉的界面布局。如果你正从 Photoshop 转向 GIMP 并希望快速上手，PhotoGIMP 就是为你准备的。
 
 > **第一次接触 GIMP？** GIMP 是一款免费开源的图像编辑器，适用于 Linux、macOS 和 Windows。Photoshop 能做的，它大部分也能做——照片修饰、图像合成、图形设计等——而且完全免费。PhotoGIMP 只是让它*看起来和用起来*更像 Photoshop。
@@ -308,20 +323,6 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 - **报告问题**：[提交 Issue](https://github.com/Diolinux/PhotoGIMP/issues)
 - **提交修复**：[创建 Pull Request](https://github.com/Diolinux/PhotoGIMP/pulls)
 - **翻译**：帮助我们将 README 翻译成更多语言！参见[翻译](#-翻译)部分。
-
----
-
-## 🌍 翻译
-
-本 README 提供以下语言的版本：
-
-- 🇮🇹 [Italiano（意大利语）](./docs/README_it.md)
-- 🇵🇱 [Polski（波兰语）](./docs/README_pl.md)
-- 🇧🇷 [Português（巴西葡萄牙语）](./docs/README_pt.md)
-- 🇷🇺 [Русский（俄语）](./docs/README_ru.md)
-- 🇨🇳 [简体中文](./docs/README_zh.md)
-
-想要添加你的语言？Fork 本仓库，创建 `docs/README_xx.md` 文件，然后提交 Pull Request！
 
 ---
 

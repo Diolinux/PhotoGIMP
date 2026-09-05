@@ -6,6 +6,26 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+<details id="-translations">
+<summary><strong>🌍 Překlady</strong></summary>
+
+Toto README je dostupné v dalších jazycích:
+
+- 🇬🇧 [English (Angličtina)](../README.md)
+- 🇮🇹 [Italiano (Italština)](./README_it.md)
+- 🇵🇱 [Polski (Polština)](./README_pl.md)
+- 🇺🇦 [Українська (Ukrajinština)](./README_ua.md)
+- 🇧🇷 [Português (Brazilská portugalština)](./README_pt.md)
+- 🇷🇺 [Русский (Ruština)](./README_ru.md)
+- 🇪🇸 [Español (Španělština)](./README_es.md)
+- 🇮🇱 [עברית (Hebrejština)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)
+- 🇰🇷 [Korean (Korejština)](./README_ko.md)
+- 🇨🇳 [简体中文 (Zjednodušená čínština)](./README_zh.md)
+
+Chcete přidat svůj jazyk? Forkněte repozitář, vytvořte soubor `docs/README_xx.md` a odešlete pull request!
+
+</details>
+
 **PhotoGIMP** je bezplatný komunitní patch, který transformuje [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) do rozložení, které bude dobře známé uživatelům **Adobe Photoshop**. Pokud přecházíte z Photoshopu na GIMP a chcete se hned cítit jako doma, PhotoGIMP je přímo pro vás.
 
 > **Začínáte s GIMPem?** GIMP je bezplatný open-source editor obrázků dostupný pro Linux, macOS a Windows. Dokáže většinu věcí jako Photoshop — retušování fotek, kompozice obrázků, grafický design a další — a to vše zdarma. PhotoGIMP pouze zajistí, aby *vypadal a fungoval* více jako Photoshop.
@@ -327,25 +347,6 @@ Našli jste chybu? Máte návrh? Vaši pomoc oceníme!
 - **Nahlásit problém**: [Otevřít problém (issue)](https://github.com/Diolinux/PhotoGIMP/issues)
 - **Předložit opravu**: [Vytvořit pull request](https://github.com/Diolinux/PhotoGIMP/pulls)
 - **Překlady**: Pomozte nám přeložit README do dalších jazyků! Viz sekce [Překlady](#-překlady).
-
----
-
-## 🌍 Překlady
-
-Toto README je dostupné v dalších jazycích:
-
-- 🇬🇧 [English (Angličtina)](../README.md)
-- 🇮🇹 [Italiano (Italština)](./README_it.md)
-- 🇵🇱 [Polski (Polština)](./README_pl.md)
-- 🇺🇦 [Українська (Ukrajinština)](./README_ua.md)
-- 🇧🇷 [Português (Brazilská portugalština)](./README_pt.md)
-- 🇷🇺 [Русский (Ruština)](./README_ru.md)
-- 🇪🇸 [Español (Španělština)](./README_es.md)
-- 🇮🇱 [עברית (Hebrejština)](https://github.com/Diolinux/PhotoGIMP/blob/master/docs/README_he.md)
-- 🇰🇷 [Korean (Korejština)](./README_ko.md)
-- 🇨🇳 [简体中文 (Zjednodušená čínština)](./README_zh.md)
-
-Chcete přidat svůj jazyk? Forkněte repozitář, vytvořte soubor `docs/README_xx.md` a odešlete pull request!
 
 ---
 
