@@ -77,7 +77,7 @@ Before installing PhotoGIMP, make sure you have:
 The `install.sh` script used below **backs up your current configuration automatically**, so this step is only needed if you plan to copy the files by hand:
 
 ```bash
-cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
+cp -r ~/.config/GIMP/<version> ~/GIMP-<version>-backup
 ```
 
 #### Install
@@ -138,7 +138,7 @@ If you want to keep your current GIMP settings, back them up first:
 
 1. Press <kbd>Windows</kbd> + <kbd>R</kbd> to open the Run dialog.
 2. Type `%APPDATA%\GIMP` and press <kbd>Enter</kbd>.
-3. Copy the entire `3.0` folder to a safe location (e.g., your Desktop).
+3. Copy the entire <version> folder (e.g., 3.0, 3.2) to a safe location (e.g., your Desktop).
 
 #### Install
 
@@ -147,12 +147,11 @@ If you want to keep your current GIMP settings, back them up first:
 3. Download the latest release:
    👉 **[Download PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
-5. Open the extracted folder and **copy the `3.0` folder**.
+5. Open the extracted folder and **copy the extracted configuration folder (e.g 3.0, 3.1, 4.2)**.
 6. Press <kbd>Windows</kbd> + <kbd>R</kbd> to open the Run dialog.
 7. Type `%APPDATA%\GIMP` and press <kbd>Enter</kbd> — this opens GIMP's settings folder.
-8. **Paste** the `3.0` folder here.
-9. When prompted about existing files, select **"Replace the files in the destination"**.
-10. Open GIMP — you should see the new PhotoGIMP layout! 🎉
+8. **Paste** the `3.*` folder here.
+9. Open GIMP — you should see the new PhotoGIMP layout! 🎉
 
 <details>
 <summary><strong>💡 Optional: Change the GIMP shortcut icon</strong></summary>
