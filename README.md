@@ -65,7 +65,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 1. Make sure you already have GIMP installed [from Flathub](https://flathub.org/apps/org.gimp.GIMP).
 2. **Open GIMP once, then close it** — this creates the config folders that PhotoGIMP needs.
 3. Download the latest release:
-   👉 **[Download PhotoGIMP for Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
+   👉 **[Download PhotoGIMP for Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip)**
 4. Extract the `.zip` file **anywhere** (for example, your `Downloads` folder). It creates a folder named `PhotoGIMP-linux/` containing `.config`, `.local` and `install.sh`.
    - ⚠️ Extracting the `.zip` *into* your home folder does **not** install PhotoGIMP — it only creates `~/PhotoGIMP-linux/`. You still need step 5.
 5. Run the included installer from inside that folder:
@@ -125,7 +125,7 @@ If you want to keep your current GIMP settings, back them up first:
 1. Make sure you have [GIMP installed from the official website](https://www.gimp.org/downloads/).
 2. **Open GIMP once, then close it** — this creates the config folders that PhotoGIMP needs.
 3. Download the latest release:
-   👉 **[Download PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[Download PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
 5. Open the extracted folder and **copy the `3.0` folder**.
 6. Press <kbd>Windows</kbd> + <kbd>R</kbd> to open the Run dialog.
@@ -137,7 +137,7 @@ If you want to keep your current GIMP settings, back them up first:
 <details>
 <summary><strong>💡 Optional: Change the GIMP shortcut icon</strong></summary>
 
-You can also download [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) and update the icon on the GIMP shortcut located at:
+You can also download [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico) and update the icon on the GIMP shortcut located at:
 
 ```
 %appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
@@ -179,7 +179,7 @@ If you want to keep your current GIMP settings, back them up first:
 1. Make sure you have [GIMP installed from the official website](https://www.gimp.org/downloads/).
 2. **Open GIMP once, then close it** — this creates the config folders that PhotoGIMP needs.
 3. Download the latest release:
-   👉 **[Download PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[Download PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
 5. Open the extracted folder and **copy the `3.0` folder**.
 6. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to

@@ -71,7 +71,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 1. [Flathub에서](https://flathub.org/apps/org.gimp.GIMP) GIMP가 이미 설치되어 있는지 확인합니다.
 2. **GIMP를 한 번 연 다음 닫습니다** — 이렇게 하면 PhotoGIMP에 필요한 구성 폴더가 생성됩니다.
 3. 최신 릴리스 다운로드:
-   👉 **[Linux용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
+   👉 **[Linux용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip)**
 4. `.zip` 파일을 **아무 곳에나** 추출합니다 (예: `Downloads` 폴더). `.config`, `.local`, `install.sh`가 들어 있는 `PhotoGIMP-linux/` 폴더가 생성됩니다.
    - ⚠️ `.zip` 파일을 홈 폴더에 추출해도 PhotoGIMP가 **설치되지 않습니다** — `~/PhotoGIMP-linux/` 폴더만 생성됩니다. 5단계를 계속 진행해야 합니다.
 5. 해당 폴더 안에서 포함된 설치 스크립트를 실행합니다:
@@ -130,7 +130,7 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 1. [공식 웹사이트에서 GIMP를 설치](https://www.gimp.org/downloads/)했는지 획인하세요.
 2. **GIMP를 한 번 연 다음 닫기** — 이렇게 하면 PhotoGIMP에 필요한 구성 폴더가 생성됩니다.
 3. 최신 릴리스 다운로드:
-   👉 **[Windows용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[Windows용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. `PhotoGIMP.zip`의 내용을 모든 폴더 (예: 바탕화면)로 추출합니다.
 5. 추출된 폴더를 열고 **`3.0` 폴더를 복사합니다**.
 6. 실행 대화 상자를 열려면 <kbd>Windows</kbd> + <kbd>R</kbd>를 누릅니다.
@@ -142,7 +142,7 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 <details>
 <summary><strong>💡 선택 사항: GIMP 바로 가기 아이콘 변경</strong></summary>
 
-[photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico)를 다운로드하고 GIMP 바로가기에서 아이콘을 업데이트할 수도 있습니다:
+[photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico)를 다운로드하고 GIMP 바로가기에서 아이콘을 업데이트할 수도 있습니다:
 
 ```
 %appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
@@ -182,7 +182,7 @@ choco install photogimp
 1. [공식 웹사이트에서 GIMP를 설치](https://www.gimp.org/downloads/)했는지 확인하세요.
 2. **GIMP를 한 번 연 다음 닫기** — 이렇게 하면 PhotoGIMP에 필요한 구성 폴더가 생성됩니다.
 3. 최신 릴리스 다운로드:
-   👉 **[macOS용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[macOS용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. `PhotoGIMP.zip` 의 내용을 모든 폴더 (예: 바탕 화면)로 추출합니다.
 5. 추출된 폴더를 열고 **`3.0` 폴더를 복사합니다**.
 6. 파인더를 열고 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>를 눌러 "폴더로 이동"을 엽니다.

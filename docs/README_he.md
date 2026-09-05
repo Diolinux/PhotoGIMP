@@ -73,7 +73,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 1. ודאו ש‑GIMP כבר מותקן אצלכם [מ‑Flathub](https://flathub.org/apps/org.gimp.GIMP).
 2. **פתחו את GIMP פעם אחת ואז סגרו אותו** — פעולה זו יוצרת את תיקיות התצורה ש‑PhotoGIMP זקוקה להן.
 3. הורידו את הגרסה האחרונה:
-   👈 **[הורדת PhotoGIMP ל‑Linux‏ (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
+   👈 **[הורדת PhotoGIMP ל‑Linux‏ (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip)**
 4. חלצו את קובץ ה‑`.zip` **לכל מקום שהוא** (למשל לתיקיית `Downloads`). תיווצר תיקייה בשם `PhotoGIMP-linux/` המכילה את `.config`, `.local` ו‑`install.sh`.
    - ⚠️ חילוץ קובץ ה‑`.zip` *אל תוך* תיקיית הבית **אינו** מתקין את PhotoGIMP — הוא רק יוצר את `~/PhotoGIMP-linux/`. עדיין נדרש שלב 5.
 5. הריצו את תוכנית ההתקנה המצורפת מתוך אותה תיקייה:
@@ -132,7 +132,7 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 1. ודאו שברשותכם [GIMP מותקן מהאתר הרשמי](https://www.gimp.org/downloads/).
 2. **פתחו את GIMP פעם אחת ואז סגרו אותו** — פעולה זו יוצרת את תיקיות התצורה ש‑PhotoGIMP זקוקה להן.
 3. הורידו את הגרסה האחרונה:
-   👈 **[הורדת PhotoGIMP ל‑Windows‏ (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👈 **[הורדת PhotoGIMP ל‑Windows‏ (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. חלצו את תוכן הקובץ `PhotoGIMP.zip` לכל תיקייה שהיא (למשל, לשולחן העבודה).
 5. פתחו את התיקייה שחולצה **והעתיקו את תיקיית `3.0`**.
 6. לחצו <kbd>Windows</kbd> + <kbd>R</kbd> כדי לפתוח את חלון ההרצה (Run).
@@ -144,7 +144,7 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 <details>
 <summary><strong>💡 אופציונלי: שינוי סמל קיצור הדרך של GIMP</strong></summary>
 
-ניתן גם להוריד את [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) ולעדכן את הסמל של קיצור הדרך ל‑GIMP הנמצא בנתיב:
+ניתן גם להוריד את [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico) ולעדכן את הסמל של קיצור הדרך ל‑GIMP הנמצא בנתיב:
 
 ```
 %appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
@@ -184,7 +184,7 @@ choco install photogimp
 1. ודאו שברשותכם [GIMP מותקן מהאתר הרשמי](https://www.gimp.org/downloads/).
 2. **פתחו את GIMP פעם אחת ואז סגרו אותו** — פעולה זו יוצרת את תיקיות התצורה ש‑PhotoGIMP זקוקה להן.
 3. הורידו את הגרסה האחרונה:
-   👈 **[הורדת PhotoGIMP ל‑macOS‏ (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👈 **[הורדת PhotoGIMP ל‑macOS‏ (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. חלצו את תוכן הקובץ `PhotoGIMP.zip` לכל תיקייה שהיא (למשל, לשולחן העבודה).
 5. פתחו את התיקייה שחולצה **והעתיקו את תיקיית `3.0`**.
 6. פתחו את Finder, לחצו <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> כדי לפתוח את "Go to Folder" (מעבר לתיקייה).
