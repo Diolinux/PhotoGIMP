@@ -140,7 +140,7 @@ Se vuoi mantenere le impostazioni attuali di GIMP, esegui prima un backup:
 
 1. Premi <kbd>Windows</kbd> + <kbd>R</kbd> per aprire la finestra Esegui.
 2. Digita `%APPDATA%\GIMP` e premi <kbd>Invio</kbd>.
-3. Copia l'intera cartella `3.0` in una posizione sicura (per esempio il Desktop).
+3. Copia l'intera cartella della versione (per esempio `3.0`, `3.2`) in una posizione sicura (per esempio il Desktop).
 
 #### Installazione
 
@@ -149,10 +149,10 @@ Se vuoi mantenere le impostazioni attuali di GIMP, esegui prima un backup:
 3. Scarica l'ultima release:
    👉 **[Scarica PhotoGIMP per Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Estrai il contenuto di `PhotoGIMP.zip` in una cartella qualsiasi (per esempio il Desktop).
-5. Apri la cartella estratta e **copia la cartella `3.0`**.
+5. Apri la cartella estratta e **copia la cartella della versione al suo interno** (per esempio `3.0`).
 6. Premi <kbd>Windows</kbd> + <kbd>R</kbd> per aprire la finestra Esegui.
 7. Digita `%APPDATA%\GIMP` e premi <kbd>Invio</kbd>: si aprirà la cartella impostazioni di GIMP.
-8. **Incolla** qui la cartella `3.0`.
+8. **Incolla** qui la cartella della versione.
 9. Quando richiesto sui file esistenti, seleziona **"Sostituisci i file nella destinazione"**.
 10. Apri GIMP: dovresti vedere il nuovo layout di PhotoGIMP. 🎉
 

@@ -138,7 +138,7 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 
 1. 按下 <kbd>Windows</kbd> + <kbd>R</kbd> 打开运行对话框。
 2. 输入 `%APPDATA%\GIMP` 并按 <kbd>Enter</kbd>。
-3. 将整个 `3.0` 文件夹复制到安全位置（例如桌面）。
+3. 将整个版本文件夹（例如 `3.0`、`3.2`）复制到安全位置（例如桌面）。
 
 #### 安装
 
@@ -147,10 +147,10 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 3. 下载最新 release：
    👉 **[下载 PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. 将 `PhotoGIMP.zip` 的内容解压到任意文件夹（例如桌面）。
-5. 打开解压后的文件夹，**复制其中的 `3.0` 文件夹**。
+5. 打开解压后的文件夹，**复制其中的版本文件夹**（例如 `3.0`）。
 6. 按下 <kbd>Windows</kbd> + <kbd>R</kbd> 打开运行对话框。
 7. 输入 `%APPDATA%\GIMP` 并按 <kbd>Enter</kbd>——这将打开 GIMP 的设置文件夹。
-8. 将 `3.0` 文件夹**粘贴**到此处。
+8. 将版本文件夹**粘贴**到此处。
 9. 当提示覆盖已有文件时，选择 **"Replace the files in the destination"**。
 10. 打开 GIMP——你应该看到全新的 PhotoGIMP 布局了！🎉
 

@@ -138,7 +138,7 @@ Pokud si chcete ponechat aktuální nastavení GIMPu, nejprve si ho zálohujte:
 
 1. Stiskněte <kbd>Windows</kbd> + <kbd>R</kbd> pro otevření dialogu Spustit.
 2. Napište `%APPDATA%\GIMP` a stiskněte <kbd>Enter</kbd>.
-3. Zkopírujte celou složku `3.0` na bezpečné místo (např. na Plochu).
+3. Zkopírujte celou složku s verzí (např. `3.0`, `3.2`) na bezpečné místo (např. na Plochu).
 
 #### Instalace
 
@@ -147,10 +147,10 @@ Pokud si chcete ponechat aktuální nastavení GIMPu, nejprve si ho zálohujte:
 3. Stáhněte si nejnovější vydání:
    👉 **[Stáhnout PhotoGIMP pro Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
 4. Rozbalte obsah `PhotoGIMP.zip` do libovolné složky (např. na Plochu).
-5. Otevřete rozbalenou složku a **zkopírujte složku `3.0`**.
+5. Otevřete rozbalenou složku a **zkopírujte složku s verzí, která je uvnitř** (např. `3.0`).
 6. Stiskněte <kbd>Windows</kbd> + <kbd>R</kbd> pro otevření dialogu Spustit.
 7. Napište `%APPDATA%\GIMP` a stiskněte <kbd>Enter</kbd> — to otevře složku s nastavením GIMPu.
-8. **Vložte** sem složku `3.0`.
+8. **Vložte** sem složku s verzí.
 9. Když budete dotázáni na existující soubory, zvolte **„Nahradit soubory v cíli“**.
 10. Otevřete GIMP — měli byste vidět nové rozložení PhotoGIMP! 🎉
 

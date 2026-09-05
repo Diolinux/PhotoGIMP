@@ -140,7 +140,7 @@ Jeśli chcesz zachować obecne ustawienia GIMP-a, najpierw zrób kopię zapasow�
 
 1. Naciśnij <kbd>Windows</kbd> + <kbd>R</kbd>, aby otworzyć okno Uruchom.
 2. Wpisz `%APPDATA%\GIMP` i naciśnij <kbd>Enter</kbd>.
-3. Skopiuj cały folder `3.0` w bezpieczne miejsce (np. na Pulpit).
+3. Skopiuj cały folder wersji (np. `3.0`, `3.2`) w bezpieczne miejsce (np. na Pulpit).
 
 #### Instalacja
 
@@ -149,10 +149,10 @@ Jeśli chcesz zachować obecne ustawienia GIMP-a, najpierw zrób kopię zapasow�
 3. Pobierz najnowszą wersję:
    👉 **[Pobierz PhotoGIMP dla Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Rozpakuj zawartość `PhotoGIMP.zip` do dowolnego folderu (np. na Pulpit).
-5. Otwórz rozpakowany folder i **skopiuj folder `3.0`**.
+5. Otwórz rozpakowany folder i **skopiuj znajdujący się w nim folder wersji** (np. `3.0`).
 6. Naciśnij <kbd>Windows</kbd> + <kbd>R</kbd>, aby otworzyć okno Uruchom.
 7. Wpisz `%APPDATA%\GIMP` i naciśnij <kbd>Enter</kbd> — to otworzy folder ustawień GIMP-a.
-8. **Wklej** folder `3.0` tutaj.
+8. **Wklej** folder wersji tutaj.
 9. Gdy pojawi się pytanie o istniejące pliki, wybierz **"Zastąp pliki w miejscu docelowym"**.
 10. Otwórz GIMP — powinieneś zobaczyć nowy układ PhotoGIMP! 🎉
 

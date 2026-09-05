@@ -139,7 +139,7 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 
 1. 실행 대화 상자를 열려면 <kbd>Windows</kbd> + <kbd>R</kbd>를 누릅니다.
 2. Type `%APPDATA%\GIMP`를 입력하고 <kbd>Enter</kbd>를 누릅니다.
-3. 전체 `3.0` 폴더를 안전한 위치 (예: 바탕 화면)에 복사합니다.
+3. 전체 버전 폴더 (예: `3.0`, `3.2`)를 안전한 위치 (예: 바탕 화면)에 복사합니다.
 
 #### 설치
 
@@ -148,10 +148,10 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 3. 최신 릴리스 다운로드:
    👉 **[Windows용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. `PhotoGIMP.zip`의 내용을 모든 폴더 (예: 바탕화면)로 추출합니다.
-5. 추출된 폴더를 열고 **`3.0` 폴더를 복사합니다**.
+5. 추출된 폴더를 열고 **그 안의 버전 폴더를 복사합니다** (예: `3.0`).
 6. 실행 대화 상자를 열려면 <kbd>Windows</kbd> + <kbd>R</kbd>를 누릅니다.
 7. `%APPDATA%\GIMP`를 입력하고 <kbd>Enter</kbd> 를 누르면 — GIMP의 설정 폴더가 열립니다.
-8. 여기에 `3.0` 폴더를 **붙여넣기** 하세요.
+8. 여기에 버전 폴더를 **붙여넣기** 하세요.
 9. 기존 파일에 대한 메시지가 나타나면 **"대상 파일 교체"**를 선택합니다.
 10. GIMP 열기  — 새로운 PhotoGIMP 레이아웃을 확인할 수 있습니다! 🎉
 
