@@ -12,16 +12,12 @@
         (GimpToolInfo "gimp-align-tool"
             (icon-name "gimp-tool-align")
             (visible yes))))
-(GimpToolGroup "tool group"
+(GimpToolInfo "gimp-rect-select-tool"
     (visible yes)
-    (active-tool "gimp-rect-select-tool")
-    (children
-        (GimpToolInfo "gimp-rect-select-tool"
-            (icon-name "gimp-tool-rect-select")
-            (visible yes))
-        (GimpToolInfo "gimp-ellipse-select-tool"
-            (icon-name "gimp-tool-ellipse-select")
-            (visible yes))))
+    (icon-name "gimp-tool-rect-select"))
+(GimpToolInfo "gimp-ellipse-select-tool"
+    (visible yes)
+    (icon-name "gimp-tool-ellipse-select"))
 (GimpToolGroup "tool group"
     (visible yes)
     (active-tool "gimp-free-select-tool")
@@ -75,6 +71,9 @@
             (visible yes))
         (GimpToolInfo "gimp-handle-transform-tool"
             (icon-name "gimp-tool-handle-transform")
+            (visible yes))
+        (GimpToolInfo "gimp-offset-tool"
+            (icon-name "gimp-tool-offset")
             (visible yes))))
 (GimpToolGroup "tool group"
     (visible yes)
@@ -167,21 +166,22 @@
 (GimpToolInfo "gimp-zoom-tool"
     (icon-name "gimp-tool-zoom")
     (visible yes))
-(GimpToolInfo "gimp-brightness-contrast-tool"
-    (icon-name "gimp-tool-brightness-contrast")
-    (visible no))
-(GimpToolInfo "gimp-threshold-tool"
-    (icon-name "gimp-tool-threshold")
-    (visible no))
-(GimpToolInfo "gimp-levels-tool"
-    (icon-name "gimp-tool-levels")
-    (visible no))
-(GimpToolInfo "gimp-curves-tool"
-    (icon-name "gimp-tool-curves")
-    (visible no))
-(GimpToolInfo "gimp-offset-tool"
-    (icon-name "gimp-tool-offset")
-    (visible no))
+(GimpToolGroup "tool group"
+    (visible yes)
+    (active-tool "gimp-brightness-contrast-tool")
+    (children
+        (GimpToolInfo "gimp-brightness-contrast-tool"
+            (icon-name "gimp-tool-brightness-contrast")
+            (visible yes))
+        (GimpToolInfo "gimp-levels-tool"
+            (icon-name "gimp-tool-levels")
+            (visible yes))
+        (GimpToolInfo "gimp-curves-tool"
+            (icon-name "gimp-tool-curves")
+            (visible yes))
+        (GimpToolInfo "gimp-threshold-tool"
+            (icon-name "gimp-tool-threshold")
+            (visible yes))))
 (GimpToolInfo "gimp-gegl-tool"
     (icon-name "gimp-gegl")
     (visible no))

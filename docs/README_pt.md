@@ -34,7 +34,30 @@ Quer adicionar seu idioma? Faça um fork do repositório, crie um arquivo `docs/
 - **Tela Inicial personalizada** — Uma splash screen exclusiva do PhotoGIMP aparece ao iniciar o programa.
 - **Espaço de trabalho maximizado** — As configurações padrão são otimizadas para dar a você a maior área de trabalho possível.
 - **Atalhos de teclado do Photoshop** — Os atalhos seguem a [documentação oficial da Adobe](https://helpx.adobe.com/photoshop/using/default-keyboard-shortcuts.html) para a versão Windows.
+- **Desenho de formas geométricas** — Pressione <kbd>U</kbd> para abrir o GFig e desenhar retângulos, círculos, elipses, linhas, polígonos, estrelas, espirais e curvas Bézier em uma nova camada.
+- **Caixa de ferramentas expandida** — Os seletores retangular e elíptico possuem botões próprios, enquanto ajustes de cor e Deslocamento ficam disponíveis em grupos compactos.
+- **Modos de trabalho adaptáveis** — Alterne entre Designer Gráfico, Artista Digital e Quadrinista, cada um com seu conjunto de ferramentas e ícone próprio.
+- **Ferramentas para quadrinhos** — Crie páginas prontas para desenhar com sete opções de quadros e gere retículas de pontos, linhas ou trama cruzada em camadas separadas.
 - **Ícone e nome personalizados** — Um arquivo `.desktop` dedicado dá ao PhotoGIMP seu próprio ícone e nome no menu do sistema.
+
+---
+
+## Desenhando formas geométricas
+
+Pressione <kbd>U</kbd> ou abra **Filtros → Renderizar → GFig** para iniciar a ferramenta de desenho geométrico. O GFig cria formas preenchidas ou com contorno e coloca o resultado em uma nova camada.
+
+Para criar uma forma rapidamente na tela, use Seleção Retangular (<kbd>M</kbd>) ou Seleção Elíptica (<kbd>Shift</kbd> + <kbd>M</kbd>). Pressione <kbd>Alt</kbd> + <kbd>Backspace</kbd> para preencher a seleção com a cor de frente ou <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Backspace</kbd> para configurar um contorno.
+
+---
+
+## Modos de trabalho e quadrinhos
+
+O seletor de modos fica sempre visível no canto superior direito da janela principal do GIMP e abre junto com o programa. Use-o, ou pressione <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Espaço</kbd> (**PhotoGIMP → Próximo modo de trabalho**), para alternar entre Designer Gráfico, Artista Digital e Quadrinista; a escolha fica salva. No Windows, a ferramenta principal do modo (Mover, Pincel ou Tinta) é selecionada na hora. Na próxima vez que o GIMP abrir, a barra de ferramentas da esquerda mostra apenas as ferramentas do modo escolhido; as ferramentas ocultas continuam no menu **Ferramentas** e nos atalhos. Tinta e MyPaint também recebem os atalhos <kbd>K</kbd> e <kbd>Y</kbd>.
+
+O modo Quadrinista acrescenta dois comandos ao menu **PhotoGIMP**:
+
+- **Nova página** cria telas A4, A5, B5 mangá, comic americano ou Webtoon nas orientações vertical e horizontal. Escolha um dos sete arranjos de quadros e ajuste resolução, margens, espaçamento e largura do contorno. O resultado inclui camadas para papel, quadros, retículas, esboço, tinta, balões e texto.
+- **Criar retícula** gera pontos, linhas ou trama cruzada com controles de espaçamento, tamanho, ângulo e opacidade. O resultado fica em uma camada separada no modo Multiplicar e, quando houver uma seleção ativa, ela será usada como máscara da camada.
 
 ---
 
@@ -226,6 +249,7 @@ O PhotoGIMP substitui ou adiciona os seguintes arquivos no diretório de configu
 | `gimprc`        | Preferências gerais do GIMP (canvas, grade, etc.)          |
 | `contextrc`     | Configurações de ferramenta/cor ativas                     |
 | `splashes/`     | Tela inicial personalizada do PhotoGIMP                    |
+| `plug-ins/`     | Modos de trabalho, páginas de quadrinhos e retículas       |
 | `theme.css`     | Pequenos ajustes no tema da interface                      |
 | `templaterc`    | Modelos de canvas pré-definidos                            |
 

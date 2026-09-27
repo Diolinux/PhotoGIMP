@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Criar retícula">
+  <circle cx="24" cy="24" r="19" fill="#FFFFFF" stroke="#24313C" stroke-width="2"/>
+  <g fill="#24313C">
+    <circle cx="15" cy="15" r="2"/><circle cx="24" cy="15" r="2"/><circle cx="33" cy="15" r="2"/>
+    <circle cx="15" cy="24" r="2"/><circle cx="24" cy="24" r="2"/><circle cx="33" cy="24" r="2"/>
+    <circle cx="15" cy="33" r="2"/><circle cx="24" cy="33" r="2"/><circle cx="33" cy="33" r="2"/>
+  </g>
+  <path d="M8 34c8 6 22 8 33-1" fill="none" stroke="#18A999" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="39" cy="12" r="5" fill="#F05D5E"/>
+</svg>

@@ -38,7 +38,30 @@ Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and
 - **Custom Splash Screen** — A unique PhotoGIMP splash screen greets you on startup.
 - **Maximized canvas space** — Default settings are optimized to give you the largest possible working area.
 - **Photoshop keyboard shortcuts** — Keyboard shortcuts follow [Adobe's official documentation](https://helpx.adobe.com/photoshop/using/default-keyboard-shortcuts.html) for the Windows version.
+- **Geometric shape drawing** — Press <kbd>U</kbd> to open GFig and draw rectangles, circles, ellipses, lines, polygons, stars, spirals, and Bézier curves on a new layer.
+- **Expanded toolbox** — Rectangle and ellipse selectors have dedicated buttons, while color adjustments and Offset are available in compact tool groups.
+- **Adaptive work modes** — Switch between Graphic Designer, Digital Artist, and Comic Artist palettes, each with its own focused tool set and custom icon.
+- **Comic production tools** — Create ready-to-draw comic pages from seven panel layouts and generate dotted, lined, or crosshatched screentones on separate layers.
 - **Custom icon & name** — A dedicated `.desktop` file gives PhotoGIMP its own icon and app name in your system menu.
+
+---
+
+## Drawing geometric shapes
+
+Press <kbd>U</kbd>, or open **Filters → Render → GFig**, to launch the geometric drawing tool. GFig supports filled and outlined shapes and places the result on a new layer.
+
+For a quick shape directly on the canvas, use Rectangle Select (<kbd>M</kbd>) or Ellipse Select (<kbd>Shift</kbd> + <kbd>M</kbd>). Press <kbd>Alt</kbd> + <kbd>Backspace</kbd> to fill the selection with the foreground color, or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Backspace</kbd> to configure an outline.
+
+---
+
+## Work modes and comics
+
+The mode selector is always visible in the upper-right corner of the main GIMP window, and it starts together with GIMP. Use it, or press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd> (**PhotoGIMP → Próximo modo de trabalho**), to switch between Graphic Designer, Digital Artist, and Comic Artist; the choice is remembered. On Windows the mode's main tool (Move, Paintbrush, or Ink) is selected right away. The next time GIMP starts, the toolbox on the left shows only the tools of the chosen mode; hidden tools remain available from the **Tools** menu and their shortcuts. Ink and MyPaint also have the <kbd>K</kbd> and <kbd>Y</kbd> shortcuts.
+
+Comic Artist mode adds two commands to the **PhotoGIMP** menu:
+
+- **New Page** creates A4, A5, B5 manga, American comic, or Webtoon canvases in portrait or landscape orientation. Choose one of seven panel layouts, then adjust resolution, margins, gutters, and border width. The result includes paper, panels, screentones, sketch, ink, balloons, and text layers.
+- **Create Screentone** generates dots, lines, or a crosshatch pattern with adjustable spacing, size, angle, and opacity. It creates a separate Multiply layer and uses the current selection as a layer mask when one exists.
 
 ---
 
@@ -247,6 +270,7 @@ PhotoGIMP replaces or adds the following files in GIMP's configuration directory
 | `gimprc`      | General GIMP preferences (canvas, grid, etc.) |
 | `contextrc`   | Active tool/color context settings            |
 | `splashes/`   | Custom PhotoGIMP splash screen                |
+| `plug-ins/`   | Work modes, comic pages, and screentones      |
 | `theme.css`   | Minor UI theme adjustments                    |
 | `templaterc`  | Pre-defined canvas templates                  |
 

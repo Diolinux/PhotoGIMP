@@ -19,6 +19,9 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
+      - name: Run automated tests
+        run: python3 -m unittest discover -s tests -v
+
       - name: Install scanners
         run: |
           sudo apt-get update

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Nova página de quadrinhos">
+  <path d="M9 4h25l6 6v34H9z" fill="#FFFFFF" stroke="#24313C" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M34 4v7h6" fill="#F2B134" stroke="#24313C" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M13 15h10v10H13zm14 0h9v10h-9zM13 29h23v11H13z" fill="none" stroke="#18A999" stroke-width="2"/>
+  <circle cx="38" cy="37" r="7" fill="#F05D5E"/>
+  <path d="M38 33v8m-4-4h8" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+</svg>
