@@ -8,6 +8,22 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+<details id="-translations">
+<summary><strong>🌍 תרגומים</strong></summary>
+
+קובץ README זה זמין בשפות נוספות:
+
+- 🇮🇹 [Italiano (איטלקית)](./README_it.md)
+- 🇵🇱 [Polski (פולנית)](./README_pl.md)
+- 🇺🇦 [Українська (אוקראינית)](./README_ua.md)
+- 🇧🇷 [Português (פורטוגזית ברזילאית)](./README_pt.md)
+- 🇷🇺 [Русский (רוסית)](./README_ru.md)
+- 🇮🇱 [עברית (Hebrew)](./README_he.md)
+
+רוצים להוסיף את השפה שלכם? עשו fork למאגר, צרו קובץ `docs/README_xx.md` והגישו pull request!
+
+</details>
+
 **PhotoGIMP** היא הרחבה (patch) חינמית, מבוססת קהילה, שהופכת את [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) לסביבת עבודה שמרגישה מוכרת למשתמשי **Adobe Photoshop**. אם אתם עוברים מ‑Photoshop ל‑GIMP ורוצים להרגיש בבית כבר מהרגע הראשון — PhotoGIMP נוצרה בשבילכם.
 
 > **חדשים ב‑GIMP?** ‏GIMP הוא עורך תמונות חינמי וקוד פתוח, הזמין ל‑Linux, ל‑macOS ול‑Windows. הוא יודע לעשות כמעט כל מה ש‑Photoshop יודע — ריטוש תמונות, הרכבת תמונות, עיצוב גרפי ועוד — והכול בחינם. ‏PhotoGIMP פשוט גורמת לו *להיראות ולהתנהג* יותר כמו Photoshop.
@@ -62,7 +78,7 @@
 
 #### גיבוי (אופציונלי)
 
-אם ברצונכם לשמור על הגדרות ה‑GIMP הנוכחיות, גבו אותן קודם:
+הסקריפט `install.sh` שבו משתמשים בהמשך **מגבה את התצורה הנוכחית שלכם באופן אוטומטי**, ולכן שלב זה נחוץ רק אם בכוונתכם להעתיק את הקבצים ידנית:
 
 ```bash
 cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
@@ -74,16 +90,43 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 2. **פתחו את GIMP פעם אחת ואז סגרו אותו** — פעולה זו יוצרת את תיקיות התצורה ש‑PhotoGIMP זקוקה להן.
 3. הורידו את הגרסה האחרונה:
    👈 **[הורדת PhotoGIMP ל‑Linux‏ (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip)**
-4. חלצו את קובץ ה‑`.zip` **אל תוך תיקיית הבית שלכם** (`~`).
-   - פעולה זו תניח קבצים בתוך `~/.config` ו‑`~/.local`, שהן תיקיות מוסתרות.
-   - כדי לראות תיקיות מוסתרות במנהל הקבצים, לחצו <kbd>Ctrl</kbd> + <kbd>H</kbd>.
-   - כאשר תישאלו לגבי קבצים קיימים, בחרו **"Replace"** (החלף) או **"Overwrite"** (דרוס).
-5. פתחו את GIMP — אמורה להופיע פריסת PhotoGIMP החדשה! 🎉
+4. חלצו את קובץ ה‑`.zip` **לכל מקום שהוא** (למשל לתיקיית `Downloads`). תיווצר תיקייה בשם `PhotoGIMP-linux/` המכילה את `.config`, `.local` ו‑`install.sh`.
+   - ⚠️ חילוץ קובץ ה‑`.zip` *אל תוך* תיקיית הבית **אינו** מתקין את PhotoGIMP — הוא רק יוצר את `~/PhotoGIMP-linux/`. עדיין נדרש שלב 5.
+5. הריצו את תוכנית ההתקנה המצורפת מתוך אותה תיקייה:
+
+   ```bash
+   cd ~/Downloads/PhotoGIMP-linux
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+   היא מזהה אם ה‑GIMP שלכם הוא Flatpak או התקנה מקומית, מגבה את התצורה הנוכחית ומעתיקה את הקבצים למקום הנכון.
+6. פתחו את GIMP — אמורה להופיע פריסת PhotoGIMP החדשה! 🎉
+
+<details>
+<summary><strong>📂 מעדיפים להעתיק את הקבצים ידנית?</strong></summary>
+
+העתיקו את **התוכן** של `.config` ו‑`.local` אל תיקיית הבית שלכם — לא את התיקייה `PhotoGIMP-linux` עצמה. ה‑`/.` שבסוף הוא מה שמעתיק את הקבצים המוסתרים:
+
+```bash
+cp -a ~/Downloads/PhotoGIMP-linux/.config/. ~/.config/
+cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
+```
+
+אם אתם מעדיפים את מנהל הקבצים:
+
+- הקבצים צריכים להגיע אל `~/.config` ו‑`~/.local`, שהן תיקיות מוסתרות.
+- כדי לראות תיקיות מוסתרות במנהל הקבצים, לחצו <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+- כאשר תישאלו לגבי קבצים קיימים, בחרו **"Replace"** (החלף) או **"Overwrite"** (דרוס).
+
+</details>
 
 <details>
 <summary><strong>💡 משתמשים ב‑GIMP שאינו מ‑Flatpak?</strong></summary>
 
 אם התקנתם את GIMP ממנהל החבילות של ההפצה שלכם (apt, dnf, pacman וכו') במקום מ‑Flatpak, תיקיית התצורה נמצאת באותו מיקום (`~/.config/GIMP/3.0`), כך שהשלבים שלמעלה עדיין תקפים. פשוט ודאו שברשותכם GIMP בגרסה 3.0 ומעלה.
+
+‏`install.sh` מזהה גם התקנות מקומיות, ושואל איזו מהן לעדכן אם מותקנים אצלכם גם Flatpak וגם GIMP מקומי. בהתקנות מקומיות הוא מחליף רק את תצורת GIMP — המשגר והסמלים המותאמים מתוך `.local` מוחלים עבור Flatpak.
 </details>
 
 ---
@@ -98,7 +141,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 
 1. לחצו <kbd>Windows</kbd> + <kbd>R</kbd> כדי לפתוח את חלון ההרצה (Run).
 2. הקלידו `%APPDATA%\GIMP` והקישו <kbd>Enter</kbd>.
-3. העתיקו את כל תיקיית `3.0` למקום בטוח (למשל, לשולחן העבודה).
+3. העתיקו את כל תיקיית הגרסה (למשל `3.0`, `3.2`) למקום בטוח (למשל, לשולחן העבודה).
 
 #### התקנה
 
@@ -107,10 +150,10 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 3. הורידו את הגרסה האחרונה:
    👈 **[הורדת PhotoGIMP ל‑Windows‏ (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. חלצו את תוכן הקובץ `PhotoGIMP.zip` לכל תיקייה שהיא (למשל, לשולחן העבודה).
-5. פתחו את התיקייה שחולצה **והעתיקו את תיקיית `3.0`**.
+5. פתחו את התיקייה שחולצה **והעתיקו את תיקיית הגרסה שבתוכה** (למשל `3.0`).
 6. לחצו <kbd>Windows</kbd> + <kbd>R</kbd> כדי לפתוח את חלון ההרצה (Run).
 7. הקלידו `%APPDATA%\GIMP` והקישו <kbd>Enter</kbd> — פעולה זו פותחת את תיקיית ההגדרות של GIMP.
-8. **הדביקו** כאן את תיקיית `3.0`.
+8. **הדביקו** כאן את תיקיית הגרסה.
 9. כאשר תישאלו לגבי קבצים קיימים, בחרו **"Replace the files in the destination"** (החלף את הקבצים ביעד).
 10. פתחו את GIMP — אמורה להופיע פריסת PhotoGIMP החדשה! 🎉
 
@@ -237,7 +280,7 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 <summary><strong>‏PhotoGIMP לא שינתה כלום — GIMP נראה בדיוק אותו הדבר</strong></summary>
 
 - ודאו שחילצתם את הקבצים **למיקום הנכון**. הטעות הנפוצה ביותר היא חילוץ לתיקייה שגויה.
-- **Linux**: התיקיות `.config` ו‑`.local` חייבות להיות בתיקיית הבית שלכם (`~`). הן מוסתרות — לחצו <kbd>Ctrl</kbd> + <kbd>H</kbd> במנהל הקבצים כדי לראות אותן.
+- **Linux**: התיקיות `.config` ו‑`.local` חייבות להיות בתיקיית הבית שלכם (`~`). הן מוסתרות — לחצו <kbd>Ctrl</kbd> + <kbd>H</kbd> במנהל הקבצים כדי לראות אותן. אם קיימת אצלכם תיקייה `~/PhotoGIMP-linux/`, חילצתם את הארכיון אך לא התקנתם אותו — פתחו את התיקייה והריצו `./install.sh`.
 - **Windows**: תיקיית `3.0` חייבת להיות **בתוך** `%APPDATA%\GIMP`, ולא לצידה.
 - **macOS**: תיקיית `3.0` חייבת להיות בתוך `~/Library/Application Support/GIMP`.
 - האם **סגרתם את GIMP** לפני הדבקת הקבצים? ‏GIMP עלול לדרוס הגדרות נכנסות בעת היציאה.
@@ -283,21 +326,6 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 - **דיווח על תקלה**: [פתחו issue](https://github.com/Diolinux/PhotoGIMP/issues)
 - **הגשת תיקון**: [צרו pull request](https://github.com/Diolinux/PhotoGIMP/pulls)
 - **תרגום**: עזרו לנו לתרגם את ה‑README לשפות נוספות! ראו את סעיף [התרגומים](#-תרגומים).
-
----
-
-## 🌍 תרגומים
-
-קובץ README זה זמין בשפות נוספות:
-
-- 🇮🇹 [Italiano (איטלקית)](./README_it.md)
-- 🇵🇱 [Polski (פולנית)](./README_pl.md)
-- 🇺🇦 [Українська (אוקראינית)](./README_ua.md)
-- 🇧🇷 [Português (פורטוגזית ברזילאית)](./README_pt.md)
-- 🇷🇺 [Русский (רוסית)](./README_ru.md)
-- 🇮🇱 [עברית (Hebrew)](./README_he.md)
-
-רוצים להוסיף את השפה שלכם? עשו fork למאגר, צרו קובץ `docs/README_xx.md` והגישו pull request!
 
 ---
 

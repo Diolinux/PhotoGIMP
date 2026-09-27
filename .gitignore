@@ -11,6 +11,21 @@
 # Devcontainer setups
 .devcontainer
 
+# AI coding agents (local workspaces, caches and per-developer settings)
+# Shared, intentionally versioned files such as AGENTS.md or CLAUDE.md are NOT
+# covered here — only the tool directories each developer generates locally.
+.claude/
+.codex/
+.agents/
+.cursor/
+.windsurf/
+.continue/
+.gemini/
+.opencode/
+.aider*
+CLAUDE.local.md
+AGENTS.local.md
+
 # Binary and packaged artifacts
 # Keep source assets (for example PNG/SVG icons and splash screens) versioned,
 # but do not commit executables, compiled libraries, installers, or archives.

@@ -6,6 +6,22 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+<details id="-translations">
+<summary><strong>🌍 번역</strong></summary>
+
+이 README는 다른 언어로도 제공됩니다:
+
+- 🇬🇧 [English (영어)](../README.md)
+- 🇰🇷 [Korean (한국어)](./docs/README_ko.md)
+- 🇧🇷 [Português (브라질 포르투칼어)](./docs/README_pt.md)
+- 🇵🇱 [Polski (폴란드어)](./docs/README_pl.md)
+- 🇺🇦 [Українська (우크라이나어)](./README_ua.md)
+- 🇷🇺 [Русский (러시아어)](./docs/README_ru.md)
+
+언어를 추가하시겠습니까? 레포를 포크하고 `docs/README_xx.md` 파일을 만든 다음 풀 요청을 제출하세요!
+
+</details>
+
 **PhotoGIMP**는 무료 커뮤니티 기반 패치로 [GIMP](https://www.gimp.org/) (GNU 이미지 조작 프로그램)를 **Adobe Photoshop** 사용자에게 친숙하게 느껴지는 레이아웃으로 변환합니다. Photoshop에서 GIMP로 전환하고 즉시 집에서 편안함을 느끼고 싶다면 PhotoGIMP가 좋습니다.
 
 > **GIMP가 처음이신가요?** GIMP는 Linux, macOS, Windows에서 사용할 수 있는 무료 오픈 소스 이미지 편집기입니다. 사진 보정, 이미지 합성, 그래픽 디자인 등 Photoshop이 할 수 있는 대부분의 작업을 무료로 수행할 수 있습니다 — PhotoGIMP는 Photoshop 처럼 *보이게 하고 더 느낌*을 줍니다.
@@ -60,7 +76,7 @@ PhotoGIMP를 설치하기 전에 반드시 설치해야 합니다:
 
 #### 백업 (선택 사항)
 
-현재 GIMP 설정을 유지하려면 먼저 백업하세요:
+아래에서 사용하는 `install.sh` 스크립트는 **현재 설정을 자동으로 백업**하므로, 이 단계는 파일을 직접 복사할 계획인 경우에만 필요합니다:
 
 ```bash
 cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
@@ -72,16 +88,43 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 2. **GIMP를 한 번 연 다음 닫습니다** — 이렇게 하면 PhotoGIMP에 필요한 구성 폴더가 생성됩니다.
 3. 최신 릴리스 다운로드:
    👉 **[Linux용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip)**
-4. `.zip` 파일을 **홈 폴더** (`~`에 추출합니다).
-   - 이렇게 하면 파일이 숨겨진 폴더인 `~/.config` 및 `~/.local`에 배치됩니다.
-   - 파일 관리자에서 숨겨진 폴더를 보려면 <kbd>Ctrl</kbd> + <kbd>H</kbd>를 누릅니다.
-   - 기존 파일에 대한 메시지가 나타나면 **"교체"** 또는 **"덮어쓰기"**를 선택합니다.
-5. GIMP 열기 - 새로운 PhotoGIMP 레이아웃을 확인할 수 있습니다! 🎉
+4. `.zip` 파일을 **아무 곳에나** 추출합니다 (예: `Downloads` 폴더). `.config`, `.local`, `install.sh`가 들어 있는 `PhotoGIMP-linux/` 폴더가 생성됩니다.
+   - ⚠️ `.zip` 파일을 홈 폴더에 추출해도 PhotoGIMP가 **설치되지 않습니다** — `~/PhotoGIMP-linux/` 폴더만 생성됩니다. 5단계를 계속 진행해야 합니다.
+5. 해당 폴더 안에서 포함된 설치 스크립트를 실행합니다:
+
+   ```bash
+   cd ~/Downloads/PhotoGIMP-linux
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+   GIMP가 Flatpak인지 네이티브 설치인지 감지하고, 현재 설정을 백업한 다음 파일을 올바른 위치에 복사합니다.
+6. GIMP 열기 - 새로운 PhotoGIMP 레이아웃을 확인할 수 있습니다! 🎉
+
+<details>
+<summary><strong>📂 파일을 직접 복사하고 싶으신가요?</strong></summary>
+
+`PhotoGIMP-linux` 폴더 자체가 아니라 `.config`와 `.local`의 **내용**을 홈 폴더로 복사합니다. 끝에 있는 `/.`가 숨김 파일까지 복사합니다:
+
+```bash
+cp -a ~/Downloads/PhotoGIMP-linux/.config/. ~/.config/
+cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
+```
+
+파일 관리자를 사용하려면:
+
+- 파일은 숨겨진 폴더인 `~/.config` 및 `~/.local`에 들어가야 합니다.
+- 파일 관리자에서 숨겨진 폴더를 보려면 <kbd>Ctrl</kbd> + <kbd>H</kbd>를 누릅니다.
+- 기존 파일에 대한 메시지가 나타나면 **"교체"** 또는 **"덮어쓰기"**를 선택합니다.
+
+</details>
 
 <details>
 <summary><strong>💡 Flatpak이 아닌 GIMP를 사용하고 계신가요?</strong></summary>
 
 배포자의 패키지 관리자 (apt, dnf, pacman 등)에서 GIMP를 Flatpak 대신 설치한 경우 구성 폴더가 동일한 위치 (`~/.config/GIMP/3.0`)에 있으므로 위의 단계는 계속 작동합니다. GIMP 버전 3.0 이상이 있는지 확인하기만 하면 됩니다.
+
+`install.sh`는 네이티브 설치도 감지하며, Flatpak과 네이티브 GIMP가 모두 있으면 어느 쪽에 적용할지 묻습니다. 네이티브 설치에서는 GIMP 설정만 교체하며, `.local`의 사용자 지정 런처와 아이콘은 Flatpak에 적용됩니다.
 </details>
 
 ---
@@ -96,7 +139,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 
 1. 실행 대화 상자를 열려면 <kbd>Windows</kbd> + <kbd>R</kbd>를 누릅니다.
 2. Type `%APPDATA%\GIMP`를 입력하고 <kbd>Enter</kbd>를 누릅니다.
-3. 전체 `3.0` 폴더를 안전한 위치 (예: 바탕 화면)에 복사합니다.
+3. 전체 버전 폴더 (예: `3.0`, `3.2`)를 안전한 위치 (예: 바탕 화면)에 복사합니다.
 
 #### 설치
 
@@ -105,10 +148,10 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 3. 최신 릴리스 다운로드:
    👉 **[Windows용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. `PhotoGIMP.zip`의 내용을 모든 폴더 (예: 바탕화면)로 추출합니다.
-5. 추출된 폴더를 열고 **`3.0` 폴더를 복사합니다**.
+5. 추출된 폴더를 열고 **그 안의 버전 폴더를 복사합니다** (예: `3.0`).
 6. 실행 대화 상자를 열려면 <kbd>Windows</kbd> + <kbd>R</kbd>를 누릅니다.
 7. `%APPDATA%\GIMP`를 입력하고 <kbd>Enter</kbd> 를 누르면 — GIMP의 설정 폴더가 열립니다.
-8. 여기에 `3.0` 폴더를 **붙여넣기** 하세요.
+8. 여기에 버전 폴더를 **붙여넣기** 하세요.
 9. 기존 파일에 대한 메시지가 나타나면 **"대상 파일 교체"**를 선택합니다.
 10. GIMP 열기  — 새로운 PhotoGIMP 레이아웃을 확인할 수 있습니다! 🎉
 
@@ -232,7 +275,7 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 <summary><strong>PhotoGIMP는 아무것도 바꾸지 않았습니다 - GIMP는 똑같아 보입니다</strong></summary>
 
 - 파일을 **정확한 위치**로 추출했는지 확인하세요. 가장 일반적인 실수는 잘못된 폴더로 추출하는 것입니다..
-- **Linux**: `.config` 및 `.local` 폴더는 홈 디렉터리 (`~`)에 있어야 합니다 - 파일 관리자에서 <kbd>Ctrl</kbd> + <kbd>H</kbd>를 눌러 폴더를 확인할 수 있습니다.
+- **Linux**: `.config` 및 `.local` 폴더는 홈 디렉터리 (`~`)에 있어야 합니다 - 파일 관리자에서 <kbd>Ctrl</kbd> + <kbd>H</kbd>를 눌러 폴더를 확인할 수 있습니다. `~/PhotoGIMP-linux/` 폴더가 있다면 압축만 풀고 설치하지 않은 것입니다 — 해당 폴더를 열고 `./install.sh`를 실행하세요.
 - **Windows**: The `3.0` folder must be inside `%APPDATA%\GIMP`, not next to it.
 - **macOS**: `3.0` 폴더는 `~/Library/Application Support/GIMP` 폴더 안에 있어야 하며 바로 옆에 있으면 안됩니다.
 - 파일을 붙여넣기 전에 **GIMP 닫기** 하셨나요? GIMP는 종료 시 들어오는 설정을 덮어쓸 수 있습니다.
@@ -278,21 +321,6 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 - **문제 보고**: [이슈 열기](https://github.com/Diolinux/PhotoGIMP/issues)
 - **수정 사항 제출**: [풀 요청 만들기](https://github.com/Diolinux/PhotoGIMP/pulls)
 - **번역**: README를 더 많은 언어로 번역할 수 있도록 도와주세요! [번역](#-번역) 섹션을 참조하세요.
-
----
-
-## 🌍 번역
-
-이 README는 다른 언어로도 제공됩니다:
-
-- 🇬🇧 [English (영어)](../README.md)
-- 🇰🇷 [Korean (한국어)](./docs/README_ko.md)
-- 🇧🇷 [Português (브라질 포르투칼어)](./docs/README_pt.md)
-- 🇵🇱 [Polski (폴란드어)](./docs/README_pl.md)
-- 🇺🇦 [Українська (우크라이나어)](./README_ua.md)
-- 🇷🇺 [Русский (러시아어)](./docs/README_ru.md)
-
-언어를 추가하시겠습니까? 레포를 포크하고 `docs/README_xx.md` 파일을 만든 다음 풀 요청을 제출하세요!
 
 ---
 
