@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 from pathlib import Path
+import re
 import sys
 import unittest
 from xml.etree import ElementTree
@@ -14,6 +15,9 @@ PLUGIN_ROOT = (
 )
 CORE_PATH = PLUGIN_ROOT / "workspace_core.py"
 ENTRYPOINT = PLUGIN_ROOT / "photogimp-workspaces.py"
+SHORTCUTSRC = ROOT / ".config" / "GIMP" / "3.0" / "shortcutsrc"
+TOOLRC = ROOT / ".config" / "GIMP" / "3.0" / "toolrc"
+GIMP_MODIFIERS = {"<Primary>": "Ctrl", "<Shift>": "Shift", "<Alt>": "Alt"}
 
 spec = importlib.util.spec_from_file_location("workspace_core", CORE_PATH)
 if spec is None or spec.loader is None:
@@ -34,6 +38,112 @@ class WorkspaceCoreTests(unittest.TestCase):
             self.assertTrue((PLUGIN_ROOT / "icons" / mode["icon"]).is_file())
             shortcuts = [tool[1] for tool in mode["tools"]]
             self.assertEqual(len(shortcuts), len(set(shortcuts)))
+
+    def test_palette_shortcuts_match_the_active_gimp_bindings(self) -> None:
+        bindings: dict[str, set[tuple[frozenset[str], str]]] = {}
+        for action, accelerator in re.findall(
+            r'^\(action "([^"]+)" "([^"]+)"\)', SHORTCUTSRC.read_text(encoding="utf-8"), re.M
+        ):
+            modifiers = frozenset(
+                GIMP_MODIFIERS[token] for token in re.findall(r"<[^>]+>", accelerator)
+            )
+            key = re.sub(r"<[^>]+>", "", accelerator).upper()
+            bindings.setdefault(action, set()).add((modifiers, key))
+
+        for mode_id, mode in workspace_core.MODE_DEFINITIONS.items():
+            for label, shortcut, _icon, action in mode["tools"]:
+                with self.subTest(mode=mode_id, tool=label):
+                    modifiers, key = workspace_core.parse_shortcut(shortcut)
+                    self.assertIn((frozenset(modifiers), key), bindings.get(action, set()))
+
+    def test_palette_uses_existing_gimp_tool_icon_names(self) -> None:
+        for mode in workspace_core.MODE_DEFINITIONS.values():
+            for _label, _shortcut, icon, _action in mode["tools"]:
+                self.assertRegex(icon, r"^gimp-tool-[a-z-]+$")
+                self.assertNotEqual(icon, "gimp-tool-rectangle-select")
+
+    def test_shortcut_parsing(self) -> None:
+        self.assertEqual(
+            workspace_core.parse_shortcut("Shift+Alt+O"), (("Shift", "Alt"), "O")
+        )
+        self.assertEqual(workspace_core.parse_shortcut("Ctrl+t"), (("Ctrl",), "T"))
+        for invalid in ("", "Ctrl+", "Super+K", "Ctrl+Ctrl+K", "F5", "Ctrl+1"):
+            with self.subTest(shortcut=invalid):
+                with self.assertRaises(ValueError):
+                    workspace_core.parse_shortcut(invalid)
+
+    def test_saved_mode_falls_back_to_designer(self) -> None:
+        self.assertEqual(workspace_core.normalize_mode("comic\n"), "comic")
+        self.assertEqual(workspace_core.normalize_mode("unknown"), "designer")
+        self.assertEqual(workspace_core.normalize_mode(None), "designer")
+
+    def test_modes_cycle_and_start_with_their_primary_tool(self) -> None:
+        self.assertEqual(workspace_core.next_mode("designer"), "artist")
+        self.assertEqual(workspace_core.next_mode("artist"), "comic")
+        self.assertEqual(workspace_core.next_mode("comic"), "designer")
+        self.assertEqual(workspace_core.primary_tool("designer")[3], "tools-move")
+        self.assertEqual(workspace_core.primary_tool("artist")[3], "tools-paintbrush")
+        self.assertEqual(workspace_core.primary_tool("comic")[3], "tools-ink")
+
+    def test_toolbox_tools_exist_in_toolrc(self) -> None:
+        known = set(re.findall(r'\(GimpToolInfo "([^"]+)"', TOOLRC.read_text(encoding="utf-8")))
+        for mode_id, tools in workspace_core.TOOLBOX_TOOLS.items():
+            with self.subTest(mode=mode_id):
+                self.assertLessEqual(tools, known)
+            primary = workspace_core.primary_tool(mode_id)[3]
+            self.assertIn(primary.replace("tools-", "gimp-", 1) + "-tool", tools)
+
+    def test_toolbox_for_mode_only_changes_visibility(self) -> None:
+        toolrc = TOOLRC.read_text(encoding="utf-8")
+        for mode_id, tools in workspace_core.TOOLBOX_TOOLS.items():
+            with self.subTest(mode=mode_id):
+                updated = workspace_core.toolbox_for_mode(toolrc, mode_id)
+                self.assertEqual(workspace_core.toolbox_for_mode(updated, mode_id), updated)
+                self.assertEqual(
+                    re.sub(r"\(visible (?:yes|no)\)|\(active-tool \"[^\"]+\"\)", "", updated),
+                    re.sub(r"\(visible (?:yes|no)\)|\(active-tool \"[^\"]+\"\)", "", toolrc),
+                )
+                for tool, flag in re.findall(
+                    r'\(GimpToolInfo "([^"]+)"[^()]*(?:\([^()]*\)\s*)*?\(visible (yes|no)\)',
+                    updated,
+                ):
+                    self.assertEqual(flag == "yes", tool in tools, tool)
+
+    def test_toolbox_groups_follow_their_visible_children(self) -> None:
+        toolrc = (
+            '(GimpToolGroup "tool group"\n'
+            "    (visible yes)\n"
+            '    (active-tool "gimp-warp-tool")\n'
+            "    (children\n"
+            '        (GimpToolInfo "gimp-warp-tool"\n'
+            "            (visible yes))\n"
+            '        (GimpToolInfo "gimp-cage-tool"\n'
+            "            (visible yes))))\n"
+        )
+        designer = workspace_core.toolbox_for_mode(toolrc, "designer")
+        self.assertEqual(designer.count("(visible no)"), 3)
+        artist = workspace_core.toolbox_for_mode(toolrc, "artist")
+        self.assertIn('(active-tool "gimp-warp-tool")', artist)
+        self.assertEqual(artist.count("(visible yes)"), 2)
+
+    def test_toolbox_helper_applies_the_saved_mode(self) -> None:
+        import tempfile
+
+        helper_spec = importlib.util.spec_from_file_location(
+            "apply_toolbox", PLUGIN_ROOT / "apply_toolbox.py"
+        )
+        helper = importlib.util.module_from_spec(helper_spec)
+        helper_spec.loader.exec_module(helper)
+        with tempfile.TemporaryDirectory() as directory:
+            config = Path(directory)
+            (config / "toolrc").write_text(TOOLRC.read_text(encoding="utf-8"), encoding="utf-8")
+            (config / "photogimp-workspace-mode").write_text("comic", encoding="utf-8")
+            helper.apply(config)
+            self.assertEqual(
+                (config / "toolrc").read_text(encoding="utf-8"),
+                workspace_core.toolbox_for_mode(TOOLRC.read_text(encoding="utf-8"), "comic"),
+            )
+            self.assertFalse((config / "toolrc.photogimp-tmp").exists())
 
     def test_mode_switcher_is_anchored_to_the_main_window_top_right(self) -> None:
         self.assertEqual(
@@ -160,6 +270,23 @@ class WorkspacePluginAssetTests(unittest.TestCase):
         self.assertIn("mode_switcher_position(", source)
         self.assertNotIn("header.pack_end(mode_control", source)
         self.assertNotIn("Gtk.ToggleButton", source)
+
+    def test_switcher_starts_with_gimp_and_stays_visible(self) -> None:
+        source = ENTRYPOINT.read_text(encoding="utf-8")
+        self.assertIn('EXTENSION_PROCEDURE = "extension-photogimp-workspaces"', source)
+        self.assertIn("Gimp.PDBProcType.PERSISTENT", source)
+        self.assertIn("procedure.persistent_ready()", source)
+        self.assertIn("plug_in.persistent_enable()", source)
+        self.assertIn("plug_in.add_temp_procedure(next_mode_procedure)", source)
+        self.assertIn("_win32_set_owner(", source)
+        self.assertNotIn("GetForegroundWindow", source)
+
+    def test_mode_change_uses_the_left_toolbox_without_a_palette(self) -> None:
+        source = ENTRYPOINT.read_text(encoding="utf-8")
+        self.assertNotIn("ToolPalette", source)
+        self.assertNotIn('Gtk.Button(label="Ferramentas")', source)
+        self.assertIn("_win32_send_shortcut(self.gimp_window, shortcut)", source)
+        self.assertIn('SCRIPT_DIR / "apply_toolbox.py"', source)
 
 
 if __name__ == "__main__":

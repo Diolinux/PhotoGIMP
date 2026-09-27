@@ -52,14 +52,12 @@ Para criar uma forma rapidamente na tela, use Seleção Retangular (<kbd>M</kbd>
 
 ## Modos de trabalho e quadrinhos
 
-Pressione <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Espaço</kbd> ou abra **PhotoGIMP → Modos de visualização** para mostrar as ferramentas do PhotoGIMP. O seletor com ícones fica ancorado no canto superior direito da janela principal do GIMP; use-o para alternar entre Designer Gráfico, Artista Digital e Quadrinista, e as ferramentas exibidas mudam imediatamente. Tinta e MyPaint também recebem os atalhos <kbd>K</kbd> e <kbd>Y</kbd>.
+O seletor de modos fica sempre visível no canto superior direito da janela principal do GIMP e abre junto com o programa. Use-o, ou pressione <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Espaço</kbd> (**PhotoGIMP → Próximo modo de trabalho**), para alternar entre Designer Gráfico, Artista Digital e Quadrinista; a escolha fica salva. No Windows, a ferramenta principal do modo (Mover, Pincel ou Tinta) é selecionada na hora. Na próxima vez que o GIMP abrir, a barra de ferramentas da esquerda mostra apenas as ferramentas do modo escolhido; as ferramentas ocultas continuam no menu **Ferramentas** e nos atalhos. Tinta e MyPaint também recebem os atalhos <kbd>K</kbd> e <kbd>Y</kbd>.
 
-O modo Quadrinista inclui dois comandos adicionais:
+O modo Quadrinista acrescenta dois comandos ao menu **PhotoGIMP**:
 
 - **Nova página** cria telas A4, A5, B5 mangá, comic americano ou Webtoon nas orientações vertical e horizontal. Escolha um dos sete arranjos de quadros e ajuste resolução, margens, espaçamento e largura do contorno. O resultado inclui camadas para papel, quadros, retículas, esboço, tinta, balões e texto.
 - **Criar retícula** gera pontos, linhas ou trama cruzada com controles de espaçamento, tamanho, ângulo e opacidade. O resultado fica em uma camada separada no modo Multiplicar e, quando houver uma seleção ativa, ela será usada como máscara da camada.
-
-Os dois comandos também ficam disponíveis diretamente no menu **PhotoGIMP**.
 
 ---
 

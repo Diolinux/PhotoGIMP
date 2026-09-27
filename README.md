@@ -56,14 +56,12 @@ For a quick shape directly on the canvas, use Rectangle Select (<kbd>M</kbd>) or
 
 ## Work modes and comics
 
-Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd>, or open **PhotoGIMP → Modos de visualização**, to show the PhotoGIMP tools. The icon selector is anchored to the upper-right corner of the main GIMP window; use it to switch between Graphic Designer, Digital Artist, and Comic Artist, and the tool set changes immediately. Ink and MyPaint also have the <kbd>K</kbd> and <kbd>Y</kbd> shortcuts.
+The mode selector is always visible in the upper-right corner of the main GIMP window, and it starts together with GIMP. Use it, or press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd> (**PhotoGIMP → Próximo modo de trabalho**), to switch between Graphic Designer, Digital Artist, and Comic Artist; the choice is remembered. On Windows the mode's main tool (Move, Paintbrush, or Ink) is selected right away. The next time GIMP starts, the toolbox on the left shows only the tools of the chosen mode; hidden tools remain available from the **Tools** menu and their shortcuts. Ink and MyPaint also have the <kbd>K</kbd> and <kbd>Y</kbd> shortcuts.
 
-Comic Artist mode includes two additional commands:
+Comic Artist mode adds two commands to the **PhotoGIMP** menu:
 
 - **New Page** creates A4, A5, B5 manga, American comic, or Webtoon canvases in portrait or landscape orientation. Choose one of seven panel layouts, then adjust resolution, margins, gutters, and border width. The result includes paper, panels, screentones, sketch, ink, balloons, and text layers.
 - **Create Screentone** generates dots, lines, or a crosshatch pattern with adjustable spacing, size, angle, and opacity. It creates a separate Multiply layer and uses the current selection as a layer mask when one exists.
-
-Both commands are also available directly from the **PhotoGIMP** menu.
 
 ---
 

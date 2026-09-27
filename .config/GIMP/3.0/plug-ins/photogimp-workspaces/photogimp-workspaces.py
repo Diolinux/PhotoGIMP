@@ -6,7 +6,9 @@ from __future__ import annotations
 
 import ctypes
 from math import ceil, hypot, pi
+import os
 from pathlib import Path
+import subprocess
 import sys
 
 import gi
@@ -33,20 +35,27 @@ from workspace_core import (  # noqa: E402
     TONE_STYLES,
     mm_to_pixels,
     mode_switcher_position,
+    next_mode,
+    normalize_mode,
     page_size_pixels,
     panel_rectangles,
+    parse_shortcut,
+    primary_tool,
     validate_tone_settings,
 )
 
 
 PLUGIN_BINARY = "photogimp-workspaces"
+EXTENSION_PROCEDURE = "extension-photogimp-workspaces"
+NEXT_MODE_PROCEDURE = "photogimp-workspaces-next-mode"
 WORKSPACE_PROCEDURE = "plug-in-photogimp-workspaces"
 PAGE_PROCEDURE = "plug-in-photogimp-comic-page"
 TONE_PROCEDURE = "plug-in-photogimp-screentone"
 ICON_DIR = SCRIPT_DIR / "icons"
+MODE_FILE_NAME = "photogimp-workspace-mode"
+SWITCHER_TITLE = "Modo de visualização do PhotoGIMP"
 
 CSS = b"""
-.photogimp-root { padding: 8px; }
 .photogimp-global-switcher {
   background-color: @theme_bg_color;
   border: 1px solid alpha(@theme_fg_color, 0.18);
@@ -54,11 +63,6 @@ CSS = b"""
 }
 .photogimp-mode-caption { font-weight: 600; margin-right: 4px; }
 .photogimp-mode-select { min-width: 205px; }
-.photogimp-tool { min-width: 210px; min-height: 42px; padding: 6px 9px; }
-.photogimp-tool-name { font-weight: 600; }
-.photogimp-shortcut { color: #66727d; font-size: 0.88em; }
-.photogimp-section { font-weight: 700; margin-top: 6px; }
-.photogimp-action { min-height: 44px; padding: 7px 12px; }
 """
 
 
@@ -74,6 +78,97 @@ def _load_css() -> None:
         )
 
 
+def _mode_file() -> Path:
+    return Path(Gimp.directory()) / MODE_FILE_NAME
+
+
+def _load_mode() -> str:
+    try:
+        return normalize_mode(_mode_file().read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError):
+        return normalize_mode(None)
+
+
+def _save_mode(mode_id: str) -> None:
+    try:
+        _mode_file().write_text(mode_id, encoding="utf-8")
+    except OSError:
+        pass
+
+
+# --- Windows integration -----------------------------------------------------
+#
+# GIMP does not let Python plug-ins add widgets to its main window, so the mode
+# switcher is a borderless window owned by the GIMP main window. On Windows the
+# owner relationship keeps it above GIMP (and hides it when GIMP is minimized)
+# without floating above other applications.
+
+GWL_STYLE = -16
+GWLP_HWNDPARENT = -8
+GW_OWNER = 4
+WS_CAPTION = 0x00C00000
+KEYEVENTF_KEYUP = 0x0002
+VIRTUAL_MODIFIERS = {"Ctrl": 0x11, "Shift": 0x10, "Alt": 0x12}
+
+_USER32 = None
+_WNDENUMPROC = None
+_SET_WINDOW_LONG = None
+
+
+def _user32():
+    global _USER32, _WNDENUMPROC, _SET_WINDOW_LONG
+    if _USER32 is not None:
+        return _USER32
+
+    from ctypes import wintypes
+
+    user32 = ctypes.WinDLL("user32", use_last_error=True)
+    _WNDENUMPROC = ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
+    user32.EnumWindows.argtypes = [_WNDENUMPROC, wintypes.LPARAM]
+    user32.EnumWindows.restype = wintypes.BOOL
+    user32.GetWindowThreadProcessId.argtypes = [
+        wintypes.HWND,
+        ctypes.POINTER(wintypes.DWORD),
+    ]
+    user32.GetWindowThreadProcessId.restype = wintypes.DWORD
+    user32.GetWindow.argtypes = [wintypes.HWND, ctypes.c_uint]
+    user32.GetWindow.restype = wintypes.HWND
+    user32.GetWindowLongW.argtypes = [wintypes.HWND, ctypes.c_int]
+    user32.GetWindowLongW.restype = ctypes.c_long
+    user32.GetWindowTextLengthW.argtypes = [wintypes.HWND]
+    user32.GetWindowTextLengthW.restype = ctypes.c_int
+    user32.GetWindowTextW.argtypes = [wintypes.HWND, wintypes.LPWSTR, ctypes.c_int]
+    user32.GetWindowTextW.restype = ctypes.c_int
+    user32.IsWindow.argtypes = [wintypes.HWND]
+    user32.IsWindow.restype = wintypes.BOOL
+    user32.IsWindowVisible.argtypes = [wintypes.HWND]
+    user32.IsWindowVisible.restype = wintypes.BOOL
+    user32.IsIconic.argtypes = [wintypes.HWND]
+    user32.IsIconic.restype = wintypes.BOOL
+    user32.GetWindowRect.argtypes = [wintypes.HWND, ctypes.POINTER(wintypes.RECT)]
+    user32.GetWindowRect.restype = wintypes.BOOL
+    user32.GetSystemMetrics.argtypes = [ctypes.c_int]
+    user32.GetSystemMetrics.restype = ctypes.c_int
+    user32.SetForegroundWindow.argtypes = [wintypes.HWND]
+    user32.SetForegroundWindow.restype = wintypes.BOOL
+    user32.keybd_event.argtypes = [
+        wintypes.BYTE,
+        wintypes.BYTE,
+        wintypes.DWORD,
+        ctypes.c_size_t,
+    ]
+    user32.keybd_event.restype = None
+    user32.GetAsyncKeyState.argtypes = [ctypes.c_int]
+    user32.GetAsyncKeyState.restype = ctypes.c_short
+    # SetWindowLongPtrW only exists as an export in 64-bit user32.
+    set_window_long = getattr(user32, "SetWindowLongPtrW", None) or user32.SetWindowLongW
+    set_window_long.argtypes = [wintypes.HWND, ctypes.c_int, ctypes.c_void_p]
+    set_window_long.restype = ctypes.c_void_p
+    _SET_WINDOW_LONG = set_window_long
+    _USER32 = user32
+    return user32
+
+
 def _native_handle_value(handle: GLib.Bytes | None) -> int | None:
     if handle is None:
         return None
@@ -85,22 +180,102 @@ def _native_handle_value(handle: GLib.Bytes | None) -> int | None:
     return value or None
 
 
-def _gimp_window_handle() -> int | None:
+def _win32_process_windows(pid: int) -> list[int]:
+    from ctypes import wintypes
+
+    user32 = _user32()
+    found = []
+
+    def collect(hwnd, _lparam):
+        owner_pid = wintypes.DWORD()
+        user32.GetWindowThreadProcessId(hwnd, ctypes.byref(owner_pid))
+        if hwnd and owner_pid.value == pid:
+            found.append(int(hwnd))
+        return True
+
+    user32.EnumWindows(_WNDENUMPROC(collect), 0)
+    return found
+
+
+def _win32_window_title(hwnd: int) -> str:
+    user32 = _user32()
+    length = user32.GetWindowTextLengthW(hwnd)
+    buffer = ctypes.create_unicode_buffer(length + 1)
+    user32.GetWindowTextW(hwnd, buffer, length + 1)
+    return buffer.value
+
+
+def _win32_find_gimp_window() -> int | None:
+    """Return the GIMP image window: the parent process's largest main window."""
     if sys.platform != "win32":
         return None
 
-    display = Gimp.default_display()
-    if display is not None and display.is_valid():
-        value = _native_handle_value(display.get_window_handle())
-        if value is not None:
-            return value
+    try:
+        display = Gimp.default_display()
+        if display is not None and display.is_valid():
+            value = _native_handle_value(display.get_window_handle())
+            if value is not None:
+                return value
+    except Exception:
+        pass
 
     from ctypes import wintypes
 
-    user32 = ctypes.WinDLL("user32", use_last_error=True)
-    user32.GetForegroundWindow.restype = wintypes.HWND
-    foreground = user32.GetForegroundWindow()
-    return int(foreground) if foreground else None
+    user32 = _user32()
+    best, best_area = None, 0
+    for hwnd in _win32_process_windows(os.getppid()):
+        if not user32.IsWindowVisible(hwnd) or user32.GetWindow(hwnd, GW_OWNER):
+            continue
+        # Skips the splash screen and other undecorated helper windows.
+        if not user32.GetWindowLongW(hwnd, GWL_STYLE) & WS_CAPTION:
+            continue
+        rect = wintypes.RECT()
+        if not user32.GetWindowRect(hwnd, ctypes.byref(rect)):
+            continue
+        area = (rect.right - rect.left) * (rect.bottom - rect.top)
+        if area > best_area:
+            best, best_area = hwnd, area
+    return best
+
+
+def _win32_own_window(title: str) -> int | None:
+    for hwnd in _win32_process_windows(os.getpid()):
+        if _win32_window_title(hwnd) == title:
+            return hwnd
+    return None
+
+
+def _win32_set_owner(hwnd: int, owner: int) -> None:
+    _user32()
+    _SET_WINDOW_LONG(hwnd, GWLP_HWNDPARENT, owner)
+
+
+def _win32_send_shortcut(hwnd: int, shortcut: str) -> bool:
+    """Focus the GIMP window and replay a PhotoGIMP keyboard shortcut."""
+    modifiers, key = parse_shortcut(shortcut)
+    user32 = _user32()
+    if not user32.IsWindow(hwnd) or not user32.SetForegroundWindow(hwnd):
+        return False
+    codes = [VIRTUAL_MODIFIERS[modifier] for modifier in modifiers] + [ord(key)]
+
+    started = GLib.get_monotonic_time()
+
+    def press() -> bool:
+        held = any(
+            user32.GetAsyncKeyState(code) & 0x8000
+            for code in VIRTUAL_MODIFIERS.values()
+        )
+        if held and GLib.get_monotonic_time() - started < 2_000_000:
+            return GLib.SOURCE_CONTINUE
+        for code in codes:
+            user32.keybd_event(code, 0, 0, 0)
+        for code in reversed(codes):
+            user32.keybd_event(code, 0, KEYEVENTF_KEYUP, 0)
+        return GLib.SOURCE_REMOVE
+
+    # Give Windows a moment to move keyboard focus to GIMP.
+    GLib.timeout_add(80, press)
+    return True
 
 
 def _win32_window_geometry(
@@ -112,17 +287,7 @@ def _win32_window_geometry(
     from ctypes import wintypes
 
     hwnd = wintypes.HWND(handle)
-    user32 = ctypes.WinDLL("user32", use_last_error=True)
-    user32.IsWindow.argtypes = [wintypes.HWND]
-    user32.IsWindow.restype = wintypes.BOOL
-    user32.IsWindowVisible.argtypes = [wintypes.HWND]
-    user32.IsWindowVisible.restype = wintypes.BOOL
-    user32.IsIconic.argtypes = [wintypes.HWND]
-    user32.IsIconic.restype = wintypes.BOOL
-    user32.GetWindowRect.argtypes = [wintypes.HWND, ctypes.POINTER(wintypes.RECT)]
-    user32.GetWindowRect.restype = wintypes.BOOL
-    user32.GetSystemMetrics.argtypes = [ctypes.c_int]
-    user32.GetSystemMetrics.restype = ctypes.c_int
+    user32 = _user32()
     if not user32.IsWindow(hwnd):
         return None
 
@@ -150,6 +315,33 @@ def _win32_window_geometry(
         return None
 
     bounds = (rect.left, rect.top, rect.right, rect.bottom)
+
+    # A GIMP window can be larger than its monitor; keep the switcher on screen.
+    class MONITORINFO(ctypes.Structure):
+        _fields_ = [
+            ("cbSize", wintypes.DWORD),
+            ("rcMonitor", wintypes.RECT),
+            ("rcWork", wintypes.RECT),
+            ("dwFlags", wintypes.DWORD),
+        ]
+
+    user32.MonitorFromWindow.argtypes = [wintypes.HWND, wintypes.DWORD]
+    user32.MonitorFromWindow.restype = wintypes.HANDLE
+    user32.GetMonitorInfoW.argtypes = [wintypes.HANDLE, ctypes.POINTER(MONITORINFO)]
+    user32.GetMonitorInfoW.restype = wintypes.BOOL
+    monitor = user32.MonitorFromWindow(hwnd, 2)  # MONITOR_DEFAULTTONEAREST
+    info = MONITORINFO(cbSize=ctypes.sizeof(MONITORINFO))
+    if monitor and user32.GetMonitorInfoW(monitor, ctypes.byref(info)):
+        work = info.rcWork
+        clipped = (
+            max(bounds[0], work.left),
+            max(bounds[1], work.top),
+            min(bounds[2], work.right),
+            min(bounds[3], work.bottom),
+        )
+        if clipped[0] < clipped[2] and clipped[1] < clipped[3]:
+            bounds = clipped
+
     titlebar_height = max(
         24,
         user32.GetSystemMetrics(4) + user32.GetSystemMetrics(33),
@@ -174,26 +366,6 @@ def _svg_pixbuf(filename: str, size: int) -> GdkPixbuf.Pixbuf | None:
         )
     except GLib.Error:
         return None
-
-
-def _svg_image(filename: str, size: int) -> Gtk.Image:
-    pixbuf = _svg_pixbuf(filename, size)
-    if pixbuf is None:
-        return Gtk.Image.new_from_icon_name(
-            "image-missing", Gtk.IconSize.LARGE_TOOLBAR
-        )
-    return Gtk.Image.new_from_pixbuf(pixbuf)
-
-
-def _icon_button(label: str, icon: str, tooltip: str) -> Gtk.Button:
-    button = Gtk.Button()
-    button.get_style_context().add_class("photogimp-action")
-    button.set_tooltip_text(tooltip)
-    content = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=9)
-    content.pack_start(_svg_image(icon, 28), False, False, 0)
-    content.pack_start(Gtk.Label(label=label), False, False, 0)
-    button.add(content)
-    return button
 
 
 def _show_error(parent: Gtk.Window | None, title: str, error: Exception) -> None:
@@ -650,14 +822,16 @@ class ToneDialog(Gtk.Dialog):
 
 
 class WorkspaceModeSwitcher(Gtk.Window):
+    """Borderless mode selector kept at the top-right of the GIMP main window."""
+
     __gtype_name__ = "PhotoGimpWorkspaceModeSwitcher"
 
-    WIDTH = 286
+    WIDTH = 270
     HEIGHT = 34
 
-    def __init__(self, on_mode_changed):
+    def __init__(self, host: "WorkspaceHost"):
         super().__init__(type=Gtk.WindowType.TOPLEVEL)
-        self.set_title("Modo de visualização do PhotoGIMP")
+        self.set_title(SWITCHER_TITLE)
         self.set_role("photogimp-global-mode-switcher")
         self.set_decorated(False)
         self.set_resizable(False)
@@ -667,15 +841,11 @@ class WorkspaceModeSwitcher(Gtk.Window):
         self.set_type_hint(Gdk.WindowTypeHint.TOOLBAR)
         self.set_default_size(self.WIDTH, self.HEIGHT)
         self.set_size_request(self.WIDTH, self.HEIGHT)
-        self._on_mode_changed = on_mode_changed
-        self._parent_handle = _gimp_window_handle()
-        self._anchor_source = None
-
-        display = Gimp.default_display()
-        if display is not None and display.is_valid():
-            GimpUi.window_set_transient_for_display(self, display)
-        else:
-            GimpUi.window_set_transient(self)
+        if sys.platform != "win32":
+            # Without a native owner the selector would fall behind GIMP.
+            self.set_keep_above(True)
+        self.connect("delete-event", lambda *_args: True)
+        self._host = host
 
         shell = Gtk.EventBox()
         shell.get_style_context().add_class("photogimp-global-switcher")
@@ -699,192 +869,182 @@ class WorkspaceModeSwitcher(Gtk.Window):
         self.mode_select.add_attribute(icon_renderer, "pixbuf", 0)
         self.mode_select.pack_start(text_renderer, True)
         self.mode_select.add_attribute(text_renderer, "text", 1)
-        self.mode_select.set_tooltip_text("Mudar modo de visualização")
-        self.mode_select.connect("changed", self._mode_changed)
+        self.mode_select.set_tooltip_text(
+            "Mudar modo de trabalho (Ctrl+Shift+Espaço). A barra de ferramentas "
+            "da esquerda é reorganizada na próxima vez que o GIMP abrir."
+        )
+        self.mode_select.set_active_id(host.mode)
+        self._handler = self.mode_select.connect("changed", self._mode_changed)
         caption.set_mnemonic_widget(self.mode_select)
         content.pack_start(self.mode_select, True, True, 0)
         self.add(shell)
 
-        self.connect("size-allocate", self._size_allocated)
-        self.connect("destroy", self._destroyed)
-        self.mode_select.set_active_id("designer")
-
-    def show_anchored(self) -> None:
-        self._move_to_anchor()
-        self.show_all()
-        self._anchor_source = GLib.timeout_add(200, self._sync_anchor)
-
     def _mode_changed(self, mode_select: Gtk.ComboBox) -> None:
         mode_id = mode_select.get_active_id()
         if mode_id in MODE_DEFINITIONS:
-            self._on_mode_changed(mode_id)
+            self._host.set_mode(mode_id)
 
-    def _size_allocated(self, _window, _allocation) -> None:
-        self._move_to_anchor()
+    def show_mode(self, mode_id: str) -> None:
+        """Reflect a mode chosen elsewhere (the shortcut) without re-triggering."""
+        with self.mode_select.handler_block(self._handler):
+            self.mode_select.set_active_id(mode_id)
 
-    def _sync_anchor(self) -> bool:
-        geometry = (
-            _win32_window_geometry(self._parent_handle)
-            if self._parent_handle is not None
-            else None
-        )
-        if geometry is not None:
-            _bounds, visible, _titlebar_height = geometry
-            if not visible:
-                self.hide()
-                return GLib.SOURCE_CONTINUE
-            if not self.get_visible():
-                self.show_all()
-        self._move_to_anchor(geometry)
-        return GLib.SOURCE_CONTINUE
-
-    def _move_to_anchor(
-        self,
-        geometry: tuple[tuple[int, int, int, int], bool, int] | None = None,
+    def move_to_anchor(
+        self, bounds: tuple[int, int, int, int], titlebar_height: int
     ) -> None:
-        if geometry is None and self._parent_handle is not None:
-            geometry = _win32_window_geometry(self._parent_handle)
-        if geometry is not None:
-            bounds, _visible, titlebar_height = geometry
-        else:
-            bounds = _monitor_workarea()
-            titlebar_height = 32
-        if bounds is None:
-            return
-
         width, height = self.get_size()
         size = (max(width, self.WIDTH), max(height, self.HEIGHT))
         position = mode_switcher_position(bounds, size, titlebar_height)
         if self.get_position() != position:
             self.move(*position)
 
-    def _destroyed(self, _window) -> None:
-        if self._anchor_source is not None:
-            GLib.source_remove(self._anchor_source)
-            self._anchor_source = None
 
+class WorkspaceHost:
+    """Owns the always-visible mode switcher for one GIMP session."""
 
-class WorkspacePalette(Gtk.Dialog):
-    __gtype_name__ = "PhotoGimpWorkspacePalette"
+    SYNC_INTERVAL_MS = 250
 
-    def __init__(self, image: Gimp.Image | None):
-        super().__init__(title="PhotoGIMP — Ferramentas do modo")
-        GimpUi.window_set_transient(self)
-        self.set_role("photogimp-workspaces")
-        self.set_modal(False)
-        self.set_default_size(540, 430)
-        self.add_button("_Fechar", Gtk.ResponseType.CLOSE)
-        self.image = image
-        self.active_mode = None
+    def __init__(self):
+        self.mode = _load_mode()
+        self.gimp_window: int | None = None
+        self._owner: int | None = None
+        self._visible = True
+        self._toolbox_helper_started = False
+        self._restart_notice_shown = False
+        self.switcher = WorkspaceModeSwitcher(self)
 
-        body = self.get_content_area()
-        body.set_border_width(12)
-        body.set_spacing(10)
-        body.get_style_context().add_class("photogimp-root")
-
-        self.heading = Gtk.Label(label="Ferramentas", xalign=0)
-        self.heading.get_style_context().add_class("photogimp-section")
-        body.pack_start(self.heading, False, False, 0)
-
-        scroll = Gtk.ScrolledWindow()
-        scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-        scroll.set_shadow_type(Gtk.ShadowType.NONE)
-        body.pack_start(scroll, True, True, 0)
-        self.tools = Gtk.FlowBox()
-        self.tools.set_selection_mode(Gtk.SelectionMode.NONE)
-        self.tools.set_column_spacing(7)
-        self.tools.set_row_spacing(7)
-        self.tools.set_min_children_per_line(2)
-        self.tools.set_max_children_per_line(2)
-        scroll.add(self.tools)
-
-        self.comic_actions = Gtk.Box(
-            orientation=Gtk.Orientation.HORIZONTAL, spacing=8
-        )
-        self.comic_actions.set_homogeneous(True)
-        body.pack_start(self.comic_actions, False, False, 0)
-        self.page_button = _icon_button(
-            "Nova página", "comic-page.svg", "Criar página de quadrinhos"
-        )
-        self.page_button.connect("clicked", self._create_page)
-        self.comic_actions.pack_start(self.page_button, True, True, 0)
-        self.tone_button = _icon_button(
-            "Criar retícula", "screentone.svg", "Adicionar retícula em uma camada"
-        )
-        self.tone_button.connect("clicked", self._create_tone)
-        self.comic_actions.pack_start(self.tone_button, True, True, 0)
-
-        self.show_all()
-        self.set_mode("designer")
-        self._update_tone_sensitivity()
+    def start(self) -> None:
+        self.switcher.show_all()
+        self._sync()
+        GLib.timeout_add(self.SYNC_INTERVAL_MS, self._sync)
 
     def set_mode(self, mode_id: str) -> None:
-        if mode_id not in MODE_DEFINITIONS or mode_id == self.active_mode:
+        mode_id = normalize_mode(mode_id)
+        if mode_id == self.mode:
             return
-        self.active_mode = mode_id
-        self.heading.set_text(f"Ferramentas — {MODE_DEFINITIONS[mode_id]['label']}")
-        self._render_tools(mode_id)
-        self.comic_actions.set_visible(mode_id == "comic")
+        self.mode = mode_id
+        _save_mode(mode_id)
+        self.switcher.show_mode(mode_id)
+        self._schedule_toolbox_update()
+        if not self._restart_notice_shown:
+            # The tool shortcut must reach GIMP, not the notice, so it is sent
+            # once the notice is dismissed.
+            self._notify_restart(self._activate_primary_tool)
+        else:
+            self._activate_primary_tool()
 
-    def _render_tools(self, mode_id: str) -> None:
-        for child in self.tools.get_children():
-            self.tools.remove(child)
-        for label_text, shortcut, icon_name in MODE_DEFINITIONS[mode_id]["tools"]:
-            tile = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=9)
-            tile.get_style_context().add_class("photogimp-tool")
-            icon = Gtk.Image.new_from_icon_name(
-                icon_name, Gtk.IconSize.LARGE_TOOLBAR
+    def next_mode_run(self, procedure, *_args):
+        self.set_mode(next_mode(self.mode))
+        return procedure.new_return_values(Gimp.PDBStatusType.SUCCESS, None)
+
+    def _activate_primary_tool(self) -> None:
+        """Select the mode's main tool in the left toolbox right away."""
+        if sys.platform != "win32" or self.gimp_window is None:
+            return
+        _label, shortcut, _icon, _action = primary_tool(self.mode)
+        try:
+            _win32_send_shortcut(self.gimp_window, shortcut)
+        except (OSError, ValueError) as error:
+            print(f"PhotoGIMP workspaces: {error}", file=sys.stderr)
+
+    def _schedule_toolbox_update(self) -> None:
+        """Start the helper that rewrites toolrc after GIMP saves it on exit."""
+        if self._toolbox_helper_started:
+            return
+        helper = SCRIPT_DIR / "apply_toolbox.py"
+        arguments = [sys.executable, str(helper), str(os.getppid()), Gimp.directory()]
+        options: dict = {
+            "stdin": subprocess.DEVNULL,
+            "stdout": subprocess.DEVNULL,
+            "stderr": subprocess.DEVNULL,
+            "close_fds": True,
+        }
+        if sys.platform == "win32":
+            options["creationflags"] = (
+                subprocess.DETACHED_PROCESS
+                | subprocess.CREATE_NEW_PROCESS_GROUP
+                | subprocess.CREATE_NO_WINDOW
             )
-            tile.pack_start(icon, False, False, 0)
-            name = Gtk.Label(label=label_text, xalign=0)
-            name.set_line_wrap(True)
-            name.get_style_context().add_class("photogimp-tool-name")
-            tile.pack_start(name, True, True, 0)
-            key = Gtk.Label(label=shortcut, xalign=1)
-            key.get_style_context().add_class("photogimp-shortcut")
-            tile.pack_end(key, False, False, 0)
-            self.tools.add(tile)
-        self.tools.show_all()
+        else:
+            options["start_new_session"] = True
+        try:
+            subprocess.Popen(arguments, **options)
+            self._toolbox_helper_started = True
+        except OSError as error:
+            print(f"PhotoGIMP workspaces: {error}", file=sys.stderr)
 
-    def _update_tone_sensitivity(self) -> None:
-        can_create = (
-            self.image is not None
-            and self.image.is_valid()
-            and self.image.get_base_type() == Gimp.ImageBaseType.RGB
+    def _notify_restart(self, on_close) -> None:
+        """Explain once per session when the toolbox change takes effect."""
+        self._restart_notice_shown = True
+        dialog = Gtk.MessageDialog(
+            transient_for=self.switcher,
+            message_type=Gtk.MessageType.INFO,
+            buttons=Gtk.ButtonsType.OK,
+            text="Modo de trabalho alterado",
         )
-        self.tone_button.set_sensitive(can_create)
+        dialog.set_title("PhotoGIMP")
+        dialog.set_position(Gtk.WindowPosition.CENTER)
+        dialog.format_secondary_text(
+            "A ferramenta principal do modo será selecionada agora. A barra de "
+            "ferramentas da esquerda mostrará apenas as ferramentas deste modo "
+            "na próxima vez que o GIMP for aberto."
+        )
 
-    def _create_page(self, _button) -> None:
-        dialog = PageDialog(self)
-        response = dialog.run()
-        settings = dialog.settings() if response == Gtk.ResponseType.OK else None
-        dialog.destroy()
-        if settings is None:
-            return
-        try:
-            Gimp.progress_init("Criando página de quadrinhos")
-            self.image = create_comic_page(settings)
-            Gimp.progress_update(1.0)
-            self._update_tone_sensitivity()
-        except Exception as error:
-            _show_error(self, "Não foi possível criar a página", error)
+        def closed(widget, _response) -> None:
+            widget.destroy()
+            on_close()
 
-    def _create_tone(self, _button) -> None:
-        self._update_tone_sensitivity()
-        if not self.tone_button.get_sensitive():
+        dialog.connect("response", closed)
+        dialog.show_all()
+        dialog.present()
+
+    # --- Anchoring ------------------------------------------------------
+
+    def _bounds(self) -> tuple[tuple[int, int, int, int], int] | None:
+        if sys.platform == "win32":
+            geometry = None
+            if self.gimp_window is not None:
+                geometry = _win32_window_geometry(self.gimp_window)
+            if geometry is None:
+                self.gimp_window = _win32_find_gimp_window()
+                self._owner = None
+                if self.gimp_window is not None:
+                    geometry = _win32_window_geometry(self.gimp_window)
+            if geometry is None:
+                return None
+            bounds, visible, titlebar_height = geometry
+            self._visible = visible
+            return bounds, titlebar_height
+
+        bounds = _monitor_workarea()
+        return (bounds, 32) if bounds is not None else None
+
+    def _own_switcher(self) -> None:
+        """Make GIMP the native owner of the switcher (Windows only)."""
+        if sys.platform != "win32" or self.gimp_window is None:
             return
-        dialog = ToneDialog(self)
-        response = dialog.run()
-        settings = dialog.settings() if response == Gtk.ResponseType.OK else None
-        dialog.destroy()
-        if settings is None:
+        if self._owner == self.gimp_window:
             return
+        hwnd = _win32_own_window(SWITCHER_TITLE)
+        if hwnd is not None:
+            _win32_set_owner(hwnd, self.gimp_window)
+            self._owner = self.gimp_window
+
+    def _sync(self) -> bool:
         try:
-            Gimp.progress_init("Criando retícula")
-            apply_screentone(self.image, settings)
-            Gimp.progress_update(1.0)
-        except Exception as error:
-            _show_error(self, "Não foi possível criar a retícula", error)
+            anchor = self._bounds()
+            if anchor is None or not self._visible:
+                # GIMP is still starting, minimized, or its window is gone.
+                self.switcher.hide()
+                return GLib.SOURCE_CONTINUE
+            if not self.switcher.get_visible():
+                self.switcher.show_all()
+            self._own_switcher()
+            bounds, titlebar_height = anchor
+            self.switcher.move_to_anchor(bounds, titlebar_height)
+        except Exception as error:  # Keep the session alive on odd window states.
+            print(f"PhotoGIMP workspaces: {error}", file=sys.stderr)
+        return GLib.SOURCE_CONTINUE
 
 
 def _interactive_error(procedure: Gimp.Procedure):
@@ -894,19 +1054,50 @@ def _interactive_error(procedure: Gimp.Procedure):
     )
 
 
+def extension_run(procedure, *_args):
+    """Started by GIMP at launch; keeps the mode switcher on screen."""
+    plug_in = procedure.get_plug_in()
+    GimpUi.init(PLUGIN_BINARY)
+    _load_css()
+    host = WorkspaceHost()
+
+    next_mode_procedure = Gimp.Procedure.new(
+        plug_in,
+        NEXT_MODE_PROCEDURE,
+        Gimp.PDBProcType.TEMPORARY,
+        host.next_mode_run,
+        None,
+    )
+    next_mode_procedure.set_attribution("PhotoGIMP contributors", "PhotoGIMP", "2026")
+    next_mode_procedure.set_documentation(
+        "Passa para o próximo modo de trabalho do PhotoGIMP", None, None
+    )
+    plug_in.add_temp_procedure(next_mode_procedure)
+
+    procedure.persistent_ready()
+    plug_in.persistent_enable()
+    host.start()
+    Gtk.main()
+    return procedure.new_return_values(Gimp.PDBStatusType.SUCCESS, None)
+
+
 def workspace_run(procedure, run_mode, image, drawables, config, data):
     if run_mode != Gimp.RunMode.INTERACTIVE:
         return _interactive_error(procedure)
-    GimpUi.init(PLUGIN_BINARY)
-    _load_css()
-    palette = WorkspacePalette(image)
-    switcher = WorkspaceModeSwitcher(palette.set_mode)
-    switcher.show_anchored()
-    try:
-        palette.run()
-    finally:
-        switcher.destroy()
-        palette.destroy()
+
+    pdb = Gimp.get_pdb()
+    if pdb.lookup_procedure(NEXT_MODE_PROCEDURE) is None:
+        # The switcher normally starts with GIMP; start it now if it did not.
+        extension = pdb.lookup_procedure(EXTENSION_PROCEDURE)
+        if extension is not None:
+            extension.run(extension.create_config())
+    next_mode_procedure = pdb.lookup_procedure(NEXT_MODE_PROCEDURE)
+    if next_mode_procedure is None:
+        return procedure.new_return_values(
+            Gimp.PDBStatusType.EXECUTION_ERROR,
+            GLib.Error("O seletor de modos do PhotoGIMP não está em execução."),
+        )
+    next_mode_procedure.run(next_mode_procedure.create_config())
     return procedure.new_return_values(Gimp.PDBStatusType.SUCCESS, None)
 
 
@@ -944,7 +1135,13 @@ def tone_run(procedure, run_mode, image, drawables, config, data):
     _load_css()
     dialog = ToneDialog(None)
     response = dialog.run()
-    settings = dialog.settings() if response == Gtk.ResponseType.OK else None
+    try:
+        settings = dialog.settings() if response == Gtk.ResponseType.OK else None
+    except ValueError as error:
+        dialog.destroy()
+        return procedure.new_return_values(
+            Gimp.PDBStatusType.CALLING_ERROR, GLib.Error(str(error))
+        )
     dialog.destroy()
     if settings is None:
         return procedure.new_return_values(Gimp.PDBStatusType.CANCEL, None)
@@ -960,10 +1157,34 @@ def tone_run(procedure, run_mode, image, drawables, config, data):
 
 
 class PhotoGimpWorkspaces(Gimp.PlugIn):
+    def do_set_i18n(self, name):
+        # The UI strings are not translated through gettext catalogs.
+        return False
+
     def do_query_procedures(self):
-        return [WORKSPACE_PROCEDURE, PAGE_PROCEDURE, TONE_PROCEDURE]
+        return [
+            EXTENSION_PROCEDURE,
+            WORKSPACE_PROCEDURE,
+            PAGE_PROCEDURE,
+            TONE_PROCEDURE,
+        ]
 
     def do_create_procedure(self, name):
+        if name == EXTENSION_PROCEDURE:
+            # A persistent procedure without arguments is launched by GIMP at
+            # startup, which is what keeps the mode switcher always visible.
+            procedure = Gimp.Procedure.new(
+                self, name, Gimp.PDBProcType.PERSISTENT, extension_run, None
+            )
+            procedure.set_attribution("PhotoGIMP contributors", "PhotoGIMP", "2026")
+            procedure.set_documentation(
+                "Seletor de modos do PhotoGIMP",
+                "Mantém o seletor de modos no canto superior direito da janela "
+                "principal do GIMP.",
+                None,
+            )
+            return procedure
+
         callbacks = {
             WORKSPACE_PROCEDURE: workspace_run,
             PAGE_PROCEDURE: page_run,
@@ -978,15 +1199,16 @@ class PhotoGimpWorkspaces(Gimp.PlugIn):
         procedure.set_attribution("PhotoGIMP contributors", "PhotoGIMP", "2026")
 
         if name == WORKSPACE_PROCEDURE:
-            procedure.set_menu_label("_Modos de visualização...")
+            procedure.set_menu_label("Próximo _modo de trabalho")
             procedure.add_menu_path("<Image>/PhotoGIMP")
             procedure.set_icon_file(
                 Gio.File.new_for_path(str(ICON_DIR / "designer.svg"))
             )
             procedure.set_sensitivity_mask(Gimp.ProcedureSensitivityMask.ALWAYS)
             procedure.set_documentation(
-                "Alterna os modos de trabalho do PhotoGIMP",
-                "Exibe ferramentas para design gráfico, arte digital e quadrinhos.",
+                "Passa para o próximo modo de trabalho do PhotoGIMP",
+                "Alterna entre Designer gráfico, Artista digital e Quadrinista, "
+                "como o seletor fixo no canto superior direito da janela principal.",
                 None,
             )
         elif name == PAGE_PROCEDURE:

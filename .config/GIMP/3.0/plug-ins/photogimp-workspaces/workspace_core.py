@@ -10,43 +10,123 @@ MODE_DEFINITIONS = {
         "label": "Designer gráfico",
         "icon": "designer.svg",
         "tools": (
-            ("Mover", "V", "gimp-tool-move"),
-            ("Seleção retangular", "M", "gimp-tool-rectangle-select"),
-            ("Caminhos", "P", "gimp-tool-path"),
-            ("Texto", "T", "gimp-tool-text"),
-            ("Gradiente", "G", "gimp-tool-gradient"),
-            ("Formas geométricas", "U", "gimp-tool-rectangle-select"),
-            ("Transformação", "Ctrl+T", "gimp-tool-unified-transform"),
-            ("Curvas", "Ctrl+M", "gimp-tool-curves"),
+            ("Mover", "V", "gimp-tool-move", "tools-move"),
+            ("Seleção retangular", "M", "gimp-tool-rect-select", "tools-rect-select"),
+            ("Caminhos", "P", "gimp-tool-path", "tools-path"),
+            ("Texto", "T", "gimp-tool-text", "tools-text"),
+            ("Gradiente", "G", "gimp-tool-gradient", "tools-gradient"),
+            ("Formas geométricas", "U", "gimp-tool-ellipse-select", "plug-in-gfig"),
+            ("Transformação", "Ctrl+T", "gimp-tool-unified-transform", "tools-unified-transform"),
+            ("Curvas", "Ctrl+M", "gimp-tool-curves", "tools-curves"),
         ),
     },
     "artist": {
         "label": "Artista digital",
         "icon": "artist.svg",
         "tools": (
-            ("Pincel", "B", "gimp-tool-paintbrush"),
-            ("MyPaint", "Y", "gimp-tool-mypaint-brush"),
-            ("Lápis", "Shift+B", "gimp-tool-pencil"),
-            ("Borracha", "E", "gimp-tool-eraser"),
-            ("Conta-gotas", "I", "gimp-tool-color-picker"),
-            ("Borrar", "Shift+Alt+O", "gimp-tool-smudge"),
-            ("Subexpor / superexpor", "O", "gimp-tool-dodge"),
-            ("Zoom", "Z", "gimp-tool-zoom"),
+            ("Pincel", "B", "gimp-tool-paintbrush", "tools-paintbrush"),
+            ("MyPaint", "Y", "gimp-tool-mypaint-brush", "tools-mypaint-brush"),
+            ("Lápis", "Shift+B", "gimp-tool-pencil", "tools-pencil"),
+            ("Borracha", "E", "gimp-tool-eraser", "tools-eraser"),
+            ("Conta-gotas", "I", "gimp-tool-color-picker", "tools-color-picker"),
+            ("Borrar", "Shift+Alt+O", "gimp-tool-smudge", "tools-smudge"),
+            ("Subexpor / superexpor", "O", "gimp-tool-dodge", "tools-dodge-burn"),
+            ("Zoom", "Z", "gimp-tool-zoom", "tools-zoom"),
         ),
     },
     "comic": {
         "label": "Quadrinista",
         "icon": "comic.svg",
         "tools": (
-            ("Tinta", "K", "gimp-tool-ink"),
-            ("Pincel", "B", "gimp-tool-paintbrush"),
-            ("Borracha", "E", "gimp-tool-eraser"),
-            ("Preenchimento", "Shift+G", "gimp-tool-bucket-fill"),
-            ("Caminhos", "P", "gimp-tool-path"),
-            ("Texto", "T", "gimp-tool-text"),
-            ("Formas geométricas", "U", "gimp-tool-rectangle-select"),
-            ("Zoom", "Z", "gimp-tool-zoom"),
+            ("Tinta", "K", "gimp-tool-ink", "tools-ink"),
+            ("Pincel", "B", "gimp-tool-paintbrush", "tools-paintbrush"),
+            ("Borracha", "E", "gimp-tool-eraser", "tools-eraser"),
+            ("Preenchimento", "Shift+G", "gimp-tool-bucket-fill", "tools-bucket-fill"),
+            ("Caminhos", "P", "gimp-tool-path", "tools-path"),
+            ("Texto", "T", "gimp-tool-text", "tools-text"),
+            ("Formas geométricas", "U", "gimp-tool-ellipse-select", "plug-in-gfig"),
+            ("Zoom", "Z", "gimp-tool-zoom", "tools-zoom"),
         ),
+    },
+}
+
+DEFAULT_MODE = "designer"
+SHORTCUT_MODIFIERS = ("Ctrl", "Shift", "Alt")
+
+
+# Tools kept visible in the left toolbox for each mode (toolrc ids). Hidden
+# tools stay reachable through the Tools menu and their keyboard shortcuts.
+TOOLBOX_COMMON = frozenset(
+    {
+        "gimp-move-tool",
+        "gimp-rect-select-tool",
+        "gimp-ellipse-select-tool",
+        "gimp-free-select-tool",
+        "gimp-crop-tool",
+        "gimp-color-picker-tool",
+        "gimp-zoom-tool",
+    }
+)
+
+TOOLBOX_TOOLS = {
+    "designer": TOOLBOX_COMMON
+    | {
+        "gimp-align-tool",
+        "gimp-fuzzy-select-tool",
+        "gimp-by-color-select-tool",
+        "gimp-unified-transform-tool",
+        "gimp-rotate-tool",
+        "gimp-scale-tool",
+        "gimp-flip-tool",
+        "gimp-perspective-tool",
+        "gimp-bucket-fill-tool",
+        "gimp-gradient-tool",
+        "gimp-paintbrush-tool",
+        "gimp-eraser-tool",
+        "gimp-path-tool",
+        "gimp-text-tool",
+        "gimp-measure-tool",
+        "gimp-brightness-contrast-tool",
+        "gimp-levels-tool",
+        "gimp-curves-tool",
+        "gimp-threshold-tool",
+    },
+    "artist": TOOLBOX_COMMON
+    | {
+        "gimp-unified-transform-tool",
+        "gimp-rotate-tool",
+        "gimp-flip-tool",
+        "gimp-warp-tool",
+        "gimp-bucket-fill-tool",
+        "gimp-gradient-tool",
+        "gimp-paintbrush-tool",
+        "gimp-pencil-tool",
+        "gimp-airbrush-tool",
+        "gimp-ink-tool",
+        "gimp-mypaint-brush-tool",
+        "gimp-eraser-tool",
+        "gimp-clone-tool",
+        "gimp-heal-tool",
+        "gimp-smudge-tool",
+        "gimp-convolve-tool",
+        "gimp-dodge-burn-tool",
+    },
+    "comic": TOOLBOX_COMMON
+    | {
+        "gimp-fuzzy-select-tool",
+        "gimp-unified-transform-tool",
+        "gimp-rotate-tool",
+        "gimp-flip-tool",
+        "gimp-perspective-tool",
+        "gimp-bucket-fill-tool",
+        "gimp-paintbrush-tool",
+        "gimp-pencil-tool",
+        "gimp-ink-tool",
+        "gimp-eraser-tool",
+        "gimp-path-tool",
+        "gimp-text-tool",
+        "gimp-levels-tool",
+        "gimp-threshold-tool",
     },
 }
 
@@ -135,6 +215,143 @@ TONE_STYLES = {
     "lines": "Linhas",
     "crosshatch": "Cruzada",
 }
+
+
+def normalize_mode(value: object) -> str:
+    """Return a known mode id, falling back to the default mode."""
+    if isinstance(value, str) and value.strip() in MODE_DEFINITIONS:
+        return value.strip()
+    return DEFAULT_MODE
+
+
+def next_mode(mode_id: str) -> str:
+    """Return the mode after mode_id, wrapping around."""
+    modes = list(MODE_DEFINITIONS)
+    return modes[(modes.index(normalize_mode(mode_id)) + 1) % len(modes)]
+
+
+def primary_tool(mode_id: str) -> tuple[str, str, str, str]:
+    """The tool activated right away when switching to a mode."""
+    return MODE_DEFINITIONS[normalize_mode(mode_id)]["tools"][0]
+
+
+def _sexp_nodes(text: str) -> list:
+    """Parse toolrc into nested nodes that remember their source spans.
+
+    A list node is ("list", start, end, children); an atom is
+    ("atom", start, end, value). Comments and whitespace are skipped.
+    """
+    stack: list[list] = [[]]
+    starts: list[int] = []
+    index = 0
+    length = len(text)
+    while index < length:
+        char = text[index]
+        if char.isspace():
+            index += 1
+        elif char == "#":
+            while index < length and text[index] != "\n":
+                index += 1
+        elif char == "(":
+            starts.append(index)
+            stack.append([])
+            index += 1
+        elif char == ")":
+            if not starts:
+                raise ValueError("Unexpected ')' in toolrc")
+            children = stack.pop()
+            stack[-1].append(("list", starts.pop(), index + 1, children))
+            index += 1
+        elif char == '"':
+            end = index + 1
+            while end < length and text[end] != '"':
+                end += 2 if text[end] == "\\" else 1
+            if end >= length:
+                raise ValueError("Unterminated string in toolrc")
+            stack[-1].append(("atom", index, end + 1, text[index + 1 : end]))
+            index = end + 1
+        else:
+            end = index
+            while end < length and not text[end].isspace() and text[end] not in '()"':
+                end += 1
+            stack[-1].append(("atom", index, end, text[index:end]))
+            index = end
+    if starts:
+        raise ValueError("Unclosed expression in toolrc")
+    return stack[0]
+
+
+def _head(node) -> str | None:
+    if node[0] != "list" or not node[3] or node[3][0][0] != "atom":
+        return None
+    return node[3][0][3]
+
+
+def _field(node, name: str):
+    for child in node[3][1:]:
+        if child[0] == "list" and _head(child) == name:
+            return child
+    return None
+
+
+def toolbox_for_mode(toolrc: str, mode_id: str) -> str:
+    """Rewrite toolrc so only the tools of mode_id are visible in the toolbox.
+
+    Only the (visible ...) and (active-tool ...) values change, so the file
+    keeps GIMP's own formatting, ordering, and any other settings.
+    """
+    visible_tools = TOOLBOX_TOOLS[normalize_mode(mode_id)]
+    edits: list[tuple[int, int, str]] = []
+
+    def set_value(node, name: str, value: str) -> None:
+        field = _field(node, name)
+        if field is not None and len(field[3]) == 2:
+            atom = field[3][1]
+            edits.append((atom[1], atom[2], value))
+
+    def tool_id(node) -> str | None:
+        return node[3][1][3] if len(node[3]) > 1 and node[3][1][0] == "atom" else None
+
+    for node in _sexp_nodes(toolrc):
+        head = _head(node)
+        if head == "GimpToolInfo":
+            shown = tool_id(node) in visible_tools
+            set_value(node, "visible", "yes" if shown else "no")
+        elif head == "GimpToolGroup":
+            children = _field(node, "children")
+            members = [
+                child
+                for child in (children[3][1:] if children is not None else ())
+                if _head(child) == "GimpToolInfo"
+            ]
+            shown_ids = [tool_id(child) for child in members if tool_id(child) in visible_tools]
+            for child in members:
+                set_value(child, "visible", "yes" if tool_id(child) in visible_tools else "no")
+            set_value(node, "visible", "yes" if shown_ids else "no")
+            active = _field(node, "active-tool")
+            if shown_ids and active is not None and len(active[3]) == 2:
+                if active[3][1][3] not in shown_ids:
+                    atom = active[3][1]
+                    edits.append((atom[1], atom[2], f'"{shown_ids[0]}"'))
+
+    for start, end, value in sorted(edits, reverse=True):
+        toolrc = toolrc[:start] + value + toolrc[end:]
+    return toolrc
+
+
+def parse_shortcut(shortcut: str) -> tuple[tuple[str, ...], str]:
+    """Split a display shortcut such as "Shift+Alt+O" into modifiers and key."""
+    if not isinstance(shortcut, str):
+        raise TypeError("The shortcut must be a string")
+    *modifiers, key = shortcut.split("+")
+    if len(key) != 1 or not key.isascii() or not key.isalpha():
+        raise ValueError(f"Unsupported shortcut key: {shortcut}")
+    if any(modifier not in SHORTCUT_MODIFIERS for modifier in modifiers):
+        raise ValueError(f"Unsupported shortcut modifier: {shortcut}")
+    if len(set(modifiers)) != len(modifiers):
+        raise ValueError(f"Repeated shortcut modifier: {shortcut}")
+    ordered = tuple(sorted(modifiers, key=SHORTCUT_MODIFIERS.index))
+    return ordered, key.upper()
 
 
 def mode_switcher_position(
