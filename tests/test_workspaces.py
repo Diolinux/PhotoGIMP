@@ -35,6 +35,26 @@ class WorkspaceCoreTests(unittest.TestCase):
             shortcuts = [tool[1] for tool in mode["tools"]]
             self.assertEqual(len(shortcuts), len(set(shortcuts)))
 
+    def test_mode_switcher_is_anchored_to_the_main_window_top_right(self) -> None:
+        self.assertEqual(
+            workspace_core.mode_switcher_position(
+                (16, 16, 1904, 1027),
+                (252, 34),
+                titlebar_height=31,
+            ),
+            (1644, 47),
+        )
+
+    def test_mode_switcher_position_stays_inside_small_windows(self) -> None:
+        self.assertEqual(
+            workspace_core.mode_switcher_position(
+                (100, 50, 300, 120),
+                (260, 80),
+                titlebar_height=40,
+            ),
+            (100, 50),
+        )
+
     def test_a4_size_and_landscape_orientation(self) -> None:
         portrait = workspace_core.page_size_pixels("a4", 300, "portrait")
         landscape = workspace_core.page_size_pixels("a4", 300, "landscape")
@@ -129,6 +149,17 @@ class WorkspacePluginAssetTests(unittest.TestCase):
             "plug-in-photogimp-screentone",
         ):
             self.assertIn(procedure, source)
+
+    def test_workspace_uses_an_icon_selector_anchored_to_main_window(self) -> None:
+        source = ENTRYPOINT.read_text(encoding="utf-8")
+        self.assertIn("class WorkspaceModeSwitcher(Gtk.Window)", source)
+        self.assertIn("Gtk.ComboBox.new_with_model", source)
+        self.assertIn("self.mode_select.set_id_column(2)", source)
+        self.assertIn("Gimp.default_display()", source)
+        self.assertIn("display.get_window_handle()", source)
+        self.assertIn("mode_switcher_position(", source)
+        self.assertNotIn("header.pack_end(mode_control", source)
+        self.assertNotIn("Gtk.ToggleButton", source)
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@
 
 from __future__ import annotations
 
+import ctypes
 from math import ceil, hypot, pi
 from pathlib import Path
 import sys
@@ -13,6 +14,7 @@ import gi
 gi.require_version("Gimp", "3.0")
 gi.require_version("GimpUi", "3.0")
 gi.require_version("Gtk", "3.0")
+gi.require_version("Gdk", "3.0")
 gi.require_version("GdkPixbuf", "2.0")
 gi.require_foreign("cairo")
 
@@ -30,6 +32,7 @@ from workspace_core import (  # noqa: E402
     PAPER_PRESETS,
     TONE_STYLES,
     mm_to_pixels,
+    mode_switcher_position,
     page_size_pixels,
     panel_rectangles,
     validate_tone_settings,
@@ -44,8 +47,13 @@ ICON_DIR = SCRIPT_DIR / "icons"
 
 CSS = b"""
 .photogimp-root { padding: 8px; }
-.photogimp-mode { min-width: 148px; min-height: 82px; padding: 8px; }
-.photogimp-mode:checked { border-color: #18a999; border-width: 2px; }
+.photogimp-global-switcher {
+  background-color: @theme_bg_color;
+  border: 1px solid alpha(@theme_fg_color, 0.18);
+  padding: 2px 5px;
+}
+.photogimp-mode-caption { font-weight: 600; margin-right: 4px; }
+.photogimp-mode-select { min-width: 205px; }
 .photogimp-tool { min-width: 210px; min-height: 42px; padding: 6px 9px; }
 .photogimp-tool-name { font-weight: 600; }
 .photogimp-shortcut { color: #66727d; font-size: 0.88em; }
@@ -66,17 +74,115 @@ def _load_css() -> None:
         )
 
 
-def _svg_image(filename: str, size: int) -> Gtk.Image:
+def _native_handle_value(handle: GLib.Bytes | None) -> int | None:
+    if handle is None:
+        return None
+    data = bytes(handle.get_data())
+    pointer_size = ctypes.sizeof(ctypes.c_void_p)
+    if len(data) < pointer_size:
+        return None
+    value = int.from_bytes(data[:pointer_size], byteorder=sys.byteorder)
+    return value or None
+
+
+def _gimp_window_handle() -> int | None:
+    if sys.platform != "win32":
+        return None
+
+    display = Gimp.default_display()
+    if display is not None and display.is_valid():
+        value = _native_handle_value(display.get_window_handle())
+        if value is not None:
+            return value
+
+    from ctypes import wintypes
+
+    user32 = ctypes.WinDLL("user32", use_last_error=True)
+    user32.GetForegroundWindow.restype = wintypes.HWND
+    foreground = user32.GetForegroundWindow()
+    return int(foreground) if foreground else None
+
+
+def _win32_window_geometry(
+    handle: int,
+) -> tuple[tuple[int, int, int, int], bool, int] | None:
+    if sys.platform != "win32":
+        return None
+
+    from ctypes import wintypes
+
+    hwnd = wintypes.HWND(handle)
+    user32 = ctypes.WinDLL("user32", use_last_error=True)
+    user32.IsWindow.argtypes = [wintypes.HWND]
+    user32.IsWindow.restype = wintypes.BOOL
+    user32.IsWindowVisible.argtypes = [wintypes.HWND]
+    user32.IsWindowVisible.restype = wintypes.BOOL
+    user32.IsIconic.argtypes = [wintypes.HWND]
+    user32.IsIconic.restype = wintypes.BOOL
+    user32.GetWindowRect.argtypes = [wintypes.HWND, ctypes.POINTER(wintypes.RECT)]
+    user32.GetWindowRect.restype = wintypes.BOOL
+    user32.GetSystemMetrics.argtypes = [ctypes.c_int]
+    user32.GetSystemMetrics.restype = ctypes.c_int
+    if not user32.IsWindow(hwnd):
+        return None
+
+    visible = bool(user32.IsWindowVisible(hwnd)) and not bool(user32.IsIconic(hwnd))
+    rect = wintypes.RECT()
+    has_rect = False
+    try:
+        dwmapi = ctypes.WinDLL("dwmapi")
+        dwmapi.DwmGetWindowAttribute.argtypes = [
+            wintypes.HWND,
+            wintypes.DWORD,
+            ctypes.c_void_p,
+            wintypes.DWORD,
+        ]
+        dwmapi.DwmGetWindowAttribute.restype = ctypes.c_long
+        has_rect = (
+            dwmapi.DwmGetWindowAttribute(
+                hwnd, 9, ctypes.byref(rect), ctypes.sizeof(rect)
+            )
+            == 0
+        )
+    except OSError:
+        has_rect = False
+    if not has_rect and not user32.GetWindowRect(hwnd, ctypes.byref(rect)):
+        return None
+
+    bounds = (rect.left, rect.top, rect.right, rect.bottom)
+    titlebar_height = max(
+        24,
+        user32.GetSystemMetrics(4) + user32.GetSystemMetrics(33),
+    )
+    return bounds, visible, titlebar_height
+
+
+def _monitor_workarea() -> tuple[int, int, int, int] | None:
+    display = Gdk.Display.get_default()
+    if display is None or display.get_n_monitors() == 0:
+        return None
+    monitor = display.get_primary_monitor() or display.get_monitor(0)
+    area = monitor.get_workarea()
+    return area.x, area.y, area.x + area.width, area.y + area.height
+
+
+def _svg_pixbuf(filename: str, size: int) -> GdkPixbuf.Pixbuf | None:
     path = ICON_DIR / filename
     try:
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
+        return GdkPixbuf.Pixbuf.new_from_file_at_scale(
             str(path), size, size, True
         )
-        return Gtk.Image.new_from_pixbuf(pixbuf)
     except GLib.Error:
+        return None
+
+
+def _svg_image(filename: str, size: int) -> Gtk.Image:
+    pixbuf = _svg_pixbuf(filename, size)
+    if pixbuf is None:
         return Gtk.Image.new_from_icon_name(
             "image-missing", Gtk.IconSize.LARGE_TOOLBAR
         )
+    return Gtk.Image.new_from_pixbuf(pixbuf)
 
 
 def _icon_button(label: str, icon: str, tooltip: str) -> Gtk.Button:
@@ -543,11 +649,126 @@ class ToneDialog(Gtk.Dialog):
         return False
 
 
+class WorkspaceModeSwitcher(Gtk.Window):
+    __gtype_name__ = "PhotoGimpWorkspaceModeSwitcher"
+
+    WIDTH = 286
+    HEIGHT = 34
+
+    def __init__(self, on_mode_changed):
+        super().__init__(type=Gtk.WindowType.TOPLEVEL)
+        self.set_title("Modo de visualização do PhotoGIMP")
+        self.set_role("photogimp-global-mode-switcher")
+        self.set_decorated(False)
+        self.set_resizable(False)
+        self.set_skip_taskbar_hint(True)
+        self.set_skip_pager_hint(True)
+        self.set_focus_on_map(False)
+        self.set_type_hint(Gdk.WindowTypeHint.TOOLBAR)
+        self.set_default_size(self.WIDTH, self.HEIGHT)
+        self.set_size_request(self.WIDTH, self.HEIGHT)
+        self._on_mode_changed = on_mode_changed
+        self._parent_handle = _gimp_window_handle()
+        self._anchor_source = None
+
+        display = Gimp.default_display()
+        if display is not None and display.is_valid():
+            GimpUi.window_set_transient_for_display(self, display)
+        else:
+            GimpUi.window_set_transient(self)
+
+        shell = Gtk.EventBox()
+        shell.get_style_context().add_class("photogimp-global-switcher")
+        content = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=5)
+        shell.add(content)
+        caption = Gtk.Label(label="Modo", xalign=1)
+        caption.get_style_context().add_class("photogimp-mode-caption")
+        content.pack_start(caption, False, False, 0)
+
+        self.mode_model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, str)
+        for mode_id, mode in MODE_DEFINITIONS.items():
+            self.mode_model.append(
+                [_svg_pixbuf(mode["icon"], 20), mode["label"], mode_id]
+            )
+        self.mode_select = Gtk.ComboBox.new_with_model(self.mode_model)
+        self.mode_select.get_style_context().add_class("photogimp-mode-select")
+        self.mode_select.set_id_column(2)
+        icon_renderer = Gtk.CellRendererPixbuf()
+        text_renderer = Gtk.CellRendererText()
+        self.mode_select.pack_start(icon_renderer, False)
+        self.mode_select.add_attribute(icon_renderer, "pixbuf", 0)
+        self.mode_select.pack_start(text_renderer, True)
+        self.mode_select.add_attribute(text_renderer, "text", 1)
+        self.mode_select.set_tooltip_text("Mudar modo de visualização")
+        self.mode_select.connect("changed", self._mode_changed)
+        caption.set_mnemonic_widget(self.mode_select)
+        content.pack_start(self.mode_select, True, True, 0)
+        self.add(shell)
+
+        self.connect("size-allocate", self._size_allocated)
+        self.connect("destroy", self._destroyed)
+        self.mode_select.set_active_id("designer")
+
+    def show_anchored(self) -> None:
+        self._move_to_anchor()
+        self.show_all()
+        self._anchor_source = GLib.timeout_add(200, self._sync_anchor)
+
+    def _mode_changed(self, mode_select: Gtk.ComboBox) -> None:
+        mode_id = mode_select.get_active_id()
+        if mode_id in MODE_DEFINITIONS:
+            self._on_mode_changed(mode_id)
+
+    def _size_allocated(self, _window, _allocation) -> None:
+        self._move_to_anchor()
+
+    def _sync_anchor(self) -> bool:
+        geometry = (
+            _win32_window_geometry(self._parent_handle)
+            if self._parent_handle is not None
+            else None
+        )
+        if geometry is not None:
+            _bounds, visible, _titlebar_height = geometry
+            if not visible:
+                self.hide()
+                return GLib.SOURCE_CONTINUE
+            if not self.get_visible():
+                self.show_all()
+        self._move_to_anchor(geometry)
+        return GLib.SOURCE_CONTINUE
+
+    def _move_to_anchor(
+        self,
+        geometry: tuple[tuple[int, int, int, int], bool, int] | None = None,
+    ) -> None:
+        if geometry is None and self._parent_handle is not None:
+            geometry = _win32_window_geometry(self._parent_handle)
+        if geometry is not None:
+            bounds, _visible, titlebar_height = geometry
+        else:
+            bounds = _monitor_workarea()
+            titlebar_height = 32
+        if bounds is None:
+            return
+
+        width, height = self.get_size()
+        size = (max(width, self.WIDTH), max(height, self.HEIGHT))
+        position = mode_switcher_position(bounds, size, titlebar_height)
+        if self.get_position() != position:
+            self.move(*position)
+
+    def _destroyed(self, _window) -> None:
+        if self._anchor_source is not None:
+            GLib.source_remove(self._anchor_source)
+            self._anchor_source = None
+
+
 class WorkspacePalette(Gtk.Dialog):
     __gtype_name__ = "PhotoGimpWorkspacePalette"
 
     def __init__(self, image: Gimp.Image | None):
-        super().__init__(title="PhotoGIMP — Modos de visualização")
+        super().__init__(title="PhotoGIMP — Ferramentas do modo")
         GimpUi.window_set_transient(self)
         self.set_role("photogimp-workspaces")
         self.set_modal(False)
@@ -555,32 +776,15 @@ class WorkspacePalette(Gtk.Dialog):
         self.add_button("_Fechar", Gtk.ResponseType.CLOSE)
         self.image = image
         self.active_mode = None
-        self.updating_modes = False
-        self.mode_buttons = {}
 
         body = self.get_content_area()
         body.set_border_width(12)
         body.set_spacing(10)
         body.get_style_context().add_class("photogimp-root")
 
-        mode_bar = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=7)
-        mode_bar.set_homogeneous(True)
-        body.pack_start(mode_bar, False, False, 0)
-        for mode_id, mode in MODE_DEFINITIONS.items():
-            button = Gtk.ToggleButton()
-            button.get_style_context().add_class("photogimp-mode")
-            content = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=5)
-            content.pack_start(_svg_image(mode["icon"], 36), False, False, 0)
-            content.pack_start(Gtk.Label(label=mode["label"]), False, False, 0)
-            button.add(content)
-            button.set_tooltip_text(mode["label"])
-            button.connect("toggled", self._mode_toggled, mode_id)
-            mode_bar.pack_start(button, True, True, 0)
-            self.mode_buttons[mode_id] = button
-
-        heading = Gtk.Label(label="Ferramentas", xalign=0)
-        heading.get_style_context().add_class("photogimp-section")
-        body.pack_start(heading, False, False, 0)
+        self.heading = Gtk.Label(label="Ferramentas", xalign=0)
+        self.heading.get_style_context().add_class("photogimp-section")
+        body.pack_start(self.heading, False, False, 0)
 
         scroll = Gtk.ScrolledWindow()
         scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
@@ -611,24 +815,14 @@ class WorkspacePalette(Gtk.Dialog):
         self.comic_actions.pack_start(self.tone_button, True, True, 0)
 
         self.show_all()
-        self.mode_buttons["designer"].set_active(True)
+        self.set_mode("designer")
         self._update_tone_sensitivity()
 
-    def _mode_toggled(self, button: Gtk.ToggleButton, mode_id: str) -> None:
-        if self.updating_modes:
+    def set_mode(self, mode_id: str) -> None:
+        if mode_id not in MODE_DEFINITIONS or mode_id == self.active_mode:
             return
-        if not button.get_active():
-            if self.active_mode == mode_id:
-                self.updating_modes = True
-                button.set_active(True)
-                self.updating_modes = False
-            return
-        self.updating_modes = True
-        for other_id, other_button in self.mode_buttons.items():
-            if other_id != mode_id:
-                other_button.set_active(False)
-        self.updating_modes = False
         self.active_mode = mode_id
+        self.heading.set_text(f"Ferramentas — {MODE_DEFINITIONS[mode_id]['label']}")
         self._render_tools(mode_id)
         self.comic_actions.set_visible(mode_id == "comic")
 
@@ -706,8 +900,13 @@ def workspace_run(procedure, run_mode, image, drawables, config, data):
     GimpUi.init(PLUGIN_BINARY)
     _load_css()
     palette = WorkspacePalette(image)
-    palette.run()
-    palette.destroy()
+    switcher = WorkspaceModeSwitcher(palette.set_mode)
+    switcher.show_anchored()
+    try:
+        palette.run()
+    finally:
+        switcher.destroy()
+        palette.destroy()
     return procedure.new_return_values(Gimp.PDBStatusType.SUCCESS, None)
 
 

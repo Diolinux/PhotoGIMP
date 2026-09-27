@@ -52,7 +52,7 @@ Para criar uma forma rapidamente na tela, use Seleção Retangular (<kbd>M</kbd>
 
 ## Modos de trabalho e quadrinhos
 
-Pressione <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Espaço</kbd> ou abra **PhotoGIMP → Modos de visualização** para mostrar a paleta do PhotoGIMP. Os botões Designer Gráfico, Artista Digital e Quadrinista trocam imediatamente as ferramentas exibidas na paleta pelo conjunto daquele fluxo de trabalho. Tinta e MyPaint também recebem os atalhos <kbd>K</kbd> e <kbd>Y</kbd>.
+Pressione <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Espaço</kbd> ou abra **PhotoGIMP → Modos de visualização** para mostrar as ferramentas do PhotoGIMP. O seletor com ícones fica ancorado no canto superior direito da janela principal do GIMP; use-o para alternar entre Designer Gráfico, Artista Digital e Quadrinista, e as ferramentas exibidas mudam imediatamente. Tinta e MyPaint também recebem os atalhos <kbd>K</kbd> e <kbd>Y</kbd>.
 
 O modo Quadrinista inclui dois comandos adicionais:
 

@@ -56,7 +56,7 @@ For a quick shape directly on the canvas, use Rectangle Select (<kbd>M</kbd>) or
 
 ## Work modes and comics
 
-Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd>, or open **PhotoGIMP → Modos de visualização**, to show the PhotoGIMP palette. Its Graphic Designer, Digital Artist, and Comic Artist buttons immediately replace the tools shown in the palette with the set for that workflow. Ink and MyPaint also have the <kbd>K</kbd> and <kbd>Y</kbd> shortcuts.
+Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd>, or open **PhotoGIMP → Modos de visualização**, to show the PhotoGIMP tools. The icon selector is anchored to the upper-right corner of the main GIMP window; use it to switch between Graphic Designer, Digital Artist, and Comic Artist, and the tool set changes immediately. Ink and MyPaint also have the <kbd>K</kbd> and <kbd>Y</kbd> shortcuts.
 
 Comic Artist mode includes two additional commands:
 

@@ -137,6 +137,28 @@ TONE_STYLES = {
 }
 
 
+def mode_switcher_position(
+    window_bounds: tuple[int, int, int, int],
+    switcher_size: tuple[int, int],
+    titlebar_height: int,
+    margin: int = 8,
+) -> tuple[int, int]:
+    """Place the mode switcher at the upper-right edge of the main window."""
+    left, top, right, bottom = window_bounds
+    width, height = switcher_size
+    values = (*window_bounds, width, height, titlebar_height, margin)
+    if any(not isinstance(value, int) for value in values):
+        raise TypeError("Switcher geometry values must be integers")
+    if right <= left or bottom <= top or width <= 0 or height <= 0:
+        raise ValueError("Window and switcher dimensions must be positive")
+    if titlebar_height < 0 or margin < 0:
+        raise ValueError("Titlebar height and margin must be non-negative")
+
+    x = max(left, right - width - margin)
+    y = min(max(top, top + titlebar_height), max(top, bottom - height))
+    return x, y
+
+
 def mm_to_pixels(value: float, dpi: int) -> int:
     """Convert millimeters to pixels using a positive output resolution."""
     if not isfinite(value) or value < 0:
