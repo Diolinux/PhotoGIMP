@@ -23,6 +23,9 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Run automated tests
+        run: python3 -m unittest discover -s tests -v
+
       - name: Build deterministic platform archives
         run: python3 scripts/package_release.py
 

@@ -218,6 +218,11 @@ cp -a "$GIMP_CONFIG" "$BACKUP/"
 echo "Installing PhotoGIMP config..."
 cp -a "$CONFIG_SRC"/. "$GIMP_CONFIG"/
 
+# GIMP requires executable plug-in entry points on Unix-like systems.
+if [ -d "$GIMP_CONFIG/plug-ins" ]; then
+	find "$GIMP_CONFIG/plug-ins" -type f -name '*.py' -exec chmod u+x {} +
+fi
+
 # Only install desktop file and icons for flatpak
 if [ "$GIMP_SOURCE" = "flatpak" ]; then
 	DESKTOP_SRC="$SCRIPT_DIR/.local/share/applications/org.gimp.GIMP.desktop"

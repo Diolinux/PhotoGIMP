@@ -5,6 +5,11 @@
 (file-version 1)
 
 # ACTIVE
+(action "plug-in-photogimp-workspaces" "<Primary><Shift>space")
+(action "plug-in-gfig" "u")
+(action "select-stroke" "<Primary><Shift>BackSpace")
+(action "tools-levels" "<Primary>l")
+(action "tools-curves" "<Primary>m")
 (action "layers-duplicate" "<Primary>j")
 (action "quick-mask-toggle" "q")
 (action "tools-zoom" "z")
@@ -62,6 +67,8 @@
 (action "tools-dodge-burn" "o")
 (action "tools-convolve" "<Shift>o")
 (action "tools-smudge" "<Shift><Alt>o")
+(action "tools-ink" "k")
+(action "tools-mypaint-brush" "y")
 
 # INACTIVE
 # (action "file-export")
