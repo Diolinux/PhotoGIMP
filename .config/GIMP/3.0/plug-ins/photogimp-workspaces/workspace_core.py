@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from math import isfinite
+import re
 
 
 MODE_DEFINITIONS = {
@@ -222,6 +223,49 @@ def normalize_mode(value: object) -> str:
     if isinstance(value, str) and value.strip() in MODE_DEFINITIONS:
         return value.strip()
     return DEFAULT_MODE
+
+
+SHAPES = {
+    "rectangle": {
+        "label": "Retângulo",
+        "icon": "shape-square.svg",
+        "select_shortcut": "M",
+        "tooltip": "Desenhar retângulo: clique e arraste no canvas "
+        "(segure Shift para um quadrado)",
+    },
+    "ellipse": {
+        "label": "Elipse",
+        "icon": "shape-circle.svg",
+        "select_shortcut": "Shift+M",
+        "tooltip": "Desenhar elipse: clique e arraste no canvas "
+        "(segure Shift para um círculo)",
+    },
+}
+
+# Shape styles: stroke width in pixels, where 0 means a filled shape.
+SHAPE_STYLES = (
+    (0, "Preenchida"),
+    (3, "Contorno fino"),
+    (8, "Contorno médio"),
+    (16, "Contorno grosso"),
+)
+
+
+def image_id_from_title(title: str) -> int | None:
+    """Read the image ID from GIMP's default window title ("name-ID.view (...)")."""
+    match = re.search(r"-(\d+)\.\d+ \(", title or "")
+    return int(match.group(1)) if match else None
+
+
+def shape_ready(
+    current: tuple[int, int, int, int] | None,
+    stable_polls: int,
+    button_down: bool,
+    required_polls: int,
+) -> bool:
+    """A drawn selection is finished once it exists, stops changing, and the
+    mouse button is released."""
+    return current is not None and not button_down and stable_polls >= required_polls
 
 
 def next_mode(mode_id: str) -> str:

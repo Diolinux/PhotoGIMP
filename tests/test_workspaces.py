@@ -77,6 +77,37 @@ class WorkspaceCoreTests(unittest.TestCase):
         self.assertEqual(workspace_core.normalize_mode("unknown"), "designer")
         self.assertEqual(workspace_core.normalize_mode(None), "designer")
 
+    def test_image_id_is_read_from_the_gimp_window_title(self) -> None:
+        self.assertEqual(
+            workspace_core.image_id_from_title(
+                "*[Untitled]-12.0 (RGB color 8-bit, 1 layer) 1920x1080 – GIMP"
+            ),
+            12,
+        )
+        self.assertEqual(
+            workspace_core.image_id_from_title("foto-2024-3.1 (RGB) 800x600 – GIMP"), 3
+        )
+        self.assertIsNone(
+            workspace_core.image_id_from_title("GNU Image Manipulation Program")
+        )
+
+    def test_shape_is_drawn_after_the_drag_ends(self) -> None:
+        ready = workspace_core.shape_ready
+        self.assertFalse(ready(None, 5, False, 1))
+        self.assertFalse(ready((0, 0, 10, 10), 5, True, 1))
+        self.assertFalse(ready((0, 0, 10, 10), 0, False, 1))
+        self.assertTrue(ready((0, 0, 10, 10), 1, False, 1))
+
+    def test_shapes_activate_the_matching_selection_tool(self) -> None:
+        shapes = workspace_core.SHAPES
+        self.assertEqual(set(shapes), {"rectangle", "ellipse"})
+        self.assertEqual(shapes["rectangle"]["select_shortcut"], "M")
+        self.assertEqual(shapes["ellipse"]["select_shortcut"], "Shift+M")
+        shortcuts = SHORTCUTSRC.read_text(encoding="utf-8")
+        self.assertIn('(action "tools-rect-select" "m")', shortcuts)
+        self.assertIn('(action "tools-ellipse-select" "<Shift>m")', shortcuts)
+        self.assertEqual(workspace_core.SHAPE_STYLES[0][0], 0)
+
     def test_modes_cycle_and_start_with_their_primary_tool(self) -> None:
         self.assertEqual(workspace_core.next_mode("designer"), "artist")
         self.assertEqual(workspace_core.next_mode("artist"), "comic")
@@ -144,6 +175,32 @@ class WorkspaceCoreTests(unittest.TestCase):
                 workspace_core.toolbox_for_mode(TOOLRC.read_text(encoding="utf-8"), "comic"),
             )
             self.assertFalse((config / "toolrc.photogimp-tmp").exists())
+
+    def test_toolbox_helper_relaunches_only_recent_restart_requests(self) -> None:
+        import tempfile
+
+        helper_spec = importlib.util.spec_from_file_location(
+            "apply_toolbox", PLUGIN_ROOT / "apply_toolbox.py"
+        )
+        helper = importlib.util.module_from_spec(helper_spec)
+        helper_spec.loader.exec_module(helper)
+        with tempfile.TemporaryDirectory() as directory:
+            config = Path(directory)
+            executable = config / "gimp.exe"
+            executable.write_bytes(b"")
+            request = config / "photogimp-restart"
+
+            request.write_text(f"1000\n{executable}\n", encoding="utf-8")
+            self.assertEqual(helper.pending_relaunch(config, 1010), str(executable))
+            self.assertFalse(request.exists())
+
+            request.write_text(f"1000\n{executable}\n", encoding="utf-8")
+            self.assertIsNone(helper.pending_relaunch(config, 1000 + 3600))
+            self.assertFalse(request.exists())
+
+            request.write_text(f"1000\n{config / 'missing.exe'}\n", encoding="utf-8")
+            self.assertIsNone(helper.pending_relaunch(config, 1010))
+            self.assertIsNone(helper.pending_relaunch(config, 1010))
 
     def test_mode_switcher_is_anchored_to_the_main_window_top_right(self) -> None:
         self.assertEqual(
@@ -243,6 +300,8 @@ class WorkspacePluginAssetTests(unittest.TestCase):
             "comic.svg",
             "comic-page.svg",
             "screentone.svg",
+            "shape-square.svg",
+            "shape-circle.svg",
         }
         icons = {path.name for path in (PLUGIN_ROOT / "icons").glob("*.svg")}
         self.assertEqual(icons, expected)
@@ -269,7 +328,7 @@ class WorkspacePluginAssetTests(unittest.TestCase):
         self.assertIn("display.get_window_handle()", source)
         self.assertIn("mode_switcher_position(", source)
         self.assertNotIn("header.pack_end(mode_control", source)
-        self.assertNotIn("Gtk.ToggleButton", source)
+        self.assertNotIn("header.pack_end(mode_control", source)
 
     def test_switcher_starts_with_gimp_and_stays_visible(self) -> None:
         source = ENTRYPOINT.read_text(encoding="utf-8")
@@ -287,6 +346,16 @@ class WorkspacePluginAssetTests(unittest.TestCase):
         self.assertNotIn('Gtk.Button(label="Ferramentas")', source)
         self.assertIn("_win32_send_shortcut(self.gimp_window, shortcut)", source)
         self.assertIn('SCRIPT_DIR / "apply_toolbox.py"', source)
+        self.assertIn('lookup_procedure("gimp-quit")', source)
+        self.assertIn("_Reiniciar o GIMP agora", source)
+
+    def test_shape_buttons_draw_the_selection_on_a_new_layer(self) -> None:
+        source = ENTRYPOINT.read_text(encoding="utf-8")
+        self.assertIn("def draw_selection_shape(", source)
+        self.assertIn("layer.edit_fill(Gimp.FillType.FOREGROUND)", source)
+        self.assertIn("layer.edit_stroke_selection()", source)
+        self.assertIn("image.insert_layer(layer, None, -1)", source)
+        self.assertIn("self._host.arm_shape(kind)", source)
 
 
 if __name__ == "__main__":

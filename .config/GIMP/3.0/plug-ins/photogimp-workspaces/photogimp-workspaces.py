@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import time
 
 import gi
 
@@ -32,7 +33,10 @@ from workspace_core import (  # noqa: E402
     MODE_DEFINITIONS,
     PANEL_LAYOUTS,
     PAPER_PRESETS,
+    SHAPE_STYLES,
+    SHAPES,
     TONE_STYLES,
+    image_id_from_title,
     mm_to_pixels,
     mode_switcher_position,
     next_mode,
@@ -41,6 +45,7 @@ from workspace_core import (  # noqa: E402
     panel_rectangles,
     parse_shortcut,
     primary_tool,
+    shape_ready,
     validate_tone_settings,
 )
 
@@ -53,6 +58,7 @@ PAGE_PROCEDURE = "plug-in-photogimp-comic-page"
 TONE_PROCEDURE = "plug-in-photogimp-screentone"
 ICON_DIR = SCRIPT_DIR / "icons"
 MODE_FILE_NAME = "photogimp-workspace-mode"
+RESTART_FILE_NAME = "photogimp-restart"
 SWITCHER_TITLE = "Modo de visualização do PhotoGIMP"
 
 CSS = b"""
@@ -94,6 +100,48 @@ def _save_mode(mode_id: str) -> None:
         _mode_file().write_text(mode_id, encoding="utf-8")
     except OSError:
         pass
+
+
+def _restart_file() -> Path:
+    return Path(Gimp.directory()) / RESTART_FILE_NAME
+
+
+def _gimp_executable() -> str | None:
+    """Path of the running GIMP binary, used to start it again after a restart."""
+    pid = os.getppid()
+    if sys.platform == "win32":
+        from ctypes import wintypes
+
+        kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+        kernel32.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
+        kernel32.OpenProcess.restype = wintypes.HANDLE
+        kernel32.QueryFullProcessImageNameW.argtypes = [
+            wintypes.HANDLE,
+            wintypes.DWORD,
+            wintypes.LPWSTR,
+            ctypes.POINTER(wintypes.DWORD),
+        ]
+        kernel32.QueryFullProcessImageNameW.restype = wintypes.BOOL
+        kernel32.CloseHandle.argtypes = [wintypes.HANDLE]
+        handle = kernel32.OpenProcess(0x1000, False, pid)  # QUERY_LIMITED_INFORMATION
+        if not handle:
+            return None
+        try:
+            size = wintypes.DWORD(32768)
+            buffer = ctypes.create_unicode_buffer(size.value)
+            if kernel32.QueryFullProcessImageNameW(handle, 0, buffer, ctypes.byref(size)):
+                return buffer.value
+            return None
+        finally:
+            kernel32.CloseHandle(handle)
+
+    # Inside Flatpak the sandbox ends with GIMP, so it cannot start GIMP again.
+    if sys.platform.startswith("linux") and not Path("/.flatpak-info").exists():
+        try:
+            return os.readlink(f"/proc/{pid}/exe")
+        except OSError:
+            return None
+    return None
 
 
 # --- Windows integration -----------------------------------------------------
@@ -575,6 +623,60 @@ def apply_screentone(image: Gimp.Image, settings: dict) -> Gimp.Layer:
     return layer
 
 
+def _selection_bounds(image: Gimp.Image) -> tuple[int, int, int, int] | None:
+    """Selection bounds, or None when nothing is selected."""
+    result = Gimp.Selection.bounds(image)
+    # PyGObject returns (success, non_empty, x1, y1, x2, y2).
+    non_empty, x1, y1, x2, y2 = result[-5:]
+    if not non_empty or x2 <= x1 or y2 <= y1:
+        return None
+    return int(x1), int(y1), int(x2), int(y2)
+
+
+def draw_selection_shape(image: Gimp.Image, name: str, stroke_width: int) -> Gimp.Layer:
+    """Draw the current selection on a new layer with the foreground color.
+
+    stroke_width 0 fills the shape; otherwise it is outlined with that width.
+    """
+    layer_types = {
+        Gimp.ImageBaseType.RGB: Gimp.ImageType.RGBA_IMAGE,
+        Gimp.ImageBaseType.GRAY: Gimp.ImageType.GRAYA_IMAGE,
+        Gimp.ImageBaseType.INDEXED: Gimp.ImageType.INDEXEDA_IMAGE,
+    }
+    image.undo_group_start()
+    try:
+        layer = Gimp.Layer.new(
+            image,
+            name,
+            image.get_width(),
+            image.get_height(),
+            layer_types[image.get_base_type()],
+            100.0,
+            Gimp.LayerMode.NORMAL,
+        )
+        if layer is None or not layer.fill(Gimp.FillType.TRANSPARENT):
+            raise RuntimeError(f"Não foi possível preparar a camada ‘{name}’.")
+        # Position -1 places the layer above the selected one.
+        if not image.insert_layer(layer, None, -1):
+            raise RuntimeError(f"Não foi possível inserir a camada ‘{name}’.")
+        if stroke_width <= 0:
+            layer.edit_fill(Gimp.FillType.FOREGROUND)
+        else:
+            Gimp.context_push()
+            try:
+                Gimp.context_set_stroke_method(Gimp.StrokeMethod.LINE)
+                Gimp.context_set_line_width(float(stroke_width))
+                layer.edit_stroke_selection()
+            finally:
+                Gimp.context_pop()
+        Gimp.Selection.none(image)
+        image.set_selected_layers([layer])
+    finally:
+        image.undo_group_end()
+    Gimp.displays_flush()
+    return layer
+
+
 class PageDialog(Gtk.Dialog):
     __gtype_name__ = "PhotoGimpComicPageDialog"
 
@@ -826,7 +928,7 @@ class WorkspaceModeSwitcher(Gtk.Window):
 
     __gtype_name__ = "PhotoGimpWorkspaceModeSwitcher"
 
-    WIDTH = 270
+    WIDTH = 440
     HEIGHT = 34
 
     def __init__(self, host: "WorkspaceHost"):
@@ -877,7 +979,47 @@ class WorkspaceModeSwitcher(Gtk.Window):
         self._handler = self.mode_select.connect("changed", self._mode_changed)
         caption.set_mnemonic_widget(self.mode_select)
         content.pack_start(self.mode_select, True, True, 0)
+
+        # GIMP has no shape tool and plug-ins cannot add tools to the toolbox,
+        # so the shape buttons live here, next to the mode selector.
+        content.pack_start(
+            Gtk.Separator(orientation=Gtk.Orientation.VERTICAL), False, False, 3
+        )
+        self.shape_buttons: dict[str, tuple[Gtk.ToggleButton, int]] = {}
+        for kind, shape in SHAPES.items():
+            button = Gtk.ToggleButton()
+            button.set_relief(Gtk.ReliefStyle.NONE)
+            button.set_tooltip_text(shape["tooltip"])
+            pixbuf = _svg_pixbuf(shape["icon"], 18)
+            if pixbuf is not None:
+                button.set_image(Gtk.Image.new_from_pixbuf(pixbuf))
+            else:
+                button.set_label(shape["label"][0])
+            handler = button.connect("toggled", self._shape_toggled, kind)
+            self.shape_buttons[kind] = (button, handler)
+            content.pack_start(button, False, False, 0)
+        self.shape_style = Gtk.ComboBoxText()
+        for width, label in SHAPE_STYLES:
+            self.shape_style.append(str(width), label)
+        self.shape_style.set_active_id("0")
+        self.shape_style.set_tooltip_text("Estilo das formas, na cor de frente")
+        content.pack_start(self.shape_style, False, False, 0)
         self.add(shell)
+
+    def _shape_toggled(self, button: Gtk.ToggleButton, kind: str) -> None:
+        if button.get_active():
+            self._host.arm_shape(kind)
+        else:
+            self._host.disarm_shape()
+
+    def shape_width(self) -> int:
+        return int(self.shape_style.get_active_id() or 0)
+
+    def show_armed_shape(self, kind: str | None) -> None:
+        """Reflect the armed shape without re-triggering the toggle handlers."""
+        for name, (button, handler) in self.shape_buttons.items():
+            with button.handler_block(handler):
+                button.set_active(name == kind)
 
     def _mode_changed(self, mode_select: Gtk.ComboBox) -> None:
         mode_id = mode_select.get_active_id()
@@ -910,7 +1052,8 @@ class WorkspaceHost:
         self._owner: int | None = None
         self._visible = True
         self._toolbox_helper_started = False
-        self._restart_notice_shown = False
+        self._restart_dialog: Gtk.MessageDialog | None = None
+        self._shape: dict | None = None
         self.switcher = WorkspaceModeSwitcher(self)
 
     def start(self) -> None:
@@ -926,12 +1069,7 @@ class WorkspaceHost:
         _save_mode(mode_id)
         self.switcher.show_mode(mode_id)
         self._schedule_toolbox_update()
-        if not self._restart_notice_shown:
-            # The tool shortcut must reach GIMP, not the notice, so it is sent
-            # once the notice is dismissed.
-            self._notify_restart(self._activate_primary_tool)
-        else:
-            self._activate_primary_tool()
+        self._offer_restart()
 
     def next_mode_run(self, procedure, *_args):
         self.set_mode(next_mode(self.mode))
@@ -946,6 +1084,82 @@ class WorkspaceHost:
             _win32_send_shortcut(self.gimp_window, shortcut)
         except (OSError, ValueError) as error:
             print(f"PhotoGIMP workspaces: {error}", file=sys.stderr)
+
+    # --- Shapes -------------------------------------------------------------
+
+    SHAPE_POLL_MS = 150
+
+    def _current_image(self) -> Gimp.Image | None:
+        """The image shown in the GIMP window (read from its title on Windows)."""
+        image = None
+        if sys.platform == "win32" and self.gimp_window is not None:
+            image_id = image_id_from_title(_win32_window_title(self.gimp_window))
+            if image_id is not None:
+                image = Gimp.Image.get_by_id(image_id)
+        if image is None:
+            images = [candidate for candidate in Gimp.get_images() if candidate.is_valid()]
+            image = max(images, key=lambda candidate: candidate.get_id(), default=None)
+        return image if image is not None and image.is_valid() else None
+
+    def arm_shape(self, kind: str) -> None:
+        """Start drawing a shape: the user drags a selection, then it is drawn."""
+        image = self._current_image()
+        if image is None:
+            self.switcher.show_armed_shape(None)
+            Gimp.message("Abra ou crie uma imagem para desenhar formas.")
+            return
+        if _selection_bounds(image) is not None:
+            # An existing selection becomes the shape right away.
+            self._draw_shape(image, kind)
+            self.switcher.show_armed_shape(None)
+            return
+
+        self._shape = {"kind": kind, "image": image.get_id(), "last": None, "stable": 0}
+        self.switcher.show_armed_shape(kind)
+        if sys.platform == "win32" and self.gimp_window is not None:
+            try:
+                _win32_send_shortcut(self.gimp_window, SHAPES[kind]["select_shortcut"])
+            except (OSError, ValueError) as error:
+                print(f"PhotoGIMP workspaces: {error}", file=sys.stderr)
+        GLib.timeout_add(self.SHAPE_POLL_MS, self._poll_shape)
+
+    def disarm_shape(self) -> None:
+        self._shape = None
+        self.switcher.show_armed_shape(None)
+
+    def _poll_shape(self) -> bool:
+        shape = self._shape
+        if shape is None:
+            return GLib.SOURCE_REMOVE
+        try:
+            image = Gimp.Image.get_by_id(shape["image"])
+            if image is None or not image.is_valid():
+                self.disarm_shape()
+                return GLib.SOURCE_REMOVE
+            current = _selection_bounds(image)
+            shape["stable"] = shape["stable"] + 1 if current == shape["last"] else 0
+            shape["last"] = current
+            if sys.platform == "win32":
+                button_down = bool(_user32().GetAsyncKeyState(0x01) & 0x8000)
+                required = 1
+            else:
+                # Without the mouse state, wait until the selection settles.
+                button_down, required = False, 6
+            if shape_ready(current, shape["stable"], button_down, required):
+                self.disarm_shape()
+                self._draw_shape(image, shape["kind"])
+                return GLib.SOURCE_REMOVE
+        except Exception as error:
+            print(f"PhotoGIMP workspaces: {error}", file=sys.stderr)
+            self.disarm_shape()
+            return GLib.SOURCE_REMOVE
+        return GLib.SOURCE_CONTINUE
+
+    def _draw_shape(self, image: Gimp.Image, kind: str) -> None:
+        try:
+            draw_selection_shape(image, SHAPES[kind]["label"], self.switcher.shape_width())
+        except Exception as error:
+            Gimp.message(f"Não foi possível desenhar a forma: {error}")
 
     def _schedule_toolbox_update(self) -> None:
         """Start the helper that rewrites toolrc after GIMP saves it on exit."""
@@ -973,30 +1187,77 @@ class WorkspaceHost:
         except OSError as error:
             print(f"PhotoGIMP workspaces: {error}", file=sys.stderr)
 
-    def _notify_restart(self, on_close) -> None:
-        """Explain once per session when the toolbox change takes effect."""
-        self._restart_notice_shown = True
+    def _offer_restart(self) -> None:
+        """Ask whether to restart GIMP so the left toolbox shows the new mode.
+
+        GIMP cannot change the toolbox while it runs, so the new tool set is
+        applied between sessions. One dialog is reused while the user keeps
+        switching modes.
+        """
+        label = MODE_DEFINITIONS[self.mode]["label"]
+        can_relaunch = _gimp_executable() is not None
+        details = (
+            "Para a barra de ferramentas da esquerda mostrar as ferramentas deste "
+            "modo, o GIMP precisa ser reiniciado. Se houver imagens não salvas, "
+            "o GIMP vai perguntar antes de fechar."
+            if can_relaunch
+            else "Para a barra de ferramentas da esquerda mostrar as ferramentas "
+            "deste modo, feche e abra o GIMP novamente."
+        )
+        if self._restart_dialog is not None:
+            self._restart_dialog.set_markup(
+                GLib.markup_escape_text(f"Modo {label} selecionado")
+            )
+            self._restart_dialog.format_secondary_text(details)
+            self._restart_dialog.present()
+            return
+
         dialog = Gtk.MessageDialog(
             transient_for=self.switcher,
-            message_type=Gtk.MessageType.INFO,
-            buttons=Gtk.ButtonsType.OK,
-            text="Modo de trabalho alterado",
+            message_type=Gtk.MessageType.QUESTION,
+            buttons=Gtk.ButtonsType.NONE,
+            text=f"Modo {label} selecionado",
         )
         dialog.set_title("PhotoGIMP")
         dialog.set_position(Gtk.WindowPosition.CENTER)
-        dialog.format_secondary_text(
-            "A ferramenta principal do modo será selecionada agora. A barra de "
-            "ferramentas da esquerda mostrará apenas as ferramentas deste modo "
-            "na próxima vez que o GIMP for aberto."
+        dialog.format_secondary_text(details)
+        dialog.add_button("_Depois", Gtk.ResponseType.CANCEL)
+        dialog.add_button(
+            "_Reiniciar o GIMP agora" if can_relaunch else "_Fechar o GIMP agora",
+            Gtk.ResponseType.ACCEPT,
         )
+        dialog.set_default_response(Gtk.ResponseType.ACCEPT)
 
-        def closed(widget, _response) -> None:
+        def closed(widget, response) -> None:
+            self._restart_dialog = None
             widget.destroy()
-            on_close()
+            if response == Gtk.ResponseType.ACCEPT:
+                self._restart_gimp()
+            else:
+                # Sent after the dialog closes so the shortcut reaches GIMP.
+                self._activate_primary_tool()
 
         dialog.connect("response", closed)
+        self._restart_dialog = dialog
         dialog.show_all()
         dialog.present()
+
+    def _restart_gimp(self) -> None:
+        """Quit GIMP; the helper applies the toolbox and starts GIMP again."""
+        executable = _gimp_executable()
+        if executable is not None:
+            try:
+                _restart_file().write_text(
+                    f"{time.time()}\n{executable}\n", encoding="utf-8"
+                )
+            except OSError as error:
+                print(f"PhotoGIMP workspaces: {error}", file=sys.stderr)
+        quit_procedure = Gimp.get_pdb().lookup_procedure("gimp-quit")
+        if quit_procedure is None:
+            return
+        config = quit_procedure.create_config()
+        config.set_property("force", False)
+        quit_procedure.run(config)
 
     # --- Anchoring ------------------------------------------------------
 
