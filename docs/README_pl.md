@@ -41,7 +41,7 @@ Chcesz dodać swój język? Zrób fork repozytorium, utwórz plik `docs/README_x
 ## 📷 Zrzuty Ekranu
 
 <p>
-  <img src="../.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
+  <img src="../.config/GIMP/3.2/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
   <em>PhotoGIMP Diolinux Splash Art</em>
 </p>
 
@@ -79,7 +79,7 @@ Przed zainstalowaniem PhotoGIMP, upewnij się, że masz:
 Skrypt `install.sh` używany poniżej **automatycznie tworzy kopię zapasową obecnej konfiguracji**, więc ten krok jest potrzebny tylko wtedy, gdy zamierzasz skopiować pliki ręcznie:
 
 ```bash
-cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
+cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 ```
 
 #### Instalacja
@@ -122,7 +122,7 @@ Jeśli wolisz menedżer plików:
 <details>
 <summary><strong>💡 Używasz GIMP-a spoza Flatpak?</strong></summary>
 
-Jeśli zainstalowałeś GIMP-a z menedżera pakietów dystrybucji (apt, dnf, pacman, itp.) zamiast z Flatpaka, folder konfiguracyjny znajduje się w tym samym miejscu (`~/.config/GIMP/3.0`), więc powyższe kroki nadal działają. Upewnij się tylko, że masz GIMP w wersji 3.0 lub nowszej.
+Jeśli zainstalowałeś GIMP-a z menedżera pakietów dystrybucji (apt, dnf, pacman, itp.) zamiast z Flatpaka, folder konfiguracyjny znajduje się w tym samym miejscu (`~/.config/GIMP/3.2`), więc powyższe kroki nadal działają. Upewnij się tylko, że masz GIMP w wersji 3.0 lub nowszej.
 
 `install.sh` wykrywa również instalacje natywne i pyta, którą z nich zmodyfikować, jeśli masz jednocześnie GIMP-a z Flatpaka i natywnego. W przypadku instalacji natywnych zastępuje wyłącznie konfigurację GIMP-a — własny skrót i ikony z `.local` są stosowane dla Flatpaka.
 
@@ -162,7 +162,7 @@ Jeśli chcesz zachować obecne ustawienia GIMP-a, najpierw zrób kopię zapasow�
 Możesz również pobrać [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico) i zaktualizować ikonę skrótu GIMP-a znajdującego się w:
 
 ```
-%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
+%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.2.0
 ```
 
 Kliknij prawym przyciskiem myszy na skrót → **Właściwości** → **Zmień ikonę** → wskaż pobrany plik `.ico`.
@@ -203,11 +203,11 @@ Jeśli chcesz zachować obecne ustawienia GIMP-a, najpierw zrób kopię zapasow�
 3. Pobierz najnowszą wersję:
    👉 **[Pobierz PhotoGIMP dla macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Rozpakuj zawartość `PhotoGIMP.zip` do dowolnego folderu (np. na Pulpit).
-5. Otwórz rozpakowany folder i **skopiuj folder `3.0`**.
+5. Otwórz rozpakowany folder i **skopiuj folder `3.2`**.
 6. Otwórz Finder, naciśnij <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>, aby otworzyć "Idź do folderu".
 7. Wpisz `~/Library/Application Support/GIMP` i naciśnij <kbd>Enter</kbd>.
 8. Jeśli masz folder `2.10` z poprzedniej instalacji, **usuń go**, aby uniknąć konfliktów.
-9. **Wklej** folder `3.0` do folderu GIMP.
+9. **Wklej** folder `3.2` do folderu GIMP.
 10. Gdy pojawi się pytanie o istniejące pliki, wybierz **"Zastąp"** lub **"Scal"**.
 11. Otwórz GIMP — powinieneś zobaczyć nowy układ PhotoGIMP! 🎉
 
@@ -243,7 +243,7 @@ Aby usunąć PhotoGIMP i przywrócić GIMP do stanu domyślnego, wystarczy usun�
 ### Linux
 
 ```bash
-rm -rf ~/.config/GIMP/3.0
+rm -rf ~/.config/GIMP/3.2
 ```
 
 Następnie otwórz GIMP ponownie — utworzy on nową domyślną konfigurację.
@@ -251,22 +251,22 @@ Następnie otwórz GIMP ponownie — utworzy on nową domyślną konfigurację.
 Jeśli wcześniej zrobiłeś kopię zapasową, przywróć ją:
 
 ```bash
-cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
+cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 ```
 
 ### Windows
 
 1. Naciśnij <kbd>Windows</kbd> + <kbd>R</kbd>, wpisz `%APPDATA%\GIMP` i naciśnij <kbd>Enter</kbd>.
-2. Usuń folder `3.0`.
+2. Usuń folder `3.2`.
 3. Otwórz GIMP — odtworzy on domyślne ustawienia.
 
-Lub przywróć kopię zapasową, wklejając folder `3.0` z powrotem.
+Lub przywróć kopię zapasową, wklejając folder `3.2` z powrotem.
 
 ### macOS
 
 1. Otwórz Finder, naciśnij <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
 2. Przejdź do `~/Library/Application Support/GIMP`.
-3. Usuń folder `3.0`.
+3. Usuń folder `3.2`.
 4. Otwórz GIMP — odtworzy on domyślne ustawienia.
 
 Lub przywróć kopię zapasową, wklejając folder z powrotem.

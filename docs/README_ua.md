@@ -43,7 +43,7 @@
 ## 📷 Знімки екрану
 
 <p>
-  <img src="../.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
+  <img src="../.config/GIMP/3.2/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
   <em>PhotoGIMP Diolinux Splash Art</em>
 </p>
 
@@ -81,7 +81,7 @@
 Скрипт `install.sh`, який використовується нижче, **автоматично створює резервну копію поточної конфігурації**, тож цей крок потрібен, лише якщо ви плануєте копіювати файли вручну:
 
 ```bash
-cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
+cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 ```
 
 #### Встановлення
@@ -163,7 +163,7 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 Ви також можете завантажити [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico) і оновити значок на ярлику GIMP, розташованому за адресою:
 
 ```
-%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
+%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.2.0
 ```
 
 Клацніть правою кнопкою миші на ярлик → **Властивості** → **Змінити значок** → оберіть завантажений файл `.ico`.
@@ -202,11 +202,11 @@ choco install photogimp
 3. Завантажте останню версію:
    👉 **[Завантажити PhotoGIMP для macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Розпакуйте вміст `PhotoGIMP.zip` у будь-яку папку (наприклад, на робочий стіл).
-5. Відкрийте розпаковану папку і **скопіюйте папку `3.0`**.
+5. Відкрийте розпаковану папку і **скопіюйте папку `3.2`**.
 6. Відкрийте Finder, натисніть <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>, щоб відкрити "Перейти до папки".
 7. Введіть `~/Library/Application Support/GIMP` і натисніть <kbd>Enter</kbd>.
 8. Якщо ви бачите папку `2.10` з попередньої установки, **видаліть її**, щоб уникнути конфліктів.
-9. **Вставте** папку `3.0` всередину папки GIMP.
+9. **Вставте** папку `3.2` всередину папки GIMP.
 10. Коли з'явиться запит про існуючі файли, оберіть **"Замінити"** або **"Об'єднати"**.
 11. Відкрийте GIMP — ви повинні побачити новий інтерфейс PhotoGIMP! 🎉
 
@@ -241,7 +241,7 @@ PhotoGIMP замінює або додає наступні файли в дир
 ### Linux
 
 ```bash
-rm -rf ~/.config/GIMP/3.0
+rm -rf ~/.config/GIMP/3.2
 ```
 
 Потім відкрийте GIMP знову — він створить нову конфігурацію за замовчуванням.
@@ -249,25 +249,25 @@ rm -rf ~/.config/GIMP/3.0
 Якщо ви зробили резервну копію раніше, відновіть її замість цього:
 
 ```bash
-cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
+cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 ```
 
 ### Windows
 
 1. Натисніть <kbd>Windows</kbd> + <kbd>R</kbd>, введіть `%APPDATA%\GIMP` і натисніть <kbd>Enter</kbd>.
-2. Видаліть папку `3.0`.
+2. Видаліть папку `3.2`.
 3. Відкрийте GIMP — він створить нові налаштування за замовчуванням.
 
-Або відновіть резервну копію, вставивши збережену папку `3.0` назад.
+Або відновіть резервну копію, вставивши збережену папку `3.2` назад.
 
 ### macOS
 
 1. Відкрийте Finder, натисніть <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
 2. Перейдіть до `~/Library/Application Support/GIMP`.
-3. Видаліть папку `3.0`.
+3. Видаліть папку `3.2`.
 4. Відкрийте GIMP — він створить нові налаштування за замовчуванням.
 
-Або відновіть резервну копію, вставивши збережену папку `3.0` назад.
+Або відновіть резервну копію, вставивши збережену папку `3.2` назад.
 
 ---
 

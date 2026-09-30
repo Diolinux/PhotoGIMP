@@ -41,7 +41,7 @@
 ## 📷 스크린샷
 
 <p>
-  <img src="./.config/GIMP/3.0/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
+  <img src="./.config/GIMP/3.2/splashes/splash-screen-2025-v2.png" alt="PhotoGIMP Diolinux Splash Art">
   <em>PhotoGIMP Diolinux 시작 아트</em>
 </p>
 
@@ -79,7 +79,7 @@ PhotoGIMP를 설치하기 전에 반드시 설치해야 합니다:
 아래에서 사용하는 `install.sh` 스크립트는 **현재 설정을 자동으로 백업**하므로, 이 단계는 파일을 직접 복사할 계획인 경우에만 필요합니다:
 
 ```bash
-cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
+cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 ```
 
 #### 설치
@@ -143,7 +143,7 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 
 #### 설치
 
-1. [공식 웹사이트에서 GIMP를 설치](https://www.gimp.org/downloads/)했는지 획인하세요.
+1. [공식 웹사이트에서 GIMP를 설치](https://www.gimp.org/downloads/)했는지 확인하세요.
 2. **GIMP를 한 번 연 다음 닫기** — 이렇게 하면 PhotoGIMP에 필요한 구성 폴더가 생성됩니다.
 3. 최신 릴리스 다운로드:
    👉 **[Windows용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
@@ -161,7 +161,7 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico)를 다운로드하고 GIMP 바로가기에서 아이콘을 업데이트할 수도 있습니다:
 
 ```
-%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
+%appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.2.0
 ```
 
 Right-click the shortcut → **속성** → **아이콘 변경** → 다운로드한 `.ico` 파일을 찾아 마우스 오른쪽 버튼으로 클릭합니다.
@@ -200,11 +200,11 @@ choco install photogimp
 3. 최신 릴리스 다운로드:
    👉 **[macOS용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. `PhotoGIMP.zip` 의 내용을 모든 폴더 (예: 바탕 화면)로 추출합니다.
-5. 추출된 폴더를 열고 **`3.0` 폴더를 복사합니다**.
+5. 추출된 폴더를 열고 **`3.2` 폴더를 복사합니다**.
 6. 파인더를 열고 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>를 눌러 "폴더로 이동"을 엽니다.
 7. `~/Library/Application Support/GIMP`를 입력하고 <kbd>Enter</kbd>를 누릅니다.
 8. 이전 설치에서 `2.10` 폴더가 보이면, **삭제**하여 충돌을 피하세요.
-9. `3.0` 폴더 안에 **붙여넣기** 하세요.
+9. `3.2` 폴더 안에 **붙여넣기** 하세요.
 10. 기존 파일에 대한 메시지가 나타나면 **"교체"** 또는 **"병합"**을 선택합니다.
 11. GIMP 열기 — 새로운 PhotoGIMP 레이아웃을 확인할 수 있습니다! 🎉
 
@@ -239,7 +239,7 @@ PhotoGIMP를 제거하고 GIMP를 기본 상태로 복원하려면 GIMP의 구�
 ### Linux
 
 ```bash
-rm -rf ~/.config/GIMP/3.0
+rm -rf ~/.config/GIMP/3.2
 ```
 
 그런 다음 GIMP를 다시 열면 새 기본 구성이 생성됩니다.
@@ -247,22 +247,22 @@ rm -rf ~/.config/GIMP/3.0
 이전에 백업을 했다면 대신 복원하세요:
 
 ```bash
-cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
+cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 ```
 
 ### Windows
 
 1. <kbd>Windows</kbd> + <kbd>R</kbd>를 누르고 `%APPDATA%\GIMP`를 입력한 후 <kbd>Enter</kbd>를 누릅니다.
-2. `3.0` 폴더를 삭제합니다.
+2. `3.2` 폴더를 삭제합니다.
 3. GIMP 열기 — 기본 설정이 다시 생성됩니다.
 
-또는 백업된 `3.0` 폴더를 다시 붙여넣어 백업을 복원할 수도 있습니다.
+또는 백업된 `3.2` 폴더를 다시 붙여넣어 백업을 복원할 수도 있습니다.
 
 ### macOS
 
 1. 파인더를 열고 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>를 누릅니다.
 2. `~/Library/Application Support/GIMP`로 이동합니다.
-3. `3.0` 폴더를 삭제합니다.
+3. `3.2` 폴더를 삭제합니다.
 4. GIMP 열기 — 기본 설정을 다시 생성합니다.
 
 또는 백업된 폴더를 다시 붙여넣어 백업을 복원할 수도 있습니다.
@@ -284,7 +284,7 @@ cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 <details>
 <summary><strong>PhotoGIMP를 설치한 후 GIMP를 열 때 오류가 발생합니다</strong></summary>
 
-- 이는 일반적으로 GIMP 버전이 일치하지 않는다는 것을 의미합니다. PhotoGIMP는 **GIMP 3.0+**용으로 제작되었습니다. GIMP 2.x를 실행 중이라면 호환되지 않습니다..
+- 이는 일반적으로 GIMP 버전이 일치하지 않는다는 것을 의미합니다. PhotoGIMP는 **GIMP 3.x**용으로 제작되었습니다. GIMP 2.x를 실행 중이라면 호환되지 않습니다..
 - 구성 폴더를 삭제하고 다시 설치해 보세요 — [제거하는 방법](#-제거하는 방법) 섹션을 참조하세요.
 </details>
 
