@@ -6,6 +6,22 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+<details id="-translations">
+<summary><strong>🌍 Traducciones</strong></summary>
+
+Este README está disponible en otros idiomas:
+
+- 🇬🇧 [English (Inglés)](../README.md)
+- 🇮🇹 [Italiano (Italiano)](./README_it.md)
+- 🇺🇦 [Українська (Ucraniano)](./README_ua.md)
+- 🇵🇱 [Polski (Polaco)](./README_pl.md)
+- 🇧🇷 [Português (Portugués brasileño)](./README_pt.md)
+- 🇷🇺 [Русский (Ruso)](./README_ru.md)
+
+¿Quieres añadir tu idioma? Haz un fork del repositorio, crea un archivo `docs/README_xx.md` y envía un pull request.
+
+</details>
+
 **PhotoGIMP** es un parche gratuito y mantenido por la comunidad que transforma [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) en una interfaz familiar para los usuarios de **Adobe Photoshop**. Si te estás pasando de Photoshop a GIMP y quieres sentirte como en casa desde el primer momento, PhotoGIMP es para ti.
 
 > **¿Eres nuevo en GIMP?** GIMP es un editor de imágenes gratuito y de código abierto disponible para Linux, macOS y Windows. Puede hacer casi todo lo que hace Photoshop —retoque fotográfico, composición de imágenes, diseño gráfico y mucho más— y todo de forma gratuita. PhotoGIMP simplemente hace que _se vea y funcione_ de forma más parecida a Photoshop.
@@ -56,7 +72,7 @@ Antes de instalar PhotoGIMP, asegúrate de tener:
 
 #### Copia de seguridad (opcional)
 
-Si quieres conservar tu configuración actual de GIMP, haz primero una copia de seguridad:
+El script `install.sh` que se usa más abajo **hace una copia de seguridad de tu configuración actual automáticamente**, así que este paso solo es necesario si piensas copiar los archivos a mano:
 
 ```bash
 cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
@@ -67,16 +83,40 @@ cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 1. Asegúrate de tener GIMP instalado [desde Flathub](https://flathub.org/apps/org.gimp.GIMP).
 2. **Abre GIMP una vez y después ciérralo** — esto crea las carpetas de configuración que PhotoGIMP necesita.
 3. Descarga la última versión:
-   👉 **[Descargar PhotoGIMP para Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
-4. Extrae el archivo `.zip` **en tu carpeta personal** (`~`).
-    - Esto colocará archivos en `~/.config` y `~/.local`, que son carpetas ocultas.
-    - Para ver las carpetas ocultas en tu gestor de archivos, pulsa `Ctrl` + `H`.
-    - Cuando te pregunte sobre los archivos existentes, elige **«Reemplazar»** o **«Sobrescribir»**.
-5. Abre GIMP — ¡deberías ver la nueva interfaz de PhotoGIMP! 🎉
+   👉 **[Descargar PhotoGIMP para Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip)**
+4. Extrae el archivo `.zip` **en cualquier carpeta** (por ejemplo, tu carpeta `Downloads`). Se creará una carpeta llamada `PhotoGIMP-linux/` que contiene `.config`, `.local` e `install.sh`.
+   - ⚠️ Extraer el `.zip` *dentro* de tu carpeta personal **no** instala PhotoGIMP: solo crea `~/PhotoGIMP-linux/`. Todavía necesitas el paso 5.
+5. Ejecuta el instalador incluido desde dentro de esa carpeta:
+
+   ```bash
+   cd ~/Downloads/PhotoGIMP-linux
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+   Detecta si tu GIMP es Flatpak o una instalación nativa, hace una copia de seguridad de tu configuración actual y copia los archivos en el lugar correcto.
+6. Abre GIMP — ¡deberías ver la nueva interfaz de PhotoGIMP! 🎉
+
+**📂 ¿Prefieres copiar los archivos manualmente?**
+
+Copia el **contenido** de `.config` y `.local` a tu carpeta personal, no la carpeta `PhotoGIMP-linux` en sí. El `/.` final es lo que copia los archivos ocultos:
+
+```bash
+cp -a ~/Downloads/PhotoGIMP-linux/.config/. ~/.config/
+cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
+```
+
+Si prefieres tu gestor de archivos:
+
+- Los archivos deben acabar en `~/.config` y `~/.local`, que son carpetas ocultas.
+- Para ver las carpetas ocultas en tu gestor de archivos, pulsa `Ctrl` + `H`.
+- Cuando te pregunte sobre los archivos existentes, elige **«Reemplazar»** o **«Sobrescribir»**.
 
 **💡 ¿Usas un GIMP que no es Flatpak?**
 
 Si instalaste GIMP desde el gestor de paquetes de tu distribución (apt, dnf, pacman, etc.) en lugar de Flatpak, la carpeta de configuración se encuentra en la misma ubicación (`~/.config/GIMP/3.2`), así que los pasos anteriores siguen siendo válidos. Solo asegúrate de tener GIMP versión 3.0 o superior.
+
+`install.sh` también detecta las instalaciones nativas y te pregunta cuál quieres modificar si tienes GIMP de Flatpak y nativo a la vez. En las instalaciones nativas solo reemplaza la configuración de GIMP: el lanzador y los iconos personalizados de `.local` se aplican en Flatpak.
 
 ---
 
@@ -90,25 +130,25 @@ Si quieres conservar tu configuración actual de GIMP, haz primero una copia de 
 
 1. Pulsa `Windows` + `R` para abrir el cuadro de diálogo Ejecutar.
 2. Escribe `%APPDATA%\GIMP` y pulsa `Enter`.
-3. Copia toda la carpeta `3.2` a un lugar seguro (por ejemplo, tu Escritorio).
+3. Copia toda la carpeta de versión (por ejemplo, `3.0`, `3.2`) a un lugar seguro (por ejemplo, tu Escritorio).
 
 #### Instalación
 
 1. Asegúrate de tener [GIMP instalado desde la página web oficial](https://www.gimp.org/downloads/).
 2. **Abre GIMP una vez y después ciérralo** — esto crea las carpetas de configuración que PhotoGIMP necesita.
 3. Descarga la última versión:
-   👉 **[Descargar PhotoGIMP para Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[Descargar PhotoGIMP para Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Extrae el contenido de `PhotoGIMP.zip` en cualquier carpeta (por ejemplo, tu Escritorio).
-5. Abre la carpeta extraída y **copia la carpeta `3.2`**.
+5. Abre la carpeta extraída y **copia la carpeta de versión que hay dentro** (por ejemplo, `3.0`).
 6. Pulsa `Windows` + `R` para abrir el cuadro de diálogo Ejecutar.
 7. Escribe `%APPDATA%\GIMP` y pulsa `Enter` — esto abre la carpeta de configuración de GIMP.
-8. **Pega** la carpeta `3.2` aquí.
+8. **Pega** la carpeta de versión aquí.
 9. Cuando te pregunte sobre los archivos existentes, selecciona **«Reemplazar los archivos en el destino»**.
 10. Abre GIMP — ¡deberías ver la nueva interfaz de PhotoGIMP! 🎉
 
 **💡 Opcional: Cambiar el icono del acceso directo de GIMP**
 
-También puedes descargar [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) y actualizar el icono en el acceso directo de GIMP situado en:
+También puedes descargar [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico) y actualizar el icono en el acceso directo de GIMP situado en:
 
 ```
 %appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.2.0
@@ -145,7 +185,7 @@ Si quieres conservar tu configuración actual de GIMP, haz primero una copia de 
 1. Asegúrate de tener [GIMP instalado desde la página web oficial](https://www.gimp.org/downloads/).
 2. **Abre GIMP una vez y después ciérralo** — esto crea las carpetas de configuración que PhotoGIMP necesita.
 3. Descarga la última versión:
-   👉 **[Descargar PhotoGIMP para macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[Descargar PhotoGIMP para macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Extrae el contenido de `PhotoGIMP.zip` en cualquier carpeta (por ejemplo, tu Escritorio).
 5. Abre la carpeta extraída y **copia la carpeta `3.2`**.
 6. Abre el Finder, pulsa `Cmd` + `Shift` + `G` para abrir «Ir a la carpeta».
@@ -222,9 +262,9 @@ O restaura tu copia de seguridad pegando de nuevo la carpeta.
 **PhotoGIMP no ha cambiado nada — GIMP se ve igual**
 
 - Asegúrate de haber extraído los archivos en la **ubicación correcta**. El error más habitual es extraerlos en la carpeta equivocada.
-- **Linux**: las carpetas `.config` y `.local` deben estar en tu directorio personal (`~`). Son ocultas — pulsa `Ctrl` + `H` en tu gestor de archivos para verlas.
-- **Windows**: la carpeta `3.2` debe estar **dentro** de `%APPDATA%\GIMP`, no al lado.
-- **macOS**: la carpeta `3.2` debe estar **dentro** de `~/Library/Application Support/GIMP`.
+- **Linux**: las carpetas `.config` y `.local` deben estar en tu directorio personal (`~`). Son ocultas — pulsa `Ctrl` + `H` en tu gestor de archivos para verlas. Si tienes una carpeta `~/PhotoGIMP-linux/`, extrajiste el archivo pero no lo instalaste: abre esa carpeta y ejecuta `./install.sh`.
+- **Windows**: la carpeta `3.0` debe estar **dentro** de `%APPDATA%\GIMP`, no al lado.
+- **macOS**: la carpeta `3.0` debe estar **dentro** de `~/Library/Application Support/GIMP`.
 - ¿**Cerraste GIMP** antes de pegar los archivos? GIMP puede sobrescribir los ajustes recibidos al cerrarse.
 
 **Recibo un error al abrir GIMP después de instalar PhotoGIMP**
@@ -257,21 +297,6 @@ Simplemente descarga la versión más reciente y sigue los pasos de instalación
 - **Reportar un problema**: [Abrir una issue](https://github.com/Diolinux/PhotoGIMP/issues)
 - **Enviar una corrección**: [Crear un pull request](https://github.com/Diolinux/PhotoGIMP/pulls)
 - **Traducir**: ¡Ayúdanos a traducir el README a más idiomas! Consulta la sección [Traducciones](#-traducciones).
-
----
-
-## 🌍 Traducciones
-
-Este README está disponible en otros idiomas:
-
-- 🇬🇧 [English (Inglés)](../README.md)
-- 🇮🇹 [Italiano (Italiano)](./README_it.md)
-- 🇺🇦 [Українська (Ucraniano)](./README_ua.md)
-- 🇵🇱 [Polski (Polaco)](./README_pl.md)
-- 🇧🇷 [Português (Portugués brasileño)](./README_pt.md)
-- 🇷🇺 [Русский (Ruso)](./README_ru.md)
-
-¿Quieres añadir tu idioma? Haz un fork del repositorio, crea un archivo `docs/README_xx.md` y envía un pull request.
 
 ---
 

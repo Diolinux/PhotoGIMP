@@ -6,6 +6,21 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
+<details id="-translations">
+<summary><strong>🌍 翻译</strong></summary>
+
+本 README 提供以下语言的版本：
+
+- 🇮🇹 [Italiano（意大利语）](./docs/README_it.md)
+- 🇵🇱 [Polski（波兰语）](./docs/README_pl.md)
+- 🇧🇷 [Português（巴西葡萄牙语）](./docs/README_pt.md)
+- 🇷🇺 [Русский（俄语）](./docs/README_ru.md)
+- 🇨🇳 [简体中文](./docs/README_zh.md)
+
+想要添加你的语言？Fork 本仓库，创建 `docs/README_xx.md` 文件，然后提交 Pull Request！
+
+</details>
+
 **PhotoGIMP** 是一个由社区驱动的免费补丁，可将 [GIMP](https://www.gimp.org/)（GNU Image Manipulation Program）转变为一套 **Adobe Photoshop** 用户感到熟悉的界面布局。如果你正从 Photoshop 转向 GIMP 并希望快速上手，PhotoGIMP 就是为你准备的。
 
 > **第一次接触 GIMP？** GIMP 是一款免费开源的图像编辑器，适用于 Linux、macOS 和 Windows。Photoshop 能做的，它大部分也能做——照片修饰、图像合成、图形设计等——而且完全免费。PhotoGIMP 只是让它*看起来和用起来*更像 Photoshop。
@@ -60,7 +75,7 @@
 
 #### 备份（可选）
 
-如果你想保留当前 GIMP 设置，请先备份：
+下面使用的 `install.sh` 脚本会**自动备份你当前的配置**，因此只有在你打算手动复制文件时才需要这一步：
 
 ```bash
 cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
@@ -71,17 +86,44 @@ cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 1. 确保已[从 Flathub](https://flathub.org/apps/org.gimp.GIMP) 安装 GIMP。
 2. **先打开一次 GIMP，然后关闭**——这将创建 PhotoGIMP 所需的配置文件夹。
 3. 下载最新 release：
-   👉 **[下载 PhotoGIMP for Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
-4. 将 `.zip` 文件解压**到你的主目录**（`~`）中。
-   - 这会将文件放入 `~/.config` 和 `~/.local`，这些是隐藏文件夹。
-   - 要在文件管理器中查看隐藏文件夹，请按 <kbd>Ctrl</kbd> + <kbd>H</kbd>。
-   - 当提示覆盖已有文件时，选择 **"Replace"** 或 **"Overwrite"**。
-5. 打开 GIMP——你应该看到全新的 PhotoGIMP 布局了！🎉
+   👉 **[下载 PhotoGIMP for Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip)**
+4. 将 `.zip` 文件解压到**任意位置**（例如你的 `Downloads` 文件夹）。它会创建一个名为 `PhotoGIMP-linux/` 的文件夹，其中包含 `.config`、`.local` 和 `install.sh`。
+   - ⚠️ 把 `.zip` 解压*到*主目录并**不会**安装 PhotoGIMP——它只会创建 `~/PhotoGIMP-linux/`。你仍然需要执行第 5 步。
+5. 在该文件夹中运行随附的安装脚本：
+
+   ```bash
+   cd ~/Downloads/PhotoGIMP-linux
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+   它会检测你的 GIMP 是 Flatpak 还是原生安装，备份你当前的配置，并把文件复制到正确的位置。
+6. 打开 GIMP——你应该看到全新的 PhotoGIMP 布局了！🎉
+
+<details>
+<summary><strong>📂 想手动复制文件？</strong></summary>
+
+把 `.config` 和 `.local` 的**内容**复制到主目录，而不是 `PhotoGIMP-linux` 文件夹本身。末尾的 `/.` 才会复制隐藏文件：
+
+```bash
+cp -a ~/Downloads/PhotoGIMP-linux/.config/. ~/.config/
+cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
+```
+
+如果你更喜欢使用文件管理器：
+
+- 文件必须放入 `~/.config` 和 `~/.local`，这些是隐藏文件夹。
+- 要在文件管理器中查看隐藏文件夹，请按 <kbd>Ctrl</kbd> + <kbd>H</kbd>。
+- 当提示覆盖已有文件时，选择 **"Replace"** 或 **"Overwrite"**。
+
+</details>
 
 <details>
 <summary><strong>💡 使用的是非 Flatpak 版 GIMP？</strong></summary>
 
-如果你是使用发行版包管理器（apt、dnf、pacman 等）而非 Flatpak 安装的 GIMP，配置文件夹的位置相同（`~/.config/GIMP/3.2`），因此上述步骤同样适用。只需确保 GIMP 版本为 3.0 或更高。
+如果你是使用发行版包管理器（apt、dnf、pacman 等）而非 Flatpak 安装的 GIMP，配置文件夹的位置相同（`~/.config/GIMP/3.0`），因此上述步骤同样适用。只需确保 GIMP 版本为 3.0 或更高。
+
+`install.sh` 同样能检测原生安装；如果你同时安装了 Flatpak 版和原生版 GIMP，它会询问要修改哪一个。对于原生安装，它只替换 GIMP 配置——`.local` 中的自定义启动器和图标用于 Flatpak。
 </details>
 
 ---
@@ -96,26 +138,26 @@ cp -r ~/.config/GIMP/3.2 ~/GIMP-3.2-backup
 
 1. 按下 <kbd>Windows</kbd> + <kbd>R</kbd> 打开运行对话框。
 2. 输入 `%APPDATA%\GIMP` 并按 <kbd>Enter</kbd>。
-3. 将整个 `3.2` 文件夹复制到安全位置（例如桌面）。
+3. 将整个版本文件夹（例如 `3.0`、`3.2`）复制到安全位置（例如桌面）。
 
 #### 安装
 
 1. 确保已[从官方站点](https://www.gimp.org/downloads/)安装 GIMP。
 2. **先打开一次 GIMP，然后关闭**——这将创建 PhotoGIMP 所需的配置文件夹。
 3. 下载最新 release：
-   👉 **[下载 PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[下载 PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. 将 `PhotoGIMP.zip` 的内容解压到任意文件夹（例如桌面）。
-5. 打开解压后的文件夹，**复制其中的 `3.2` 文件夹**。
+5. 打开解压后的文件夹，**复制其中的版本文件夹**（例如 `3.0`）。
 6. 按下 <kbd>Windows</kbd> + <kbd>R</kbd> 打开运行对话框。
 7. 输入 `%APPDATA%\GIMP` 并按 <kbd>Enter</kbd>——这将打开 GIMP 的设置文件夹。
-8. 将 `3.2` 文件夹**粘贴**到此处。
+8. 将版本文件夹**粘贴**到此处。
 9. 当提示覆盖已有文件时，选择 **"Replace the files in the destination"**。
 10. 打开 GIMP——你应该看到全新的 PhotoGIMP 布局了！🎉
 
 <details>
 <summary><strong>💡 可选：更改 GIMP 快捷方式图标</strong></summary>
 
-你也可以下载 [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico)，然后更新以下路径中 GIMP 快捷方式的图标：
+你也可以下载 [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico)，然后更新以下路径中 GIMP 快捷方式的图标：
 
 ```
 %appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.2.0
@@ -155,7 +197,7 @@ choco install photogimp
 1. 确保已[从官方站点](https://www.gimp.org/downloads/)安装 GIMP。
 2. **先打开一次 GIMP，然后关闭**——这将创建 PhotoGIMP 所需的配置文件夹。
 3. 下载最新 release：
-   👉 **[下载 PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[下载 PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. 将 `PhotoGIMP.zip` 的内容解压到任意文件夹（例如桌面）。
 5. 打开解压后的文件夹，**复制其中的 `3.2` 文件夹**。
 6. 打开 Finder，按下 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> 打开"前往文件夹"。
@@ -235,9 +277,9 @@ cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 <summary><strong>PhotoGIMP 没有任何变化——GIMP 看起来和原来一样</strong></summary>
 
 - 请确认你将文件解压到了**正确的位置**。最常见的问题就是解压到了错误的文件夹。
-- **Linux**：`.config` 和 `.local` 文件夹必须位于你的主目录（`~`）中。它们是隐藏文件夹——在文件管理器中按 <kbd>Ctrl</kbd> + <kbd>H</kbd> 即可看到。
-- **Windows**：`3.2` 文件夹必须在 `%APPDATA%\GIMP` 里面，而不是靠在外面。
-- **macOS**：`3.2` 文件夹必须在 `~/Library/Application Support/GIMP` 里面。
+- **Linux**：`.config` 和 `.local` 文件夹必须位于你的主目录（`~`）中。它们是隐藏文件夹——在文件管理器中按 <kbd>Ctrl</kbd> + <kbd>H</kbd> 即可看到。 如果你有一个 `~/PhotoGIMP-linux/` 文件夹，说明你只解压了压缩包但没有安装——打开该文件夹并运行 `./install.sh`。
+- **Windows**：`3.0` 文件夹必须在 `%APPDATA%\GIMP` 里面，而不是靠在外面。
+- **macOS**：`3.0` 文件夹必须在 `~/Library/Application Support/GIMP` 里面。
 - 你在粘贴文件之前**关闭 GIMP** 了吗？GIMP 退出时可能会覆盖传入的设置。
 </details>
 
@@ -281,20 +323,6 @@ cp -r ~/GIMP-3.2-backup ~/.config/GIMP/3.2
 - **报告问题**：[提交 Issue](https://github.com/Diolinux/PhotoGIMP/issues)
 - **提交修复**：[创建 Pull Request](https://github.com/Diolinux/PhotoGIMP/pulls)
 - **翻译**：帮助我们将 README 翻译成更多语言！参见[翻译](#-翻译)部分。
-
----
-
-## 🌍 翻译
-
-本 README 提供以下语言的版本：
-
-- 🇮🇹 [Italiano（意大利语）](./docs/README_it.md)
-- 🇵🇱 [Polski（波兰语）](./docs/README_pl.md)
-- 🇧🇷 [Português（巴西葡萄牙语）](./docs/README_pt.md)
-- 🇷🇺 [Русский（俄语）](./docs/README_ru.md)
-- 🇨🇳 [简体中文](./docs/README_zh.md)
-
-想要添加你的语言？Fork 本仓库，创建 `docs/README_xx.md` 文件，然后提交 Pull Request！
 
 ---
 
