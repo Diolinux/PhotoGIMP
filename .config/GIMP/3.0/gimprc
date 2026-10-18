@@ -6,7 +6,7 @@
 # Most values can be set within GIMP by changing some options in the
 # Preferences dialog.
 
-(config-version "3.2.0")
+(config-version "3.0.0")
 (undo-levels 8)
 (undo-preview-size medium)
 (layer-preview-size extra-large)
@@ -31,7 +31,7 @@
     (snap-to-equidistance no)
     (padding-mode custom)
     (padding-color
-        (color "RGB" 0.17 0.17 0.17 1.0))
+        (color-rgb 0.17 0.17 0.17))
     (padding-in-show-all no)
     (fullscreen no))
 (default-fullscreen-view
@@ -53,7 +53,7 @@
     (snap-to-equidistance no)
     (padding-mode custom)
     (padding-color
-        (color "RGB" 0.11 0.11 0.11 1.0))
+        (color-rgb 0.11 0.11 0.11))
     (padding-in-show-all no))
 (fill-options
     (style fg-color)

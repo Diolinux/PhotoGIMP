@@ -224,17 +224,13 @@ case "$GIMP_SOURCE" in
 		;;
 esac
 
-# Determine configuration source directory
-CONFIG_SRC=""
-if [ -n "$GIMP_VERSION" ] && [ -d "$SCRIPT_DIR/.config/GIMP/$GIMP_VERSION" ]; then
-	CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/$GIMP_VERSION"
-elif [ -d "$SCRIPT_DIR/.config/GIMP" ]; then
-	CONFIG_SRC="$(find "$SCRIPT_DIR/.config/GIMP" -mindepth 1 -maxdepth 1 -type d | sort | tail -1)"
-fi
+# PhotoGIMP ships one config set for every GIMP 3.x release. It is copied into
+# the directory GIMP itself reports ($GIMP_CONFIG), e.g. ~/.config/GIMP/3.2.
+CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/3.0"
 
-if [ -z "$CONFIG_SRC" ] || [ ! -d "$CONFIG_SRC" ]; then
+if [ ! -d "$CONFIG_SRC" ]; then
 	echo ""
-	echo "Error: PhotoGIMP configuration source not found in $SCRIPT_DIR/.config/GIMP"
+	echo "Error: PhotoGIMP configuration source not found: $CONFIG_SRC"
 	exit 1
 fi
 
@@ -246,7 +242,7 @@ mkdir -p "$BACKUP"
 cp -a "$GIMP_CONFIG" "$BACKUP/"
 
 # Copy PhotoGIMP config files
-echo "Installing PhotoGIMP config from $(basename "$CONFIG_SRC")..."
+echo "Installing PhotoGIMP config into $GIMP_CONFIG..."
 cp -a "$CONFIG_SRC"/. "$GIMP_CONFIG"/
 
 # Only install desktop file and icons for flatpak
