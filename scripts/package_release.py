@@ -25,13 +25,26 @@ def discover_config() -> tuple[str, Path]:
 
 
 def iter_files(path: Path):
-    yield from sorted((item for item in path.rglob("*") if item.is_file()), key=lambda p: p.as_posix())
+    files = (
+        item
+        for item in path.rglob("*")
+        if item.is_file()
+        and "__pycache__" not in item.parts
+        and item.suffix.lower() not in {".pyc", ".pyo"}
+    )
+    yield from sorted(files, key=lambda p: p.as_posix())
 
 
 def add_file(archive: zipfile.ZipFile, source: Path, destination: str) -> None:
     info = zipfile.ZipInfo(destination, FIXED_TIME)
     info.compress_type = zipfile.ZIP_DEFLATED
     mode = stat.S_IMODE(source.stat().st_mode)
+    if (
+        source.suffix == ".py"
+        and source.parent.name == source.stem
+        and "plug-ins" in source.parts
+    ):
+        mode |= stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH
     info.external_attr = (mode & 0xFFFF) << 16
     archive.writestr(info, source.read_bytes())
 

@@ -8,7 +8,7 @@ import re
 import subprocess
 import sys
 
-AUTOMATION_ROOTS = (".github/", "scripts/")
+AUTOMATION_ROOTS = (".github/", "scripts/", ".config/GIMP/3.0/plug-ins/")
 AGENT_NAMES = {"AGENTS.md", "CLAUDE.md", "GEMINI.md", "COPILOT.md"}
 SELF = "scripts/security_scan.py"
 FORBIDDEN_BINARY_SUFFIXES = {
@@ -28,6 +28,7 @@ DANGEROUS_PATTERNS = re.compile(
     r"curl\b[^\n|]*\|\s*(?:ba)?sh\b|"
     r"wget\b[^\n|]*\|\s*(?:ba)?sh\b|"
     r"\beval\s+[\"']?\$|"
+    r"\b(?:eval|exec)\s*\(|"
     r"permissions:\s*write-all",
     re.IGNORECASE,
 )

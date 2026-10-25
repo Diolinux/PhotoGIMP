@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Quadrinista">
+  <path d="M7 4h30l5 5v35H7z" fill="#FFFFFF" stroke="#24313C" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M37 4v6h5" fill="#F2B134" stroke="#24313C" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M11 14h12v11H11zm16 0h11v11H27zM11 29h17v11H11z" fill="#18A999"/>
+  <path d="M31 29h7v7h-4l-3 3v-3z" fill="#F05D5E"/>
+  <path d="M13 18h8M29 18h7M13 33h12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+</svg>
