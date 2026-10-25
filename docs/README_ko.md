@@ -143,7 +143,7 @@ cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/.local/
 
 #### 설치
 
-1. [공식 웹사이트에서 GIMP를 설치](https://www.gimp.org/downloads/)했는지 획인하세요.
+1. [공식 웹사이트에서 GIMP를 설치](https://www.gimp.org/downloads/)했는지 확인하세요.
 2. **GIMP를 한 번 연 다음 닫기** — 이렇게 하면 PhotoGIMP에 필요한 구성 폴더가 생성됩니다.
 3. 최신 릴리스 다운로드:
    👉 **[Windows용 PhotoGIMP 다운로드 (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**

@@ -147,10 +147,10 @@ If you want to keep your current GIMP settings, back them up first:
 3. Download the latest release:
    👉 **[Download PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
-5. Open the extracted folder and **copy the version folder inside it** (e.g., `3.0`).
+5. Open the extracted `3.0` folder and **copy everything inside it**. The same files work on every GIMP 3.x release.
 6. Press <kbd>Windows</kbd> + <kbd>R</kbd> to open the Run dialog.
 7. Type `%APPDATA%\GIMP` and press <kbd>Enter</kbd> — this opens GIMP's settings folder.
-8. **Paste** the version folder here.
+8. Open the folder that matches your GIMP version (e.g. `3.0` or `3.2`) and **paste** the files there.
 9. When prompted about existing files, select **"Replace the files in the destination"**.
 10. Open GIMP — you should see the new PhotoGIMP layout! 🎉
 
@@ -201,13 +201,13 @@ If you want to keep your current GIMP settings, back them up first:
 3. Download the latest release:
    👉 **[Download PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Extract the contents of `PhotoGIMP.zip` to any folder (e.g., your Desktop).
-5. Open the extracted folder and **copy the `3.0` folder**.
+5. Open the extracted `3.0` folder and **copy everything inside it**. The same files work on every GIMP 3.x release.
 6. Open Finder, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to
    open "Go to Folder".
 7. Type `~/Library/Application Support/GIMP` and press <kbd>Enter</kbd>.
 8. If you see a `2.10` folder from a previous installation, **delete it** to
    avoid conflicts.
-9. **Paste** the `3.0` folder inside the GIMP folder.
+9. Open the folder that matches your GIMP version (e.g. `3.0` or `3.2`) and **paste** the files there.
 10. When prompted about existing files, select **"Replace"** or **"Merge"**.
 11. Open GIMP — you should see the new PhotoGIMP layout! 🎉
 

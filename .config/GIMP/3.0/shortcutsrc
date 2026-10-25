@@ -41,6 +41,7 @@
 (action "tools-iscissors" "<Shift>l")
 (action "view-shrink-wrap")
 (action "tools-path" "p")
+(action "tools-vector" "p")
 (action "tools-move" "v")
 (action "tools-align" "<Shift>v")
 (action "tools-paintbrush" "b")
