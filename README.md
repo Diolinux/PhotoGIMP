@@ -75,6 +75,9 @@ Before installing PhotoGIMP, make sure you have:
 
 ### 🐧 Flatpak (Linux)
 
+> [!NOTE]
+> **GIMP 3.2+ compatibility**: As of GIMP 3.2, PhotoGIMP automatically detects the installed GIMP version and installs the appropriate config directory (3.0, 3.2, etc.). On GIMP 3.2+, the shortcut `tools-vector` has been renamed to `tools-path`, and the dockable `gimp-vectors-list` has been renamed to `gimp-paths-list`. The install script handles these differences automatically.
+
 <img src="https://skillicons.dev/icons?i=linux" align="right" width="40" />
 
 #### Backup (optional)
@@ -254,6 +257,9 @@ PhotoGIMP replaces or adds the following files in GIMP's configuration directory
 | `splashes/`   | Custom PhotoGIMP splash screen                |
 | `theme.css`   | Minor UI theme adjustments                    |
 | `templaterc`  | Pre-defined canvas templates                  |
+
+> [!NOTE]
+> PhotoGIMP ships version-specific config directories (e.g., `.config/GIMP/3.0/`, `.config/GIMP/3.2/`). The `install.sh` script automatically selects the correct config directory based on your installed GIMP version. GIMP 3.2+ uses `tools-path` instead of `tools-vector` and `gimp-paths-list` instead of `gimp-vectors-list`.
 
 On Linux, the patch also installs:
 
