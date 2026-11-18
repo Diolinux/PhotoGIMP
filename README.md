@@ -40,6 +40,11 @@ Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and
 - **Photoshop keyboard shortcuts** — Keyboard shortcuts follow [Adobe's official documentation](https://helpx.adobe.com/photoshop/using/default-keyboard-shortcuts.html) for the Windows version.
 - **Custom icon & name** — A dedicated `.desktop` file gives PhotoGIMP its own icon and app name in your system menu.
 
+### ⚙ Photoshop-like features
+
+- **Single-window mode** — PhotoGIMP enables single-window mode by default for a cleaner, Photoshop-like interface. You can toggle it via **Windows → Single-Window Mode**.
+- **Merge menu and title bar** — To enable the merged menu/title bar (similar to Photoshop), go to **Edit → Preferences → Interface → Window Management** and check **"Merge menu bar with title bar"**. This setting is saved per-user.
+
 ---
 
 ## 📷 Screenshots
