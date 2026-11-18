@@ -1,0 +1,14 @@
+# GIMP user context
+
+(tool "gimp-rect-select-tool")
+(paint-info "gimp-paintbrush")
+(brush "2. Hardness 050")
+(dynamics "Pressure Size")
+(mybrush "100% Opaque")
+(pattern "Starfield")
+(gradient "Skyline")
+(palette "Standard")
+(font "Sans-serif")
+(tool-preset "Virtual core pointer")
+
+# end of user context

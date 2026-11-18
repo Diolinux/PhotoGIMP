@@ -15,8 +15,8 @@
     (size 1400 900)
     (open-on-exit)
     (aux-info
-        (left-docks-width "66")
-        (right-docks-width "340")
+        (left-docks-width "50")
+        (right-docks-width "300")
         (maximized "no"))
     (gimp-toolbox
         (side left))
@@ -63,7 +63,7 @@
                 (preview-size 32)
                 (aux-info
                     (show-button-bar "true")))
-            (dockable "gimp-vectors-list"
+            (dockable "gimp-path-list"
                 (tab-style icon)
                 (preview-size 32)
                 (aux-info
