@@ -334,7 +334,9 @@ Or restore your backup by pasting the backed-up folder back.
 <summary><strong>PhotoGIMP didn't change anything — GIMP looks the same</strong></summary>
 
 - Make sure you extracted the files to the **correct location**. The most common mistake is extracting to the wrong folder.
-- **Linux (Flatpak/Native)**: The `.config` and `.local` folders must be in your home directory (`~`). They are hidden — press <kbd>Ctrl</kbd> + <kbd>H</kbd> in your file manager to see them. If you have a `~/PhotoGIMP-linux/` folder, you extracted the archive but never installed it — open that folder and run `./install.sh`.
+- **Linux (Flatpak/Native)**: The `.config` and `.local` folders must be in your home directory (`~`). They are hidden — press <kbd>Ctrl</kbd> + <kbd>H</kbd> in your file manager to see them. 
+  - If you have a `~/PhotoGIMP-linux/` folder, you extracted the archive but never installed it — open that folder and run `./install.sh`.
+  - If you extracted the `.config` and `.local` folders **directly to your home directory** (`~`), the files should already be in place. Verify that `~/.config/GIMP/3.0/` and `~/.local/share/` contain the PhotoGIMP files. If they do, **close GIMP completely and reopen it** to apply the changes.
 - **Linux (Snap)**: If using Snap, the config is at `~/snap/gimp/current/.config/GIMP/3.0`. You need to copy files to this location manually (see the [Flatpak installation section](#-flatpak-linux) for details).
 - **Windows**: The `3.0` folder must be inside `%APPDATA%\GIMP`, not next to it.
 - **macOS**: The `3.0` folder must be inside `~/Library/Application Support/GIMP`.
