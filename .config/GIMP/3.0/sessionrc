@@ -63,7 +63,7 @@
                 (preview-size 32)
                 (aux-info
                     (show-button-bar "true")))
-            (dockable "gimp-vectors-list"
+            (dockable "gimp-path-list"
                 (tab-style icon)
                 (preview-size 32)
                 (aux-info

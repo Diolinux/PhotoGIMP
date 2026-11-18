@@ -1,0 +1,7 @@
+# GIMP gimp-crop-tool options
+
+(aspect-denominator 1080)
+(aspect-numerator 1920)
+(pattern "Starfield")
+
+# end of gimp-crop-tool options

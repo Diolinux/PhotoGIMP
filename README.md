@@ -1,11 +1,5 @@
 # 🎨 PhotoGIMP
 
-<img src="./.local/share/icons/hicolor/256x256/256x256.png" align="right" alt="PhotoGIMP application icon" title="PhotoGIMP application icon">
-
-[![GitHub stars](https://img.shields.io/github/stars/Diolinux/PhotoGIMP?style=social)](https://github.com/Diolinux/PhotoGIMP)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
-
 <details id="-translations">
 <summary><strong>🌍 Translations</strong></summary>
 
@@ -25,6 +19,12 @@ This README is available in other languages:
 Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
 
 </details>
+
+<img src="./.local/share/icons/hicolor/256x256/256x256.png" align="right" alt="PhotoGIMP application icon" title="PhotoGIMP application icon">
+
+[![GitHub stars](https://img.shields.io/github/stars/Diolinux/PhotoGIMP?style=social)](https://github.com/Diolinux/PhotoGIMP)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
 **PhotoGIMP** is a free, community-driven patch that transforms [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) into a layout that feels familiar to **Adobe Photoshop** users. If you're switching from Photoshop to GIMP and want to feel at home right away, PhotoGIMP is for you.
 
@@ -123,6 +123,35 @@ If you prefer your file manager:
 If you installed GIMP from your distro's package manager (apt, dnf, pacman, etc.) instead of Flatpak, the config folder is in the same location (`~/.config/GIMP/3.0`), so the steps above still work. Just make sure you have GIMP version 3.0 or newer.
 
 `install.sh` detects native installations too, and asks which one to patch if you have both Flatpak and native GIMP. For native installations it replaces the GIMP configuration only — the custom launcher and icons from `.local` are applied for Flatpak.
+
+</details>
+
+<details>
+<summary><strong>📦 Using Snap (Linux)?</strong></summary>
+
+If you installed GIMP via **Snap** (e.g., from Ubuntu's App Store), the config folder is in a different location:
+
+- **Config path**: `~/snap/gimp/current/.config/GIMP/3.0`
+- **Icons path**: `~/snap/gimp/current/.local/share/icons`
+
+To install PhotoGIMP:
+
+1. **Open GIMP once, then close it** — this creates the config folders.
+2. Download and extract the PhotoGIMP release.
+3. Copy the files to the Snap config folder:
+
+   ```bash
+   # Backup your current settings (optional but recommended)
+   cp -r ~/snap/gimp/current/.config/GIMP/3.0 ~/snap/gimp-current-backup
+
+   # Copy PhotoGIMP files
+   cp -a ~/Downloads/PhotoGIMP-linux/.config/. ~/snap/gimp/current/.config/
+   cp -a ~/Downloads/PhotoGIMP-linux/.local/.  ~/snap/gimp/current/.local/
+   ```
+
+4. Open GIMP — you should see the new PhotoGIMP layout!
+
+Note: The custom launcher and icons from `.local` are for Flatpak and won't apply to Snap. The session layout and keyboard shortcuts will still be applied.
 
 </details>
 
@@ -275,6 +304,8 @@ If you made a backup earlier, restore it instead:
 cp -r ~/GIMP-3.0-backup ~/.config/GIMP/3.0
 ```
 
+**Snap users**: For Snap installations, delete `~/snap/gimp/current/.config/GIMP/3.0` instead.
+
 ### Windows
 
 1. Press <kbd>Windows</kbd> + <kbd>R</kbd>, type `%APPDATA%\GIMP` and press <kbd>Enter</kbd>.
@@ -303,7 +334,8 @@ Or restore your backup by pasting the backed-up folder back.
 <summary><strong>PhotoGIMP didn't change anything — GIMP looks the same</strong></summary>
 
 - Make sure you extracted the files to the **correct location**. The most common mistake is extracting to the wrong folder.
-- **Linux**: The `.config` and `.local` folders must be in your home directory (`~`). They are hidden — press <kbd>Ctrl</kbd> + <kbd>H</kbd> in your file manager to see them. If you have a `~/PhotoGIMP-linux/` folder, you extracted the archive but never installed it — open that folder and run `./install.sh`.
+- **Linux (Flatpak/Native)**: The `.config` and `.local` folders must be in your home directory (`~`). They are hidden — press <kbd>Ctrl</kbd> + <kbd>H</kbd> in your file manager to see them. If you have a `~/PhotoGIMP-linux/` folder, you extracted the archive but never installed it — open that folder and run `./install.sh`.
+- **Linux (Snap)**: If using Snap, the config is at `~/snap/gimp/current/.config/GIMP/3.0`. You need to copy files to this location manually (see the [Flatpak installation section](#-flatpak-linux) for details).
 - **Windows**: The `3.0` folder must be inside `%APPDATA%\GIMP`, not next to it.
 - **macOS**: The `3.0` folder must be inside `~/Library/Application Support/GIMP`.
 - Did you **close GIMP** before pasting the files? GIMP may overwrite incoming settings on exit.
