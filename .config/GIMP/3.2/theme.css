@@ -1,0 +1,13 @@
+/* GIMP theme.css
+ *
+ * This file is written on GIMP startup and on every theme change.
+ * It is NOT supposed to be edited manually. Edit your personal
+ * gimp.css file instead.
+ */
+
+* { -gtk-icon-style: symbolic; }
+
+/* prefer-dark-theme */
+
+
+/* end of theme.css */

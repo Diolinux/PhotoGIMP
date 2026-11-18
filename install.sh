@@ -224,13 +224,26 @@ case "$GIMP_SOURCE" in
 		;;
 esac
 
-# PhotoGIMP ships one config set for every GIMP 3.x release. It is copied into
-# the directory GIMP itself reports ($GIMP_CONFIG), e.g. ~/.config/GIMP/3.2.
-CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/3.0"
+# PhotoGIMP ships version-specific config sets in .config/GIMP/<version>/
+# Extract the version from GIMP_CONFIG (e.g., ~/.config/GIMP/3.2 -> 3.2)
+GIMP_CONFIG_VERSION=$(basename "$GIMP_CONFIG")
 
-if [ ! -d "$CONFIG_SRC" ]; then
+# Support both "3.2" (GIMP 3.2+) and "3.0" directories
+# For GIMP 3.0, use 3.0; for 3.2+, try matching version or fall back to 3.2
+# If neither exists, fall back to 3.0 for backwards compatibility
+if [ -d "$SCRIPT_DIR/.config/GIMP/$GIMP_CONFIG_VERSION" ]; then
+	CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/$GIMP_CONFIG_VERSION"
+	echo "Using version-specific config for GIMP $GIMP_CONFIG_VERSION"
+elif [ -d "$SCRIPT_DIR/.config/GIMP/3.2" ]; then
+	# If version-specific dir doesn't exist but 3.2 does, use 3.2 as default for 3.2+
+	CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/3.2"
+	echo "No version-specific config for GIMP $GIMP_CONFIG_VERSION, using 3.2 config"
+elif [ -d "$SCRIPT_DIR/.config/GIMP/3.0" ]; then
+	CONFIG_SRC="$SCRIPT_DIR/.config/GIMP/3.0"
+else
 	echo ""
-	echo "Error: PhotoGIMP configuration source not found: $CONFIG_SRC"
+	echo "Error: PhotoGIMP configuration source not found."
+	echo "Expected directories: $SCRIPT_DIR/.config/GIMP/$GIMP_CONFIG_VERSION or $SCRIPT_DIR/.config/GIMP/3.2"
 	exit 1
 fi
 
