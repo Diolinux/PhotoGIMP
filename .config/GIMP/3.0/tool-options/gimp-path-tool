@@ -1,4 +1,4 @@
-# GIMP gimp-vector-tool options
+# GIMP gimp-path-tool options
 
 (brush "2. Hardness 050")
 (dynamics "Pressure Size")
@@ -6,4 +6,4 @@
 (gradient "Skyline")
 (palette "Standard")
 
-# end of gimp-vector-tool options
+# end of gimp-path-tool options
