@@ -1,11 +1,5 @@
 # 🎨 PhotoGIMP
 
-<img src="./.local/share/icons/hicolor/256x256/256x256.png" align="right" alt="PhotoGIMP application icon" title="PhotoGIMP application icon">
-
-[![GitHub stars](https://img.shields.io/github/stars/Diolinux/PhotoGIMP?style=social)](https://github.com/Diolinux/PhotoGIMP)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
-
 <details id="-translations">
 <summary><strong>🌍 Translations</strong></summary>
 
@@ -25,6 +19,12 @@ This README is available in other languages:
 Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and submit a pull request!
 
 </details>
+
+<img src="./.local/share/icons/hicolor/256x256/256x256.png" align="right" alt="PhotoGIMP application icon" title="PhotoGIMP application icon">
+
+[![GitHub stars](https://img.shields.io/github/stars/Diolinux/PhotoGIMP?style=social)](https://github.com/Diolinux/PhotoGIMP)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Latest Release](https://img.shields.io/github/v/release/Diolinux/PhotoGIMP)](https://github.com/Diolinux/PhotoGIMP/releases/latest)
 
 **PhotoGIMP** is a free, community-driven patch that transforms [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) into a layout that feels familiar to **Adobe Photoshop** users. If you're switching from Photoshop to GIMP and want to feel at home right away, PhotoGIMP is for you.
 
