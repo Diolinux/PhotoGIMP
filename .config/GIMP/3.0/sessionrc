@@ -9,13 +9,20 @@
     (factory-entry "gimp-empty-image-window")
     (position 200 100)
     (size 640 480))
+;; # Note: Dock widths (left-docks-width and right-docks-width) are automatically
+;; # recalculated by GIMP on startup based on your screen size and resolution.
+;; # If you find the toolbox too narrow or wide, you can adjust it by:
+;; # 1. Opening GIMP
+;; # 2. Dragging the separator between the toolbox and canvas to your desired width
+;; # 3. Closing GIMP (this will save your preference to sessionrc)
+;;
 (session-info "toplevel"
     (factory-entry "gimp-single-image-window")
     (position 16 16)
     (size 1400 900)
     (open-on-exit)
     (aux-info
-        (left-docks-width "66")
+        (left-docks-width "40")
         (right-docks-width "340")
         (maximized "no"))
     (gimp-toolbox

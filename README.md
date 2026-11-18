@@ -344,6 +344,29 @@ Just download the latest release and follow the installation steps again — it 
 
 </details>
 
+<details>
+<summary><strong>The toolbox panel is too narrow/wide or reset to an unexpected width on Linux</strong></summary>
+
+GIMP automatically recalculates dock widths based on your screen size and resolution when it starts. This is a GIMP behavior, not a bug in PhotoGIMP.
+
+To adjust the dock width:
+
+1. **Open GIMP** — the docks will reset based on your screen size
+2. **Drag the separator** between the toolbox and canvas to your desired width
+3. **Close GIMP** — this saves your preference to `sessionrc`
+
+If you want to manually edit the sessionrc file:
+
+1. Close GIMP first
+2. Open `~/.config/GIMP/3.0/sessionrc` (Linux) or the equivalent path on your system
+3. Find the `left-docks-width` and `right-docks-width` values
+4. Adjust them to your preferred values (e.g., change `"66"` to `"40"` for a narrower toolbox)
+5. Save the file and open GIMP
+
+Note: These values may be overwritten by GIMP on next launch if they fall below GIMP's internal minimum for your screen size.
+
+</details>
+
 ---
 
 ## 🤝 Contributing
